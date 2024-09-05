@@ -31,6 +31,10 @@ window/size/viewport_height=1080
 
 enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
+[gui]
+
+theme/custom_font="res://Fonts/EFCircularTT-Book.ttf"
+
 [rendering]
 
-environment/defaults/default_clear_color=Color(1, 1, 1, 1)
+environment/defaults/default_clear_color=Color(1, 0.435294, 1, 1)

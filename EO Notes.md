@@ -3,4 +3,7 @@
   - Number and order of columns must match the target table
   - Using DB Browser for SQLITE import CSV to table
   - Load it to the target table
-  - 
+- 2024.09.05 Project Settings
+  - Plugin: SQLITE
+  - Global: Run main.gd
+  - Display background set to white

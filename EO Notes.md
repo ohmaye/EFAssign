@@ -1,0 +1,6 @@
+- 2024.09.04 SQLITE
+  - From Neo4j download query as CSV
+  - Number and order of columns must match the target table
+  - Using DB Browser for SQLITE import CSV to table
+  - Load it to the target table
+  - 

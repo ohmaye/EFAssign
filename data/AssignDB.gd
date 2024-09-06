@@ -15,10 +15,3 @@ func _ready():
 	# Open the database using the db_name found in the path variable
 	db.open_db()
 
-	var result = db.query("SELECT * FROM 'teachers'")
-	if result:
-		for row in db.query_result:
-			print(row)
-	else:
-		print("No result")
-

@@ -2,8 +2,10 @@
 
 [resource]
 Button/font_sizes/font_size = 24
+GridContainer/constants/h_separation = 1
+GridContainer/constants/v_separation = 1
 ItemList/font_sizes/font_size = 24
-Label/font_sizes/font_size = 24
+Label/font_sizes/font_size = 36
 MenuBar/constants/h_separation = 24
 MenuBar/font_sizes/font_size = 24
 MenuButton/font_sizes/font_size = 24

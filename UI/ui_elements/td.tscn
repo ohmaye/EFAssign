@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj6xno8jxabiv"]
+
+[ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_wcw3n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5shc"]
+content_margin_left = 12.0
+content_margin_top = 10.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.949389, 0.949389, 0.949389, 1)
+
+[node name="TD" type="Label"]
+offset_right = 40.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_wcw3n")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_w5shc")

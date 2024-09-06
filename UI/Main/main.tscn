@@ -10,9 +10,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_bm34x")
 
-[node name="MenuBar" type="MenuBar" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_right = 1920.0
+grow_horizontal = 2
+color = Color(0.995552, 0.345175, 1, 1)
+
+[node name="MenuBar" type="MenuBar" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -23,12 +31,12 @@ theme_override_font_sizes/font_size = 40
 flat = true
 prefer_global_menu = false
 
-[node name="Home" type="PopupMenu" parent="MenuBar"]
+[node name="Home" type="PopupMenu" parent="ColorRect/MenuBar"]
 title = "Home"
 size = Vector2i(110, 100)
 theme = ExtResource("1_m2frl")
 
-[node name="File" type="PopupMenu" parent="MenuBar"]
+[node name="File" type="PopupMenu" parent="ColorRect/MenuBar"]
 auto_translate_mode = 1
 title = "Demand"
 size = Vector2i(110, 100)
@@ -46,7 +54,7 @@ item_4/id = 4
 item_5/text = "Quit"
 item_5/id = 5
 
-[node name="Demand" type="PopupMenu" parent="MenuBar"]
+[node name="Demand" type="PopupMenu" parent="ColorRect/MenuBar"]
 auto_translate_mode = 1
 title = "Demand"
 size = Vector2i(110, 100)
@@ -56,7 +64,7 @@ item_0/text = "Load Survey"
 item_1/text = "Edit Survey"
 item_1/id = 1
 
-[node name="Assign" type="PopupMenu" parent="MenuBar"]
+[node name="Assign" type="PopupMenu" parent="ColorRect/MenuBar"]
 auto_translate_mode = 1
 title = "Assign"
 theme = ExtResource("1_m2frl")
@@ -70,7 +78,7 @@ item_3/text = "Assign"
 item_3/id = 3
 item_4/id = 4
 
-[node name="Supply" type="PopupMenu" parent="MenuBar"]
+[node name="Supply" type="PopupMenu" parent="ColorRect/MenuBar"]
 auto_translate_mode = 1
 title = "Supply"
 theme = ExtResource("1_m2frl")
@@ -83,4 +91,15 @@ item_2/id = 2
 item_3/text = "Timeslots"
 item_3/id = 3
 
-[connection signal="id_pressed" from="MenuBar/Supply" to="." method="_on_supply_id_pressed"]
+[node name="Content" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 49.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.144063, 0.144063, 0.144063, 1)
+
+[connection signal="id_pressed" from="ColorRect/MenuBar/Supply" to="." method="_on_supply_id_pressed"]

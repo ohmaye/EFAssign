@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqfq1a0eb42g1"]
+[gd_scene load_steps=3 format=3 uid="uid://x8u7tb17udya"]
 
-[ext_resource type="Script" path="res://UI/Main/main.gd" id="1_evd3d"]
+[ext_resource type="Script" path="res://UI/main/main.gd" id="1_bm34x"]
+[ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_m2frl"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -9,4 +10,77 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_evd3d")
+script = ExtResource("1_bm34x")
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme = ExtResource("1_m2frl")
+theme_override_font_sizes/font_size = 40
+flat = true
+prefer_global_menu = false
+
+[node name="Home" type="PopupMenu" parent="MenuBar"]
+title = "Home"
+size = Vector2i(110, 100)
+theme = ExtResource("1_m2frl")
+
+[node name="File" type="PopupMenu" parent="MenuBar"]
+auto_translate_mode = 1
+title = "Demand"
+size = Vector2i(110, 100)
+theme = ExtResource("1_m2frl")
+item_count = 6
+item_0/text = "Open Cycle"
+item_1/text = "New Cycle"
+item_1/id = 1
+item_2/text = "Save Cycle"
+item_2/id = 2
+item_3/text = "Save Cycle As..."
+item_3/id = 3
+item_4/text = "Load Survey"
+item_4/id = 4
+item_5/text = "Quit"
+item_5/id = 5
+
+[node name="Demand" type="PopupMenu" parent="MenuBar"]
+auto_translate_mode = 1
+title = "Demand"
+size = Vector2i(110, 100)
+theme = ExtResource("1_m2frl")
+item_count = 2
+item_0/text = "Load Survey"
+item_1/text = "Edit Survey"
+item_1/id = 1
+
+[node name="Assign" type="PopupMenu" parent="MenuBar"]
+auto_translate_mode = 1
+title = "Assign"
+theme = ExtResource("1_m2frl")
+item_count = 5
+item_0/text = "Analize"
+item_1/text = "Teacher Preferences"
+item_1/id = 1
+item_2/text = "Student Preferences"
+item_2/id = 2
+item_3/text = "Assign"
+item_3/id = 3
+item_4/id = 4
+
+[node name="Supply" type="PopupMenu" parent="MenuBar"]
+auto_translate_mode = 1
+title = "Supply"
+theme = ExtResource("1_m2frl")
+item_count = 4
+item_0/text = "Teachers"
+item_1/text = "Courses"
+item_1/id = 1
+item_2/text = "Rooms"
+item_2/id = 2
+item_3/text = "Timeslots"
+item_3/id = 3
+
+[connection signal="id_pressed" from="MenuBar/Supply" to="." method="_on_supply_id_pressed"]

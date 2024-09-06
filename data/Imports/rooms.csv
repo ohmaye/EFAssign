@@ -1,0 +1,35 @@
+﻿id,name,type,capacity,r.active
+7963d95f-2be8-4ecd-997d-1cd8e423c088,24F A2,Classroom,17,true
+a948b694-b9c2-46c8-9613-0dd160bf5627,24F A2(16),Unknown,0,false
+722b5c2a-f792-4a00-8e03-828af47565ff,24F B1,Classroom,18,true
+410228a6-dcd4-43b0-b6f5-a89bebb2b3cf,24F B2,Unknown,18,true
+798a5769-b974-4ea7-8434-00285d9e7b11,24F C1,Classroom,18,false
+74215436-1a41-4805-af1d-fb81f34894b1,24F C2,Classroom,18,false
+2ce6dab4-d176-43d4-abfc-4e5c19af358a,27F Fukuoka,Classroom,17,true
+9d77e974-3958-4bb2-8549-70fc1ff5bf8c,Fureai Shibuya Room #91,Classroom,0,false
+3a415248-712b-4752-b51e-5be0e209e333,27F Kyoto,Classroom,17,true
+2431c2c5-aab9-4d19-9e01-4cb8b0e66401,27F Lounge,Classroom,200,false
+39abaa99-1a60-49db-a4dd-8b5e91490d6d,Lounge/AL1,Non-room,0,false
+0142d068-2020-4a23-a9cf-85c1f33db850,Lounge/AL2,Non-room,30,false
+390a4355-0ae1-447c-b4bb-79b68a7245a1,27F Okinawa,Classroom,17,true
+20fb810c-9bfc-4dec-9b9b-f0b9096b1158,27F Osaka,Classroom,17,true
+41e4ae67-8402-44d8-a76c-f9d48ac4658e,27F Sapporo,Classroom,17,true
+fd8ca9e7-fc51-44d3-8d9e-765145858a11,27F Sapporo=Okinawa,Classroom,50,false
+452a811a-8919-4f12-8884-49a304f4d4b0,Seminar Room,Classroom,90,true
+61dea600-036a-49ec-8e22-9536ed99b1ea,Seminar Room1,Classroom,17,false
+ab9d74c1-639d-4702-8071-19083b558fd6,TKP Hall 4C (1),Classroom,0,false
+9108faca-2b17-4a91-abde-e0db00bd6674,TKP Hall 4C (2),Classroom,0,false
+b3ee453b-4a0e-4692-91dd-cdd4cca97896,TKP Hall 4C (3),Classroom,0,false
+f96d6a2e-a4a6-49e3-84d8-95b91f722751,TKP Hall B (1),Unknown,100,false
+337c5854-0636-4a34-bce6-61baa335fcb4,TKP Hall B (2),Unknown,100,false
+29cb38e1-4db6-49fe-9588-29cb39eaa50d,TKP Hall B (3),Unknown,100,false
+397fc2ee-d71e-4fd4-8fb2-504a9e8e88be,TKP Room4E (1),Non-room,40,false
+32dfb501-adf3-4a97-bf1c-b634fae2c325,TKP Room4E (2),Unknown,0,false
+38d3298b-5c22-40cb-892d-6dacbe77873a,TKP Room4E(3),Unknown,0,false
+bfb3183c-b204-4c16-969c-a03c040c1a4d,TKP RoomC (1),Unknown,0,false
+57141802-4ae7-4b90-acbc-91c821ea067d,TKP RoomC (2),Unknown,0,false
+5236ec9a-2aa3-4d15-96f6-b4a23182689f,TKP RoomD,Classroom,20,false
+020a9fa9-1ac8-4811-80ca-3b36a1f1c641,TKP RoomE (1),Non-room,0,false
+899e4dee-84ad-4bce-ba2c-2a8f743a19a0,TKP RoomE (2),Non-room,0,false
+2934581e-549c-4522-8130-b9ddcdeaca89,TKP RoomF,Classroom,12,false
+36f5dcbe-9d22-4a94-b33d-e433f094f713,27F Tokyo,Classroom,50,true

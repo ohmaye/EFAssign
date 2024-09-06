@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b817hhnxjb72w"
+
+[deps]
+
+files=["res://data/Imports/teachers.name.translation", "res://data/Imports/teachers.nameJP.translation", "res://data/Imports/teachers.email.translation", "res://data/Imports/teachers.active.translation"]
+
+source_file="res://data/Imports/teachers.csv"
+dest_files=["res://data/Imports/teachers.name.translation", "res://data/Imports/teachers.nameJP.translation", "res://data/Imports/teachers.email.translation", "res://data/Imports/teachers.active.translation"]
+
+[params]
+
+compress=true
+delimiter=0

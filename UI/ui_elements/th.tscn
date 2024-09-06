@@ -10,6 +10,8 @@ content_margin_bottom = 8.0
 bg_color = Color(0.714296, 0.000434717, 0.724807, 1)
 
 [node name="TH" type="Label"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 0)
 offset_right = 40.0
 offset_bottom = 16.0
 size_flags_horizontal = 3
@@ -18,3 +20,4 @@ theme = ExtResource("1_fg1tj")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 34
 theme_override_styles/normal = SubResource("StyleBoxFlat_1jxat")
+clip_text = true

@@ -17,15 +17,22 @@ script = ExtResource("1_bm34x")
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
 offset_right = 1920.0
+offset_bottom = 80.0
 grow_horizontal = 2
-color = Color(0.995552, 0.345175, 1, 1)
+color = Color(0.443784, 0.00015397, 0.450599, 1)
 
 [node name="MenuBar" type="MenuBar" parent="ColorRect"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-offset_bottom = 48.0
+anchor_bottom = 0.5
+offset_left = 10.0
+offset_top = -24.0
+offset_right = 10.0
+offset_bottom = 39.0
 grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_m2frl")
 theme_override_font_sizes/font_size = 40
 flat = true
@@ -59,23 +66,26 @@ auto_translate_mode = 1
 title = "Demand"
 size = Vector2i(110, 100)
 theme = ExtResource("1_m2frl")
-item_count = 2
-item_0/text = "Load Survey"
-item_1/text = "Edit Survey"
+item_count = 3
+item_0/text = "Overview"
+item_1/text = "By Level"
 item_1/id = 1
+item_2/text = "By Program"
+item_2/id = 2
 
 [node name="Assign" type="PopupMenu" parent="ColorRect/MenuBar"]
 auto_translate_mode = 1
 title = "Assign"
 theme = ExtResource("1_m2frl")
 item_count = 5
-item_0/text = "Analize"
-item_1/text = "Teacher Preferences"
+item_0/text = "Teacher Preferences"
+item_1/text = "Student Preferences"
 item_1/id = 1
-item_2/text = "Student Preferences"
+item_2/text = "Analyze Demand vs Supply"
 item_2/id = 2
 item_3/text = "Assign"
 item_3/id = 3
+item_4/text = "Reports"
 item_4/id = 4
 
 [node name="Supply" type="PopupMenu" parent="ColorRect/MenuBar"]
@@ -96,8 +106,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 49.0
-offset_bottom = -22.0
+offset_top = 81.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.144063, 0.144063, 0.144063, 1)

@@ -1,13 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgs4gho6tw6hi"]
 
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_fg1tj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jxat"]
-content_margin_left = 12.0
-content_margin_top = 10.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.714296, 0.000434717, 0.724807, 1)
+[ext_resource type="StyleBox" uid="uid://bonrmrh5f10a2" path="res://themes/style_hd_normal.tres" id="2_8qh5m"]
 
 [node name="TH" type="Label"]
 clip_contents = true
@@ -19,5 +13,5 @@ size_flags_vertical = 3
 theme = ExtResource("1_fg1tj")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 34
-theme_override_styles/normal = SubResource("StyleBoxFlat_1jxat")
+theme_override_styles/normal = ExtResource("2_8qh5m")
 clip_text = true

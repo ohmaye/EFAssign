@@ -33,7 +33,7 @@ func _ready():
 	# Add the rows
 	for row in db.query_result:
 		var trow = tr.instantiate()
-		trow.render(row, FIELD_NAMES, grid)
+		trow.render(row["id"], row, FIELD_NAMES, grid)
 
 	# # Add the data
 	# for row in db.query_result:

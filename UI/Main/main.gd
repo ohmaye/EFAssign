@@ -6,7 +6,7 @@ var teachers_scene = preload("res://UI/Supply/teachers.tscn")
 func _ready():
 	print("Hello")
 
-
+var grid : GridContainer
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

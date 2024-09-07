@@ -10,3 +10,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_q2hpy")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -6,7 +6,7 @@ const FIELD_NAMES = ["name", "nameJP", "email", "active"]
 var th = preload("res://UI/ui_elements/th.tscn")
 
 # Control for table row
-var tr = preload("res://UI/ui_elements/tr.tscn")
+var tr_element = preload("res://UI/ui_elements/tr.tscn")
 
 # Control for table data
 var td = preload("res://UI/ui_elements/td.tscn")
@@ -32,7 +32,7 @@ func _ready():
 
 	# Add the rows
 	for row in db.query_result:
-		var trow = tr.instantiate()
+		var trow = tr_element.instantiate()
 		trow.render(row["id"], row, FIELD_NAMES, grid)
 
 	# # Add the data

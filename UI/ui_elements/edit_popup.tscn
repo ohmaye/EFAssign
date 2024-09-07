@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3nhioagvtmnm"]
+
+[ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_b424t"]
+[ext_resource type="StyleBox" uid="uid://chrudjsdqv7ei" path="res://themes/style_edit_popup.tres" id="1_ya0jw"]
+[ext_resource type="StyleBox" uid="uid://bonrmrh5f10a2" path="res://themes/style_hd_normal.tres" id="2_ptd6d"]
+
+[node name="EditPopup" type="PopupPanel"]
+title = "Edit"
+initial_position = 1
+size = Vector2i(600, 437)
+visible = true
+min_size = Vector2i(600, 400)
+content_scale_size = Vector2i(1024, 640)
+content_scale_mode = 2
+content_scale_aspect = 1
+theme = ExtResource("1_b424t")
+theme_override_styles/panel = ExtResource("1_ya0jw")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 600.0
+offset_bottom = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("2_ptd6d")
+text = "label"
+
+[node name="TextEdit" type="TextEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "edit"
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("2_ptd6d")
+text = "label"
+
+[node name="TextEdit2" type="TextEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "edit"
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("2_ptd6d")
+text = "label"
+
+[node name="TextEdit3" type="TextEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "edit"
+
+[node name="Label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("2_ptd6d")
+text = "label"
+
+[node name="TextEdit4" type="TextEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "edit"
+
+[node name="Label5" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("2_ptd6d")
+text = "label"
+
+[node name="TextEdit5" type="TextEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "edit"
+
+[node name="Label6" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = ExtResource("2_ptd6d")
+text = "label"
+
+[node name="TextEdit6" type="TextEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "edit"

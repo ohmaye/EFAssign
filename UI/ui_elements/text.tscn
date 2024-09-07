@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://3o7slupoyixj"]
+[gd_scene load_steps=4 format=3 uid="uid://3o7slupoyixj"]
 
+[ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_5l8c0"]
 [ext_resource type="StyleBox" uid="uid://cbokfrv6gckd7" path="res://themes/style_td_normal.tres" id="1_eqkw3"]
 [ext_resource type="StyleBox" uid="uid://d2mnlveun4gyg" path="res://themes/style_td_hover.tres" id="2_kpcyd"]
 
@@ -7,8 +8,11 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1600.0
+offset_bottom = -1015.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5l8c0")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("1_eqkw3")
 theme_override_styles/read_only = ExtResource("2_kpcyd")

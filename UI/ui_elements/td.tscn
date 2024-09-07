@@ -1,24 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dj6xno8jxabiv"]
+[gd_scene load_steps=3 format=3 uid="uid://dj6xno8jxabiv"]
 
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_wcw3n"]
 [ext_resource type="StyleBox" uid="uid://cbokfrv6gckd7" path="res://themes/style_td_normal.tres" id="2_qghp8"]
-
-[sub_resource type="GDScript" id="GDScript_m750i"]
-script/source = "extends Label
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-func _on_mouse_entered() -> void:
-	print(\"Entered\")
-
-
-func _on_mouse_exited() -> void:
-	print(\"Exited\")
-"
 
 [node name="TD" type="Label"]
 clip_contents = true
@@ -33,4 +16,3 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = ExtResource("2_qghp8")
 clip_text = true
-script = SubResource("GDScript_m750i")

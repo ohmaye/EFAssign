@@ -1,7 +1,5 @@
 extends Control
 
-const FIELD_NAMES = ["name", "type", "capacity", "active"]
-
 # Control for table header
 var th = preload("res://UI/ui_elements/th.tscn")
 
@@ -11,9 +9,11 @@ var tr_element = preload("res://UI/ui_elements/tr.tscn")
 # Control for table data
 var td = preload("res://UI/ui_elements/td.tscn")
 
+const FIELD_NAMES = Constants.ROOM_FIELD_NAMES
+const ID = Constants.ROOM_ID
+
 func _ready():
 	var db = AssignDB.db
-	print("Rooms UI Ready")
 	var result = db.query("SELECT * FROM 'rooms'")
 	var header_grid = $GridContainer
 	var grid = $ScrollContainer/GridContainer
@@ -33,14 +33,7 @@ func _ready():
 	# Add the rows
 	for row in db.query_result:
 		var trow = tr_element.instantiate()
-		trow.render(row["id"], row, FIELD_NAMES, grid)
+		trow.render(row[ID], row, FIELD_NAMES, grid)
 
-	# # Add the data
-	# for row in db.query_result:
-	# 	for field in FIELD_NAMES:
-	# 		var label = td.instantiate()
-	# 		label.visible_characters = 48
-	# 		label.text = row[field] if row[field] else ""
-	# 		grid.add_child(label)
 
 		

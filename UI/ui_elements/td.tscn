@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj6xno8jxabiv"]
+[gd_scene load_steps=2 format=3 uid="uid://dj6xno8jxabiv"]
 
-[ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_wcw3n"]
 [ext_resource type="StyleBox" uid="uid://cbokfrv6gckd7" path="res://themes/style_td_normal.tres" id="2_qghp8"]
 
 [node name="TD" type="Label"]
@@ -11,7 +10,6 @@ offset_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
-theme = ExtResource("1_wcw3n")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = ExtResource("2_qghp8")

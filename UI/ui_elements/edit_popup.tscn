@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3nhioagvtmnm"]
+[gd_scene load_steps=4 format=3 uid="uid://d3nhioagvtmnm"]
 
-[ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_b424t"]
 [ext_resource type="StyleBox" uid="uid://chrudjsdqv7ei" path="res://themes/style_edit_popup.tres" id="1_ya0jw"]
 [ext_resource type="StyleBox" uid="uid://bonrmrh5f10a2" path="res://themes/style_hd_normal.tres" id="2_ptd6d"]
 [ext_resource type="Script" path="res://UI/ui_elements/edit_popup.gd" id="3_m0tlg"]
@@ -14,7 +13,6 @@ size = Vector2i(980, 748)
 visible = true
 content_scale_mode = 1
 content_scale_aspect = 1
-theme = ExtResource("1_b424t")
 theme_override_styles/panel = ExtResource("1_ya0jw")
 script = ExtResource("3_m0tlg")
 

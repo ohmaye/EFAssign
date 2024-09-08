@@ -16,7 +16,7 @@ func _ready():
 	var db = AssignDB.db
 	var result = db.query("SELECT * FROM 'rooms'")
 	var header_grid = $GridContainer
-	var grid = $ScrollContainer/GridContainer
+	var grid = get_node("%SupplyGrid")
 	grid.columns = FIELD_NAMES.size()
 	header_grid.columns = FIELD_NAMES.size()
 

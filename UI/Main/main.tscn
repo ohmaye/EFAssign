@@ -156,15 +156,20 @@ layout_mode = 2
 color = Color(1, 0.876253, 0.855209, 1)
 metadata/_tab_index = 4
 
-[node name="ColorRect" type="ColorRect" parent="TabContainer/Supply"]
-custom_minimum_size = Vector2(0, 60)
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Supply"]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="TabContainer/Supply/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 color = Color(0.544959, 0.693123, 1, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Supply/ColorRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Supply/VBoxContainer/ColorRect"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -177,25 +182,35 @@ grow_vertical = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="Button" type="Button" parent="TabContainer/Supply/ColorRect/HBoxContainer"]
+[node name="Button" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Teachers"
 flat = true
 
-[node name="Button2" type="Button" parent="TabContainer/Supply/ColorRect/HBoxContainer"]
+[node name="Button2" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Courses"
 flat = true
 
-[node name="Button3" type="Button" parent="TabContainer/Supply/ColorRect/HBoxContainer"]
+[node name="Button3" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Rooms"
 flat = true
 
-[node name="Button4" type="Button" parent="TabContainer/Supply/ColorRect/HBoxContainer"]
+[node name="Button4" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Timeslots"
 flat = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Supply/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SupplyGrid" type="GridContainer" parent="TabContainer/Supply/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Content" type="ColorRect" parent="."]
 visible = false

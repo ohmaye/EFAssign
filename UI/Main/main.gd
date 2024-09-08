@@ -7,14 +7,9 @@ var rooms_scene = preload("res://UI/Supply/rooms.tscn")
 func _ready():
 	print("Hello")
 
-var grid : GridContainer
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_supply_id_pressed(id:int):
-	var content_container = $Content
+	var content_container = %SupplyGrid
 	var scene
 	match id:
 		0:

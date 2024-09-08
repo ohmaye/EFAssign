@@ -1,8 +1,5 @@
 extends Control
 
-var row_id
-var row_labels : = []
-var popup_panel
 
 # Control for table data
 var td = preload("res://UI/ui_elements/td.tscn")
@@ -12,16 +9,21 @@ var edit_popup = preload("res://UI/ui_elements/edit_popup.tscn")
 var style_hover = preload("res://themes/style_td_hover.tres")
 var style_normal = preload("res://themes/style_td_normal.tres")
 
+var row_id
+var row_labels : = []
+static var popup_panel : PopupPanel 
+
 # Render the row inside a grid
 func render(id, row, fields, grid) -> void:
 	row_id = id
 	# popup_panel = grid.get_node("/root/Main/PopupPanel")
 	popup_panel = edit_popup.instantiate()
+	popup_panel.visible = false
 	grid.add_child(popup_panel)
 	for field in fields:
 		var label : Label = td.instantiate()
 		# label.visible_characters = 48
-		label.text = row[field] if row[field] else ""
+		label.text = str(row[field]) if row[field] else ""
 		grid.add_child(label)
 		label.mouse_entered.connect(_on_mouse_entered)
 		label.mouse_exited.connect(_on_mouse_exited)
@@ -43,5 +45,4 @@ func _input_event(event):
 		print("Label clicked!")
 		# var editor : PopupPanel = edit_popup.instantiate()
 		print("PopupPanel: ", popup_panel)
-		popup_panel.show()
-
+		popup_panel.visible = !popup_panel.visible

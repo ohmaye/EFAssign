@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://2bfs32eqsnss"]
+
+[ext_resource type="StyleBox" uid="uid://chrudjsdqv7ei" path="res://themes/style_edit_popup.tres" id="1_5s5ex"]
+
+[resource]
+PopupPanel/styles/panel = ExtResource("1_5s5ex")

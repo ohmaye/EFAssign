@@ -37,8 +37,9 @@ enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
 [gui]
 
+theme/custom="res://themes/main_theme.tres"
 theme/custom_font="res://fonts/EFCircularTT-Book.ttf"
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.410002, 0.000129375, 0.416252, 1)
+environment/defaults/default_clear_color=Color(1, 1, 1, 0)

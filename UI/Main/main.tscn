@@ -15,10 +15,9 @@ size_flags_vertical = 3
 script = ExtResource("1_bm34x")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 2
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 80.0
-grow_horizontal = 2
 color = Color(0.443784, 0.00015397, 0.450599, 1)
 
 [node name="MenuBar" type="MenuBar" parent="ColorRect"]
@@ -110,30 +109,5 @@ offset_top = 81.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.144063, 0.144063, 0.144063, 1)
-
-[node name="PopupPanel" type="PopupPanel" parent="."]
-unique_name_in_owner = true
-title = "Edit"
-initial_position = 2
-size = Vector2i(920, 800)
-min_size = Vector2i(800, 600)
-max_size = Vector2i(1920, 1080)
-content_scale_size = Vector2i(1, 1)
-
-[node name="ColorRect" type="ColorRect" parent="PopupPanel"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 916.0
-offset_bottom = 796.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="PopupPanel"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 916.0
-offset_bottom = 796.0
-text = "This is where the popup goes"
 
 [connection signal="id_pressed" from="ColorRect/MenuBar/Supply" to="." method="_on_supply_id_pressed"]

@@ -26,7 +26,6 @@ func _ready():
 	# Add the headers
 	for field in FIELD_NAMES:
 		var label = th.instantiate()
-		label.visible_characters = 48
 		label.text = field.capitalize()
 		header_grid.add_child(label)
 

@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://UI/main/main.gd" id="1_bm34x"]
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_m2frl"]
-[ext_resource type="StyleBox" uid="uid://k2lhsmmwcabs" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
-[ext_resource type="StyleBox" uid="uid://b7ascd11wu7mk" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
+[ext_resource type="StyleBox" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
+[ext_resource type="StyleBox" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -202,27 +202,13 @@ layout_mode = 2
 text = "Timeslots"
 flat = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Supply/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="SupplyGrid" type="GridContainer" parent="TabContainer/Supply/VBoxContainer/ScrollContainer"]
+[node name="SupplyContent" type="Panel" parent="TabContainer/Supply/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Content" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 13.0
-offset_top = 112.0
-offset_right = 13.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [connection signal="id_pressed" from="MenuBar/Supply" to="." method="_on_supply_id_pressed"]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/Button" to="." method="_on_supply_id_pressed" binds= [0]]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/Button2" to="." method="_on_supply_id_pressed" binds= [1]]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/Button3" to="." method="_on_supply_id_pressed" binds= [2]]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/Button4" to="." method="_on_supply_id_pressed" binds= [3]]

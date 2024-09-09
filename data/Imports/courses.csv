@@ -1,0 +1,20 @@
+﻿c.id,c.code,c.name,c.active
+f69c384c-4506-469a-8b30-bda4e1abf55f,9COM-ML,*Daily Communication(A1-B2),true
+e5837c23-bcf2-46d1-a9d1-5d97437adf20,EXPE-ML,Experience(A1.3-B2),true
+62b55d1f-f406-4b1c-aab9-c29ed433720f,9JLR-ML,*JLPT Reading(A1.3-B2),true
+2f3cfcf4-ba8e-4c1e-a4f0-ec427ffd746a,9GAM-ML,*Learning Japanese w/ Game(A1-B2),true
+8a82ba3d-72a4-48b3-8549-4594e467b9e6,JLGR-ML,JLPT文法 (JLPT Grammar) (A1.3-B2),true
+222d4688-79ce-4d9e-b0e9-e4a1e6e62f7c,LISN-ML,リスニング&アニメ (Listening and Anime),true
+27a27ae7-8dd4-43a3-a98c-6664a014958a,ALPH-2A,カナ （Japanese Alphabet Katakana ）,true
+a8db673f-0b61-41a3-b1b3-3976efc518b9,ALPH-1A,かな （Japanese Alphabet Hiragana）,true
+3d6ec25d-5709-4493-90c3-5ef0b9eefab8,READ-ML,生活の中の読解 Reading in Everyday Life (A1-B1),true
+77342ab5-dc2a-4f9f-ad43-fb9775ea24b2,WRIT-ML,作文＆クリエイティブライティング（Basic＆Creative Writing）,true
+fd11f5f9-7361-430c-8c80-d4564799ad9e,KANJ-1A,N5 漢字 Kanji for JLPT N5（A1.1-A1.2）,true
+90c7f215-e7ef-4658-8617-e4081095c7d1,A1GR-ML,A1 Grammar (A1.2-A1.3),true
+c6f09133-6827-40ca-bca0-5fe802fdfd5b,KANJ-3A,N3 漢字 Kanji for JLPT N3 (A2.1-A2.3),true
+10da6a04-837a-4a23-bd9f-6a5418733eb4,VOCA-ML,ことば（Vocabulary ）,true
+7d512ed2-779f-490b-9d40-b72badf78f4d,KANJ-2A,N4 L1-10 漢字 Kanji for JLPT N4 L1-10(A1.3-A2.1),true
+36e8a84e-c8c9-469a-b314-9ba2f2039bf9,KANJ,N4 漢字 Kanji for JLPT N4 L11-20(A1.3-A2.1),true
+c41f04c9-27d4-48bd-a7c7-3a628a5b01ac,KANJ-2B,N4 Kanji L11-20 (A1.3-A2.1),true
+75c40d28-1bf8-46aa-a59d-6a39f92ab5c0,CALI-ML,Caligraphy,true
+a0df08ce-e751-4eee-adc2-24695e0ae0c4,9COM-AD,Advanced Communication(A2-B2),true

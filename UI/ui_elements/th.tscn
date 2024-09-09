@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgs4gho6tw6hi"]
 
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_fg1tj"]
-[ext_resource type="StyleBox" uid="uid://bonrmrh5f10a2" path="res://themes/style_hd_normal.tres" id="2_8qh5m"]
+[ext_resource type="StyleBox" path="res://themes/style_hd_normal.tres" id="2_8qh5m"]
 
 [node name="TH" type="Label"]
 clip_contents = true

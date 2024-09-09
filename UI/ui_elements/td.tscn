@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dj6xno8jxabiv"]
 
-[ext_resource type="StyleBox" uid="uid://cbokfrv6gckd7" path="res://themes/style_td_normal.tres" id="2_qghp8"]
+[ext_resource type="StyleBox" path="res://themes/style_td_normal.tres" id="2_qghp8"]
 
 [node name="TD" type="Label"]
 clip_contents = true

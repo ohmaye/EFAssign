@@ -1,0 +1,70 @@
+﻿s.id,s.firstName,s.lastName,s.email,s.level,s.program,s.enddate,s.active
+99dacbfb-7a3b-4eb2-bcc2-5d639e3ba650,Alexander,Kist,alexanderkist49@gmail.com,A2.1.5_Asa(w),インテンシブ (Intensive),null,true
+a4355956-f4b8-4605-8a81-bce6314f4af1,Luke,Greaves,luke.greaves04@gmail.com,A1.1.6_HT(z),ジェネラル (General),null,true
+1e450858-710f-4166-afbb-0fa6877f6536,Juan,Sanchez,cacho.j.c@hotmail.com,A1.1.6_HT(z),インテンシブ (Intensive),null,true
+8b1237d3-1394-4783-920b-415e2f6f44c3,Emmanuel,Medina,emma.medina.leal@gmail.com,A1.1.6_HT(z),ジェネラル (General),null,true
+9bad4025-1bf4-48ab-a239-89c7f2a574dc,Anjali,Journiac,ajourniac@icloud.com,A1.1.6_HT(z),インテンシブ (Intensive),null,true
+b577f480-0f6c-4f37-b098-ed6695d0ea0c,Naomi,Mangini,naomi.mangini@gmail.com,A1.3.2_ET(x),インテンシブ (Intensive),null,true
+fff8fd55-019c-4fca-8336-1dbfc1ed3106,Alejandro,Licona,aliconacotero@gmail.com,A1.3.2_ET(x),インテンシブ (Intensive),null,true
+1d41fc10-1503-43b0-a484-dad482e3d29a,Ivy,Hermans,ivyhermans2003@gmail.com,A1.3.2_ET(x),ジェネラル (General),null,true
+622c86d5-bff3-4671-91b9-2c16cea8c348,Jasmina,Schmidt,jasmina.k.schmidt@gmail.com,A1.3.2_ET(x),インテンシブ (Intensive),null,true
+ad2deee2-4650-4f04-ae41-0694d3b0b6aa,Joaquin ,Gomez Vera ,joaquingove9@gmail.com,A1.3.2_ET(x),インテンシブ (Intensive),null,true
+1922fff7-1822-4f21-a2c1-9b9c17f119a2,Eduardo ,Valdes,jevv2002@gmail.com,A1.3.2_ET(x),ジェネラル (General),null,true
+a5560211-1dd1-488c-8203-b8602093a2c7,Daniel ,Smuhar,daniel.smuhar@gmail.com,A1.1.3_NN(x),ジェネラル (General),null,true
+60ceb523-4424-48b6-99e1-26b8cffd231d,Quinn ,Settle,thatmitsurilover@gmail.com,A1.1.2_SS(x),ジェネラル (General),null,true
+5fc8444a-d9d0-4e5d-9fc7-24fa40dbc103,Ryne,Ormond,ryneormond@gmail.com,A2.3_YU(x),インテンシブ (Intensive),null,true
+7a43cc3d-732b-4dc4-9acc-94471d417b69,JASMIN,Bytyci,jasminbytyci@icloud.com,A1.1cb_KO(x),ジェネラル (General),null,true
+b9c1117e-4b7d-4fc7-91b7-cbeabac50712,Cali,Gallo ,gallo.cali.07@gmail.com,A1.1cb_KO(x),ジェネラル (General),null,true
+f31e4499-48a8-462e-9d11-b8fc146ee979,Elisabeth,Lunz,elisabethlunz@gmail.com,A1.1cb_KO(x),ジェネラル (General),null,true
+44c8b3cb-881b-48a2-a33e-a1c6ea036146,Marco,Braga ,marcolino.braga19@gmail.com,A1.1cb_KO(x),インテンシブ (Intensive),null,true
+9141625d-f7eb-4dc3-9cdb-54896d3b3791,Christian,Ceballos Ramírez,cfernadno@gmail.com,A1.1cb_KO(x),インテンシブ (Intensive),null,true
+4b9ef24c-9451-4704-a812-d955241e75a9,Alina,Lanner,lanneralina@gmail.com,A1.1cb_KO(x),インテンシブ (Intensive),null,true
+0d42b3fc-2e3a-48b7-9013-d09b0497a780,Mykyta (Nikita),Gryshchuk,gg.nikita.gryshchuk@gmail.com,A2.2.3_NH(y),インテンシブ (Intensive),null,true
+af948766-7263-4248-9360-c567b63dccd4,Daniela,Pulido,LDWHITEWOLF@GMAIL.COM,A1.2.5_NN(y),ジェネラル (General),null,true
+076e85c2-7b89-42d9-8e0b-c2a4270a2286,Melissa ,Torres ,me.torresalc@live.com,A1.2.5_NN(y),ジェネラル (General),null,true
+78044041-2622-4298-832d-d8cb1f9d4b24,Marco,Braga,marcolino.braga19@gmail.com,A1.1cb_KO(x),インテンシブ (Intensive),null,true
+b516156c-b11f-476e-b3b4-df82dd5d71d8,Emma,Da Re ,emma.dare737@gmail.com,A2.2.3_NH(y),ジェネラル (General),null,true
+6be24937-9914-4874-a981-cbb2d0d32c7e,Karl,Luttu ,karlluttu5@gmail.com,A2.2.3_NH(y),ジェネラル (General),null,true
+2b0b3927-b881-4d5c-ac48-940cae53fa1a,Faye,Hubrecht,fayehubrecht@gmail.com,A2.3_YU(x),ジェネラル (General),null,true
+9dfc2a1e-3bb5-4a11-84fc-16e55ce79a8d,Luke ,Musgrave ,luketm88@outlook.com,A1.1.3_NN(x),インテンシブ (Intensive),null,true
+51cdad9c-3b58-4068-a496-1807ed8cd903,Chase,Rudkin,chaseerud@outlook.com,A1.1.4_KO(w),ジェネラル (General),null,true
+7d5242d4-b9ba-4ab8-bacf-6b0f3fe01508,Juana,Zapata ,juanazb06@gmail.com,A2.2.3_NH(y),ジェネラル (General),null,true
+c3a71fff-1300-4283-b6c2-f3d1a0b43396,Zlata ,Pidluzhna Korzh,zlatapidluzhna2015@gmail.com,A2.2.4_YU(y),ジェネラル (General),null,true
+a8640a1a-a3d8-444a-bd39-20e13ec0dc11,Tamás,Bajomi-Lázár,8664tomi@gmail.com,B2_RT(y),インテンシブ (Intensive),null,true
+ff3479b6-6cc8-49ba-99c8-49aec9b89da0,Yuting,Huang,tina0927766708@gmail.com,B2_RT(y),ジェネラル (General),null,true
+e68e3775-c18d-40d6-b5c0-4b6f6046dba1,Marta,Miler,martamiler2002@gmail.com,B2_RT(y),ジェネラル (General),null,true
+f66af7cd-5cd2-4eb8-bae0-2c05f08a066e,Donald,Pair,carsonpair@gmail.com,A1.2.1_HT(x),インテンシブ (Intensive),null,true
+e67723e8-37d1-4b8b-957f-986f5c7c769f,Arnaud,Barrault,a.barrault@gmail.com,A1.2.1_HT(x),インテンシブ (Intensive),null,true
+9cf209c4-3b1f-4285-a0c1-cbfa8c326fde,Rohan,Lizanecz,rtlizanecz79@gmail.com,A1.2.1_HT(x),インテンシブ (Intensive),null,true
+03c76361-8b78-4ffa-8553-055c11a5b977,Carlotta,Crippa,carlotta.crippa@gmail.com,A1.2.1_HT(x),ジェネラル (General),null,true
+0ef79776-d845-4d3c-b2eb-da44a09a8da7,Klas Gustav,Lundqvist,kmgustavlundqvist@gmail.com,A1.2.1_HT(x),インテンシブ (Intensive),null,true
+4c74accb-8d70-443e-bfa8-24c46bfbc355,Sarah,Tolboom,sarah.tolboom@gmail.com,A1.2.1_HT(x),インテンシブ (Intensive),null,true
+5f0d7f19-19fe-4960-b11e-05e70d7f68a2,Pierre ,Martel,pierremartel2012@gmail.com,A1.2.1_HT(x),ジェネラル (General),null,true
+d1139c14-3078-443d-9129-5cc34f8cdc3a,Jose,Martinez,joseignacio.martinezs@ehu.eus,A1.2.1_HT(x),インテンシブ (Intensive),null,true
+6cc54895-d7e4-4a9e-b728-83e63b378afd,Sofia,Hidalgo ,sofia@hidalgo.se,A1.2.1_HT(x),インテンシブ (Intensive),null,true
+85a1e074-fc92-4fd2-8915-234cb38cf20c,Maria,camara,camaradmaria@gmail.com,A1.1cb Aie(x),インテンシブ (Intensive),null,true
+9394f10b-4add-4ea5-8a09-ee26c9bed1eb,Alexander,Valseth,alexandervalseth@gmail.com,A1.1cb Aie(x),インテンシブ (Intensive),null,true
+6b29f4e6-9720-4c51-810d-211eeab4ad98,Terra,Magee,terram626@gmail.com,A1.1cb Aie(x),ジェネラル (General),null,true
+24df7586-9aa3-4d47-88da-a8ac49f0c95b,Carter,Alvarez,carteralvarez@me.com,A1.1cb Aie(x),ジェネラル (General),null,true
+45458722-0c5a-4f35-bd47-b77363fc5324,Haris,Dervisevic ,harisdervisevic02@gmail.com,A1.1cb Aie(x),インテンシブ (Intensive),null,true
+494b1345-a530-45c5-a235-8d03821bb9e2,Melanie,Hochreiter ,melanie.hochreiter@outlook.com,A1.1cb Aie(x),インテンシブ (Intensive),null,true
+6fd2ee13-7829-4edd-a92a-432a44aa4c58,Boris Kevin,KOUAM FONDJO,kevin.kouamfondjo@gmail.com,A1.1cb Aie(x),インテンシブ (Intensive),null,true
+b09c0347-e8a3-4d13-a514-602581e51dfd,Selma,Farreras Artigas,sfarreras02@gmail.com,A1.2.1_HT(x),ジェネラル (General),null,true
+e68472f9-add8-418b-a032-c0aefaeb864c,Rozhin,Mafzan,rosellasalvatoree@gmail.com,A1.1cb Aie(x),ジェネラル (General),null,true
+98947fcb-2ccd-48fc-9bb9-bd0a0f8596c5,Ernes,Mehmeti,ernesi_99@hotmail.com,A1.1cb Aie(x),ジェネラル (General),null,true
+efe91909-a09a-4ec8-a31b-514d7c7acdb5,Lisa,de Willecot de Rincquesen-Desquenne,dewillecotl@gmail.com,A1.1cb Aie(x),ジェネラル (General),null,true
+9ecd1a84-81af-4912-8939-710718667f46,Juan jose,Gómez ,Jjgomez8a@gmail.com,A1.1cb Aie(x),インテンシブ (Intensive),null,true
+1f3fb416-706e-4c89-a299-dbd4b74886ae,Victor,Varneson,victorvarneson@gmail.com,A1.1cb Aie(x),ジェネラル (General),null,true
+470c6e24-2c09-4cad-be5d-9676219535ce,Phoebe,Cognet,phoebecognet@hotmail.com,A1.1cb Aie(x),インテンシブ (Intensive),null,true
+d53ba247-419e-4492-8597-b7f899235c71,Alexandre,Guerassimov,fgs5ksl05@mozmail.com,A2.2.4_YU(y),インテンシブ (Intensive),null,true
+896d2f39-a047-4489-953d-7a115fe8c67b,Clarisa,Pluma,clariseda@live.com.mx,A1.1cb RK(y),ジェネラル (General),null,true
+589cac6f-7b45-4cd0-8bf8-9b11dc09a365,Brahim,Lakroum ,lakroum1975@gmail.com,A1.1cb Aie(x),ジェネラル (General),null,true
+01311801-f6fd-4bb0-a0d9-ee8eb687c913,Bryce,Barrett,brycembarrett@gmail.com,A1.1cb RK(y),ジェネラル (General),null,true
+2f557b31-f3e9-460a-844a-3886bed21ead,Sofiya ,Pidluzhna  korzh ,spidluzhna@gmail.com,A1.1cb RK(y),ジェネラル (General),null,true
+9ee9efce-e289-4aa5-a57b-8e74b6724fca,beatrice,d’isep,beatricebice.disep@gmail.com,A1.1cb RK(y),ジェネラル (General),null,true
+d1e98644-de29-46b6-9215-0acfe15dbe77,Lotta,Varjonen,lottavarjonen@gmail.com,A1.1cb RK(y),ジェネラル (General),null,true
+b2d765dd-6179-4d7a-9899-4ee30778a629,August,Larsson,august.b.larsson@telia.com,A1.1cb RK(y),インテンシブ (Intensive),null,true
+5d240173-66fd-4542-910d-c6b358283580,Ville,Karlsson,ville.karlsson8@icloud.com,A1.1cb RK(y),インテンシブ (Intensive),null,true
+d3292671-86b6-47bc-91e1-b3c76ffc46ed,Thomas,Collet,colletthomas2@gmail.com,A1.1cb RK(y),ジェネラル (General),null,true
+14e34148-e458-4609-a4f0-28758a79a932,Kim-Ô,Petit,ouilepain@gmail.com,A1.1cb RK(y),ジェネラル (General),null,true
+68137e33-ae4c-48b5-9e1f-c4d2693284e7,Arthur,Delgard,arthur.delgard@hotmail.fr,A1.1cb RK(y),インテンシブ (Intensive),null,true

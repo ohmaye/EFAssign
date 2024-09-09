@@ -9,13 +9,12 @@ var tr_element = preload("res://UI/ui_elements/tr.tscn")
 # Control for table data
 var td = preload("res://UI/ui_elements/td.tscn")
 
-const FIELD_NAMES = Constants.TEACHER_FIELD_NAMES
+const FIELD_NAMES  = Constants.TEACHER_FIELD_NAMES
 const ID = Constants.TEACHER_ID
 
 func _ready():
 	var db = AssignDB.db
-	print("Teachers UI Ready")
-	var result = db.query("SELECT * FROM 'teachers'")
+	var result = db.query("SELECT * FROM teachers")
 	var header_grid = $GridContainer
 	var grid = $ScrollContainer/GridContainer
 	grid.columns = FIELD_NAMES.size()

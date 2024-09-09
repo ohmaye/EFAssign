@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://l0wvfbsh44yv"
+
+[deps]
+
+files=["res://data/Imports/timeslots.t.weekday.translation", "res://data/Imports/timeslots.t.startTime.translation", "res://data/Imports/timeslots.t.endTime.translation", "res://data/Imports/timeslots.t.active.translation"]
+
+source_file="res://data/Imports/timeslots.csv"
+dest_files=["res://data/Imports/timeslots.t.weekday.translation", "res://data/Imports/timeslots.t.startTime.translation", "res://data/Imports/timeslots.t.endTime.translation", "res://data/Imports/timeslots.t.active.translation"]
+
+[params]
+
+compress=true
+delimiter=0

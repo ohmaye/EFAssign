@@ -4,20 +4,42 @@ class_name Row
 
 # Unique ID for the row (same as db id)
 var row_id
+var row_labels : = []
 
-# @onready var td = get_node("%TDLabel")
+# Styles for table data
+var style_hover = preload("res://themes/style_td_hover.tres")
 var style_normal = preload("res://themes/style_td_normal.tres")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
+# Popup for editing
+var edit_popup = preload("res://UI/ui_elements/edit_popup.tscn")
+static var popup_panel : PopupPanel 
 
 # Render the row inside a grid
 func render(id, row, fields, grid, td) -> void:
 	row_id = id
+	popup_panel = edit_popup.instantiate()
+	popup_panel.visible = false
+	grid.add_child(popup_panel)
+
 	for field in fields:
 		var label = td.instantiate()
 		label.add_theme_stylebox_override("normal", style_normal)
 		label.text = str(row[field]) if row[field] else ""
 		grid.add_child(label)
+		row_labels.append(label)
+		label.mouse_entered.connect(_on_mouse_entered)
+		label.mouse_exited.connect(_on_mouse_exited)
+		label.gui_input.connect(_input_event)
+
+func _on_mouse_entered() -> void:
+	for label : Label in row_labels:
+		label.add_theme_stylebox_override("normal", style_hover)
+
+func _on_mouse_exited() -> void:
+	for label : Label in row_labels:
+		label.add_theme_stylebox_override("normal", style_normal)
+
+func _input_event(event):
+	# Check if the event is a left mouse button click
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+		popup_panel.visible = !popup_panel.visible

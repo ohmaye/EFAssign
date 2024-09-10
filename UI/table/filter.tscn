@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbargosddf4ey"]
 
-[node name="Cell" type="Label"]
+[node name="Filter" type="LineEdit"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

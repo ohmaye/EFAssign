@@ -28,7 +28,7 @@ func render(id, columns, rows):
 	for field in columns:
 		var label = filter.instantiate()
 		label.add_theme_stylebox_override("normal", style_normal)
-		label.text = field.capitalize()
+		label.text = ""
 		header_grid.add_child(label)
 
 	# Add the rows

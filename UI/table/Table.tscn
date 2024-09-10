@@ -9,47 +9,48 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_7pvqh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="HeaderGridContainer" type="GridContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -14.0
+offset_bottom = 60.0
+grow_horizontal = 2
+size_flags_vertical = 0
+
+[node name="FilterGridContainer" type="GridContainer" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_vertical = 0
+
+[node name="RowsScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 121.0
+offset_bottom = 121.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HeaderGridContainer" type="GridContainer" parent="VBoxContainer"]
-unique_name_in_owner = true
-clip_contents = true
-custom_minimum_size = Vector2(360, 0)
-layout_mode = 2
 size_flags_vertical = 3
 
-[node name="FilterGridContainer" type="GridContainer" parent="VBoxContainer"]
+[node name="RowsGridContainer" type="GridContainer" parent="RowsScrollContainer"]
 unique_name_in_owner = true
-visible = false
-clip_contents = true
-custom_minimum_size = Vector2(360, 0)
-layout_mode = 2
-size_flags_vertical = 3
-columns = 3
-
-[node name="RowsScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="RowsGridContainer" type="GridContainer" parent="VBoxContainer/RowsScrollContainer"]
-unique_name_in_owner = true
-clip_contents = true
-custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-columns = 3
 
-[node name="TDLabel" type="Label" parent="."]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -57,4 +58,3 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)

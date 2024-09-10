@@ -5,8 +5,10 @@ extends Control
 @onready var filter_grid = get_node("%FilterGridContainer")
 @onready var rows_grid = get_node("%RowsGridContainer")
 
-# Node for data label
-@onready var td = get_node("%TDLabel")
+# Node for cell data
+var td = preload("res://UI/table/cell.tscn")
+var filter = preload("res://UI/table/filter.tscn")
+
 var style_normal = preload("res://themes/style_td_normal.tres")
 
 const FIELD_NAMES  = Constants.TEACHER_FIELD_NAMES
@@ -25,9 +27,14 @@ func _ready():
 
 	# Add the headers
 	for field in FIELD_NAMES:
-		# var label = td.duplicate()
-		var label : Label = Label.new()
-		# label.set_custom_minimum_size(Vector2(200, 50))
+		var label = td.instantiate()
+		label.add_theme_stylebox_override("normal", style_normal)
+		label.text = field.capitalize()
+		header_grid.add_child(label)
+
+	# Add the filters
+	for field in FIELD_NAMES:
+		var label = filter.instantiate()
 		label.add_theme_stylebox_override("normal", style_normal)
 		label.text = field.capitalize()
 		header_grid.add_child(label)
@@ -35,4 +42,4 @@ func _ready():
 	# Add the rows
 	for row in db.query_result:
 		var trow = Row.new()
-		trow.render(row[ID], row, FIELD_NAMES, rows_grid)
+		trow.render(row[ID], row, FIELD_NAMES, rows_grid, td)

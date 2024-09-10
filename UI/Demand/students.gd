@@ -1,0 +1,18 @@
+extends Label
+
+
+const FIELD_NAMES  = Constants.STUDENT_FIELD_NAMES
+const ID = Constants.STUDENT_ID
+
+func _ready():
+	var db = AssignDB.db
+	var result = db.query("SELECT * FROM students")
+
+	# If there are no results, return
+	if not result:
+		return
+
+	var table = get_node("Table")
+	print(table)
+
+	table.render(ID, FIELD_NAMES, db.query_result )

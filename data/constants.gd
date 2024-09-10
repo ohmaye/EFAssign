@@ -2,6 +2,11 @@ extends Node
 
 # Constants (Available everywhere in the project -- autoloaded)
 
+# Students
+const STUDENT_FIELD_NAMES = ["firstName", "lastName", "email", "level","program","enddate","active"]
+const STUDENT_ID = "student_id"
+
+
 # Teachers
 const TEACHER_FIELD_NAMES = ["name", "nameJP", "email", "active"]
 const TEACHER_ID = "teacher_id"

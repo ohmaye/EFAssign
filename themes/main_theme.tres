@@ -13,7 +13,7 @@ bg_color = Color(1, 1, 1, 1)
 bg_color = Color(0.454079, 0.628234, 1, 1)
 
 [resource]
-Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_color = Color(0, 0, 1, 1)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0.375733, 0.570225, 1, 1)
 Button/colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -22,6 +22,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_p22nk")
 Button/styles/normal = SubResource("StyleBoxFlat_awvl0")
 Button/styles/pressed = SubResource("StyleBoxFlat_3slx5")
 ItemList/font_sizes/font_size = 24
+Label/colors/font_color = Color(0.237539, 0.237539, 0.237539, 1)
 Label/font_sizes/font_size = 36
 MenuBar/constants/h_separation = 24
 MenuBar/font_sizes/font_size = 24

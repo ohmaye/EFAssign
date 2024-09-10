@@ -9,4 +9,3 @@
   - Global: Run main.gd
   - Display background set to white
   - Window/Stretch: Will control how the contents scale as the window size changes
-

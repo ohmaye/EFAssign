@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://UI/main/main.gd" id="1_bm34x"]
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_m2frl"]
-[ext_resource type="StyleBox" uid="uid://k2lhsmmwcabs" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
-[ext_resource type="StyleBox" uid="uid://b7ascd11wu7mk" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
+[ext_resource type="StyleBox" uid="uid://pkeyw1gbp6s" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
+[ext_resource type="StyleBox" uid="uid://i631fq2csgsv" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -24,12 +24,11 @@ offset_right = 1910.0
 offset_bottom = 1070.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
-flat = true
 
 [node name="File" type="PopupMenu" parent="MenuBar"]
 auto_translate_mode = 1
 title = "Demand"
-size = Vector2i(110, 100)
+size = Vector2i(289, 344)
 theme = ExtResource("1_m2frl")
 item_count = 6
 item_0/text = "Open Cycle"
@@ -101,7 +100,8 @@ theme_override_styles/tabbar_background = ExtResource("4_jlrel")
 theme_override_styles/tab_selected = ExtResource("3_vpjxf")
 theme_override_styles/tab_hovered = ExtResource("3_vpjxf")
 theme_override_styles/tab_unselected = ExtResource("3_vpjxf")
-current_tab = 4
+current_tab = 2
+clip_tabs = false
 
 [node name="Home" type="ColorRect" parent="TabContainer"]
 visible = false
@@ -140,10 +140,66 @@ color = Color(0.90327, 0.935962, 1, 1)
 metadata/_tab_index = 1
 
 [node name="Demand" type="ColorRect" parent="TabContainer"]
-visible = false
 layout_mode = 2
 color = Color(0.90327, 0.935962, 1, 1)
 metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Demand"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -1
+
+[node name="ColorRect" type="ColorRect" parent="TabContainer/Demand/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+color = Color(1, 0.781558, 0.745397, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Demand/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Button" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "Students"
+flat = true
+
+[node name="Button2" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "Survey"
+flat = true
+
+[node name="Button3" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "By Level"
+flat = true
+
+[node name="Button4" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "By Program"
+flat = true
+
+[node name="Button5" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "By Course"
+flat = true
+
+[node name="DemandContent" type="Panel" parent="TabContainer/Demand/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Assign" type="ColorRect" parent="TabContainer"]
 visible = false
@@ -152,6 +208,7 @@ color = Color(0.916879, 1, 0.90774, 1)
 metadata/_tab_index = 3
 
 [node name="Supply" type="ColorRect" parent="TabContainer"]
+visible = false
 layout_mode = 2
 color = Color(1, 0.876253, 0.855209, 1)
 metadata/_tab_index = 4
@@ -209,6 +266,11 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [connection signal="id_pressed" from="MenuBar/Supply" to="." method="_on_supply_id_pressed"]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/Button" to="." method="_on_demand_id_pressed" binds= [0]]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/Button2" to="." method="_on_supply_id_pressed" binds= [1]]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/Button3" to="." method="_on_supply_id_pressed" binds= [2]]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/Button4" to="." method="_on_supply_id_pressed" binds= [3]]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/Button5" to="." method="_on_supply_id_pressed" binds= [3]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/Button" to="." method="_on_supply_id_pressed" binds= [0]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/Button2" to="." method="_on_supply_id_pressed" binds= [1]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/Button3" to="." method="_on_supply_id_pressed" binds= [2]]

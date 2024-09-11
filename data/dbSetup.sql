@@ -85,3 +85,28 @@ CREATE TABLE assignments (
   student_id TEXT,
   class_id TEXT
 );
+
+
+-- Survey data
+DROP TABLE IF EXISTS survey;
+CREATE TABLE survey (
+  timestamp TEXT,
+  email	TEXT,
+  firstName TEXT,
+  lastName TEXT,
+  level TEXT,
+  program TEXT,
+  IMon01 TEXT,
+  IMon02 TEXT,
+  IMon03 TEXT,
+  IWed01 TEXT,
+  IWed02 TEXT,
+  IWed03 TEXT,
+  IWed04 TEXT,
+  IWed05 TEXT,
+  GWed01 TEXT,
+  GWed04 TEXT,
+  GWed02 TEXT,
+  GWed03 TEXT,
+  GWed05 TEXT 
+);

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cm06gupnspmya"
+
+[deps]
+
+files=["res://data/Imports/SPINChoices2438.FirstName.translation", "res://data/Imports/SPINChoices2438.LastName.translation", "res://data/Imports/SPINChoices2438.Level.translation", "res://data/Imports/SPINChoices2438.Program.translation", "res://data/Imports/SPINChoices2438.IMon01.translation", "res://data/Imports/SPINChoices2438.IMon02.translation", "res://data/Imports/SPINChoices2438.IMon03.translation", "res://data/Imports/SPINChoices2438.IWed01.translation", "res://data/Imports/SPINChoices2438.IWed02.translation", "res://data/Imports/SPINChoices2438.IWed03.translation", "res://data/Imports/SPINChoices2438.IWed04.translation", "res://data/Imports/SPINChoices2438.IWed05.translation", "res://data/Imports/SPINChoices2438.GWed01.translation", "res://data/Imports/SPINChoices2438.GWed02.translation", "res://data/Imports/SPINChoices2438.GWed03.translation", "res://data/Imports/SPINChoices2438.GWed04.translation", "res://data/Imports/SPINChoices2438.GWed05.translation"]
+
+source_file="res://data/Imports/SPINChoices2438.csv"
+dest_files=["res://data/Imports/SPINChoices2438.FirstName.translation", "res://data/Imports/SPINChoices2438.LastName.translation", "res://data/Imports/SPINChoices2438.Level.translation", "res://data/Imports/SPINChoices2438.Program.translation", "res://data/Imports/SPINChoices2438.IMon01.translation", "res://data/Imports/SPINChoices2438.IMon02.translation", "res://data/Imports/SPINChoices2438.IMon03.translation", "res://data/Imports/SPINChoices2438.IWed01.translation", "res://data/Imports/SPINChoices2438.IWed02.translation", "res://data/Imports/SPINChoices2438.IWed03.translation", "res://data/Imports/SPINChoices2438.IWed04.translation", "res://data/Imports/SPINChoices2438.IWed05.translation", "res://data/Imports/SPINChoices2438.GWed01.translation", "res://data/Imports/SPINChoices2438.GWed02.translation", "res://data/Imports/SPINChoices2438.GWed03.translation", "res://data/Imports/SPINChoices2438.GWed04.translation", "res://data/Imports/SPINChoices2438.GWed05.translation"]
+
+[params]
+
+compress=true
+delimiter=0

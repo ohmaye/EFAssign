@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dv7ttqjgnoiy7"
+
+[deps]
+
+files=["res://data/Imports/SPIN choice (2438-2443) .Username.translation", "res://data/Imports/SPIN choice (2438-2443) .なまえ（First name in English）名：.translation", "res://data/Imports/SPIN choice (2438-2443) .なまえ（Family name in English）姓 .translation", "res://data/Imports/SPIN choice (2438-2443) .クラスのレベル(class level)9/2.translation", "res://data/Imports/SPIN choice (2438-2443) .コース（your course）
+＊intensive course=3 SPIN Subjects クラス月よう日(Monday 14;00.translation", "res://data/Imports/SPIN choice (2438-2443) .(月ようびMonday) 「For Intensive」 から とりたいじゅんに１～３までえらんでください。Choose 3 SPINs in order of preference (1 .translation", "res://data/Imports/SPIN choice (2438-2443) .(月ようびMonday) 「For Intensive」 から とりたいじゅんに１～３までえらんでください。Choose 3 SPINs in order of preference (1 .translation", "res://data/Imports/SPIN choice (2438-2443) .(月ようびMonday) 「For Intensive」 から とりたいじゅんに１～３までえらんでください。Choose 3 SPINs in order of preference (1 .translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [1st preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [2nd preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [3rd preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [4th preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [5th preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [1st preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [2nd preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [3rd preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [4th preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [5th preference].translation"]
+
+source_file="res://data/Imports/SPIN choice (2438-2443) .csv"
+dest_files=["res://data/Imports/SPIN choice (2438-2443) .Username.translation", "res://data/Imports/SPIN choice (2438-2443) .なまえ（First name in English）名：.translation", "res://data/Imports/SPIN choice (2438-2443) .なまえ（Family name in English）姓 .translation", "res://data/Imports/SPIN choice (2438-2443) .クラスのレベル(class level)9/2.translation", "res://data/Imports/SPIN choice (2438-2443) .コース（your course）
+＊intensive course=3 SPIN Subjects クラス月よう日(Monday 14;00.translation", "res://data/Imports/SPIN choice (2438-2443) .(月ようびMonday) 「For Intensive」 から とりたいじゅんに１～３までえらんでください。Choose 3 SPINs in order of preference (1 .translation", "res://data/Imports/SPIN choice (2438-2443) .(月ようびMonday) 「For Intensive」 から とりたいじゅんに１～３までえらんでください。Choose 3 SPINs in order of preference (1 .translation", "res://data/Imports/SPIN choice (2438-2443) .(月ようびMonday) 「For Intensive」 から とりたいじゅんに１～３までえらんでください。Choose 3 SPINs in order of preference (1 .translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [1st preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [2nd preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [3rd preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [4th preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [5th preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [1st preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [2nd preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [3rd preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [4th preference].translation", "res://data/Imports/SPIN choice (2438-2443) .【SPIN Choice】  [5th preference].translation"]
+
+[params]
+
+compress=true
+delimiter=0

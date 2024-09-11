@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b4mgxtwuy0160"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://b4mgxtwuy0160"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p22nk"]
 bg_color = Color(0.561149, 0.704473, 1, 1)
@@ -7,6 +7,9 @@ bg_color = Color(0.561149, 0.704473, 1, 1)
 bg_color = Color(0.920995, 0.920995, 0.920995, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3slx5"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esviw"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wxfe"]
@@ -29,6 +32,7 @@ LineEdit/font_sizes/font_size = 36
 MenuBar/constants/h_separation = 24
 MenuBar/font_sizes/font_size = 24
 MenuButton/font_sizes/font_size = 24
+Panel/styles/panel = SubResource("StyleBoxFlat_esviw")
 PopupMenu/constants/item_end_padding = 8
 PopupMenu/constants/item_start_padding = 8
 PopupMenu/constants/v_separation = 20

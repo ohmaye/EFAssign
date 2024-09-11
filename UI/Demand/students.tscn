@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="1_2d08o"]
 [ext_resource type="Script" path="res://UI/Demand/students.gd" id="1_vhhk5"]
 
-[node name="Students" type="Label"]
+[node name="Students" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

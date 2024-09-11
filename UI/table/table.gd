@@ -1,15 +1,15 @@
 extends Control
 
 # Containers for the table header & filter & data
-@onready var header_grid = get_node("%HeaderGridContainer")
-@onready var filter_grid = get_node("%FilterGridContainer")
-@onready var rows_grid = get_node("%RowsGridContainer")
+@onready var header_grid = %HeaderGridContainer
+@onready var filter_grid = %FilterGridContainer
+@onready var rows_grid = %RowsGridContainer
 
 # Node for cell data
 var td = preload("res://UI/table/cell.tscn")
 var filter = preload("res://UI/table/filter.tscn")
 
-var style_normal = preload("res://themes/style_td_normal.tres")
+var style_normal = preload("res://UI/table/style/style_cell_normal.tres")
 
 func render(id, columns, rows):
 	var count = columns.size()

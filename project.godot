@@ -19,7 +19,6 @@ run/max_fps=24
 run/low_processor_mode=true
 boot_splash/bg_color=Color(1, 0.878431, 1, 1)
 boot_splash/image="res://icons/EF-Logos_EF-Logo-White.png"
-config/icon="res://icon.svg"
 boot_splash/minimum_display_time=200
 
 [autoload]

@@ -6,8 +6,8 @@ var survey_scene = preload("res://UI/demand/survey.tscn")
 
 func _on_demand_id_pressed(id:int):
 	var content_container = %DemandContent
+	remove_all_children(content_container)
 	var scene
-	print("Demand Pressed")
 	match id:
 		0:
 			print("Demand Pressed 0")
@@ -36,7 +36,8 @@ func _ready():
 
 
 func _on_supply_id_pressed(id:int):
-	var content_container = get_node("%SupplyContent")
+	var content_container = %SupplyContent
+	remove_all_children(content_container)
 	var scene
 	match id:
 		0:
@@ -51,3 +52,9 @@ func _on_supply_id_pressed(id:int):
 			scene = teachers_scene.instantiate()
 
 	content_container.add_child(scene)
+
+func remove_all_children(parent_node):
+	# Loop through all children and remove them
+	for child in parent_node.get_children():
+		parent_node.remove_child(child)
+		child.queue_free()  # This will delete the child from memory

@@ -7,7 +7,7 @@ var separator
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	container = $ColorRect/MarginContainer/VBoxContainer
+	container = %ItemsContainer
 	separator = %HSeparator
 
 func render(id, row, columns) -> void:
@@ -21,8 +21,8 @@ func render(id, row, columns) -> void:
 		lineEdit.text = str(row[field]) if row[field] else ""
 		container.add_child(lineEdit)
 
-		# var spacer = separator.duplicate()
-		# container.add_child(spacer)
+		var spacer = separator.duplicate()
+		container.add_child(spacer)
 
 
 # Override the _notification function to handle window resize events

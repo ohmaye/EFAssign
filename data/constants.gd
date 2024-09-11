@@ -9,6 +9,7 @@ const STUDENT_ID = "student_id"
 
 # Teachers
 const TEACHER_FIELD_NAMES = ["name", "nameJP", "email", "active"]
+const TEACHER_COLUMN_RATIOS = [1,1,1,0.2]
 const TEACHER_ID = "teacher_id"
 
 # Courses

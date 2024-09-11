@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://dionyblxd3rrh"]
+[gd_scene format=3 uid="uid://coqdmaq6vh77l"]
 
 [node name="Cell" type="Label"]
 clip_contents = true
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(60, 0)
 offset_right = 120.0
 offset_bottom = 52.0
 size_flags_horizontal = 3

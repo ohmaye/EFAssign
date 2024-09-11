@@ -10,10 +10,9 @@ func _on_demand_id_pressed(id:int):
 	var scene
 	match id:
 		0:
-			print("Demand Pressed 0")
-			scene = students_scene.instantiate()
-		1:
 			scene = survey_scene.instantiate()
+		1:
+			scene = students_scene.instantiate()
 		2:
 			scene = rooms_scene.instantiate()
 		3:

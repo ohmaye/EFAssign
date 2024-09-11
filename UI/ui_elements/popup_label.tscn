@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bi525u20m67xa"]
+
+[node name="PopupLabel" type="Label"]

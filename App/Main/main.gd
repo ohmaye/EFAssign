@@ -1,8 +1,12 @@
 extends Control
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
 # DEMAND
-var students_scene = preload("res://UI/demand/students.tscn")
-var survey_scene = preload("res://UI/demand/survey.tscn")
+var students_scene = preload("res://App/demand/students.tscn")
+var survey_scene = preload("res://App/demand/survey.tscn")
 
 func _on_demand_id_pressed(id:int):
 	var content_container = %DemandContent
@@ -24,15 +28,10 @@ func _on_demand_id_pressed(id:int):
 
 
 # SUPPLY
-var teachers_scene = preload("res://UI/Supply/teachers.tscn")
-var courses_scene = preload("res://UI/Supply/courses.tscn")
-var rooms_scene = preload("res://UI/Supply/rooms.tscn")
-var timeslots_scene = preload("res://UI/Supply/timeslots.tscn")
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	print("Hello")
-
+var teachers_scene = preload("res://App/Supply/teachers.tscn")
+var courses_scene = preload("res://App/Supply/courses.tscn")
+var rooms_scene = preload("res://App/Supply/rooms.tscn")
+var timeslots_scene = preload("res://App/Supply/timeslots.tscn")
 
 func _on_supply_id_pressed(id:int):
 	var content_container = %SupplyContent

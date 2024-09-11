@@ -9,7 +9,8 @@ extends Control
 var td = preload("res://UI/table/cell.tscn")
 var filter = preload("res://UI/table/filter.tscn")
 
-var style_normal = preload("res://UI/table/style/style_cell_normal.tres")
+var style_header = preload("res://UI/table/styles/style_cell_header.tres")
+var style_normal = preload("res://UI/table/styles/style_cell_normal.tres")
 
 func render(id, columns, rows):
 	var count = columns.size()
@@ -20,7 +21,7 @@ func render(id, columns, rows):
 	# Add the headers
 	for field in columns:
 		var label = td.instantiate()
-		label.add_theme_stylebox_override("normal", style_normal)
+		label.add_theme_stylebox_override("normal", style_header)
 		label.text = field.capitalize()
 		header_grid.add_child(label)
 

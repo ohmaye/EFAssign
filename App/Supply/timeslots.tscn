@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dv3gjkp0myb7c"]
 
 [ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="2_djvgd"]
-[ext_resource type="Script" path="res://UI/Supply/timeslots.gd" id="2_gnfvb"]
+[ext_resource type="Script" path="res://App/Supply/timeslots.gd" id="2_gnfvb"]
 
 [node name="Timeslots" type="Control"]
 layout_mode = 3

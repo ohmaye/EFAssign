@@ -1,16 +1,17 @@
 extends PopupPanel
 
-var label_scn = preload("res://UI/ui_elements/popup_label.tscn")
-var field_scn = preload("res://UI/ui_elements/popup_field.tscn")
+var label_scn = preload("res://UI/popup/popup_label.tscn")
+var field_scn = preload("res://UI/popup/popup_field.tscn")
 var container
+var separator
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	container = $ColorRect/VBoxContainer
+	container = $ColorRect/MarginContainer/VBoxContainer
+	separator = %HSeparator
 
 func render(id, row, columns) -> void:
 	remove_all_children(container)
-	print(id)
 	for field in columns:
 		var label = label_scn.instantiate()
 		label.text = field.capitalize()
@@ -19,6 +20,9 @@ func render(id, row, columns) -> void:
 		var lineEdit = field_scn.instantiate()
 		lineEdit.text = str(row[field]) if row[field] else ""
 		container.add_child(lineEdit)
+
+		# var spacer = separator.duplicate()
+		# container.add_child(spacer)
 
 
 # Override the _notification function to handle window resize events

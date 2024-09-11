@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dykg85pktfhtx"]
 
-[ext_resource type="Script" path="res://UI/Supply/teachers.gd" id="1_h6j0p"]
+[ext_resource type="Script" path="res://App/Supply/teachers.gd" id="1_h6j0p"]
 [ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="2_h503q"]
 
 [node name="Teachers" type="Control"]

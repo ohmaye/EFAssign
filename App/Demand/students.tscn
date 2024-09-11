@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkkeqnjr2bbqi"]
+[gd_scene load_steps=3 format=3 uid="uid://blla02ww3ow65"]
 
 [ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="1_2d08o"]
-[ext_resource type="Script" path="res://UI/Demand/students.gd" id="1_vhhk5"]
+[ext_resource type="Script" path="res://App/Demand/students.gd" id="1_vhhk5"]
 
 [node name="Students" type="Control"]
 layout_mode = 3

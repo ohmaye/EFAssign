@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi525u20m67xa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xfse"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="PopupLabel" type="Label"]
+theme_override_styles/normal = SubResource("StyleBoxFlat_3xfse")

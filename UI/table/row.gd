@@ -9,11 +9,11 @@ var row_columns
 var row_labels : = []
 
 # Styles for table data
-var style_hover = preload("res://themes/style_td_hover.tres")
-var style_normal = preload("res://themes/style_td_normal.tres")
+var style_hover = preload("res://UI/table/styles/style_cell_hover.tres")
+var style_normal = preload("res://UI/table/styles/style_cell_normal.tres")
 
 # Popup for editing
-var edit_popup = preload("res://UI/ui_elements/edit_popup.tscn")
+var popup = preload("res://UI/popup/popup.tscn")
 static var popup_panel : PopupPanel 
 
 # Render the row inside a grid
@@ -22,7 +22,7 @@ func render(id, row, columns, grid, td) -> void:
 	row_data = row
 	row_columns = columns
 
-	popup_panel = edit_popup.instantiate()
+	popup_panel = popup.instantiate()
 	popup_panel.visible = false
 	grid.add_child(popup_panel)
 
@@ -49,4 +49,3 @@ func _input_event(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		popup_panel.render(row_id, row_data, row_columns)
 		popup_panel.visible = !popup_panel.visible
-

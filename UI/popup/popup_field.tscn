@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdi7ugkiqnin2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxj4l"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.661361, 0.773651, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21rcl"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.662745, 0.772549, 1, 1)
+
+[node name="PopupField" type="LineEdit"]
+theme_override_styles/focus = SubResource("StyleBoxFlat_sxj4l")
+theme_override_styles/normal = SubResource("StyleBoxFlat_21rcl")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://x8u7tb17udya"]
+[gd_scene load_steps=7 format=3 uid="uid://x8u7tb17udya"]
 
 [ext_resource type="Script" path="res://App/Main/main.gd" id="1_bm34x"]
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_m2frl"]
 [ext_resource type="StyleBox" uid="uid://pkeyw1gbp6s" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
-[ext_resource type="StyleBox" uid="uid://i631fq2csgsv" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
+[ext_resource type="StyleBox" uid="uid://b7ascd11wu7mk" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
+[ext_resource type="PackedScene" uid="uid://b4da3to7mvee5" path="res://UI/popup/popup.tscn" id="5_osk20"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
 color = Color(0.595154, 0.595154, 0.595154, 1)
@@ -413,6 +414,9 @@ flat = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Popup" parent="." instance=ExtResource("5_osk20")]
+unique_name_in_owner = true
 
 [connection signal="id_pressed" from="MenuBar/Supply" to="." method="_on_supply_id_pressed"]
 [connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/Button" to="." method="_on_demand_id_pressed" binds= [0]]

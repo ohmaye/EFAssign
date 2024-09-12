@@ -48,3 +48,19 @@ func _input_event(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		# Hide the popup
 		hide()
+
+func _input(event):
+	# Check if the event is a key press event
+	if event is InputEventKey:
+		# Check if the key pressed is the ESC key
+		if event.keycode == KEY_ESCAPE:
+			# Handle the ESC key press (e.g., hide the popup)
+			hide()
+
+
+func _on_cancel_btn_pressed() -> void:
+	visible = false
+
+
+func _on_save_btn_pressed() -> void:
+	pass # Replace with function body.

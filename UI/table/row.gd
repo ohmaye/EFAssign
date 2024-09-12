@@ -3,6 +3,7 @@ extends Control
 class_name Row
 
 # Unique ID for the row (same as db id)
+var db_table
 var row_id
 var row_data
 var row_columns
@@ -16,7 +17,8 @@ var style_normal = preload("res://UI/table/styles/style_cell_normal.tres")
 var popup_panel : CanvasLayer 
 
 # Render the row inside a grid
-func render(id, row, columns, grid, cell, popup) -> void:
+func render(id, row, columns, grid, cell, popup, table) -> void:
+	db_table = table
 	row_id = id
 	row_data = row
 	row_columns = columns
@@ -46,5 +48,5 @@ func _on_mouse_exited() -> void:
 func _input_event(event):
 	# Check if the event is a left mouse button click
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		popup_panel.render(row_id, row_data, row_columns)
+		popup_panel.render(row_id, row_data, row_columns, db_table)
 		popup_panel.visible = true

@@ -1,11 +1,19 @@
 extends CanvasLayer
 
+signal data_changed
+
+# Data 
+var db_table
+var item_id
+var item_row
+var item_columns
+
+# UI Elements
 var label_scn = preload("res://UI/popup/popup_label.tscn")
 var field_scn = preload("res://UI/popup/popup_field.tscn")
 var separator = preload("res://UI/popup/h_separator.tscn")
 var container
 var gray_screen
-
 var colorrect
 
 # Called when the node enters the scene tree for the first time.
@@ -13,8 +21,12 @@ func _ready() -> void:
 	container = %ItemsContainer
 	colorrect = $ColorRect
 
-func render(id, row, columns) -> void:
+func render(id, row, columns, table) -> void:
 	remove_all_children(container)
+	db_table = table
+	item_id = id
+	item_row = row
+	item_columns = columns
 	for field in columns:
 		var label = label_scn.instantiate()
 		label.text = field.capitalize()
@@ -28,14 +40,6 @@ func render(id, row, columns) -> void:
 		container.add_child(spacer)
 
 		colorrect.gui_input.connect(_input_event)
-
-
-# Override the _notification function to handle window resize events
-# func _notification(what):
-# 	# Detect when the window is resized
-# 	if what == NOTIFICATION_WM_SIZE_CHANGED:
-# 		# Re-center the PopupPanel
-# 		print("Need to recenter")
 
 func remove_all_children(parent_node):
 	# Loop through all children and remove them
@@ -63,4 +67,17 @@ func _on_cancel_btn_pressed() -> void:
 
 
 func _on_save_btn_pressed() -> void:
-	pass # Replace with function body.
+	var index = 0
+	var db = AssignDB.db
+	const sql = "UPDATE {0} SET {1}='{2}' WHERE {3} = '{4}'"
+	var sql_stmt
+	for field in container.get_children():
+		if field is LineEdit:
+			print("Node:", item_row[item_id], item_columns[index], field.text)
+			sql_stmt = sql.format([db_table, item_columns[index], field.text, item_id, item_row[item_id]])
+			print(sql_stmt)
+			db.query(sql_stmt)
+			index += 1
+	emit_signal("data_changed")
+	visible = false
+			

@@ -11,4 +11,4 @@ func _ready():
 	if not result:
 		return
 
-	$Table.render(ID, FIELD_NAMES, db.query_result )
+	$Table.render(ID, FIELD_NAMES, db.query_result, "students" )

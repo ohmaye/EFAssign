@@ -14,13 +14,14 @@ var style_normal = preload("res://UI/table/styles/style_cell_normal.tres")
 
 var popup
 
-func render(id, columns, rows):
+func render(id, columns, rows, table):
 	var count = columns.size()
 	header_grid.columns = count
 	filter_grid.columns = count
 	rows_grid.columns = count
 
 	popup = get_node("/root/Main/Popup")
+	# popup.connect("data_changed", _on_data_changed)
 
 	# Add the headers
 	for field in columns:
@@ -39,4 +40,10 @@ func render(id, columns, rows):
 	# Add the rows
 	for row in rows:
 		var trow = Row.new()
-		trow.render(id, row, columns, rows_grid, cell, popup)
+		trow.render(id, row, columns, rows_grid, cell, popup, table)
+
+# Method to handle data refresh
+func _on_data_changed():
+	print("Data changed, refreshing...")
+	# Call your render method or any other method to refresh the data
+	# render(id, columns, rows)  # Pass the appropriate arguments

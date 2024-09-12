@@ -11,7 +11,9 @@ func _ready():
 	if not result:
 		return
 
-	$Table.render(ID, FIELD_NAMES, db.query_result )
+	connect("data_changed", _on_data_changed)
 
+	$Table.render(ID, FIELD_NAMES, db.query_result, "teachers" )
 
-		
+func _on_data_changed():
+	print("Data changed, at teachers...")

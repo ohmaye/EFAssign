@@ -417,6 +417,7 @@ size_flags_vertical = 3
 
 [node name="Popup" parent="." instance=ExtResource("5_osk20")]
 unique_name_in_owner = true
+visible = false
 
 [connection signal="id_pressed" from="MenuBar/Supply" to="." method="_on_supply_id_pressed"]
 [connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/Button" to="." method="_on_demand_id_pressed" binds= [0]]

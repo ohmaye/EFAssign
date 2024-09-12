@@ -1,7 +1,7 @@
 extends Control
 
-const FIELD_NAMES  = Constants.TIMESLOT_FIELD_NAMES
-const ID = Constants.TIMESLOT_ID
+const COLUMN_NAMES  = Constants.TIMESLOT_COLUMN_NAMES
+const KEY = Constants.TIMESLOT_KEY
 
 func _ready():
 	var db = AssignDB.db
@@ -10,8 +10,7 @@ func _ready():
 	# If there are no results, return
 	if not result:
 		return
-
-	$Table.render(ID, FIELD_NAMES, db.query_result, "timeslots" )	
-
-
 		
+	var query = QueryInfo.new("timeslots", COLUMN_NAMES, db.query_result, KEY )
+	
+	$Table.render(query)

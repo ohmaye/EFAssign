@@ -25,7 +25,8 @@ boot_splash/minimum_display_time=200
 [autoload]
 
 AssignDb="*res://data/AssignDB.gd"
-Constants="*res://data/constants.gd"
+Constants="*res://globals/constants.gd"
+Signals="*res://globals/Signals.gd"
 
 [display]
 

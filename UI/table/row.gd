@@ -3,10 +3,8 @@ extends Control
 class_name Row
 
 # Unique ID for the row (same as db id)
-var db_table
-var row_id
-var row_data
-var row_columns
+var query : QueryInfo
+var row 
 var row_nodes : = []
 
 # Styles for table data
@@ -17,22 +15,22 @@ var style_normal = preload("res://UI/table/styles/style_cell_normal.tres")
 var popup_panel : CanvasLayer 
 
 # Render the row inside a grid
-func render(id, row, columns, grid, cell, popup, table) -> void:
-	db_table = table
-	row_id = id
-	row_data = row
-	row_columns = columns
+func render(_row, _query : QueryInfo, grid, cell, popup) -> void:
+	# Save the query info for when row data changes
+	query = _query
+	row = _row
 
 	popup_panel = popup
 	popup_panel.visible = false
 
-	for field in columns:
+	for field in query.columns:
 		var node = cell.instantiate()
 		node.add_theme_stylebox_override("normal", style_normal)
 		node.text = str(row[field]) if row[field] else ""
 		grid.add_child(node)
+		row_nodes.append(node)		# Will need to highlight the row
+
 		# Store the nodes and connect events
-		row_nodes.append(node)
 		node.mouse_entered.connect(_on_mouse_entered)
 		node.mouse_exited.connect(_on_mouse_exited)
 		node.gui_input.connect(_input_event)
@@ -48,5 +46,5 @@ func _on_mouse_exited() -> void:
 func _input_event(event):
 	# Check if the event is a left mouse button click
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		popup_panel.render(row_id, row_data, row_columns, db_table)
+		popup_panel.render(row, query)
 		popup_panel.visible = true

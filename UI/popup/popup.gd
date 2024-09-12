@@ -1,12 +1,8 @@
 extends CanvasLayer
 
-signal data_changed
-
 # Data 
-var db_table
-var item_id
-var item_row
-var item_columns
+var query : QueryInfo
+var row 
 
 # UI Elements
 var label_scn = preload("res://UI/popup/popup_label.tscn")
@@ -21,13 +17,12 @@ func _ready() -> void:
 	container = %ItemsContainer
 	colorrect = $ColorRect
 
-func render(id, row, columns, table) -> void:
+func render(_row, _query : QueryInfo) -> void:
 	remove_all_children(container)
-	db_table = table
-	item_id = id
-	item_row = row
-	item_columns = columns
-	for field in columns:
+	query = _query
+	row = _row
+
+	for field in query.columns:
 		var label = label_scn.instantiate()
 		label.text = field.capitalize()
 		container.add_child(label)
@@ -61,10 +56,8 @@ func _input(event):
 			# Handle the ESC key press (e.g., hide the popup)
 			hide()
 
-
 func _on_cancel_btn_pressed() -> void:
 	visible = false
-
 
 func _on_save_btn_pressed() -> void:
 	var index = 0
@@ -73,11 +66,11 @@ func _on_save_btn_pressed() -> void:
 	var sql_stmt
 	for field in container.get_children():
 		if field is LineEdit:
-			print("Node:", item_row[item_id], item_columns[index], field.text)
-			sql_stmt = sql.format([db_table, item_columns[index], field.text, item_id, item_row[item_id]])
+			print("Node:", row[query.key], query.columns[index], field.text)
+			sql_stmt = sql.format([query.table, query.columns[index], field.text, query.key, row[query.key]])
 			print(sql_stmt)
 			db.query(sql_stmt)
 			index += 1
-	emit_signal("data_changed")
+	# emit_signal("data_changed")
 	visible = false
 			

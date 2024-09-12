@@ -1,7 +1,7 @@
 extends Control
 
-const FIELD_NAMES  = Constants.SURVEY_FIELD_NAMES
-const ID = Constants.SURVEY_ID
+const COLUMN_NAMES  = Constants.SURVEY_COLUMN_NAMES
+const KEY = Constants.SURVEY_KEY
 
 func _ready():
 	var db = AssignDB.db
@@ -10,5 +10,7 @@ func _ready():
 	# If there are no results, return
 	if not result:
 		return
+		
+	var query = QueryInfo.new("survey", COLUMN_NAMES, db.query_result, KEY )
 
-	$Table.render(ID, FIELD_NAMES, db.query_result, "survey" )
+	$Table.render(query)

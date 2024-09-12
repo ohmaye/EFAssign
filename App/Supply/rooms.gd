@@ -1,7 +1,7 @@
 extends Control
 
-const FIELD_NAMES = Constants.ROOM_FIELD_NAMES
-const ID = Constants.ROOM_ID
+const COLUMN_NAMES  = Constants.ROOM_COLUMN_NAMES
+const KEY = Constants.ROOM_KEY
 
 func _ready():
 	var db = AssignDB.db
@@ -11,7 +11,6 @@ func _ready():
 	if not result:
 		return
 
-	$Table.render(ID, FIELD_NAMES, db.query_result, "rooms" )
-
-
-		
+	var query = QueryInfo.new("rooms", COLUMN_NAMES, db.query_result, KEY )
+	
+	$Table.render(query)

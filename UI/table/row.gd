@@ -14,7 +14,9 @@ var style_normal = preload("res://UI/table/styles/style_cell_normal.tres")
 
 # Popup for editing
 var popup = preload("res://UI/popup/popup.tscn")
-static var popup_panel : PopupPanel 
+var root_node
+
+static var popup_panel : CanvasLayer 
 
 # Render the row inside a grid
 func render(id, row, columns, grid, td) -> void:

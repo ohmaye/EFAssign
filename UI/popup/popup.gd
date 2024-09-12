@@ -1,14 +1,17 @@
-extends PopupPanel
+extends CanvasLayer
 
 var label_scn = preload("res://UI/popup/popup_label.tscn")
 var field_scn = preload("res://UI/popup/popup_field.tscn")
+var separator = preload("res://UI/popup/h_separator.tscn")
 var container
-var separator
+var gray_screen
+
+var colorrect
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	container = %ItemsContainer
-	separator = %HSeparator
+	colorrect = $ColorRect
 
 func render(id, row, columns) -> void:
 	remove_all_children(container)
@@ -21,8 +24,10 @@ func render(id, row, columns) -> void:
 		lineEdit.text = str(row[field]) if row[field] else ""
 		container.add_child(lineEdit)
 
-		var spacer = separator.duplicate()
+		var spacer = separator.instantiate()
 		container.add_child(spacer)
+
+		colorrect.gui_input.connect(_input_event)
 
 
 # Override the _notification function to handle window resize events
@@ -37,3 +42,9 @@ func remove_all_children(parent_node):
 	for child in parent_node.get_children():
 		parent_node.remove_child(child)
 		child.queue_free()  # This will delete the child from memory
+
+func _input_event(event):
+	# Check if the event is a left mouse button click
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+		# Hide the popup
+		hide()

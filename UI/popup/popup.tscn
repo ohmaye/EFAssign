@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4da3to7mvee5"]
+[gd_scene load_steps=5 format=3 uid="uid://b4da3to7mvee5"]
 
-[ext_resource type="StyleBox" uid="uid://chrudjsdqv7ei" path="res://UI/popup/styles/style_popup.tres" id="1_iky3m"]
 [ext_resource type="Script" path="res://UI/popup/popup.gd" id="2_qn4c1"]
 [ext_resource type="StyleBox" uid="uid://c5j3vvsmp7hrv" path="res://UI/popup/styles/style_button.tres" id="3_ad0qi"]
 [ext_resource type="StyleBox" uid="uid://ba3er5q0gfoec" path="res://UI/popup/styles/style_save_button.tres" id="4_mv5ab"]
@@ -12,31 +11,18 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_km0ba"]
-color = Color(1, 1, 1, 1)
-
-[node name="Popup" type="PopupPanel"]
-disable_3d = true
-mode = 3
-title = "Edit"
-initial_position = 2
-size = Vector2i(980, 800)
-visible = true
-content_scale_mode = 1
-content_scale_aspect = 1
-theme_override_styles/panel = ExtResource("1_iky3m")
+[node name="Popup" type="CanvasLayer"]
+follow_viewport_enabled = true
 script = ExtResource("2_qn4c1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 6.0
-offset_top = 6.0
-offset_right = -6.0
-offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.411765)
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
 layout_mode = 1
@@ -45,10 +31,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 200
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/MarginContainer"]
 layout_mode = 2
@@ -58,12 +44,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8ifwp")
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/ScrollContainer/ItemsContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/separation = 18
-theme_override_styles/separator = SubResource("StyleBoxLine_km0ba")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer"]
 layout_mode = 2

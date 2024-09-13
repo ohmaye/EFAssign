@@ -3,14 +3,14 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-
+	
 # DEMAND
 var students_scene = preload("res://App/demand/students.tscn")
 var survey_scene = preload("res://App/demand/survey.tscn")
 
 func _on_demand_id_pressed(id:int):
 	var content_container = %DemandContent
-	remove_all_children(content_container)
+	Utilities.remove_all_children(content_container)
 	var scene
 	match id:
 		0:

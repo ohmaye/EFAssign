@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 # Data 
-var query : QueryInfo
+var query_info : QueryInfo
 var row 
 
 # UI Elements
@@ -17,12 +17,12 @@ func _ready() -> void:
 	container = %ItemsContainer
 	colorrect = $ColorRect
 
-func render(_row, _query : QueryInfo) -> void:
-	remove_all_children(container)
-	query = _query
+func render(_row, _query_info : QueryInfo) -> void:
+	Utilities.remove_all_children(container)
+	query_info = _query_info
 	row = _row
 
-	for field in query.columns:
+	for field in query_info.columns:
 		var label = label_scn.instantiate()
 		label.text = field.capitalize()
 		container.add_child(label)
@@ -35,12 +35,6 @@ func render(_row, _query : QueryInfo) -> void:
 		container.add_child(spacer)
 
 		colorrect.gui_input.connect(_input_event)
-
-func remove_all_children(parent_node):
-	# Loop through all children and remove them
-	for child in parent_node.get_children():
-		parent_node.remove_child(child)
-		child.queue_free()  # This will delete the child from memory
 
 func _input_event(event):
 	# Check if the event is a left mouse button click
@@ -60,17 +54,19 @@ func _on_cancel_btn_pressed() -> void:
 	visible = false
 
 func _on_save_btn_pressed() -> void:
-	var index = 0
 	var db = AssignDB.db
 	const sql = "UPDATE {0} SET {1}='{2}' WHERE {3} = '{4}'"
 	var sql_stmt
+
+	var index = 0
 	for field in container.get_children():
 		if field is LineEdit:
-			print("Node:", row[query.key], query.columns[index], field.text)
-			sql_stmt = sql.format([query.table, query.columns[index], field.text, query.key, row[query.key]])
+			print("Node:", row[query_info.key], query_info.columns[index], field.text)
+			sql_stmt = sql.format([query_info.table, query_info.columns[index], field.text, query_info.key, row[query_info.key]])
 			print(sql_stmt)
 			db.query(sql_stmt)
 			index += 1
-	# emit_signal("data_changed")
+
+	Signals.emit_signal("data_changed")
 	visible = false
 			

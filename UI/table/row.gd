@@ -3,7 +3,7 @@ extends Control
 class_name Row
 
 # Unique ID for the row (same as db id)
-var query : QueryInfo
+var query_info : QueryInfo
 var row 
 var row_nodes : = []
 
@@ -15,15 +15,15 @@ var style_normal = preload("res://UI/table/styles/style_cell_normal.tres")
 var popup_panel : CanvasLayer 
 
 # Render the row inside a grid
-func render(_row, _query : QueryInfo, grid, cell, popup) -> void:
+func render(_row, _query_info : QueryInfo, grid, cell, popup) -> void:
 	# Save the query info for when row data changes
-	query = _query
+	query_info = _query_info
 	row = _row
 
 	popup_panel = popup
 	popup_panel.visible = false
 
-	for field in query.columns:
+	for field in query_info.columns:
 		var node = cell.instantiate()
 		node.add_theme_stylebox_override("normal", style_normal)
 		node.text = str(row[field]) if row[field] else ""
@@ -46,5 +46,5 @@ func _on_mouse_exited() -> void:
 func _input_event(event):
 	# Check if the event is a left mouse button click
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-		popup_panel.render(row, query)
+		popup_panel.render(row, query_info)
 		popup_panel.visible = true

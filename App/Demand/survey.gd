@@ -11,6 +11,6 @@ func _ready():
 	if not result:
 		return
 		
-	var query = QueryInfo.new("survey", COLUMN_NAMES, db.query_result, KEY )
+	var query_info = QueryInfo.new("survey", COLUMN_NAMES, db.query_result, KEY )
 
-	$Table.render(query)
+	$Table.render(query_info)

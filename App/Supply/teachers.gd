@@ -11,6 +11,19 @@ func _ready():
 	if not result:
 		return
 		
-	var query = QueryInfo.new("teachers", COLUMN_NAMES, db.query_result, KEY )
+	var query_info = QueryInfo.new("teachers", COLUMN_NAMES, db.query_result, KEY )
 	
-	$Table.render(query)
+	$Table.render(query_info)
+
+	Signals.data_changed.connect(_on_data_changed)
+	print("Signals connected", Signals.get_signal_connection_list("data_changed"))
+
+
+func _on_data_changed():
+	print("Teachers data changed")
+
+
+
+
+func _exit_tree():
+	Signals.data_changed.disconnect(_on_data_changed)

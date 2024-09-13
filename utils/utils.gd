@@ -8,3 +8,5 @@ func remove_all_children(parent_node):
 		parent_node.remove_child(child)
 		# This will delete the child from memory
 		child.queue_free()  
+
+const uuid = preload('res://addons/uuid.gd')

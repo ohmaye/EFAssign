@@ -66,3 +66,8 @@ func remove_all_children(parent_node):
 	for child in parent_node.get_children():
 		parent_node.remove_child(child)
 		child.queue_free()  # This will delete the child from memory
+
+
+func _on_add_btn_pressed() -> void:
+	print("Add pressed")
+	Signals.add_new.emit()

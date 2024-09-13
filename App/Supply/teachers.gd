@@ -12,9 +12,14 @@ func render():
 		return
 		
 	var query_info = QueryInfo.new("teachers", COLUMN_NAMES, db.query_result, KEY )
+
+	Signals.add_new.connect(_add_new)
 	
 	$Table.render(query_info)
 
-
+func _add_new():
+	
+	print("Add new teacher", Utilities.uuid.v4())
+	
 
 

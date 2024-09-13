@@ -390,25 +390,35 @@ grow_vertical = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="Button" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="AddBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Add New +"
+flat = true
+
+[node name="TeachersBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Teachers"
 flat = true
 
-[node name="Button2" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="CoursesBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Courses"
 flat = true
 
-[node name="Button3" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="RoomsBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Rooms"
 flat = true
 
-[node name="Button4" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="TimeslotsBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Timeslots"
 flat = true
+
+[node name="PlaceHolder" type="Control" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
 
 [node name="SupplyContent" type="Panel" parent="TabContainer/Supply/VBoxContainer"]
 unique_name_in_owner = true
@@ -438,7 +448,8 @@ visible = false
 [connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/Button2" to="." method="_on_supply_id_pressed" binds= [1]]
 [connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/Button3" to="." method="_on_supply_id_pressed" binds= [2]]
 [connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/Button4" to="." method="_on_supply_id_pressed" binds= [3]]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/Button" to="." method="_on_supply_id_pressed" binds= [0]]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/Button2" to="." method="_on_supply_id_pressed" binds= [1]]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/Button3" to="." method="_on_supply_id_pressed" binds= [2]]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/Button4" to="." method="_on_supply_id_pressed" binds= [3]]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/AddBtn" to="." method="_on_supply_id_pressed" binds= [0]]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TeachersBtn" to="." method="_on_supply_id_pressed" binds= [0]]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/CoursesBtn" to="." method="_on_supply_id_pressed" binds= [1]]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/RoomsBtn" to="." method="_on_supply_id_pressed" binds= [2]]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TimeslotsBtn" to="." method="_on_supply_id_pressed" binds= [3]]

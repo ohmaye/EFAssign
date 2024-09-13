@@ -1,5 +1,7 @@
 extends Control
 
+# ToDo: Create one for Assign and another for Demand
+
 class_name Supply
 
 # Called when the node enters the scene tree for the first time.

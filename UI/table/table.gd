@@ -38,7 +38,7 @@ func render(_query_info : QueryInfo):
 	# Add the filters
 	for field in _query_info.columns:
 		var node = filter.instantiate()
-		node.add_theme_stylebox_override("normal", style_normal)
+		# node.add_theme_stylebox_override("normal", style_normal)
 		node.text = ""
 		header_grid.add_child(node)
 

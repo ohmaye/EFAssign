@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cbargosddf4ey"]
+[gd_scene load_steps=2 format=3 uid="uid://dgrhacljumvxm"]
+
+[ext_resource type="StyleBox" uid="uid://duvwxm2rgiskf" path="res://UI/table/styles/filter_cell_normal.tres" id="1_bw1wx"]
 
 [node name="Filter" type="LineEdit"]
 anchors_preset = 15
@@ -8,3 +10,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_placeholder_color = Color(0.507314, 0.507314, 0.507314, 1)
+theme_override_styles/focus = ExtResource("1_bw1wx")
+theme_override_styles/normal = ExtResource("1_bw1wx")
+placeholder_text = "Filter by..."

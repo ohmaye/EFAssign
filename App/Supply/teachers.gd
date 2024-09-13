@@ -2,6 +2,7 @@ extends Supply
 
 const COLUMN_NAMES  = Constants.TEACHER_COLUMN_NAMES
 const KEY = Constants.TEACHER_KEY
+var query_info 
 
 func render():
 	var db = AssignDB.db
@@ -11,15 +12,26 @@ func render():
 	if not result:
 		return
 		
-	var query_info = QueryInfo.new("teachers", COLUMN_NAMES, db.query_result, KEY )
+	query_info = QueryInfo.new("teachers", COLUMN_NAMES, db.query_result, KEY )
 
 	Signals.add_new.connect(_add_new)
 	
 	$Table.render(query_info)
 
 func _add_new():
-	
-	print("Add new teacher", Utilities.uuid.v4())
-	
+	var popup = get_node("/root/Main/Popup")
+	var db = AssignDB.db
+	var id = Utilities.uuid.v4()
+	var sql_stmt = "INSERT INTO teachers (teacher_id)  VALUES ('{0}')"
+	print("Add new teacher", sql_stmt.format([id]))
 
+	var row = {"teacher_id": id}
+	for column in COLUMN_NAMES:
+		row[column] = ""
 
+	var result = db.query(sql_stmt.format([id]))
+	print("Result:", result, db.query_result)
+
+	if result:
+		popup.render(row, query_info)
+		popup.visible = true	

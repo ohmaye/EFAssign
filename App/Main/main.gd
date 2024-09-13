@@ -15,14 +15,19 @@ func _on_demand_id_pressed(id:int):
 	match id:
 		0:
 			scene = survey_scene.instantiate()
+			scene.call_deferred("render")		
 		1:
 			scene = students_scene.instantiate()
+			scene.call_deferred("render")		
 		2:
 			scene = rooms_scene.instantiate()
+			scene.call_deferred("render")		
 		3:
 			scene = timeslots_scene.instantiate()
+			scene.call_deferred("render")		
 		_:	
 			scene = students_scene.instantiate()
+			scene.call_deferred("render")		
 
 	content_container.add_child(scene)
 
@@ -40,14 +45,19 @@ func _on_supply_id_pressed(id:int):
 	match id:
 		0:
 			scene = teachers_scene.instantiate()
+			scene.call_deferred("render")		
 		1:
 			scene = courses_scene.instantiate()
+			scene.call_deferred("render")		
 		2:
 			scene = rooms_scene.instantiate()
+			scene.call_deferred("render")		
 		3:
 			scene = timeslots_scene.instantiate()
+			scene.call_deferred("render")		
 		_:	
 			scene = teachers_scene.instantiate()
+			scene.call_deferred("render")		
 
 	content_container.add_child(scene)
 

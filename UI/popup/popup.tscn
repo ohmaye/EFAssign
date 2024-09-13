@@ -88,6 +88,16 @@ theme_override_styles/pressed = ExtResource("3_ad0qi")
 theme_override_styles/normal = ExtResource("3_ad0qi")
 text = "Cancel"
 
+[node name="DeleteBtn" type="Button" parent="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_styles/focus = ExtResource("3_ad0qi")
+theme_override_styles/hover_pressed = ExtResource("3_ad0qi")
+theme_override_styles/hover = ExtResource("3_ad0qi")
+theme_override_styles/pressed = ExtResource("3_ad0qi")
+theme_override_styles/normal = ExtResource("3_ad0qi")
+text = "Delete"
+
 [node name="SaveBtn" type="Button" parent="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
@@ -99,4 +109,5 @@ theme_override_styles/normal = ExtResource("4_mv5ab")
 text = "Save"
 
 [connection signal="pressed" from="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/CancelBtn" to="." method="_on_cancel_btn_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/DeleteBtn" to="." method="_on_delete_btn_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]

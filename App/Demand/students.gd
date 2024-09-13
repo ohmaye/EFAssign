@@ -1,9 +1,9 @@
-extends Control
+extends Supply
 
 const COLUMN_NAMES  = Constants.STUDENT_COLUMN_NAMES
 const KEY = Constants.STUDENT_KEY
 
-func _ready():
+func render():
 	var db = AssignDB.db
 	var result = db.query("SELECT * FROM students")
 
@@ -11,6 +11,6 @@ func _ready():
 	if not result:
 		return
 		
-	var query_info = QueryInfo.new("teachers", COLUMN_NAMES, db.query_result, KEY )
+	var query_info = QueryInfo.new("students", COLUMN_NAMES, db.query_result, KEY )
 	
 	$Table.render(query_info)

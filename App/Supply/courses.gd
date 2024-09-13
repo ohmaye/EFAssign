@@ -1,9 +1,9 @@
-extends Control
+extends Supply
 
 const COLUMN_NAMES  = Constants.COURSE_COLUMN_NAMES
 const KEY = Constants.COURSE_KEY
 
-func _ready():
+func render():
 	var db = AssignDB.db
 	var result = db.query("SELECT * FROM courses")
 

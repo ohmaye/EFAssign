@@ -1,9 +1,9 @@
-extends Control
+extends Supply
 
 const COLUMN_NAMES  = Constants.ROOM_COLUMN_NAMES
 const KEY = Constants.ROOM_KEY
 
-func _ready():
+func render():
 	var db = AssignDB.db
 	var result = db.query("SELECT * FROM rooms")
 

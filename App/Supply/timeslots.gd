@@ -1,9 +1,9 @@
-extends Control
+extends Supply
 
 const COLUMN_NAMES  = Constants.TIMESLOT_COLUMN_NAMES
 const KEY = Constants.TIMESLOT_KEY
 
-func _ready():
+func render():
 	var db = AssignDB.db
 	var result = db.query("SELECT * FROM timeslots")
 

@@ -16,13 +16,17 @@ var style_normal = preload("res://UI/table/styles/style_cell_normal.tres")
 var popup
 
 func render(_query_info : QueryInfo):
+	# Clear the grid
+	Utilities.remove_all_children(header_grid)
+	Utilities.remove_all_children(filter_grid)
+	Utilities.remove_all_children(rows_grid)
+	
 	var count = _query_info.columns.size()
 	header_grid.columns = count
 	filter_grid.columns = count
 	rows_grid.columns = count
 
 	popup = get_node("/root/Main/Popup")
-	# popup.connect("data_changed", _on_data_changed)
 
 	# Add the headers
 	for field in _query_info.columns:
@@ -43,8 +47,4 @@ func render(_query_info : QueryInfo):
 		var row_node = Row.new()
 		row_node.render(row, _query_info, rows_grid, cell, popup)
 
-# Method to handle data refresh
-func _on_data_changed():
-	print("Data changed, refreshing...")
-	# Call your render method or any other method to refresh the data
-	# render(id, columns, rows)  # Pass the appropriate arguments
+

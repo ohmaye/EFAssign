@@ -1,9 +1,9 @@
-extends Control
+extends Supply
 
 const COLUMN_NAMES  = Constants.SURVEY_COLUMN_NAMES
 const KEY = Constants.SURVEY_KEY
 
-func _ready():
+func render():
 	var db = AssignDB.db
 	var result = db.query("SELECT * FROM survey")
 

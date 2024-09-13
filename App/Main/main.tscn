@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://App/Main/main.gd" id="1_bm34x"]
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_m2frl"]
 [ext_resource type="StyleBox" uid="uid://pkeyw1gbp6s" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
-[ext_resource type="StyleBox" uid="uid://b7ascd11wu7mk" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
+[ext_resource type="StyleBox" uid="uid://i631fq2csgsv" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
 [ext_resource type="PackedScene" uid="uid://b4da3to7mvee5" path="res://UI/popup/popup.tscn" id="5_osk20"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
@@ -243,7 +243,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
 [node name="ColorRect" type="ColorRect" parent="TabContainer/Demand/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-color = Color(0.662745, 0.839216, 0.976471, 0.705882)
+color = Color(0.662745, 0.839216, 0.976471, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Demand/VBoxContainer/ColorRect"]
 layout_mode = 1
@@ -310,7 +310,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
 [node name="ColorRect" type="ColorRect" parent="TabContainer/Assign/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-color = Color(1, 0.8, 0.501961, 0.705882)
+color = Color(0.980392, 0.898039, 0.827451, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Assign/VBoxContainer/ColorRect"]
 layout_mode = 1
@@ -375,7 +375,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
 [node name="ColorRect" type="ColorRect" parent="TabContainer/Supply/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-color = Color(0.647059, 0.839216, 0.654902, 0.705882)
+color = Color(0.835294, 0.960784, 0.890196, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Supply/VBoxContainer/ColorRect"]
 layout_mode = 1

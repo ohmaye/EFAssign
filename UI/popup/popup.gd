@@ -49,6 +49,11 @@ func _input(event):
 		if event.keycode == KEY_ESCAPE:
 			# Handle the ESC key press (e.g., hide the popup)
 			hide()
+		# Check if the key pressed is the ENTER key
+		elif event.keycode == KEY_ENTER:
+			# Handle the ENTER key press (e.g., save the data)
+			_on_save_btn_pressed()
+			hide()
 
 func _on_cancel_btn_pressed() -> void:
 	visible = false
@@ -70,3 +75,11 @@ func _on_save_btn_pressed() -> void:
 	Signals.emit_signal("data_changed")
 	visible = false
 			
+
+func _on_delete_btn_pressed():
+	var db = AssignDB.db
+	var sql = "DELETE FROM {0} WHERE {1} = '{2}' "
+	var sql_stm = sql.format([query_info.table, query_info.key, row[query_info.key]])
+	db.query(sql_stm)
+	visible = false
+	Signals.emit_signal("data_changed")

@@ -28,6 +28,7 @@ AssignDb="*res://data/AssignDB.gd"
 Constants="*res://globals/constants.gd"
 Signals="*res://globals/Signals.gd"
 Utilities="*res://utils/utils.gd"
+GlobalVars="*res://globals/global_vars.gd"
 
 [display]
 

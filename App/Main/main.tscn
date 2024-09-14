@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://x8u7tb17udya"]
+[gd_scene load_steps=11 format=3 uid="uid://x8u7tb17udya"]
 
 [ext_resource type="Script" path="res://App/Main/main.gd" id="1_bm34x"]
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_m2frl"]
@@ -12,6 +12,13 @@
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
 color = Color(0.595154, 0.595154, 0.595154, 1)
 thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb5q4"]
+content_margin_left = 0.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.737193, 0.737193, 0.737193, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -444,9 +451,11 @@ offset_top = 4.0
 offset_right = 993.0
 offset_bottom = 28.0
 scale = Vector2(2, 2)
+focus_mode = 0
 theme_override_font_sizes/font_size = 18
 theme_override_styles/hover = ExtResource("6_u4i7a")
 theme_override_styles/normal = ExtResource("5_376is")
+disabled = true
 text = "Intensive"
 flat = true
 expand_icon = true
@@ -459,8 +468,11 @@ offset_top = 4.0
 offset_right = 1234.0
 offset_bottom = 28.0
 scale = Vector2(2, 2)
+focus_mode = 0
 theme_override_font_sizes/font_size = 18
+theme_override_styles/disabled = SubResource("StyleBoxFlat_lb5q4")
 theme_override_styles/normal = ExtResource("5_376is")
+disabled = true
 text = "General
 "
 flat = true

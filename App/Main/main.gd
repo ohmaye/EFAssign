@@ -2,7 +2,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	# Set global vars
+	GlobalVars.general_checkbox = %GeneralCheckBox
+	GlobalVars.intensive_checkbox = %IntensiveCheckBox
 	
 # DEMAND
 var survey_scene = preload("res://App/demand/survey.tscn")
@@ -79,7 +81,7 @@ func _on_add_btn_pressed() -> void:
 	Signals.add_new.emit()
 
 func _on_general_check_box_pressed() -> void:
-	Signals.general_toggled.emit()
+	Signals.data_changed.emit()
 
 func _on_intensive_check_box_pressed() -> void:
-	Signals.intensive_toggled.emit()
+	Signals.data_changed.emit()

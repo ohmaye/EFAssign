@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr7k8y1lb8hw3"]
+
+[ext_resource type="Script" path="res://App/Demand/demand.gd" id="1_fkfp1"]
+[ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="2_ff2ds"]
+
+[node name="Demand" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fkfp1")
+
+[node name="Table" parent="." instance=ExtResource("2_ff2ds")]
+layout_mode = 1

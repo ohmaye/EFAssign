@@ -1,7 +1,7 @@
 extends Supply
 
-const COLUMN_NAMES  = Constants.STUDENT_COLUMN_NAMES
-const KEY = Constants.STUDENT_KEY
+const COLUMN_NAMES  = Constants.DEMAND_COLUMN_NAMES
+const KEY = Constants.DEMAND_KEY
 
 func render():
 	var db = AssignDB.db
@@ -12,5 +12,5 @@ func render():
 		return
 		
 	var query_info = QueryInfo.new("demand", COLUMN_NAMES, db.query_result, KEY )
-	
+
 	$Table.render(query_info)

@@ -5,8 +5,10 @@ func _ready():
 	pass
 	
 # DEMAND
-var students_scene = preload("res://App/demand/students.tscn")
 var survey_scene = preload("res://App/demand/survey.tscn")
+var demand_scene = preload("res://App/demand/demand.tscn")
+var students_scene = preload("res://App/demand/students.tscn")
+var by_course_scene = preload("res://App/demand/by_course.tscn")
 
 func _on_demand_id_pressed(id:int):
 	var content_container = %DemandContent
@@ -17,13 +19,17 @@ func _on_demand_id_pressed(id:int):
 			scene = survey_scene.instantiate()
 			scene.call_deferred("render")		
 		1:
-			scene = students_scene.instantiate()
+			scene = demand_scene.instantiate()
+			print("Demand")
 			scene.call_deferred("render")		
 		2:
-			scene = rooms_scene.instantiate()
+			scene = students_scene.instantiate()
 			scene.call_deferred("render")		
 		3:
-			scene = timeslots_scene.instantiate()
+			scene = rooms_scene.instantiate()
+			scene.call_deferred("render")		
+		4:
+			scene = by_course_scene.instantiate()
 			scene.call_deferred("render")		
 		_:	
 			scene = students_scene.instantiate()
@@ -71,3 +77,7 @@ func remove_all_children(parent_node):
 func _on_add_btn_pressed() -> void:
 	print("Add pressed")
 	Signals.add_new.emit()
+
+
+func _on_demand_btn_pressed(extra_arg_0:int) -> void:
+	pass # Replace with function body.

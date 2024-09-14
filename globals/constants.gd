@@ -3,7 +3,7 @@ extends Node
 # Constants (Available everywhere in the project -- autoloaded)
 
 # Students
-const STUDENT_COLUMN_NAMES = ["firstName", "lastName", "email", "level","program","enddate","active"]
+const STUDENT_COLUMN_NAMES = ["firstName", "lastName", "email", "level","program","active"]
 const STUDENT_KEY = "student_id"
 
 
@@ -26,24 +26,57 @@ const TIMESLOT_KEY = "timeslot_id"
 
 # Survey
 const SURVEY_COLUMN_NAMES = [  
-    "timestamp",
-    "email",
-    "firstName",
-    "lastName",
-    "level",
-    "program",
-    "IMon01",
-    "IMon02",
-    "IMon03",
-    "IWed01",
-    "IWed02",
-    "IWed03",
-    "IWed04",
-    "IWed05",
-    "GWed01",
-    "GWed04",
-    "GWed02",
-    "GWed03",
-    "GWed05" 
+	"timestamp",
+	"email",
+	"firstName",
+	"lastName",
+	"level",
+	"program",
+	"IMon01",
+	"IMon02",
+	"IMon03",
+	"IWed01",
+	"IWed02",
+	"IWed03",
+	"IWed04",
+	"IWed05",
+	"GWed01",
+	"GWed04",
+	"GWed02",
+	"GWed03",
+	"GWed05" 
 ]
 const SURVEY_KEY = "timestamp"
+
+# Survey
+const DEMAND_COLUMN_NAMES = [  
+	"firstName",
+	"lastName",
+	"email",
+	"level",
+	"program",
+	"Mon01",
+	"Mon02",
+	"Mon03",
+	"Wed01",
+	"Wed02",
+	"Wed03",
+	"Wed04",
+	"Wed05"
+]
+const DEMAND_KEY = "student_id"
+
+# Survey
+const BY_COURSE_COLUMN_NAMES = [  
+    "course",
+	"Mon01",
+	"Mon02",
+	"Mon03",
+	"Wed01",
+	"Wed02",
+	"Wed03",
+	"Wed04",
+	"Wed05",
+    "Total"
+]
+const BY_COURSE_KEY = "course"

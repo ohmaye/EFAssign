@@ -114,6 +114,7 @@ CREATE TABLE survey (
 -- Demand data
 DROP TABLE IF EXISTS demand;
 CREATE TABLE demand (
+  student_id TEXT NOT NULL UNIQUE PRIMARY KEY,
   email	TEXT,
   firstName TEXT,
   lastName TEXT,
@@ -126,10 +127,11 @@ CREATE TABLE demand (
   Wed02 TEXT,
   Wed03 TEXT,
   Wed04 TEXT,
-  Wed05 TEXT
+  Wed05 TEXT,
+  active int
 );
-INSERT INTO demand (email, firstName,lastName, level, program, Mon01, Mon02, Mon03, Wed01, Wed02, Wed03, Wed04, Wed05)
-SELECT email, firstName, lastName, level, 
+INSERT INTO demand (student_id, email, firstName,lastName, level, program, Mon01, Mon02, Mon03, Wed01, Wed02, Wed03, Wed04, Wed05, active)
+SELECT lower(hex(randomblob(16))), email, firstName, lastName, level, 
 CASE WHEN instr(program, "Intensive") THEN "Intensive" ELSE "General" END, 
 CASE WHEN instr(program, "Intensive") THEN IMon01 ELSE "" END, 
 CASE WHEN instr(program, "Intensive") THEN IMon02 ELSE "" END, 
@@ -138,7 +140,8 @@ CASE WHEN instr(program, "Intensive") THEN IWed01 ELSE GWed01 END,
 CASE WHEN instr(program, "Intensive") THEN IWed02 ELSE GWed02 END, 
 CASE WHEN instr(program, "Intensive") THEN IWed03 ELSE GWed03 END, 
 CASE WHEN instr(program, "Intensive") THEN IWed04 ELSE GWed04 END, 
-CASE WHEN instr(program, "Intensive") THEN IWed05 ELSE GWed05 END
+CASE WHEN instr(program, "Intensive") THEN IWed05 ELSE GWed05 END,
+1 
 FROM survey;
 UPDATE demand SET Mon01 = substr(Mon01, instr(Mon01, '_') + 1);
 UPDATE demand SET Mon02 = substr(Mon02, instr(Mon02, '_') + 1);
@@ -162,3 +165,120 @@ INSERT INTO weekdays VALUES (4, "Thu");
 INSERT INTO weekdays VALUES (5, "Fri");
 INSERT INTO weekdays VALUES (6, "Sat");
 INSERT INTO weekdays VALUES (7, "Sun");
+
+
+
+
+const DEMAND_KEY = "student_id"
+
+-- Normalized view of demand
+CREATE VIEW normalized_demand AS
+SELECT student_id, email, firstName, lastName, level, program, 'Mon01' AS time_slot, Mon01 AS course, active
+FROM demand
+WHERE Mon01 IS NOT NULL
+
+UNION ALL
+
+SELECT student_id, email, firstName, lastName, level, program, 'Mon02' AS time_slot, Mon02 AS course, active
+FROM demand
+WHERE Mon02 IS NOT NULL
+
+UNION ALL
+
+SELECT student_id, email, firstName, lastName, level, program, 'Mon03' AS time_slot, Mon03 AS course, active
+FROM demand
+WHERE Mon03 IS NOT NULL
+
+UNION ALL
+
+SELECT student_id, email, firstName, lastName, level, program, 'Wed01' AS time_slot, Wed01 AS course, active
+FROM demand
+WHERE Wed01 IS NOT NULL
+
+UNION ALL
+
+SELECT student_id, email, firstName, lastName, level, program, 'Wed02' AS time_slot, Wed02 AS course, active
+FROM demand
+WHERE Wed02 IS NOT NULL
+
+UNION ALL
+
+SELECT student_id, email, firstName, lastName, level, program, 'Wed03' AS time_slot, Wed03 AS course, active
+FROM demand
+WHERE Wed03 IS NOT NULL
+
+UNION ALL
+
+SELECT student_id, email, firstName, lastName, level, program, 'Wed04' AS time_slot, Wed04 AS course, active
+FROM demand
+WHERE Wed04 IS NOT NULL
+
+UNION ALL
+
+SELECT student_id, email, firstName, lastName, level, program, 'Wed05' AS time_slot, Wed05 AS course, active
+FROM demand
+WHERE Wed05 IS NOT NULL;
+
+-- Main query for pivot table By Course with totals (check below for Intensive/General)
+SELECT course,
+       SUM(CASE WHEN time_slot = 'Mon01' THEN 1 ELSE 0 END) AS Mon01,
+       SUM(CASE WHEN time_slot = 'Mon02' THEN 1 ELSE 0 END) AS Mon02,
+       SUM(CASE WHEN time_slot = 'Mon03' THEN 1 ELSE 0 END) AS Mon03,
+       SUM(CASE WHEN time_slot = 'Wed01' THEN 1 ELSE 0 END) AS Wed01,
+       SUM(CASE WHEN time_slot = 'Wed02' THEN 1 ELSE 0 END) AS Wed02,
+       SUM(CASE WHEN time_slot = 'Wed03' THEN 1 ELSE 0 END) AS Wed03,
+       SUM(CASE WHEN time_slot = 'Wed04' THEN 1 ELSE 0 END) AS Wed04,
+       SUM(CASE WHEN time_slot = 'Wed05' THEN 1 ELSE 0 END) AS Wed05,
+       -- Total for each row (course)
+       SUM(CASE WHEN time_slot IN ('Mon01', 'Mon02', 'Mon03', 'Wed01', 'Wed02', 'Wed03', 'Wed04', 'Wed05') THEN 1 ELSE 0 END) AS Total
+FROM (
+    SELECT Mon01 AS course, 'Mon01' AS time_slot, program FROM demand WHERE Mon01 IS NOT NULL AND Mon01 != ''
+    UNION ALL
+    SELECT Mon02 AS course, 'Mon02' AS time_slot, program FROM demand WHERE Mon02 IS NOT NULL AND Mon02 != ''
+    UNION ALL
+    SELECT Mon03 AS course, 'Mon03' AS time_slot, program FROM demand WHERE Mon03 IS NOT NULL AND Mon03 != ''
+    UNION ALL
+    SELECT Wed01 AS course, 'Wed01' AS time_slot, program FROM demand WHERE Wed01 IS NOT NULL AND Wed01 != ''
+    UNION ALL
+    SELECT Wed02 AS course, 'Wed02' AS time_slot, program FROM demand WHERE Wed02 IS NOT NULL AND Wed02 != ''
+    UNION ALL
+    SELECT Wed03 AS course, 'Wed03' AS time_slot, program FROM demand WHERE Wed03 IS NOT NULL AND Wed03 != ''
+    UNION ALL
+    SELECT Wed04 AS course, 'Wed04' AS time_slot, program FROM demand WHERE Wed04 IS NOT NULL AND Wed04 != ''
+    UNION ALL
+    SELECT Wed05 AS course, 'Wed05' AS time_slot, program FROM demand WHERE Wed05 IS NOT NULL AND Wed05 != ''
+)
+WHERE program IN ('Intensive')
+GROUP BY course
+
+-- Add the row for column totals using a UNION ALL
+UNION ALL
+
+SELECT 'Total' AS course,
+       SUM(CASE WHEN time_slot = 'Mon01' THEN 1 ELSE 0 END) AS Mon01,
+       SUM(CASE WHEN time_slot = 'Mon02' THEN 1 ELSE 0 END) AS Mon02,
+       SUM(CASE WHEN time_slot = 'Mon03' THEN 1 ELSE 0 END) AS Mon03,
+       SUM(CASE WHEN time_slot = 'Wed01' THEN 1 ELSE 0 END) AS Wed01,
+       SUM(CASE WHEN time_slot = 'Wed02' THEN 1 ELSE 0 END) AS Wed02,
+       SUM(CASE WHEN time_slot = 'Wed03' THEN 1 ELSE 0 END) AS Wed03,
+       SUM(CASE WHEN time_slot = 'Wed04' THEN 1 ELSE 0 END) AS Wed04,
+       SUM(CASE WHEN time_slot = 'Wed05' THEN 1 ELSE 0 END) AS Wed05,
+       -- Total across all columns (time slots)
+       SUM(CASE WHEN time_slot IN ('Mon01', 'Mon02', 'Mon03', 'Wed01', 'Wed02', 'Wed03', 'Wed04', 'Wed05') THEN 1 ELSE 0 END) AS Total
+FROM (
+    SELECT Mon01 AS course, 'Mon01' AS time_slot, program FROM demand WHERE Mon01 IS NOT NULL AND Mon01 != ''
+    UNION ALL
+    SELECT Mon02 AS course, 'Mon02' AS time_slot, program FROM demand WHERE Mon02 IS NOT NULL AND Mon02 != ''
+    UNION ALL
+    SELECT Mon03 AS course, 'Mon03' AS time_slot, program FROM demand WHERE Mon03 IS NOT NULL AND Mon03 != ''
+    UNION ALL
+    SELECT Wed01 AS course, 'Wed01' AS time_slot, program FROM demand WHERE Wed01 IS NOT NULL AND Wed01 != ''
+    UNION ALL
+    SELECT Wed02 AS course, 'Wed02' AS time_slot, program FROM demand WHERE Wed02 IS NOT NULL AND Wed02 != ''
+    UNION ALL
+    SELECT Wed03 AS course, 'Wed03' AS time_slot, program FROM demand WHERE Wed03 IS NOT NULL AND Wed03 != ''
+    UNION ALL
+    SELECT Wed04 AS course, 'Wed04' AS time_slot, program FROM demand WHERE Wed04 IS NOT NULL AND Wed04 != ''
+    UNION ALL
+    SELECT Wed05 AS course, 'Wed05' AS time_slot, program FROM demand WHERE Wed05 IS NOT NULL AND Wed05 != ''
+)

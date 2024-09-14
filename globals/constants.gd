@@ -66,7 +66,7 @@ const DEMAND_COLUMN_NAMES = [
 ]
 const DEMAND_KEY = "student_id"
 
-# Survey
+# By Course
 const BY_COURSE_COLUMN_NAMES = [  
     "course",
 	"Mon01",
@@ -80,3 +80,19 @@ const BY_COURSE_COLUMN_NAMES = [
     "Total"
 ]
 const BY_COURSE_KEY = "course"
+
+# By Level
+const BY_LEVEL_COLUMN_NAMES = [  
+    "course",
+    "level",
+	"Mon01",
+	"Mon02",
+	"Mon03",
+	"Wed01",
+	"Wed02",
+	"Wed03",
+	"Wed04",
+	"Wed05",
+    "Total"
+]
+const BY_LEVEL_KEY = "level"

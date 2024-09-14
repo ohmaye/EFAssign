@@ -272,29 +272,24 @@ layout_mode = 2
 text = "Survey"
 flat = true
 
-[node name="DemandBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
-layout_mode = 2
-text = "Demand"
-flat = true
-
 [node name="StudentsBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Students"
 flat = true
 
-[node name="ByLevelBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="ByStudentBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
-text = "By Level"
-flat = true
-
-[node name="ByProgramBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
-layout_mode = 2
-text = "By Program"
+text = "By Student"
 flat = true
 
 [node name="ByCourseBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "By Course"
+flat = true
+
+[node name="ByLevelBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "By Level"
 flat = true
 
 [node name="DemandContent" type="Panel" parent="TabContainer/Demand/VBoxContainer"]
@@ -456,6 +451,7 @@ theme_override_font_sizes/font_size = 18
 theme_override_styles/hover = ExtResource("6_u4i7a")
 theme_override_styles/normal = ExtResource("5_376is")
 disabled = true
+button_pressed = true
 text = "Intensive"
 flat = true
 expand_icon = true
@@ -473,6 +469,7 @@ theme_override_font_sizes/font_size = 18
 theme_override_styles/disabled = SubResource("StyleBoxFlat_lb5q4")
 theme_override_styles/normal = ExtResource("5_376is")
 disabled = true
+button_pressed = true
 text = "General
 "
 flat = true
@@ -483,28 +480,11 @@ unique_name_in_owner = true
 visible = false
 
 [connection signal="id_pressed" from="MenuBar/Supply" to="." method="_on_supply_id_pressed"]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/Button" to="." method="_on_demand_id_pressed" binds= [0]]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/Button2" to="." method="_on_supply_id_pressed" binds= [1]]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/Button2" to="." method="_on_demand_id_pressed" binds= [1]]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/Button3" to="." method="_on_supply_id_pressed" binds= [2]]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/Button4" to="." method="_on_supply_id_pressed" binds= [3]]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/Button5" to="." method="_on_supply_id_pressed" binds= [3]]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/Button6" to="." method="_on_supply_id_pressed" binds= [3]]
 [connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/SurveyBtn" to="." method="_on_demand_id_pressed" binds= [0]]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/DemandBtn" to="." method="_on_demand_id_pressed" binds= [1]]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/StudentsBtn" to="." method="_on_demand_id_pressed" binds= [2]]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByLevelBtn" to="." method="_on_supply_id_pressed" binds= [2]]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByProgramBtn" to="." method="_on_supply_id_pressed" binds= [3]]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByCourseBtn" to="." method="_on_demand_id_pressed" binds= [4]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/Button" to="." method="_on_supply_id_pressed" binds= [0]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/Button5" to="." method="_on_supply_id_pressed" binds= [0]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/Button2" to="." method="_on_supply_id_pressed" binds= [1]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/Button3" to="." method="_on_supply_id_pressed" binds= [2]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/Button4" to="." method="_on_supply_id_pressed" binds= [3]]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/StudentsBtn" to="." method="_on_demand_id_pressed" binds= [1]]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByStudentBtn" to="." method="_on_demand_id_pressed" binds= [2]]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByCourseBtn" to="." method="_on_demand_id_pressed" binds= [5]]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByLevelBtn" to="." method="_on_demand_id_pressed" binds= [4]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/AddBtn" to="." method="_on_add_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TeachersBtn" to="." method="_on_supply_id_pressed" binds= [0]]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/CoursesBtn" to="." method="_on_supply_id_pressed" binds= [1]]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/RoomsBtn" to="." method="_on_supply_id_pressed" binds= [2]]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TimeslotsBtn" to="." method="_on_supply_id_pressed" binds= [3]]
 [connection signal="pressed" from="IntensiveCheckBox" to="." method="_on_intensive_check_box_pressed"]
 [connection signal="pressed" from="GeneralCheckBox" to="." method="_on_general_check_box_pressed"]

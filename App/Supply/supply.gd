@@ -1,14 +1,12 @@
 extends Control
 
-# ToDo: Create one for Assign and another for Demand
-
 class_name Supply
+
+# ToDo: Create one for Assign and another for Demand
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
+	pass
 
 func render():
 	pass

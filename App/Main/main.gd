@@ -8,8 +8,9 @@ func _ready():
 	
 # DEMAND
 var survey_scene = preload("res://App/demand/survey.tscn")
-var demand_scene = preload("res://App/demand/demand.tscn")
 var students_scene = preload("res://App/demand/students.tscn")
+var by_student_scene = preload("res://App/demand/by_student.tscn")
+var by_level_scene = preload("res://App/demand/by_level.tscn")
 var by_course_scene = preload("res://App/demand/by_course.tscn")
 
 func _on_demand_id_pressed(id:int):
@@ -21,20 +22,20 @@ func _on_demand_id_pressed(id:int):
 			scene = survey_scene.instantiate()
 			scene.call_deferred("render")		
 		1:
-			scene = demand_scene.instantiate()
+			scene = students_scene.instantiate()
 			print("Demand")
 			scene.call_deferred("render")		
 		2:
-			scene = students_scene.instantiate()
+			scene = by_student_scene.instantiate()
 			scene.call_deferred("render")		
 		3:
-			scene = rooms_scene.instantiate()
-			scene.call_deferred("render")		
-		4:
 			scene = by_course_scene.instantiate()
 			scene.call_deferred("render")		
+		4:
+			scene = by_level_scene.instantiate()
+			scene.call_deferred("render")		
 		_:	
-			scene = students_scene.instantiate()
+			scene = by_course_scene.instantiate()
 			scene.call_deferred("render")		
 
 	content_container.add_child(scene)

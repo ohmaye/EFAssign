@@ -78,6 +78,8 @@ func _on_add_btn_pressed() -> void:
 	print("Add pressed")
 	Signals.add_new.emit()
 
+func _on_general_check_box_pressed() -> void:
+	Signals.general_toggled.emit()
 
-func _on_demand_btn_pressed(extra_arg_0:int) -> void:
-	pass # Replace with function body.
+func _on_intensive_check_box_pressed() -> void:
+	Signals.intensive_toggled.emit()

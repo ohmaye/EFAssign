@@ -2,3 +2,5 @@ extends Control
 
 signal data_changed
 signal add_new
+signal intensive_toggled
+signal general_toggled

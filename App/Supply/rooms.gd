@@ -5,7 +5,7 @@ const KEY = Constants.ROOM_KEY
 
 func render():
 	var db = AssignDB.db
-	var result = db.query("SELECT * FROM rooms")
+	var result = db.query("SELECT * FROM rooms ORDER BY name")
 
 	# If there are no results, return
 	if not result:

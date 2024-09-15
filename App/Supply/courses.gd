@@ -5,7 +5,7 @@ const KEY = Constants.COURSE_KEY
 
 func render():
 	var db = AssignDB.db
-	var result = db.query("SELECT * FROM courses")
+	var result = db.query("SELECT * FROM courses ORDER BY code")
 
 	# If there are no results, return
 	if not result:

@@ -4,6 +4,10 @@ const COLUMN_NAMES  = Constants.SURVEY_COLUMN_NAMES
 const KEY = Constants.SURVEY_KEY
 
 func render():
+	# Enable Intensive/General
+	GlobalVars.intensive_checkbox.disabled = true
+	GlobalVars.general_checkbox.disabled = true
+
 	var db = AssignDB.db
 	var result = db.query("SELECT * FROM survey")
 

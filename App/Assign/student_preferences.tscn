@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://gnearr4jqc3w"]
+
+[ext_resource type="Script" path="res://App/Assign/student_preferences.gd" id="1_ser27"]
+[ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="2_sjcwv"]
+
+[node name="StudentPreferences" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ser27")
+
+[node name="Table" parent="." instance=ExtResource("2_sjcwv")]
+layout_mode = 1

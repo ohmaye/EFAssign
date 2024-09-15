@@ -6,7 +6,7 @@ var query_info
 
 func render():
 	var db = AssignDB.db
-	var result = db.query("SELECT * FROM teachers")
+	var result = db.query("SELECT * FROM teachers ORDER BY name")
 
 	# If there are no results, return
 	if not result:

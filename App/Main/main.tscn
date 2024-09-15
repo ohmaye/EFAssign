@@ -334,32 +334,33 @@ grow_vertical = 2
 theme_override_constants/separation = 80
 alignment = 1
 
-[node name="Button" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="TeacherPreferencesBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Teacher Preferences"
 flat = true
 
-[node name="Button5" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="StudentPreferencesBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Student Preferences"
 flat = true
 
-[node name="Button2" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="AnalyzeBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Analyze"
 flat = true
 
-[node name="Button3" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="AssignBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Assign"
 flat = true
 
-[node name="Button4" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="ReportsBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Reports"
 flat = true
 
 [node name="AssignContent" type="Panel" parent="TabContainer/Assign/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -485,6 +486,11 @@ visible = false
 [connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByStudentBtn" to="." method="_on_demand_id_pressed" binds= [2]]
 [connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByCourseBtn" to="." method="_on_demand_id_pressed" binds= [5]]
 [connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByLevelBtn" to="." method="_on_demand_id_pressed" binds= [4]]
+[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/TeacherPreferencesBtn" to="." method="_on_assign_id_pressed" binds= [0]]
+[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/StudentPreferencesBtn" to="." method="_on_assign_id_pressed" binds= [1]]
+[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/AnalyzeBtn" to="." method="_on_assign_id_pressed" binds= [2]]
+[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/AssignBtn" to="." method="_on_assign_id_pressed" binds= [3]]
+[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/ReportsBtn" to="." method="_on_assign_id_pressed" binds= [4]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/AddBtn" to="." method="_on_add_btn_pressed"]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TeachersBtn" to="." method="_on_supply_id_pressed" binds= [0]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/CoursesBtn" to="." method="_on_supply_id_pressed" binds= [1]]

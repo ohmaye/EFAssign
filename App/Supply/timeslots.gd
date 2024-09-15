@@ -5,7 +5,7 @@ const KEY = Constants.TIMESLOT_KEY
 
 func render():
 	var db = AssignDB.db
-	var result = db.query("SELECT * FROM timeslots")
+	var result = db.query("SELECT * FROM timeslots ORDER BY weekday, start_time")
 
 	# If there are no results, return
 	if not result:

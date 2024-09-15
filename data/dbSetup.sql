@@ -31,7 +31,7 @@ CREATE TABLE courses (
   active INT
 );
 
--- MATCH (r:Room) return r.id, r.name r.type, r.capacity, r.active
+-- MATCH (r:Room) return r.id, r.name, r.type, r.capacity, r.active
 DROP TABLE IF EXISTS rooms;
 CREATE TABLE rooms (
   room_id TEXT NOT NULL UNIQUE PRIMARY KEY,
@@ -59,7 +59,7 @@ CREATE TABLE teacherpreferences (
   rating INT
 );
 
--- MATCH (s:Student)-[r:WANTS]->(c:Course) RETURN s.id, r.choice, r.ranking, c.id  
+-- MATCH (s:Student)-[w:WANTS]-(c:Course) RETURN s.id, w.choice, w.ranking, c.id 
 DROP TABLE IF EXISTS studentpreferences;
 CREATE TABLE studentpreferences (
   student_id TEXT NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE classes (
   teacher_id TEXT
 );
 
--- 
+-- MATCH (s:Student)-[a:ATTENDS]-(e:Event) RETURN s.id, e.id
 DROP TABLE IF EXISTS assignments;
 CREATE TABLE assignments (
   student_id TEXT,

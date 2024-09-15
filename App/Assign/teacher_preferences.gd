@@ -1,34 +1,28 @@
 extends Supply
 
-const COLUMN_NAMES  = Constants.BY_LEVEL_COLUMN_NAMES
-const KEY = Constants.BY_LEVEL_KEY
+var grid
+var node
+var db = AssignDB.db
 
 const progress_bar = preload("res://UI/progress_bar/progress_bar.tscn")
-var grid
 
 func _ready() -> void:
-	grid = %GridContainer
-	render()
+	grid = %ContentGrid
 
 func render():
 	# Enable Intensive/General
-	# GlobalVars.intensive_checkbox.disabled = true
-	# GlobalVars.general_checkbox.disabled = true
-	var node
+	GlobalVars.intensive_checkbox.disabled = true
+	GlobalVars.general_checkbox.disabled = true
 
-	var db = AssignDB.db    
+	# Load Courses (header)
 	var result = db.query(sql_courses)
-
 	# If there are no results, return
 	if not result:
 		return
-
 	var courses = db.query_result
-		
-	grid.columns = courses.size() + 1
-	add_child(grid)
 
 	# Render headers (courses)
+	grid.columns = courses.size() + 1		
 	node = Label.new()
 	node.text = "Teacher"
 	grid.add_child(node)
@@ -37,11 +31,11 @@ func render():
 		node.text = course.code
 		grid.add_child(node)
 
+	# Load Teachers
 	result = db.query(sql_teachers)
-
+	# If there are no results, return
 	if not result:
 		return
-
 	var teachers = db.query_result
 
 	for teacher in teachers:
@@ -51,15 +45,8 @@ func render():
 		for course in courses:
 			result = db.query(sql_rating.format([course.course_id, teacher.teacher_id]))
 			node = progress_bar.instantiate()
-			# node.text = str(db.query_result[0].rating) if db.query_result.size() > 0 else ""
 			node.value = db.query_result[0].rating if db.query_result.size() > 0 else 0
-			# print("Rating: ", db.query_result)
 			grid.add_child(node)
-
-	
-	# var query_info = QueryInfo.new("demand", COLUMN_NAMES, db.query_result, KEY )
-
-	# $Table.render(query_info)
 
 
 const sql_courses = """

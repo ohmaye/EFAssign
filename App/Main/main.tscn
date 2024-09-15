@@ -115,7 +115,7 @@ theme_override_styles/tabbar_background = ExtResource("4_jlrel")
 theme_override_styles/tab_selected = ExtResource("3_vpjxf")
 theme_override_styles/tab_hovered = ExtResource("3_vpjxf")
 theme_override_styles/tab_unselected = ExtResource("3_vpjxf")
-current_tab = 2
+current_tab = 3
 clip_tabs = false
 
 [node name="Home" type="ColorRect" parent="TabContainer"]
@@ -231,7 +231,17 @@ flat = true
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="FileDialog" type="FileDialog" parent="TabContainer/File/VBoxContainer/FileContent"]
+title = "Open a File"
+size = Vector2i(408, 227)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+file_mode = 0
+access = 2
+use_native_dialog = true
+
 [node name="Demand" type="ColorRect" parent="TabContainer"]
+visible = false
 layout_mode = 2
 color = Color(0.90327, 0.935962, 1, 1)
 metadata/_tab_index = 2
@@ -298,7 +308,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Assign" type="ColorRect" parent="TabContainer"]
-visible = false
 layout_mode = 2
 color = Color(0.916879, 1, 0.90774, 1)
 metadata/_tab_index = 3

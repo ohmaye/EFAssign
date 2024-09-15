@@ -3,7 +3,11 @@ extends Supply
 const COLUMN_NAMES  = Constants.BY_LEVEL_COLUMN_NAMES
 const KEY = Constants.BY_LEVEL_KEY
 
+const progress_bar = preload("res://UI/progress_bar/progress_bar.tscn")
+var grid
+
 func _ready() -> void:
+	grid = %GridContainer
 	render()
 
 func render():
@@ -21,7 +25,6 @@ func render():
 
 	var courses = db.query_result
 		
-	var grid = GridContainer.new()
 	grid.columns = courses.size() + 1
 	add_child(grid)
 
@@ -47,8 +50,9 @@ func render():
 		grid.add_child(node)
 		for course in courses:
 			result = db.query(sql_rating.format([course.course_id, teacher.teacher_id]))
-			node = Label.new()
-			node.text = str(db.query_result[0].rating) if db.query_result.size() > 0 else ""
+			node = progress_bar.instantiate()
+			# node.text = str(db.query_result[0].rating) if db.query_result.size() > 0 else ""
+			node.value = db.query_result[0].rating if db.query_result.size() > 0 else 0
 			# print("Rating: ", db.query_result)
 			grid.add_child(node)
 

@@ -2,13 +2,13 @@
 
 [resource]
 content_margin_left = 30.0
-content_margin_top = 12.0
+content_margin_top = 18.0
 content_margin_right = 30.0
-content_margin_bottom = 10.0
+content_margin_bottom = 18.0
 bg_color = Color(0.794121, 0.79412, 0.794121, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
 border_color = Color(1, 1, 1, 1)
 border_blend = true
 corner_radius_top_left = 12

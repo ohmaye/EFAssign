@@ -1,24 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://x8u7tb17udya"]
+[gd_scene load_steps=9 format=3 uid="uid://x8u7tb17udya"]
 
 [ext_resource type="Script" path="res://App/Main/main.gd" id="1_bm34x"]
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_m2frl"]
 [ext_resource type="StyleBox" uid="uid://pkeyw1gbp6s" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
 [ext_resource type="StyleBox" uid="uid://b7ascd11wu7mk" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
-[ext_resource type="StyleBox" uid="uid://cj1vt52e4fe2o" path="res://themes/style_checkbox.tres" id="5_376is"]
 [ext_resource type="StyleBox" uid="uid://bigi11vomfv16" path="res://themes/style_button.tres" id="5_7334v"]
 [ext_resource type="PackedScene" uid="uid://b4da3to7mvee5" path="res://UI/popup/popup.tscn" id="5_osk20"]
-[ext_resource type="StyleBox" uid="uid://do740h5g2cmmw" path="res://themes/style_checkbox_hover.tres" id="6_u4i7a"]
+[ext_resource type="PackedScene" uid="uid://dw70vonudpgfe" path="res://UI/check_box.tscn" id="6_muxi1"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
 color = Color(0.595154, 0.595154, 0.595154, 1)
 thickness = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb5q4"]
-content_margin_left = 0.0
-content_margin_top = 4.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.737193, 0.737193, 0.737193, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -448,42 +440,93 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="IntensiveCheckBox" type="CheckBox" parent="."]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 900.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1600, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1670.0
 offset_top = 4.0
-offset_right = 993.0
-offset_bottom = 28.0
-scale = Vector2(2, 2)
-focus_mode = 0
-theme_override_font_sizes/font_size = 18
-theme_override_styles/hover = ExtResource("6_u4i7a")
-theme_override_styles/normal = ExtResource("5_376is")
-disabled = true
-button_pressed = true
-text = "Intensive"
-flat = true
-expand_icon = true
+offset_bottom = 76.0
+grow_horizontal = 0
+theme_override_constants/separation = 30
 
-[node name="GeneralCheckBox" type="CheckBox" parent="."]
+[node name="IntensiveCheckBox" parent="HBoxContainer" instance=ExtResource("6_muxi1")]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 1150.0
-offset_top = 4.0
-offset_right = 1234.0
-offset_bottom = 28.0
-scale = Vector2(2, 2)
-focus_mode = 0
-theme_override_font_sizes/font_size = 18
-theme_override_styles/disabled = SubResource("StyleBoxFlat_lb5q4")
-theme_override_styles/normal = ExtResource("5_376is")
-disabled = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
 button_pressed = true
-text = "General
+text = "INTENSIVE"
+
+[node name="GeneralCheckBox" parent="HBoxContainer" instance=ExtResource("6_muxi1")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+button_pressed = true
+text = "GENERAL
 "
-flat = true
-expand_icon = true
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 2
+
+[node name="Mon1" parent="HBoxContainer" instance=ExtResource("6_muxi1")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "M1
+"
+
+[node name="Mon2" parent="HBoxContainer" instance=ExtResource("6_muxi1")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "M2
+"
+
+[node name="Mon3" parent="HBoxContainer" instance=ExtResource("6_muxi1")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "M3"
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 2
+
+[node name="Wed1" parent="HBoxContainer" instance=ExtResource("6_muxi1")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "W1"
+
+[node name="Wed2" parent="HBoxContainer" instance=ExtResource("6_muxi1")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "W2"
+
+[node name="Wed3" parent="HBoxContainer" instance=ExtResource("6_muxi1")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "W3
+"
+
+[node name="Wed4" parent="HBoxContainer" instance=ExtResource("6_muxi1")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "W4
+"
+
+[node name="Wed5" parent="HBoxContainer" instance=ExtResource("6_muxi1")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "W5
+"
 
 [node name="Popup" parent="." instance=ExtResource("5_osk20")]
 unique_name_in_owner = true
@@ -505,5 +548,13 @@ visible = false
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/CoursesBtn" to="." method="_on_supply_id_pressed" binds= [1]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/RoomsBtn" to="." method="_on_supply_id_pressed" binds= [2]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TimeslotsBtn" to="." method="_on_supply_id_pressed" binds= [3]]
-[connection signal="pressed" from="IntensiveCheckBox" to="." method="_on_intensive_check_box_pressed"]
-[connection signal="pressed" from="GeneralCheckBox" to="." method="_on_general_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/IntensiveCheckBox" to="." method="_on_intensive_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/GeneralCheckBox" to="." method="_on_general_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Mon1" to="." method="_on_general_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Mon2" to="." method="_on_general_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Mon3" to="." method="_on_general_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Wed1" to="." method="_on_general_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Wed2" to="." method="_on_general_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Wed3" to="." method="_on_general_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Wed4" to="." method="_on_general_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Wed5" to="." method="_on_general_check_box_pressed"]

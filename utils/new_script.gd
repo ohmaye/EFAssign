@@ -14,3 +14,4 @@ func _ready() -> void:
 
 	formatted_string = "Name: %s, Age: %d" % [name, age]
 	print(formatted_string)  # Output: Name: John, Age: 30
+	print("Nada")

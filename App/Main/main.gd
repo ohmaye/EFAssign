@@ -12,7 +12,7 @@ func _ready():
 	GlobalVars.w3_checkbox = %Wed3
 	GlobalVars.w4_checkbox = %Wed4
 	GlobalVars.w5_checkbox = %Wed5
-	$FileDialog.visible = true
+	$FileDialog.visible = false
 	
 # DEMAND
 var survey_scene = preload("res://App/demand/survey.tscn")

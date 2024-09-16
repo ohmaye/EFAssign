@@ -23,14 +23,12 @@ func _add_new():
 	var db = AssignDB.db
 	var id = Utilities.uuid.v4()
 	var sql_stmt = "INSERT INTO teachers (teacher_id)  VALUES ('{0}')"
-	print("Add new teacher", sql_stmt.format([id]))
 
 	var row = {"teacher_id": id}
 	for column in COLUMN_NAMES:
 		row[column] = ""
 
 	var result = db.query(sql_stmt.format([id]))
-	print("Result:", result, db.query_result)
 
 	if result:
 		popup.render(row, query_info)

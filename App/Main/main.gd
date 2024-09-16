@@ -4,6 +4,15 @@ extends Control
 func _ready():
 	GlobalVars.general_checkbox = %GeneralCheckBox
 	GlobalVars.intensive_checkbox = %IntensiveCheckBox
+	GlobalVars.m1_checkbox = %Mon1
+	GlobalVars.m2_checkbox = %Mon2
+	GlobalVars.m3_checkbox = %Mon3
+	GlobalVars.w1_checkbox = %Wed1
+	GlobalVars.w2_checkbox = %Wed2
+	GlobalVars.w3_checkbox = %Wed3
+	GlobalVars.w4_checkbox = %Wed4
+	GlobalVars.w5_checkbox = %Wed5
+	$FileDialog.visible = true
 	
 # DEMAND
 var survey_scene = preload("res://App/demand/survey.tscn")
@@ -90,11 +99,7 @@ func _on_supply_id_pressed(id:int):
 
 
 func _on_add_btn_pressed() -> void:
-	print("Add pressed")
 	Signals.add_new.emit()
 
-func _on_general_check_box_pressed() -> void:
-	Signals.data_changed.emit()
-
-func _on_intensive_check_box_pressed() -> void:
+func _on_check_box_pressed() -> void:
 	Signals.data_changed.emit()

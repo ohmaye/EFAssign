@@ -1,9 +1,9 @@
 [gd_resource type="Theme" load_steps=13 format=3 uid="uid://b4mgxtwuy0160"]
 
-[ext_resource type="Texture2D" uid="uid://cai7ulxfit10w" path="res://Icons/checkbox_checked.svg" id="1_pc2dm"]
-[ext_resource type="Texture2D" uid="uid://2jbugi508pp0" path="res://Icons/checkbox_checked_disabled.svg" id="2_dpqxs"]
-[ext_resource type="Texture2D" uid="uid://blvdu4clhfr0a" path="res://Icons/checkbox_unchecked.svg" id="3_3w3tj"]
-[ext_resource type="Texture2D" uid="uid://b8xcf8nps800x" path="res://Icons/checkbox_unchecked_disabled.svg" id="4_nyfgh"]
+[ext_resource type="Texture2D" uid="uid://cakclmicnguxj" path="res://Icons/checkbox_checked.svg" id="1_p02l6"]
+[ext_resource type="Texture2D" uid="uid://cyubfcjpj07tn" path="res://Icons/checkbox_checked_disabled.svg" id="2_qjlty"]
+[ext_resource type="Texture2D" uid="uid://cqx8v8wet6sbw" path="res://Icons/checkbox_unchecked.svg" id="3_nbwdw"]
+[ext_resource type="Texture2D" uid="uid://c4urriyiet5f6" path="res://Icons/checkbox_unchecked_disabled.svg" id="4_oggfy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p22nk"]
 bg_color = Color(0.561149, 0.704473, 1, 1)
@@ -50,10 +50,10 @@ CheckBox/colors/font_hover_pressed_color = Color(0.0341922, 0.149764, 0.220925, 
 CheckBox/colors/font_pressed_color = Color(5.77569e-06, 0, 0.976502, 1)
 CheckBox/constants/h_separation = 8
 CheckBox/font_sizes/font_size = 28
-CheckBox/icons/checked = ExtResource("1_pc2dm")
-CheckBox/icons/checked_disabled = ExtResource("2_dpqxs")
-CheckBox/icons/unchecked = ExtResource("3_3w3tj")
-CheckBox/icons/unchecked_disabled = ExtResource("4_nyfgh")
+CheckBox/icons/checked = ExtResource("1_p02l6")
+CheckBox/icons/checked_disabled = ExtResource("2_qjlty")
+CheckBox/icons/unchecked = ExtResource("3_nbwdw")
+CheckBox/icons/unchecked_disabled = ExtResource("4_oggfy")
 CheckBox/styles/hover = SubResource("StyleBoxFlat_hoyh4")
 CheckBox/styles/normal = SubResource("StyleBoxFlat_4arhb")
 CheckBox/styles/pressed = SubResource("StyleBoxFlat_3ok1e")

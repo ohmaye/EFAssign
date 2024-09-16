@@ -11,7 +11,6 @@ func render():
 	var intensive = "Intensive" if GlobalVars.intensive_checkbox.button_pressed else ""
 	var general = "General" if GlobalVars.general_checkbox.button_pressed else ""
 	var sql_stmt = sql.format([intensive, general])
-	print("SQL: ", sql_stmt)
 
 	var db = AssignDB.db
 	var result = db.query(sql_stmt)

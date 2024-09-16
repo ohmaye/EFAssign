@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://culw78em78rbp"]
+
+[ext_resource type="Script" path="res://UI/file_dialog.gd" id="1_7xarq"]
+
+[node name="FileDialog" type="FileDialog"]
+title = "Open a File"
+size = Vector2i(691, 219)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.db")
+use_native_dialog = true
+script = ExtResource("1_7xarq")
+
+[connection signal="file_selected" from="." to="." method="_on_file_selected"]

@@ -66,9 +66,9 @@ func _on_save_btn_pressed() -> void:
 	var index = 0
 	for field in container.get_children():
 		if field is LineEdit:
-			print("Node:", row[query_info.key], query_info.columns[index], field.text)
+			# print("Node:", row[query_info.key], query_info.columns[index], field.text)
 			sql_stmt = sql.format([query_info.table, query_info.columns[index], field.text, query_info.key, row[query_info.key]])
-			print(sql_stmt)
+			# print(sql_stmt)
 			db.query(sql_stmt)
 			index += 1
 

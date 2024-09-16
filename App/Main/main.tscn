@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://x8u7tb17udya"]
+[gd_scene load_steps=10 format=3 uid="uid://x8u7tb17udya"]
 
 [ext_resource type="Script" path="res://App/Main/main.gd" id="1_bm34x"]
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_m2frl"]
@@ -7,6 +7,7 @@
 [ext_resource type="StyleBox" uid="uid://bigi11vomfv16" path="res://themes/style_button.tres" id="5_7334v"]
 [ext_resource type="PackedScene" uid="uid://b4da3to7mvee5" path="res://UI/popup/popup.tscn" id="5_osk20"]
 [ext_resource type="PackedScene" uid="uid://dw70vonudpgfe" path="res://UI/check_box.tscn" id="6_muxi1"]
+[ext_resource type="PackedScene" uid="uid://culw78em78rbp" path="res://UI/file_dialog.tscn" id="8_puobd"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
 color = Color(0.595154, 0.595154, 0.595154, 1)
@@ -335,29 +336,32 @@ grow_vertical = 2
 theme_override_constants/separation = 80
 alignment = 1
 
-[node name="TeacherPreferencesBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
-layout_mode = 2
-text = "Teacher Preferences"
-flat = true
-
 [node name="StudentPreferencesBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
 layout_mode = 2
 text = "Student Preferences"
 flat = true
 
-[node name="AnalyzeBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
-layout_mode = 2
-text = "Analyze"
-flat = true
-
 [node name="AssignBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Assign"
 flat = true
 
+[node name="AnalyzeBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Analyze"
+flat = true
+
 [node name="ReportsBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Reports"
+flat = true
+
+[node name="TeacherPreferencesBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+text = "Teacher Preferences"
 flat = true
 
 [node name="AssignContent" type="Panel" parent="TabContainer/Assign/VBoxContainer"]
@@ -532,29 +536,32 @@ text = "W5
 unique_name_in_owner = true
 visible = false
 
+[node name="FileDialog" parent="." instance=ExtResource("8_puobd")]
+size = Vector2i(691, 227)
+
 [connection signal="id_pressed" from="MenuBar/Supply" to="." method="_on_supply_id_pressed"]
 [connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/SurveyBtn" to="." method="_on_demand_id_pressed" binds= [0]]
 [connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/StudentsBtn" to="." method="_on_demand_id_pressed" binds= [1]]
 [connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByStudentBtn" to="." method="_on_demand_id_pressed" binds= [2]]
 [connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByCourseBtn" to="." method="_on_demand_id_pressed" binds= [5]]
 [connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByLevelBtn" to="." method="_on_demand_id_pressed" binds= [4]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/TeacherPreferencesBtn" to="." method="_on_assign_id_pressed" binds= [0]]
 [connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/StudentPreferencesBtn" to="." method="_on_assign_id_pressed" binds= [1]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/AnalyzeBtn" to="." method="_on_assign_id_pressed" binds= [2]]
 [connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/AssignBtn" to="." method="_on_assign_id_pressed" binds= [3]]
+[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/AnalyzeBtn" to="." method="_on_assign_id_pressed" binds= [2]]
 [connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/ReportsBtn" to="." method="_on_assign_id_pressed" binds= [4]]
+[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/TeacherPreferencesBtn" to="." method="_on_assign_id_pressed" binds= [0]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/AddBtn" to="." method="_on_add_btn_pressed"]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TeachersBtn" to="." method="_on_supply_id_pressed" binds= [0]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/CoursesBtn" to="." method="_on_supply_id_pressed" binds= [1]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/RoomsBtn" to="." method="_on_supply_id_pressed" binds= [2]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TimeslotsBtn" to="." method="_on_supply_id_pressed" binds= [3]]
-[connection signal="pressed" from="HBoxContainer/IntensiveCheckBox" to="." method="_on_intensive_check_box_pressed"]
-[connection signal="pressed" from="HBoxContainer/GeneralCheckBox" to="." method="_on_general_check_box_pressed"]
-[connection signal="pressed" from="HBoxContainer/Mon1" to="." method="_on_general_check_box_pressed"]
-[connection signal="pressed" from="HBoxContainer/Mon2" to="." method="_on_general_check_box_pressed"]
-[connection signal="pressed" from="HBoxContainer/Mon3" to="." method="_on_general_check_box_pressed"]
-[connection signal="pressed" from="HBoxContainer/Wed1" to="." method="_on_general_check_box_pressed"]
-[connection signal="pressed" from="HBoxContainer/Wed2" to="." method="_on_general_check_box_pressed"]
-[connection signal="pressed" from="HBoxContainer/Wed3" to="." method="_on_general_check_box_pressed"]
-[connection signal="pressed" from="HBoxContainer/Wed4" to="." method="_on_general_check_box_pressed"]
-[connection signal="pressed" from="HBoxContainer/Wed5" to="." method="_on_general_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/IntensiveCheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/GeneralCheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Mon1" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Mon2" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Mon3" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Wed1" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Wed2" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Wed3" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Wed4" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="HBoxContainer/Wed5" to="." method="_on_check_box_pressed"]

@@ -3,7 +3,6 @@ extends Tree
 const COLUMN_NAMES  = Constants.DEMAND_COLUMN_NAMES
 const KEY = Constants.DEMAND_KEY
 
-const sql_unique_courses = "SELECT DISTINCT code FROM courses ORDER BY code"
 const sql = "SELECT * FROM demand WHERE program IN ('%s', '%s') ORDER BY firstName, lastName"
 
 func _ready():
@@ -17,12 +16,13 @@ func _ready():
 	var db = AssignDB.db
 	var result = db.query(sql_stmt)
 
-	var courses = db.query(sql_unique_courses)
-	courses = db.query_result
+	# Get Courses
+	const sql_unique_courses = "SELECT DISTINCT course_code FROM studentpreferences ORDER BY course_code"
+	var has_courses = db.query(sql_unique_courses)
+	var courses = db.query_result
+	print("Courses: ", courses)
 
-	# If there are no results, return
-	if not result:
-		return
+
 
 	# Set up the columns
 	set_columns(3)
@@ -46,9 +46,16 @@ func _ready():
 	# Populate the tree with items
 	for course in courses:
 		var item = create_item(root)
-		item.set_text(0, course["code"])
+		item.set_text(0, course["course_code"])
 		item.set_text(1, "xxx")
 		item.set_text(2, "yyy")
+		# Get Levels
+		var sql_unique_levels = "SELECT DISTINCT level FROM studentpreferences WHERE course_code = '%s' ORDER BY level" % course["course_code"]
+		var has_levels = db.query(sql_unique_levels)
+		var levels = db.query_result
+		for level in levels:
+			var child_item = create_item(item)
+			child_item.set_text(1,level["level"])
 	
 	# Add a child item to Alice
 	var alice_item = root.get_first_child()

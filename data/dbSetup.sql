@@ -63,10 +63,31 @@ CREATE TABLE teacherpreferences (
 DROP TABLE IF EXISTS studentpreferences;
 CREATE TABLE studentpreferences (
   student_id TEXT NOT NULL,
+  firstName TEXT,
+  lastName TEXT,
+  level TEXT,
+  program TEXT,
   weekday TEXT,
   ranking INTEGER,
-  course_id TEXT
+  course_code TEXT
 );
+-- Instead of neo4j import above, below is the query to create it from demand
+INSERT INTO studentpreferences (student_id, firstName, lastName, program, level, weekday, ranking, course_code)
+SELECT student_id, firstName, lastName, program, level, 'Mon01', 1, Mon01 FROM demand WHERE Mon01 IS NOT '' 
+UNION ALL
+SELECT student_id, firstName, lastName, program, level, 'Mon02', 2, Mon02 FROM demand WHERE Mon02 IS NOT ''
+UNION ALL
+SELECT student_id, firstName, lastName, program, level, 'Mon03', 3, Mon03 FROM demand WHERE Mon03 IS NOT ''
+UNION ALL
+SELECT student_id, firstName, lastName, program, level, 'Wed01', 1, Wed01 FROM demand WHERE Wed01 IS NOT ''
+UNION ALL
+SELECT student_id, firstName, lastName, program, level, 'Wed02', 2, Wed02 FROM demand WHERE Wed02 IS NOT ''
+UNION ALL
+SELECT student_id, firstName, lastName, program, level, 'Wed03', 3, Wed03 FROM demand WHERE Wed03 IS NOT ''
+UNION ALL
+SELECT student_id, firstName, lastName, program, level, 'Wed04', 4, Wed04 FROM demand WHERE Wed04 IS NOT ''
+UNION ALL
+SELECT student_id, firstName, lastName, program, level, 'Wed05', 5, Wed05 FROM demand WHERE Wed05 IS NOT '';
 
 -- MATCH (e:Event) RETURN e.id, e.what, e.courseID, e.roomID, e.timeSlotID, e.teacherID
 DROP TABLE IF EXISTS classes;

@@ -1,9 +1,9 @@
 [gd_resource type="Theme" load_steps=13 format=3 uid="uid://b4mgxtwuy0160"]
 
-[ext_resource type="Texture2D" uid="uid://cakclmicnguxj" path="res://icons/checkbox_checked.svg" id="1_p02l6"]
-[ext_resource type="Texture2D" uid="uid://cyubfcjpj07tn" path="res://icons/checkbox_checked_disabled.svg" id="2_qjlty"]
-[ext_resource type="Texture2D" uid="uid://cqx8v8wet6sbw" path="res://icons/checkbox_unchecked.svg" id="3_nbwdw"]
-[ext_resource type="Texture2D" uid="uid://c4urriyiet5f6" path="res://icons/checkbox_unchecked_disabled.svg" id="4_oggfy"]
+[ext_resource type="Texture2D" uid="uid://cakclmicnguxj" path="res://Icons/checkbox_checked.svg" id="1_p02l6"]
+[ext_resource type="Texture2D" uid="uid://cyubfcjpj07tn" path="res://Icons/checkbox_checked_disabled.svg" id="2_qjlty"]
+[ext_resource type="Texture2D" uid="uid://cqx8v8wet6sbw" path="res://Icons/checkbox_unchecked.svg" id="3_nbwdw"]
+[ext_resource type="Texture2D" uid="uid://c4urriyiet5f6" path="res://Icons/checkbox_unchecked_disabled.svg" id="4_oggfy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p22nk"]
 bg_color = Color(0.561149, 0.704473, 1, 1)

@@ -1,11 +1,5 @@
 extends Control
 
-@export var survey_btn : Button
-@export var students_btn : Button
-@export var by_student_btn : Button
-@export var by_level_btn : Button
-@export var by_course_btn : Button
-
 # Set global vars
 func _ready():
 	GlobalVars.general_checkbox = %GeneralCheckBox
@@ -19,12 +13,23 @@ func _ready():
 	GlobalVars.w4_checkbox = %Wed4
 	GlobalVars.w5_checkbox = %Wed5
 	# $FileDialog.visible = false
-	survey_btn.pressed.connect(_on_demand_id_pressed, 0)
-	print("Signal connected")
-	students_btn.pressed.connect(_on_demand_id_pressed, 1)
-	by_student_btn.pressed.connect(_on_demand_id_pressed, 2)
-	by_course_btn.pressed.connect(_on_demand_id_pressed, 3)
-	by_level_btn.pressed.connect(_on_demand_id_pressed, 4)
+	# Connect DEMAND buttons to scenes
+	%SurveyBtn.pressed.connect(_on_demand_id_pressed.bind(0))
+	%StudentsBtn.pressed.connect(_on_demand_id_pressed.bind(1))
+	%ByStudentBtn.pressed.connect(_on_demand_id_pressed.bind(2))
+	%ByCourseBtn.pressed.connect(_on_demand_id_pressed.bind(3))
+	%ByLevelBtn.pressed.connect(_on_demand_id_pressed.bind(4))
+	# Connect ASSIGN buttons to scenes
+	%StudentPreferencesBtn.pressed.connect(_on_assign_id_pressed.bind(0))
+	%AssignBtn.pressed.connect(_on_assign_id_pressed.bind(1))
+	%AnalyzeBtn.pressed.connect(_on_assign_id_pressed.bind(2))
+	%ReportsBtn.pressed.connect(_on_assign_id_pressed.bind(3))
+	%TeacherPreferencesBtn.pressed.connect(_on_assign_id_pressed.bind(4))
+	# Connect SUPPLY buttons to scenes
+	%TeachersBtn.pressed.connect(_on_supply_id_pressed.bind(0))
+	%CoursesBtn.pressed.connect(_on_supply_id_pressed.bind(1))
+	%RoomsBtn.pressed.connect(_on_supply_id_pressed.bind(2))
+	%TimeslotsBtn.pressed.connect(_on_supply_id_pressed.bind(3))
 
 	
 # DEMAND
@@ -50,8 +55,6 @@ func _on_demand_id_pressed(id:int):
 			scene = by_course_scene.instantiate()
 		4:
 			scene = by_level_scene.instantiate()
-		_:	
-			scene = by_course_scene.instantiate()
 
 	scene.call_deferred("render")	
 	content_container.add_child(scene)
@@ -70,17 +73,15 @@ func _on_assign_id_pressed(id:int):
 	var scene
 	match id:
 		0:
-			scene = teacher_preferences_scene.instantiate()
-		1:
 			scene = student_preferences_scene.instantiate()
+		1:
+			scene = assign_scene.instantiate()
 		2:
 			scene = analyze_scene.instantiate()
 		3:
-			scene = by_course_scene.instantiate()
-		4:
-			scene = assign_scene.instantiate()
-		_:	
 			scene = reports_scene.instantiate()
+		4:
+			scene = teacher_preferences_scene.instantiate()
 
 	scene.call_deferred("render")	
 	content_container.add_child(scene)
@@ -105,8 +106,6 @@ func _on_supply_id_pressed(id:int):
 			scene = rooms_scene.instantiate()
 		3:
 			scene = timeslots_scene.instantiate()
-		_:	
-			scene = teachers_scene.instantiate()
 
 	scene.call_deferred("render")		
 	content_container.add_child(scene)

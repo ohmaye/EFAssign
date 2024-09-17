@@ -5,6 +5,9 @@ const KEY = Constants.DEMAND_KEY
 
 const sql = "SELECT * FROM demand WHERE program IN ('%s', '%s') ORDER BY firstName, lastName"
 
+
+var by_level_scene = preload("res://App/demand/by_level.tscn")
+
 func render():
 	# Enable Intensive/General
 	GlobalVars.intensive_checkbox.disabled = false
@@ -23,9 +26,12 @@ func render():
 		
 	var query_info = QueryInfo.new("demand", COLUMN_NAMES, db.query_result, KEY )
 
-	$Table.render(query_info)
+	%Table.render(query_info)
+	var scene = by_level_scene.instantiate()
+	scene.call_deferred("render")
+	%Table2.add_child(scene)
+	var scene2 = by_level_scene.instantiate()
+	scene2.call_deferred("render")
+	%Table3.add_child(scene2)
 
 	
-
-
-

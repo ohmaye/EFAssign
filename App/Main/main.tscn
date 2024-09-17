@@ -510,6 +510,7 @@ button_pressed = true
 text = "M3"
 
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 2

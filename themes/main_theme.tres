@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://b4mgxtwuy0160"]
+[gd_resource type="Theme" load_steps=14 format=3 uid="uid://b4mgxtwuy0160"]
 
 [ext_resource type="Texture2D" uid="uid://cakclmicnguxj" path="res://Icons/checkbox_checked.svg" id="1_p02l6"]
 [ext_resource type="Texture2D" uid="uid://cyubfcjpj07tn" path="res://Icons/checkbox_checked_disabled.svg" id="2_qjlty"]
@@ -33,6 +33,9 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wxfe"]
 bg_color = Color(0.454079, 0.628234, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8rof"]
+bg_color = Color(0.190762, 0.190762, 0.190762, 1)
 
 [resource]
 Button/colors/font_color = Color(0, 0, 1, 1)
@@ -74,3 +77,9 @@ PopupMenu/font_sizes/font_size = 36
 PopupMenu/font_sizes/title_font_size = 36
 TabContainer/font_sizes/font_size = 36
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_6wxfe")
+Tree/constants/button_margin = 12
+Tree/constants/item_margin = 33
+Tree/constants/v_separation = 20
+Tree/font_sizes/font_size = 32
+Tree/font_sizes/title_button_font_size = 32
+Tree/styles/panel = SubResource("StyleBoxFlat_l8rof")

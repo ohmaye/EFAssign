@@ -1,19 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://x8u7tb17udya"]
+[gd_scene load_steps=9 format=3 uid="uid://x8u7tb17udya"]
 
 [ext_resource type="Script" path="res://App/Main/main.gd" id="1_bm34x"]
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_m2frl"]
 [ext_resource type="StyleBox" uid="uid://pkeyw1gbp6s" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
-[ext_resource type="StyleBox" uid="uid://b7ascd11wu7mk" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
-[ext_resource type="StyleBox" uid="uid://bigi11vomfv16" path="res://themes/style_button.tres" id="5_7334v"]
+[ext_resource type="StyleBox" uid="uid://i631fq2csgsv" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
+[ext_resource type="StyleBox" path="res://themes/style_button.tres" id="5_7334v"]
 [ext_resource type="PackedScene" uid="uid://b4da3to7mvee5" path="res://UI/popup/popup.tscn" id="5_osk20"]
-[ext_resource type="PackedScene" uid="uid://dw70vonudpgfe" path="res://UI/check_box.tscn" id="6_muxi1"]
-[ext_resource type="PackedScene" uid="uid://culw78em78rbp" path="res://UI/file_dialog.tscn" id="8_puobd"]
+[ext_resource type="PackedScene" path="res://UI/check_box.tscn" id="6_muxi1"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
 color = Color(0.595154, 0.595154, 0.595154, 1)
 thickness = 2
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" node_paths=PackedStringArray("survey_btn", "students_btn", "by_student_btn", "by_level_btn", "by_course_btn")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +22,11 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_bm34x")
+survey_btn = NodePath("TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/SurveyBtn")
+students_btn = NodePath("TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/StudentsBtn")
+by_student_btn = NodePath("TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByStudentBtn")
+by_level_btn = NodePath("TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByLevelBtn")
+by_course_btn = NodePath("TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByCourseBtn")
 
 [node name="MenuBar" type="MenuBar" parent="."]
 layout_mode = 2
@@ -536,25 +540,8 @@ text = "W5
 unique_name_in_owner = true
 visible = false
 
-[node name="FileDialog" parent="." instance=ExtResource("8_puobd")]
-size = Vector2i(691, 227)
-
 [connection signal="id_pressed" from="MenuBar/Supply" to="." method="_on_supply_id_pressed"]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/SurveyBtn" to="." method="_on_demand_id_pressed" binds= [0]]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/StudentsBtn" to="." method="_on_demand_id_pressed" binds= [1]]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByStudentBtn" to="." method="_on_demand_id_pressed" binds= [2]]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByCourseBtn" to="." method="_on_demand_id_pressed" binds= [5]]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByLevelBtn" to="." method="_on_demand_id_pressed" binds= [4]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/StudentPreferencesBtn" to="." method="_on_assign_id_pressed" binds= [1]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/AssignBtn" to="." method="_on_assign_id_pressed" binds= [3]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/AnalyzeBtn" to="." method="_on_assign_id_pressed" binds= [2]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/ReportsBtn" to="." method="_on_assign_id_pressed" binds= [4]]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/TeacherPreferencesBtn" to="." method="_on_assign_id_pressed" binds= [0]]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/AddBtn" to="." method="_on_add_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TeachersBtn" to="." method="_on_supply_id_pressed" binds= [0]]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/CoursesBtn" to="." method="_on_supply_id_pressed" binds= [1]]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/RoomsBtn" to="." method="_on_supply_id_pressed" binds= [2]]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TimeslotsBtn" to="." method="_on_supply_id_pressed" binds= [3]]
 [connection signal="pressed" from="HBoxContainer/IntensiveCheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="HBoxContainer/GeneralCheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="HBoxContainer/Mon1" to="." method="_on_check_box_pressed"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbargosddf4ey"]
+[gd_scene load_steps=2 format=3 uid="uid://dgrhacljumvxm"]
 
-[ext_resource type="StyleBox" uid="uid://0kiwdwnttuju" path="res://UI/table/styles/filter_cell_normal.tres" id="1_bw1wx"]
+[ext_resource type="StyleBox" uid="uid://duvwxm2rgiskf" path="res://UI/table/styles/filter_cell_normal.tres" id="1_bw1wx"]
 
 [node name="Filter" type="LineEdit"]
 anchors_preset = 15

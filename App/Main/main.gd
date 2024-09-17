@@ -1,5 +1,11 @@
 extends Control
 
+@export var survey_btn : Button
+@export var students_btn : Button
+@export var by_student_btn : Button
+@export var by_level_btn : Button
+@export var by_course_btn : Button
+
 # Set global vars
 func _ready():
 	GlobalVars.general_checkbox = %GeneralCheckBox
@@ -12,7 +18,14 @@ func _ready():
 	GlobalVars.w3_checkbox = %Wed3
 	GlobalVars.w4_checkbox = %Wed4
 	GlobalVars.w5_checkbox = %Wed5
-	$FileDialog.visible = false
+	# $FileDialog.visible = false
+	survey_btn.pressed.connect(_on_demand_id_pressed, 0)
+	print("Signal connected")
+	students_btn.pressed.connect(_on_demand_id_pressed, 1)
+	by_student_btn.pressed.connect(_on_demand_id_pressed, 2)
+	by_course_btn.pressed.connect(_on_demand_id_pressed, 3)
+	by_level_btn.pressed.connect(_on_demand_id_pressed, 4)
+
 	
 # DEMAND
 var survey_scene = preload("res://App/demand/survey.tscn")
@@ -22,6 +35,7 @@ var by_level_scene = preload("res://App/demand/by_level.tscn")
 var by_course_scene = preload("res://App/demand/by_course.tscn")
 
 func _on_demand_id_pressed(id:int):
+	print("Demand ID: ", id)
 	var content_container = %DemandContent
 	Utilities.remove_all_children(content_container)
 	var scene

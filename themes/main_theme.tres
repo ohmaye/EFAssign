@@ -1,10 +1,11 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://b4mgxtwuy0160"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://b4mgxtwuy0160"]
 
-[ext_resource type="Texture2D" uid="uid://cakclmicnguxj" path="res://Icons/checkbox_checked.svg" id="1_p02l6"]
-[ext_resource type="Texture2D" uid="uid://cyubfcjpj07tn" path="res://Icons/checkbox_checked_disabled.svg" id="2_qjlty"]
-[ext_resource type="Texture2D" uid="uid://cqx8v8wet6sbw" path="res://Icons/checkbox_unchecked.svg" id="3_nbwdw"]
-[ext_resource type="Texture2D" uid="uid://c4urriyiet5f6" path="res://Icons/checkbox_unchecked_disabled.svg" id="4_oggfy"]
-[ext_resource type="Texture2D" uid="uid://daorr0ik3b0g" path="res://Icons/expand.svg" id="5_n0tq2"]
+[ext_resource type="Texture2D" uid="uid://cakclmicnguxj" path="res://icons/checkbox_checked.svg" id="1_p02l6"]
+[ext_resource type="Texture2D" uid="uid://cyubfcjpj07tn" path="res://icons/checkbox_checked_disabled.svg" id="2_qjlty"]
+[ext_resource type="Texture2D" uid="uid://cqx8v8wet6sbw" path="res://icons/checkbox_unchecked.svg" id="3_nbwdw"]
+[ext_resource type="Texture2D" uid="uid://c4urriyiet5f6" path="res://icons/checkbox_unchecked_disabled.svg" id="4_oggfy"]
+[ext_resource type="Texture2D" uid="uid://buisjp20ootup" path="res://icons/expanded.svg" id="5_kcxau"]
+[ext_resource type="Texture2D" uid="uid://cddklh8aa5f28" path="res://icons/collapsed.svg" id="6_50yuy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p22nk"]
 bg_color = Color(0.561149, 0.704473, 1, 1)
@@ -36,7 +37,7 @@ bg_color = Color(1, 1, 1, 1)
 bg_color = Color(0.454079, 0.628234, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8rof"]
-bg_color = Color(0.43134, 0.43134, 0.43134, 1)
+bg_color = Color(0.199732, 0.199732, 0.199732, 1)
 
 [resource]
 Button/colors/font_color = Color(0, 0, 1, 1)
@@ -79,9 +80,10 @@ PopupMenu/font_sizes/title_font_size = 36
 TabContainer/font_sizes/font_size = 36
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_6wxfe")
 Tree/constants/button_margin = 12
-Tree/constants/item_margin = 33
+Tree/constants/item_margin = 40
 Tree/constants/v_separation = 20
 Tree/font_sizes/font_size = 32
 Tree/font_sizes/title_button_font_size = 32
-Tree/icons/arrow = ExtResource("5_n0tq2")
+Tree/icons/arrow = ExtResource("5_kcxau")
+Tree/icons/arrow_collapsed = ExtResource("6_50yuy")
 Tree/styles/panel = SubResource("StyleBoxFlat_l8rof")

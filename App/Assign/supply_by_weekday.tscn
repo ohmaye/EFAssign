@@ -1,18 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl3phh3vqe0tv"]
+[gd_scene load_steps=3 format=3 uid="uid://dl3phh3vqe0tv"]
 
-[ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_dtt1i"]
 [ext_resource type="Script" path="res://App/Assign/supply_by_weekday.gd" id="2_0ck8h"]
-[ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="3_b8iht"]
 
-[node name="Courses" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8qfb"]
+
+[node name="SupplyByWeekdays" type="ScrollContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_dtt1i")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_i8qfb")
 script = ExtResource("2_0ck8h")
 
-[node name="Table" parent="." instance=ExtResource("3_b8iht")]
-layout_mode = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl3phh3vqe0tv"]
+
+[ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_dtt1i"]
+[ext_resource type="Script" path="res://App/Assign/supply_by_weekday.gd" id="2_0ck8h"]
+[ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="3_b8iht"]
+
+[node name="Courses" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dtt1i")
+script = ExtResource("2_0ck8h")
+
+[node name="Table" parent="." instance=ExtResource("3_b8iht")]
+layout_mode = 1

@@ -7,8 +7,8 @@ const sql = "SELECT * FROM demand WHERE program IN ('%s', '%s') ORDER BY firstNa
 
 # Test
 var demand_by_course = preload("res://App/assign/demand_by_course.tscn")
-var by_level_scene = preload("res://App/demand/by_level.tscn")
-var classes_scene = preload("res://App/Supply/classes.tscn")
+var connect_scene = preload("res://App/assign/connect.tscn")
+var classes_scene = preload("res://App/assign/supply_by_weekday.tscn")
 
 func render():
 	# Enable Intensive/General
@@ -30,7 +30,7 @@ func render():
 
 	var scene = demand_by_course.instantiate()
 	%DemandTable.add_child(scene)
-	scene = by_level_scene.instantiate()
+	scene = connect_scene.instantiate()
 	scene.call_deferred("render")
 	%AssignTable.add_child(scene)
 	var scene2 = classes_scene.instantiate()

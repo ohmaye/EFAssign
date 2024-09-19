@@ -12,7 +12,7 @@ const TEACHER_COLUMN_NAMES = ["name", "nameJP", "email", "active"]
 const TEACHER_COLUMN_RATIOS = [1,1,1,0.2]
 const TEACHER_KEY = "teacher_id"
 
-# Courses
+# Classes
 const CLASSES_COLUMN_NAMES = ["course", "class", "when", "where", "who"]
 const CLASSES_KEY = "class_id"
 
@@ -100,3 +100,7 @@ const BY_LEVEL_COLUMN_NAMES = [
     "Total"
 ]
 const BY_LEVEL_KEY = "level"
+
+# Classes
+const SUPPLY_BY_WEEKDAY_COLUMN_NAMES = ["course", "class", "when", "where", "who"]
+const SUPPLY_BY_WEEKDAY_KEY = "class_id"

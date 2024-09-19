@@ -51,10 +51,4 @@ func _ready():
 				str_entry.set_text(0, student["firstName"] + " " + student["lastName"])
 				str_entry.set_text(1, student["weekday"])
 				str_entry.set_text(2,"88")
-	
-	# Add a child item to Alice
-	# var alice_item = root.get_first_child()
-	# var child_item = create_item(alice_item)
-	# child_item.set_text(0, "Daughter")
-	# child_item.set_text(1, "5")
-	# child_item.set_text(2, "Student")
+

@@ -13,6 +13,10 @@ const TEACHER_COLUMN_RATIOS = [1,1,1,0.2]
 const TEACHER_KEY = "teacher_id"
 
 # Courses
+const CLASSES_COLUMN_NAMES = ["course", "class", "when", "where", "who"]
+const CLASSES_KEY = "class_id"
+
+# Courses
 const COURSE_COLUMN_NAMES = ["code", "title", "active"]
 const COURSE_KEY = "course_id"
 

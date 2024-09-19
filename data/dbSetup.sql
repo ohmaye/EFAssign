@@ -303,3 +303,11 @@ FROM (
     UNION ALL
     SELECT Wed05 AS course, 'Wed05' AS time_slot, program FROM demand WHERE Wed05 IS NOT NULL AND Wed05 != ''
 )
+
+
+-- Classes
+SELECT courses.code as 'course', classes.title as 'class', rooms.name as 'where', timeslots.weekday || ' ' || timeslots.start_time as 'when', teachers.name as 'who' FROM classes
+LEFT JOIN courses USING (course_id)
+LEFT JOIN rooms USING (room_id)
+LEFT JOIN timeslots USING (timeslot_id)
+LEFT JOIN teachers USING (teacher_id)

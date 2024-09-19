@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://App/Main/main.gd" id="1_bm34x"]
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_m2frl"]
 [ext_resource type="StyleBox" uid="uid://pkeyw1gbp6s" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
-[ext_resource type="StyleBox" uid="uid://i631fq2csgsv" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
-[ext_resource type="StyleBox" path="res://themes/style_button.tres" id="5_7334v"]
+[ext_resource type="StyleBox" uid="uid://b7ascd11wu7mk" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
+[ext_resource type="StyleBox" uid="uid://bigi11vomfv16" path="res://themes/style_button.tres" id="5_7334v"]
 [ext_resource type="PackedScene" uid="uid://b4da3to7mvee5" path="res://UI/popup/popup.tscn" id="5_osk20"]
-[ext_resource type="PackedScene" path="res://UI/check_box.tscn" id="6_muxi1"]
+[ext_resource type="PackedScene" uid="uid://dw70vonudpgfe" path="res://UI/check_box.tscn" id="6_muxi1"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
 color = Color(0.595154, 0.595154, 0.595154, 1)
@@ -422,6 +422,12 @@ theme_override_styles/focus = ExtResource("5_7334v")
 theme_override_styles/hover = ExtResource("5_7334v")
 theme_override_styles/normal = ExtResource("5_7334v")
 text = "Add New +"
+flat = true
+
+[node name="ClassesBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Classes"
 flat = true
 
 [node name="TeachersBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]

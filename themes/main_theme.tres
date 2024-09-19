@@ -1,11 +1,11 @@
 [gd_resource type="Theme" load_steps=16 format=3 uid="uid://b4mgxtwuy0160"]
 
-[ext_resource type="Texture2D" uid="uid://cakclmicnguxj" path="res://icons/checkbox_checked.svg" id="1_p02l6"]
-[ext_resource type="Texture2D" uid="uid://cyubfcjpj07tn" path="res://icons/checkbox_checked_disabled.svg" id="2_qjlty"]
-[ext_resource type="Texture2D" uid="uid://cqx8v8wet6sbw" path="res://icons/checkbox_unchecked.svg" id="3_nbwdw"]
-[ext_resource type="Texture2D" uid="uid://c4urriyiet5f6" path="res://icons/checkbox_unchecked_disabled.svg" id="4_oggfy"]
-[ext_resource type="Texture2D" uid="uid://buisjp20ootup" path="res://icons/expanded.svg" id="5_kcxau"]
-[ext_resource type="Texture2D" uid="uid://cddklh8aa5f28" path="res://icons/collapsed.svg" id="6_50yuy"]
+[ext_resource type="Texture2D" uid="uid://cakclmicnguxj" path="res://Icons/checkbox_checked.svg" id="1_p02l6"]
+[ext_resource type="Texture2D" uid="uid://cyubfcjpj07tn" path="res://Icons/checkbox_checked_disabled.svg" id="2_qjlty"]
+[ext_resource type="Texture2D" uid="uid://cqx8v8wet6sbw" path="res://Icons/checkbox_unchecked.svg" id="3_nbwdw"]
+[ext_resource type="Texture2D" uid="uid://c4urriyiet5f6" path="res://Icons/checkbox_unchecked_disabled.svg" id="4_oggfy"]
+[ext_resource type="Texture2D" uid="uid://buisjp20ootup" path="res://Icons/expanded.svg" id="5_kcxau"]
+[ext_resource type="Texture2D" uid="uid://cddklh8aa5f28" path="res://Icons/collapsed.svg" id="6_50yuy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p22nk"]
 bg_color = Color(0.561149, 0.704473, 1, 1)
@@ -79,9 +79,12 @@ PopupMenu/font_sizes/font_size = 36
 PopupMenu/font_sizes/title_font_size = 36
 TabContainer/font_sizes/font_size = 36
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_6wxfe")
+Tree/colors/relationship_line_color = Color(0.503375, 0.503375, 0.503375, 1)
 Tree/constants/button_margin = 12
+Tree/constants/draw_guides = 0
+Tree/constants/draw_relationship_lines = 6
 Tree/constants/item_margin = 40
-Tree/constants/v_separation = 20
+Tree/constants/v_separation = 30
 Tree/font_sizes/font_size = 32
 Tree/font_sizes/title_button_font_size = 32
 Tree/icons/arrow = ExtResource("5_kcxau")

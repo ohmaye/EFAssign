@@ -5,8 +5,10 @@ const KEY = Constants.DEMAND_KEY
 
 const sql = "SELECT * FROM demand WHERE program IN ('%s', '%s') ORDER BY firstName, lastName"
 
-
+# Test
+var demand_by_course = preload("res://App/assign/demand_by_course.tscn")
 var by_level_scene = preload("res://App/demand/by_level.tscn")
+var classes_scene = preload("res://App/Supply/classes.tscn")
 
 func render():
 	# Enable Intensive/General
@@ -26,12 +28,13 @@ func render():
 		
 	var query_info = QueryInfo.new("demand", COLUMN_NAMES, db.query_result, KEY )
 
-	%Table.render(query_info)
-	var scene = by_level_scene.instantiate()
+	var scene = demand_by_course.instantiate()
+	%DemandTable.add_child(scene)
+	scene = by_level_scene.instantiate()
 	scene.call_deferred("render")
-	%Table2.add_child(scene)
-	var scene2 = by_level_scene.instantiate()
+	%AssignTable.add_child(scene)
+	var scene2 = classes_scene.instantiate()
 	scene2.call_deferred("render")
-	%Table3.add_child(scene2)
+	%SupplyTable.add_child(scene2)
 
 	

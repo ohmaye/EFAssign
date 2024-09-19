@@ -19,11 +19,9 @@ func _ready():
 	# set_column_titles_visible(true)
 	
 	# Set column titles
-	set_column_title(0, "Course")
-	set_column_title(1, "Level")
-	set_column_title(2, "Student")
-	set_column_title(3, "Choice")
-	set_column_title(4, "Total")
+	set_column_title(0, "Course/Level/Student")
+	set_column_title(1, "Choice")
+	set_column_title(2, "Total")
 	
 	# Create the root item
 	var root = create_item()
@@ -37,7 +35,7 @@ func _ready():
 	for course in courses:
 		var course_entry = root.create_child()
 		course_entry.set_text(0, course["course_code"])
-		course_entry.set_text(4, "1")
+		course_entry.set_text(2, "1")
 		# Get Levels
 		var sql_levels = "SELECT DISTINCT level FROM studentpreferences WHERE course_code = '%s' ORDER BY level" % course["course_code"]
 		db.query(sql_levels)
@@ -45,15 +43,14 @@ func _ready():
 		for level in levels:
 			var level_entry = course_entry.create_child()
 			level_entry.set_text(0,level["level"])		
-			level_entry.set_text(1,level["level"])		
-			var sql_students = "SELECT DISTINCT student_id, firstName, lastName FROM studentpreferences WHERE course_code = '%s' AND level = '%s' ORDER BY level" % [course["course_code"], level["level"]]
+			var sql_students = "SELECT DISTINCT student_id, firstName, lastName, weekday FROM studentpreferences WHERE course_code = '%s' AND level = '%s' ORDER BY level" % [course["course_code"], level["level"]]
 			db.query(sql_students)
 			var students = db.query_result
 			for student in students:
 				var str_entry = level_entry.create_child()
-				str_entry.set_text(2, student["firstName"] + student["lastName"])
-				str_entry.set_text(3, "Mon01")
-				str_entry.set_text(4,"88")
+				str_entry.set_text(0, student["firstName"] + " " + student["lastName"])
+				str_entry.set_text(1, student["weekday"])
+				str_entry.set_text(2,"88")
 	
 	# Add a child item to Alice
 	# var alice_item = root.get_first_child()

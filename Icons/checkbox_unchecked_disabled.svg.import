@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4urriyiet5f6"
-path="res://.godot/imported/checkbox_unchecked_disabled.svg-2aaa5f73714e3efdeca61f5776071345.ctex"
+path="res://.godot/imported/checkbox_unchecked_disabled.svg-5fafb9b33a7c60d27bc8b3168e36aaf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/checkbox_unchecked_disabled.svg"
-dest_files=["res://.godot/imported/checkbox_unchecked_disabled.svg-2aaa5f73714e3efdeca61f5776071345.ctex"]
+source_file="res://Icons/checkbox_unchecked_disabled.svg"
+dest_files=["res://.godot/imported/checkbox_unchecked_disabled.svg-5fafb9b33a7c60d27bc8b3168e36aaf1.ctex"]
 
 [params]
 

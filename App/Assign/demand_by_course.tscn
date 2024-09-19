@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://y6dfd886q1py"]
+[gd_scene load_steps=2 format=3 uid="uid://bn36qduvtbqhf"]
 
-[ext_resource type="Script" path="res://utils/new_script.gd" id="1_wtc36"]
+[ext_resource type="Script" path="res://App/Assign/demand_by_course.gd" id="1_2ruca"]
 
 [node name="Tree" type="Tree"]
 clip_contents = false
@@ -18,4 +18,4 @@ columns = 3
 column_titles_visible = true
 allow_reselect = true
 select_mode = 2
-script = ExtResource("1_wtc36")
+script = ExtResource("1_2ruca")

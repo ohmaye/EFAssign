@@ -26,10 +26,11 @@ func _ready():
 	%ReportsBtn.pressed.connect(_on_assign_id_pressed.bind(3))
 	%TeacherPreferencesBtn.pressed.connect(_on_assign_id_pressed.bind(4))
 	# Connect SUPPLY buttons to scenes
-	%TeachersBtn.pressed.connect(_on_supply_id_pressed.bind(0))
-	%CoursesBtn.pressed.connect(_on_supply_id_pressed.bind(1))
-	%RoomsBtn.pressed.connect(_on_supply_id_pressed.bind(2))
-	%TimeslotsBtn.pressed.connect(_on_supply_id_pressed.bind(3))
+	%ClassesBtn.pressed.connect(_on_supply_id_pressed.bind(0))
+	%TeachersBtn.pressed.connect(_on_supply_id_pressed.bind(1))
+	%CoursesBtn.pressed.connect(_on_supply_id_pressed.bind(2))
+	%RoomsBtn.pressed.connect(_on_supply_id_pressed.bind(3))
+	%TimeslotsBtn.pressed.connect(_on_supply_id_pressed.bind(4))
 
 	
 # DEMAND
@@ -88,6 +89,7 @@ func _on_assign_id_pressed(id:int):
 
 
 # SUPPLY
+var classes_scene = preload("res://App/Supply/classes.tscn")
 var teachers_scene = preload("res://App/Supply/teachers.tscn")
 var courses_scene = preload("res://App/Supply/courses.tscn")
 var rooms_scene = preload("res://App/Supply/rooms.tscn")
@@ -99,12 +101,14 @@ func _on_supply_id_pressed(id:int):
 	var scene
 	match id:
 		0:
-			scene = teachers_scene.instantiate()
+			scene = classes_scene.instantiate()
 		1:
-			scene = courses_scene.instantiate()
+			scene = teachers_scene.instantiate()
 		2:
-			scene = rooms_scene.instantiate()
+			scene = courses_scene.instantiate()
 		3:
+			scene = rooms_scene.instantiate()
+		4:
 			scene = timeslots_scene.instantiate()
 
 	scene.call_deferred("render")		

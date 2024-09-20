@@ -37,7 +37,7 @@ bg_color = Color(1, 1, 1, 1)
 bg_color = Color(0.454079, 0.628234, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8rof"]
-bg_color = Color(0.199732, 0.199732, 0.199732, 1)
+bg_color = Color(0.662745, 0.839216, 0.976471, 1)
 
 [resource]
 Button/colors/font_color = Color(0, 0, 1, 1)
@@ -84,7 +84,7 @@ Tree/constants/button_margin = 12
 Tree/constants/draw_guides = 0
 Tree/constants/draw_relationship_lines = 6
 Tree/constants/item_margin = 40
-Tree/constants/v_separation = 30
+Tree/constants/v_separation = 12
 Tree/font_sizes/font_size = 32
 Tree/font_sizes/title_button_font_size = 32
 Tree/icons/arrow = ExtResource("5_kcxau")

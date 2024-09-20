@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bn36qduvtbqhf"]
+[gd_scene load_steps=3 format=3 uid="uid://bn36qduvtbqhf"]
 
 [ext_resource type="Script" path="res://App/Assign/demand_by_course.gd" id="1_2ruca"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaoud"]
+bg_color = Color(0.0466951, 0.220943, 0.33224, 1)
 
 [node name="Tree" type="Tree"]
 clip_contents = false
@@ -14,8 +17,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
 theme_override_font_sizes/title_button_font_size = 36
+theme_override_styles/panel = SubResource("StyleBoxFlat_vaoud")
 columns = 3
 column_titles_visible = true
 allow_reselect = true
+hide_root = true
 select_mode = 2
 script = ExtResource("1_2ruca")

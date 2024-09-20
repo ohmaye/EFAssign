@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwhxbdhymkn8v"]
+[gd_scene load_steps=3 format=3 uid="uid://cwhxbdhymkn8v"]
 
 [ext_resource type="Script" path="res://App/Assign/connect.gd" id="1_3c7hr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mblby"]
+bg_color = Color(0.687215, 0.687215, 0.687215, 1)
 
 [node name="Connect" type="Control"]
 layout_mode = 3
@@ -11,7 +14,49 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3c7hr")
 
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StudentList" type="ItemList" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Assign"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ClassList" type="ItemList" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UI Elements" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI Elements"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,4 +64,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "Connect Here"
+theme_override_styles/normal = SubResource("StyleBoxFlat_mblby")
+text = "sadffdasffds"

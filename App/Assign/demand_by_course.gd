@@ -1,24 +1,9 @@
 extends Tree
 
-const COLUMN_NAMES  = Constants.DEMAND_COLUMN_NAMES
-const KEY = Constants.DEMAND_KEY
-
-const sql = "SELECT * FROM demand WHERE program IN ('%s', '%s') ORDER BY firstName, lastName"
-
 func _ready():
-	# GlobalVars.intensive_checkbox.disabled = false
-	# GlobalVars.general_checkbox.disabled = false
 
-	var intensive = "Intensive" if true else ""
-	var general = "General" if true else ""
-	var sql_stmt = sql % [intensive, general]
-	
-
-	# Set up the columns
-	set_columns(5)
-	# set_column_titles_visible(true)
-	
-	# Set column titles
+	# Set up the columns & titles
+	set_columns(3)
 	set_column_title(0, "Course/Level/Student")
 	set_column_title(1, "Choice")
 	set_column_title(2, "Total")

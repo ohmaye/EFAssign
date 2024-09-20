@@ -311,3 +311,22 @@ LEFT JOIN courses USING (course_id)
 LEFT JOIN rooms USING (room_id)
 LEFT JOIN timeslots USING (timeslot_id)
 LEFT JOIN teachers USING (teacher_id)
+
+
+-- CREATE denormalized classes view
+DROP VIEW IF EXISTS classes_view;
+CREATE VIEW  classes_view as 
+    SELECT courses.code as 'course', 
+      classes.title as 'class', 
+      rooms.name as 'where', 
+      weekdays.sort_key as weekday_sort_key, 
+      timeslots.weekday as weekday,
+      timeslots.weekday || ' ' || timeslots.start_time as 'when', 
+      teachers.name as 'who'
+    FROM classes
+    LEFT JOIN courses USING (course_id)
+    LEFT JOIN rooms USING (room_id)
+    LEFT JOIN timeslots USING (timeslot_id)
+    LEFT JOIN teachers USING (teacher_id)
+    LEFT JOIN weekdays ON weekdays.weekday = timeslots.weekday
+    ORDER BY course, classes.title, weekday_sort_key;

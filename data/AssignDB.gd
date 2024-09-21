@@ -16,3 +16,11 @@ func _ready():
 
 func _exit_tree() -> void:
 	db.close_db()
+
+
+static func db_get(sql : String) -> Array:
+	var result = db.query(sql)
+	if not result:
+		return []
+	else:
+		return db.query_result

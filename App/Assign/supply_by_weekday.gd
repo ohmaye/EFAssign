@@ -1,5 +1,10 @@
 extends Tree
 
+# Uses classes_view, a denormalized view of classes, for all queries.
+const sql_distinct_courses = "SELECT DISTINCT course FROM classes_view ORDER BY course"
+const sql_classes_for_course = """SELECT DISTINCT cv.class, cv.'when', cv.who 
+									FROM classes_view AS cv WHERE course = '%s'"""
+
 func _ready():	
 	
 	# Set up the columns & titles
@@ -12,39 +17,30 @@ func _ready():
 
 	# Create the root item
 	var root = create_item()
-	
-	var db = AssignDB.db
+	root.set_text(0, "(Shift click to hide/show all)")
 
 	# Go through classes and for each populate the intersection if it exists
-	db.query(sql_distinct_courses)
-	for row in db.query_result:
-		var course = row["course"]
+	var courses = AssignDB.db_get(sql_distinct_courses)
+	for course in courses:
+		var course_title = course["course"]
 		var course_node = root.create_child()
-		root.set_text(0, "(Shift click to hide/show all)")
-		course_node.set_text(0, course)
+		course_node.set_text(0, course_title)
 		# For each course, list the classes
-		db.query(sql_classes_for_course % course)
-		for class_info in db.query_result:
+		var classes = AssignDB.db_get(sql_classes_for_course % course_title)
+		for _class in classes:
+			var class_title = _class["class"] if _class["class"] else "?"
 			var class_node = course_node.create_child()
-			var class_title = class_info["class"] if class_info["class"] else "?"
 			class_node.set_text(0,class_title)
-			var time_title = class_info["when"] if class_info["when"] else "/"
-			class_node.set_text(1, time_title)
-			var teacher_name = class_info["who"] if class_info["who"] else "?"
-			class_node.set_text(2, teacher_name)
+			var class_time = _class["when"] if _class["when"] else "/"
+			class_node.set_text(1, class_title)
+			var class_teacher = _class["who"] if _class["who"] else "?"
+			class_node.set_text(2, class_teacher)
 			class_node.set_text(3, "0")
 			class_node.set_text_alignment(1, HORIZONTAL_ALIGNMENT_CENTER)
 			class_node.set_text_alignment(3, HORIZONTAL_ALIGNMENT_CENTER)
 
 
-# Uses classes_view, a denormalized view of classes, for all queries.
-const sql_distinct_courses = """
-	SELECT DISTINCT course FROM classes_view ORDER BY course
-"""
 
-const sql_classes_for_course = """
-	SELECT DISTINCT cv.class, cv.'when', cv.who FROM classes_view AS cv WHERE course = '%s'
-	"""
 func _on_cell_selected():
 	print("Cell selected")
 	

@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwhxbdhymkn8v"]
+[gd_scene load_steps=4 format=3 uid="uid://cwhxbdhymkn8v"]
 
 [ext_resource type="Script" path="res://App/Assign/connect.gd" id="1_3c7hr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mblby"]
-bg_color = Color(0.687215, 0.687215, 0.687215, 1)
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1nww"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="Connect" type="Control"]
 layout_mode = 3
@@ -12,7 +15,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_stretch_ratio = 0.5
 script = ExtResource("1_3c7hr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -22,7 +34,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StudentList" type="ItemList" parent="VBoxContainer"]
+[node name="HeaderLabel2" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_mblby")
+text = "SELECTED STUDENTS"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="StudentList" type="ItemList" parent="VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -32,16 +60,38 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
 text = "Assign"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ClassList" type="ItemList" parent="VBoxContainer"]
+[node name="HeaderLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_mblby")
+text = "SELECTED CLASS"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ClassList" type="ItemList" parent="VBoxContainer/MarginContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -64,5 +114,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_mblby")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c1nww")
 text = "sadffdasffds"

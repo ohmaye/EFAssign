@@ -3,16 +3,20 @@
 [ext_resource type="Script" path="res://App/Assign/supply_by_weekday.gd" id="2_0ck8h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8qfb"]
-bg_color = Color(0.154451, 0.416671, 0.265068, 1)
+bg_color = Color(0.345098, 0.839216, 0.552941, 1)
 
 [node name="Tree" type="Tree"]
+custom_minimum_size = Vector2(1000, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_i8qfb")
 column_titles_visible = true
+select_mode = 1
 script = ExtResource("2_0ck8h")
+
+[connection signal="cell_selected" from="." to="." method="_on_cell_selected"]
+[connection signal="item_selected" from="." to="." method="_on_item_selected"]

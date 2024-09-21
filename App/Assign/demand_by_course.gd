@@ -7,6 +7,7 @@ func _ready():
 	set_column_title(0, "Course/Level/Student")
 	set_column_title(1, "Choice")
 	set_column_title(2, "Total")
+	set_column_custom_minimum_width(0,600)
 	
 	# Create the root item
 	var root = create_item()
@@ -19,6 +20,7 @@ func _ready():
 	# Populate the tree with items
 	for course in courses:
 		var course_entry = root.create_child()
+		root.set_text(0, "(Shift click to hide/show all)")
 		course_entry.set_text(0, course["course_code"])
 		course_entry.set_text(2, "1")
 		# Get Levels
@@ -36,4 +38,14 @@ func _ready():
 				str_entry.set_text(0, student["firstName"] + " " + student["lastName"])
 				str_entry.set_text(1, student["weekday"])
 				str_entry.set_text(2,"88")
+				str_entry.set_text_alignment(1, HORIZONTAL_ALIGNMENT_CENTER)
+				str_entry.set_text_alignment(2, HORIZONTAL_ALIGNMENT_CENTER)
 
+func _on_column_title_clicked():
+	print("Title clicked")
+
+func _on_cell_selected():
+	print("Cell selected")
+	
+func _on_item_selected():
+	print("Item selected", get_selected().get_text(0))

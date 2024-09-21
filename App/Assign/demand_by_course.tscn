@@ -3,17 +3,24 @@
 [ext_resource type="Script" path="res://App/Assign/demand_by_course.gd" id="1_2ruca"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaoud"]
-bg_color = Color(0.0466951, 0.220943, 0.33224, 1)
+content_margin_top = 0.0
+bg_color = Color(0.364706, 0.678431, 0.886275, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [node name="Tree" type="Tree"]
-clip_contents = false
-custom_minimum_size = Vector2(0, 600)
+custom_minimum_size = Vector2(1000, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
 theme_override_font_sizes/title_button_font_size = 36
@@ -21,6 +28,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vaoud")
 columns = 3
 column_titles_visible = true
 allow_reselect = true
-hide_root = true
-select_mode = 2
+select_mode = 1
 script = ExtResource("1_2ruca")
+
+[connection signal="cell_selected" from="." to="." method="_on_cell_selected"]
+[connection signal="column_title_clicked" from="." to="." method="_on_column_title_clicked"]
+[connection signal="item_selected" from="." to="." method="_on_item_selected"]

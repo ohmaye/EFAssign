@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsn0g214ij6g3"]
 
-[ext_resource type="Script" path="res://App/Assign/analyze.gd" id="1_0w8o7"]
+[ext_resource type="Script" path="res://App/Assign/assignments.gd" id="1_0w8o7"]
 [ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="2_2wlr0"]
 
-[node name="ByCourse" type="Control"]
+[node name="Assignments" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

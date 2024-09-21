@@ -5,10 +5,10 @@ func _ready():
 	# Set up the columns & titles
 	set_columns(4)
 	set_column_title(0, "Course/Class")
+	set_column_custom_minimum_width(0,300)
 	set_column_title(1, "Time")
 	set_column_title(2, "Teacher")
 	set_column_title(3, "Assigned")
-	set_column_custom_minimum_width(0,300)
 
 	# Create the root item
 	var root = create_item()
@@ -49,4 +49,6 @@ func _on_cell_selected():
 	print("Cell selected")
 	
 func _on_item_selected():
-	print("Item selected", get_selected().get_text(0))
+	var class_title = get_selected().get_text(0)
+	print("Item selected", class_title)
+	Signals.emit_signal("class_selected", class_title )

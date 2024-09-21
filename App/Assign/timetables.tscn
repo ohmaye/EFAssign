@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2npnlhyefxfy"]
 
-[ext_resource type="Script" path="res://App/Assign/reports.gd" id="1_nm4lc"]
+[ext_resource type="Script" path="res://App/Assign/timetables.gd" id="1_nm4lc"]
 [ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="2_2vg5s"]
 
-[node name="Reports" type="Control"]
+[node name="Timetables" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

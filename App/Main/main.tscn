@@ -340,12 +340,6 @@ grow_vertical = 2
 theme_override_constants/separation = 80
 alignment = 1
 
-[node name="StudentPreferencesBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Student Preferences"
-flat = true
-
 [node name="AssignBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
@@ -353,18 +347,18 @@ layout_mode = 2
 text = "Assign"
 flat = true
 
-[node name="AnalyzeBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="AssignmentsBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Analyze"
+text = "Assignments"
 flat = true
 
-[node name="ReportsBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="TimetablesBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "Reports"
+text = "Timetables"
 flat = true
 
 [node name="TeacherPreferencesBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]

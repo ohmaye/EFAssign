@@ -20,11 +20,10 @@ func _ready():
 	%ByCourseBtn.pressed.connect(_on_demand_id_pressed.bind(3))
 	%ByLevelBtn.pressed.connect(_on_demand_id_pressed.bind(4))
 	# Connect ASSIGN buttons to scenes
-	%StudentPreferencesBtn.pressed.connect(_on_assign_id_pressed.bind(0))
-	%AssignBtn.pressed.connect(_on_assign_id_pressed.bind(1))
-	%AnalyzeBtn.pressed.connect(_on_assign_id_pressed.bind(2))
-	%ReportsBtn.pressed.connect(_on_assign_id_pressed.bind(3))
-	%TeacherPreferencesBtn.pressed.connect(_on_assign_id_pressed.bind(4))
+	%AssignBtn.pressed.connect(_on_assign_id_pressed.bind(0))
+	%AssignmentsBtn.pressed.connect(_on_assign_id_pressed.bind(1))
+	%TimetablesBtn.pressed.connect(_on_assign_id_pressed.bind(2))
+	%TeacherPreferencesBtn.pressed.connect(_on_assign_id_pressed.bind(3))
 	# Connect SUPPLY buttons to scenes
 	%ClassesBtn.pressed.connect(_on_supply_id_pressed.bind(0))
 	%TeachersBtn.pressed.connect(_on_supply_id_pressed.bind(1))
@@ -62,11 +61,10 @@ func _on_demand_id_pressed(id:int):
 
 
 # ASSIGN
-var teacher_preferences_scene = preload("res://App/assign/teacher_preferences.tscn")
-var student_preferences_scene = preload("res://App/assign/student_preferences.tscn")
-var analyze_scene = preload("res://App/assign/analyze.tscn")
 var assign_scene = preload("res://App/assign/assign.tscn")
-var reports_scene = preload("res://App/assign/reports.tscn")
+var assignments_scene = preload("res://App/assign/assignments.tscn")
+var timetables_scene = preload("res://App/assign/timetables.tscn")
+var teacher_preferences_scene = preload("res://App/assign/teacher_preferences.tscn")
 
 func _on_assign_id_pressed(id:int):
 	var content_container = %AssignContent
@@ -74,14 +72,12 @@ func _on_assign_id_pressed(id:int):
 	var scene
 	match id:
 		0:
-			scene = student_preferences_scene.instantiate()
-		1:
 			scene = assign_scene.instantiate()
+		1:
+			scene = assignments_scene.instantiate()
 		2:
-			scene = analyze_scene.instantiate()
+			scene = timetables_scene.instantiate()
 		3:
-			scene = reports_scene.instantiate()
-		4:
 			scene = teacher_preferences_scene.instantiate()
 
 	scene.call_deferred("render")	

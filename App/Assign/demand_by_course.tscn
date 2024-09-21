@@ -4,13 +4,7 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaoud"]
 content_margin_top = 0.0
-bg_color = Color(0.364706, 0.678431, 0.886275, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 32
-corner_radius_top_right = 32
+bg_color = Color(0.839216, 0.917647, 0.972549, 1)
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
@@ -22,13 +16,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+theme_override_constants/scrollbar_margin_top = 48
+theme_override_constants/scrollbar_margin_right = 4
+theme_override_constants/scrollbar_margin_bottom = 24
 theme_override_font_sizes/font_size = 36
 theme_override_font_sizes/title_button_font_size = 36
 theme_override_styles/panel = SubResource("StyleBoxFlat_vaoud")
 columns = 3
 column_titles_visible = true
 allow_reselect = true
-select_mode = 1
+select_mode = 2
 script = ExtResource("1_2ruca")
 
 [connection signal="cell_selected" from="." to="." method="_on_cell_selected"]

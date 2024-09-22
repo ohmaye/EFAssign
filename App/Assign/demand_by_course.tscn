@@ -4,7 +4,7 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaoud"]
 content_margin_top = 0.0
-bg_color = Color(0.839216, 0.917647, 0.972549, 1)
+bg_color = Color(0.364706, 0.678431, 0.886275, 1)
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
@@ -28,6 +28,4 @@ allow_reselect = true
 select_mode = 2
 script = ExtResource("1_2ruca")
 
-[connection signal="cell_selected" from="." to="." method="_on_cell_selected"]
-[connection signal="column_title_clicked" from="." to="." method="_on_column_title_clicked"]
-[connection signal="item_selected" from="." to="." method="_on_item_selected"]
+[connection signal="multi_selected" from="." to="." method="_on_multi_selected"]

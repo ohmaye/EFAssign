@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwhxbdhymkn8v"]
+[gd_scene load_steps=7 format=3 uid="uid://cwhxbdhymkn8v"]
 
 [ext_resource type="Script" path="res://App/Assign/connect.gd" id="1_3c7hr"]
 [ext_resource type="FontFile" uid="uid://doosudslnw4jh" path="res://Fonts/EFCircularTT-Bold.ttf" id="2_kqj5a"]
@@ -15,8 +15,11 @@ shadow_size = 8
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mblby"]
 bg_color = Color(0.960784, 0.690196, 0.254902, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq10v"]
+bg_color = Color(0.172833, 0.172833, 0.172833, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1nww"]
-bg_color = Color(0.980392, 0.898039, 0.827451, 1)
+bg_color = Color(0.996996, 0.984534, 0.974008, 1)
 
 [node name="Connect" type="Control"]
 layout_mode = 3
@@ -72,6 +75,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+theme_override_styles/panel = SubResource("StyleBoxFlat_vq10v")
+item_count = 2
+item_0/text = "2"
+item_1/text = "1"
 
 [node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2

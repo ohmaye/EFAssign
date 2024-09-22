@@ -103,6 +103,7 @@ func _get_selected_students(selection):
 	if metadata == "student":
 		print("Meta is student")
 		selection.select(0)
+		# selection.set_custom_color(0, Color(0,1,0,1))
 		return result + [selection]
 
 	if metadata in ["course","level"]:

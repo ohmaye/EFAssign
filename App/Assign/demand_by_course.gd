@@ -32,11 +32,12 @@ func _ready():
 
 func setup_tree_control():
 	# Set up the columns & titles
-	set_columns(3)
+	set_columns(4)
 	set_column_title(0, "Course/Level/Student")
 	set_column_custom_minimum_width(0,600)
-	set_column_title(1, "Choice")
-	set_column_title(2, "Total")
+	set_column_title(1,"Select")
+	set_column_title(2, "Choice")
+	set_column_title(3, "Total")
 
 
 func _create_course_node(_course, _parent):
@@ -45,6 +46,7 @@ func _create_course_node(_course, _parent):
 	course_node.set_text(2, "1")
 	course_node.set_selectable(1,false)
 	course_node.set_selectable(2,false)
+	course_node.set_selectable(3,false)
 	course_node.set_metadata(0,"course")
 	return course_node
 
@@ -54,6 +56,7 @@ func _create_level_node(_level, _parent):
 	level_node.set_text(0,_level["level"])		
 	level_node.set_selectable(1,false)
 	level_node.set_selectable(2,false)
+	level_node.set_selectable(3,false)
 	level_node.set_metadata(0,"level")
 	return level_node
 
@@ -61,12 +64,16 @@ func _create_level_node(_level, _parent):
 func _create_student_node(_student, _parent):
 	var student_node = _parent.create_child()
 	student_node.set_text(0, _student["firstName"] + " " + _student["lastName"])
-	student_node.set_text(1, _student["weekday"])
-	student_node.set_text(2,"88")
+	student_node.set_cell_mode(1, TreeItem.CELL_MODE_CHECK)
+	student_node.set_text(2, _student["weekday"])
+	student_node.set_text(3,"88")
 	student_node.set_text_alignment(1, HORIZONTAL_ALIGNMENT_CENTER)
 	student_node.set_text_alignment(2, HORIZONTAL_ALIGNMENT_CENTER)
+	student_node.set_text_alignment(3, HORIZONTAL_ALIGNMENT_CENTER)
+	student_node.set_editable(1, true)
 	student_node.set_selectable(1,false)
 	student_node.set_selectable(2,false)
+	student_node.set_selectable(3,false)
 	student_node.set_metadata(0,"student")
 	return student_node
 
@@ -84,32 +91,42 @@ func _on_cell_selected():
 
 
 func _on_multi_selected(item: TreeItem, column: int, selected: bool) -> void:
-	# print("Multi selection: ", item, " ", column, " ", selected)
-	var students = []
-	var selection = get_next_selected(null)
+	print("Multi selection: ", item, " ", column, " ", selected, item.get_text(0))
+	item.set_checked(1, selected)	
+	# var selection : TreeItem
+	# if !selected:
+	# 	deselect_all()
+	# 	item.select(0)
 
-	while selection:
-		students += _get_selected_students(selection)
-		selection = get_next_selected(selection)
+	# selection = get_next_selected(null)
 
-	Signals.emit_signal("student_selected", students)
-	print("Selected students: ", students)
+	# var students = []
+
+	# students = _get_selected_students(selection)
+
+	# Signals.emit_signal("student_selected", students)
+	# print("Selected students: ", students)
 
 
-func _get_selected_students(selection):
-	var metadata = selection.get_metadata(0)
+func _get_selected_students(selection) -> Array:
 	var result = []
+
+	if !selection:
+		return result
+
+	var metadata = selection.get_metadata(0)
 
 	if metadata == "student":
 		print("Meta is student")
 		selection.select(0)
-		# selection.set_custom_color(0, Color(0,1,0,1))
-		return result + [selection]
+		return [selection]
 
 	if metadata in ["course","level"]:
 		print("Meta in course or level")
+		var last_child
 		for child in selection.get_children():
 			result += _get_selected_students(child)
+			last_child = child
+		return result + _get_selected_students(get_next_selected(last_child))
 
-	return result
-		
+	return []

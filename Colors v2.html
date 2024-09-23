@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Color Palette Sample</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #F5F5F5;
+                color: #4A4A4A;
+            }
+
+            h1 {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .container {
+                display: flex;
+                justify-content: space-around;
+                margin: 20px;
+                flex-wrap: wrap;
+            }
+
+            .section {
+                width: 30%;
+                background-color: #FFFFFF;
+                border: 1px solid #CCCCCC;
+                border-radius: 8px;
+                overflow: hidden;
+                margin-bottom: 20px;
+            }
+
+            .header {
+                padding: 10px;
+                color: #FFFFFF;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            .demand .header {
+                background-color: #4A90E2;
+            }
+
+            .assign .header {
+                background-color: #7ED321;
+            }
+
+            .supply .header {
+                background-color: #F5A623;
+            }
+
+            .color-block {
+                padding: 10px;
+                text-align: center;
+            }
+
+            .color-sample {
+                width: 100%;
+                height: 50px;
+                border-radius: 4px;
+                margin-bottom: 5px;
+                border: 1px solid #CCCCCC;
+            }
+
+            .color-label {
+                font-size: 14px;
+            }
+
+            @media (max-width: 800px) {
+                .section {
+                    width: 45%;
+                }
+            }
+
+            @media (max-width: 500px) {
+                .section {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Sample Color Palette</h1>
+
+        <div class="container">
+            <!-- Demand Section -->
+            <div class="section demand">
+                <div class="header">Demand (Blue)</div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #4A90E2;"></div>
+                    <div class="color-label">Primary Color: #4A90E2</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #B3D4FC;"></div>
+                    <div class="color-label">Secondary Color: #B3D4FC</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #F5F5F5;"></div>
+                    <div class="color-label">Background Color: #F5F5F5</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #4A4A4A;"></div>
+                    <div class="color-label" style="color: #FFFFFF;">Text Color: #4A4A4A</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample"
+                        style="background-color: #FFFFFF; border: 1px solid #CCCCCC;"></div>
+                    <div class="color-label">Accent Color: #FFFFFF</div>
+                </div>
+            </div>
+
+            <!-- Assign Section -->
+            <div class="section assign">
+                <div class="header">Assign (Green)</div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #7ED321;"></div>
+                    <div class="color-label">Primary Color: #7ED321</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #C8E6C9;"></div>
+                    <div class="color-label">Secondary Color: #C8E6C9</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #F5F5F5;"></div>
+                    <div class="color-label">Background Color: #F5F5F5</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #4A4A4A;"></div>
+                    <div class="color-label" style="color: #FFFFFF;">Text Color: #4A4A4A</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample"
+                        style="background-color: #FFFFFF; border: 1px solid #CCCCCC;"></div>
+                    <div class="color-label">Accent Color: #FFFFFF</div>
+                </div>
+            </div>
+
+            <!-- Supply Section -->
+            <div class="section supply">
+                <div class="header">Supply (Orange)</div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #F5A623;"></div>
+                    <div class="color-label">Primary Color: #F5A623</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #FFD9B3;"></div>
+                    <div class="color-label">Secondary Color: #ffd1a3</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #F5F5F5;"></div>
+                    <div class="color-label">Background Color: #F5F5F5</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample" style="background-color: #4A4A4A;"></div>
+                    <div class="color-label" style="color: #FFFFFF;">Text Color: #4A4A4A</div>
+                </div>
+                <div class="color-block">
+                    <div class="color-sample"
+                        style="background-color: #FFFFFF; border: 1px solid #CCCCCC;"></div>
+                    <div class="color-label">Accent Color: #FFFFFF</div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+</html>

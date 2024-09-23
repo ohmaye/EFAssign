@@ -2,6 +2,8 @@ extends Control
 
 # Set global vars
 func _ready():
+	# Utilities.save_user_prefs()
+	# Utilities.load_user_prefs()
 	GlobalVars.general_checkbox = %GeneralCheckBox
 	GlobalVars.intensive_checkbox = %IntensiveCheckBox
 	GlobalVars.m1_checkbox = %Mon1

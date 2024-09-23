@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwhxbdhymkn8v"]
+[gd_scene load_steps=8 format=3 uid="uid://cwhxbdhymkn8v"]
 
 [ext_resource type="Script" path="res://App/Assign/connect.gd" id="1_3c7hr"]
 [ext_resource type="FontFile" uid="uid://doosudslnw4jh" path="res://Fonts/EFCircularTT-Bold.ttf" id="2_kqj5a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vbxr"]
-bg_color = Color(0.980392, 0.898039, 0.827451, 1)
+bg_color = Color(0.784314, 0.901961, 0.788235, 1)
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32
@@ -16,7 +16,10 @@ shadow_size = 8
 bg_color = Color(0.960784, 0.690196, 0.254902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vq10v"]
-bg_color = Color(0.172833, 0.172833, 0.172833, 1)
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg4e5"]
+bg_color = Color(0.960784, 0.960784, 0.960784, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1nww"]
 bg_color = Color(0.996996, 0.984534, 0.974008, 1)
@@ -119,6 +122,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
+theme_override_styles/panel = SubResource("StyleBoxFlat_dg4e5")
 
 [node name="UI Elements" type="Control" parent="."]
 visible = false

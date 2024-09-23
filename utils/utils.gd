@@ -10,3 +10,19 @@ func remove_all_children(parent_node):
 		child.queue_free()  
 
 const uuid = preload('res://addons/uuid.gd')
+
+# Save and Load user preferences
+func save_user_prefs():
+	var user_prefs : UserPrefs = UserPrefs.new()
+
+	user_prefs.path = "aaa"
+	user_prefs.file = "bbb"
+
+	ResourceSaver.save(user_prefs, "user://user_prefs.tres")
+
+func load_user_prefs():
+	var user_prefs : UserPrefs = load("user://user_prefs.tres")
+
+	var global_path = user_prefs.path
+	var global_file = user_prefs.file
+	print("Loaded: ", global_path, global_file)

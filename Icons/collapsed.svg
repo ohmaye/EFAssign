@@ -1,3 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60" fill="#FFFFFF" class="size-6">
-  <path fill-rule="evenodd" d="M34.5 20.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L37.28 34.99c-1.25.687-2.779-.217-2.779-1.643V20.653Z" clip-rule="evenodd" />
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="32" viewBox="0 -4 64 36" xmlns="http://www.w3.org/2000/svg">
+  <!-- Equilateral triangle pointing to the right, moved up by 4 pixels -->
+  <path d="M27.7513,-2 L27.7513,26 L52,12 Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="round"/>
 </svg>

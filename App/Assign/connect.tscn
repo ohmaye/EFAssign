@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://doosudslnw4jh" path="res://Fonts/EFCircularTT-Bold.ttf" id="2_kqj5a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vbxr"]
-bg_color = Color(0.784314, 0.901961, 0.788235, 1)
+bg_color = Color(0.223529, 0.929412, 0.894118, 1)
 corner_radius_top_left = 32
 corner_radius_top_right = 32
 corner_radius_bottom_right = 32

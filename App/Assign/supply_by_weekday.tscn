@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://App/Assign/supply_by_weekday.gd" id="2_0ck8h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8qfb"]
-bg_color = Color(1, 0.82, 0.64, 1)
+bg_color = Color(0.223529, 0.929412, 0.654902, 1)
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 

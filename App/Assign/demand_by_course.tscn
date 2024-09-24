@@ -6,7 +6,7 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaoud"]
 content_margin_top = 0.0
-bg_color = Color(0.701961, 0.831373, 0.988235, 1)
+bg_color = Color(0.223529, 0.741176, 0.929412, 1)
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 

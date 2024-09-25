@@ -62,7 +62,6 @@ CheckBox/icons/unchecked_disabled = ExtResource("4_oggfy")
 CheckBox/styles/hover = SubResource("StyleBoxFlat_hoyh4")
 CheckBox/styles/normal = SubResource("StyleBoxFlat_4arhb")
 CheckBox/styles/pressed = SubResource("StyleBoxFlat_3ok1e")
-ItemList/font_sizes/font_size = 24
 Label/colors/font_color = Color(0.237539, 0.237539, 0.237539, 1)
 Label/font_sizes/font_size = 36
 LineEdit/colors/font_color = Color(0.0497768, 0.0497766, 0.0497766, 1)

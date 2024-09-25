@@ -9,13 +9,13 @@ func _ready() -> void:
 func _class_selected(class_title):
 	print("Got it: ", class_title)
 	%ClassList.clear()
-	var label = %Label.duplicate()
-	label.text = class_title
-	%ClassList.add_child(label)
+	%ClassList.add_item(class_title)
 
 
-func _student_selected(students):
+func _student_selected(students : Dictionary):
 	print("Got students: ", students)
 	%StudentList.clear()
-	for student in students:
+	var list : Array = students.keys()
+	list.sort()
+	for student in list:
 		%StudentList.add_item(student, null, false)

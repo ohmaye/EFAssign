@@ -59,3 +59,22 @@ Playful Yet Discreet Tone:
 	•	The neutral tones (white and gray) keep the interface clean and organized, ensuring the application doesn’t feel overwhelming.
 
 This palette balances a professional, business-like feel with subtle, playful undertones, making it ideal for a school environment while allowing clear, discrete distinctions between the major sections.
+
+
+DATA 2024.09.25
+- Demand
+  - survey
+  - demand
+  - students
+  - studentpreferences
+- Assign
+  - assignments	
+  - teacherpreferences
+- Supply
+  - classes
+  - courses
+  - rooms
+  - teachers
+  - timeslots
+- Utils
+  - weekdays

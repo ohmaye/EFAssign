@@ -12,7 +12,10 @@ func _ready():
 	
 	# Create the root item
 	root = create_item()
+	root.set_metadata(0,"root")
+
 	root.set_text(0, "(Shift click to hide/show all)")
+	root.set_text_alignment(3, HORIZONTAL_ALIGNMENT_CENTER)
 	root.set_selectable(1,false)
 	root.set_selectable(2,false)
 
@@ -29,6 +32,9 @@ func _ready():
 			for student in students:
 				_create_student_node(student, level_node)
 
+	# Update Counts after the tree is built
+	_update_counts(root)
+
 
 func setup_tree_control():
 	# Set up the columns & titles
@@ -42,31 +48,36 @@ func setup_tree_control():
 
 func _create_course_node(_course, _parent):
 	var course_node = _parent.create_child()	
+	course_node.set_metadata(0,"course")
+
 	course_node.set_text(0, _course["course_code"])
-	course_node.set_text(2, "1")
+	course_node.set_text_alignment(3, HORIZONTAL_ALIGNMENT_CENTER)
 	course_node.set_selectable(1,false)
 	course_node.set_selectable(2,false)
 	course_node.set_selectable(3,false)
-	course_node.set_metadata(0,"course")
 	return course_node
 
 
 func _create_level_node(_level, _parent):
 	var level_node = _parent.create_child()
-	level_node.set_text(0,_level["level"])		
+	level_node.set_text(0,_level["level"])	
+
+	level_node.set_metadata(0,"level")
+	level_node.set_text_alignment(3, HORIZONTAL_ALIGNMENT_CENTER)
 	level_node.set_selectable(1,false)
 	level_node.set_selectable(2,false)
 	level_node.set_selectable(3,false)
-	level_node.set_metadata(0,"level")
 	return level_node
 
 
 func _create_student_node(_student, _parent):
 	var student_node = _parent.create_child()
+	student_node.set_metadata(0,"student")
+
 	student_node.set_text(0, _student["firstName"] + " " + _student["lastName"])
 	student_node.set_cell_mode(1, TreeItem.CELL_MODE_CHECK)
 	student_node.set_text(2, _student["weekday"])
-	student_node.set_text(3,"88")
+	student_node.set_text(3,"")
 	student_node.set_text_alignment(1, HORIZONTAL_ALIGNMENT_CENTER)
 	student_node.set_text_alignment(2, HORIZONTAL_ALIGNMENT_CENTER)
 	student_node.set_text_alignment(3, HORIZONTAL_ALIGNMENT_CENTER)
@@ -74,79 +85,49 @@ func _create_student_node(_student, _parent):
 	student_node.set_selectable(1,false)
 	student_node.set_selectable(2,false)
 	student_node.set_selectable(3,false)
-	student_node.set_metadata(0,"student")
 	return student_node
 
 func _on_column_title_clicked():
 	print("Title clicked")
 
-func _on_cell_selected():
-	var students = []
-	var student = get_next_selected(get_selected())
-	while student:
-		print("Cell selected", student)
-		students += [student]
-		student = get_next_selected(student)
-	Signals.emit_signal("student_selected", students)
-
 
 func _on_multi_selected(item: TreeItem, column: int, selected: bool) -> void:
-	print("Multi selection: ", item, " ", column, " ", selected, item.get_text(0))
+	print("Multi selection: ", item, " ", column, " ", selected)
 
 	_update_selections(item, column, selected)
 	
-	Signals.emit_signal("student_selected", selections.keys()) 
+	Signals.emit_signal("student_selected", selections) 
 		
 func _update_selections(item: TreeItem, column: int, selected: bool) -> void:
 	var metadata = item.get_metadata(0)
 
-	if metadata in ["course","level"]:
-		print("Meta in course or level")
+	if metadata in ["root", "course","level"]:
+		# print("Meta in course or level")
 		for child in item.get_children():
 			_update_selections(child, column, selected)
 
 	if metadata == "student":
+		print("Student : ", selected, " - ", item.get_text(0))
+		item.set_checked(1, selected)
 		if selected:
-			item.select(0)
 			selections[item.get_text(0)] = true
 		else:
-			item.deselect(0)
 			selections.erase(item.get_text(0))
 
-	# var selection : TreeItem
-	# if !selected:
-	# 	deselect_all()
-	# 	item.select(0)
+# func _update_counts() -> void:
+# 	root.set_text(3, str(_count_students(root)))
 
-	# selection = get_next_selected(null)
+func _update_counts(item) -> int:
+	var count = 0
+	var metadata = item.get_metadata(0)
 
-	# var students = []
-
-	# students = _get_selected_students(selection)
-
-	# Signals.emit_signal("student_selected", students)
-	# print("Selected students: ", students)
-
-
-func _get_selected_students(selection) -> Array:
-	var result = []
-
-	if !selection:
-		return result
-
-	var metadata = selection.get_metadata(0)
+	if metadata in ["root", "course","level"]:
+		for child in item.get_children():
+			count += _update_counts(child)
 
 	if metadata == "student":
-		print("Meta is student")
-		selection.select(0)
-		return [selection]
-
-	if metadata in ["course","level"]:
-		print("Meta in course or level")
-		var last_child
-		for child in selection.get_children():
-			result += _get_selected_students(child)
-			last_child = child
-		return result + _get_selected_students(get_next_selected(last_child))
-
-	return []
+		count = 1
+	else: 
+		item.set_text(3, str(count))
+	
+	return count

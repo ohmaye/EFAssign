@@ -130,7 +130,7 @@ CREATE TABLE survey (
   GWed02 TEXT,
   GWed03 TEXT,
   GWed05 TEXT 
-);
+)
 
 -- Demand data
 DROP TABLE IF EXISTS demand;

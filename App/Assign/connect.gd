@@ -18,4 +18,4 @@ func _student_selected(students):
 	print("Got students: ", students)
 	%StudentList.clear()
 	for student in students:
-		%StudentList.add_item(student.get_text(0), null, false)
+		%StudentList.add_item(student, null, false)

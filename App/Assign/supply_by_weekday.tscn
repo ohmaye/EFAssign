@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl3phh3vqe0tv"]
+[gd_scene load_steps=4 format=3 uid="uid://dl3phh3vqe0tv"]
 
 [ext_resource type="Script" path="res://App/Assign/supply_by_weekday.gd" id="2_0ck8h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8qfb"]
-bg_color = Color(0.223529, 0.929412, 0.654902, 1)
-corner_radius_bottom_right = 32
-corner_radius_bottom_left = 32
+bg_color = Color(0.639216, 1, 0.847059, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 0.588235)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fed8c"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
 
 [node name="Tree" type="Tree"]
 custom_minimum_size = Vector2(1000, 0)
@@ -15,10 +25,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_constants/scrollbar_margin_top = 48
 theme_override_constants/scrollbar_margin_right = 4
-theme_override_constants/scrollbar_margin_bottom = 24
 theme_override_styles/panel = SubResource("StyleBoxFlat_i8qfb")
+theme_override_styles/title_button_normal = SubResource("StyleBoxFlat_fed8c")
 column_titles_visible = true
 select_mode = 1
 script = ExtResource("2_0ck8h")

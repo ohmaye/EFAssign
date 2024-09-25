@@ -46,5 +46,3 @@ func render(_query_info : QueryInfo):
 	for row in _query_info.rows:
 		var row_node = Row.new()
 		row_node.render(row, _query_info, rows_grid, cell, popup)
-
-

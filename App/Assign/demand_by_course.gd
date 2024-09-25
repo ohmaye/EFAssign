@@ -5,6 +5,7 @@ const sql_levels = "SELECT DISTINCT level FROM studentpreferences WHERE course_c
 const sql_students = "SELECT DISTINCT student_id, firstName, lastName, weekday FROM studentpreferences WHERE course_code = '%s' AND level = '%s' ORDER BY level"
 
 var root
+var selections = {}
 
 func _ready():
 	setup_tree_control()
@@ -14,7 +15,6 @@ func _ready():
 	root.set_text(0, "(Shift click to hide/show all)")
 	root.set_selectable(1,false)
 	root.set_selectable(2,false)
-	set_selected(root,0)
 
 	# Get Courses
 	var courses = AssignDB.db_get(sql_courses)
@@ -92,7 +92,27 @@ func _on_cell_selected():
 
 func _on_multi_selected(item: TreeItem, column: int, selected: bool) -> void:
 	print("Multi selection: ", item, " ", column, " ", selected, item.get_text(0))
-	item.set_checked(1, selected)	
+
+	_update_selections(item, column, selected)
+	
+	Signals.emit_signal("student_selected", selections.keys()) 
+		
+func _update_selections(item: TreeItem, column: int, selected: bool) -> void:
+	var metadata = item.get_metadata(0)
+
+	if metadata in ["course","level"]:
+		print("Meta in course or level")
+		for child in item.get_children():
+			_update_selections(child, column, selected)
+
+	if metadata == "student":
+		if selected:
+			item.select(0)
+			selections[item.get_text(0)] = true
+		else:
+			item.deselect(0)
+			selections.erase(item.get_text(0))
+
 	# var selection : TreeItem
 	# if !selected:
 	# 	deselect_all()

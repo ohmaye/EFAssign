@@ -13,13 +13,13 @@ color = Color(0.595154, 0.595154, 0.595154, 1)
 thickness = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgp4o"]
-bg_color = Color(0.223529, 0.741176, 0.929412, 1)
+bg_color = Color(0.639216, 0.913725, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdoff"]
-bg_color = Color(0.223529, 0.929412, 0.894118, 1)
+bg_color = Color(0.635294, 1, 0.972549, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_au2si"]
-bg_color = Color(0.223529, 0.929412, 0.654902, 1)
+bg_color = Color(0.639216, 1, 0.847059, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -263,7 +263,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
 [node name="ColorRect" type="ColorRect" parent="TabContainer/Demand/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-color = Color(0.223529, 0.741176, 0.929412, 1)
+color = Color(0.639216, 0.913725, 1, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Demand/VBoxContainer/ColorRect"]
 layout_mode = 1
@@ -315,6 +315,7 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_bgp4o")
 
 [node name="Assign" type="ColorRect" parent="TabContainer"]
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 color = Color(0.223529, 0.929412, 0.894118, 1)
 metadata/_tab_index = 3
@@ -335,7 +336,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
 [node name="ColorRect" type="ColorRect" parent="TabContainer/Assign/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-color = Color(0.223529, 0.929412, 0.894118, 1)
+color = Color(0.635294, 1, 0.972549, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Assign/VBoxContainer/ColorRect"]
 layout_mode = 1
@@ -385,6 +386,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hdoff")
 
 [node name="Supply" type="ColorRect" parent="TabContainer"]
 visible = false
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 color = Color(1, 0.876253, 0.855209, 1)
 metadata/_tab_index = 4
@@ -405,7 +407,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
 [node name="ColorRect" type="ColorRect" parent="TabContainer/Supply/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-color = Color(0.223529, 0.929412, 0.654902, 1)
+color = Color(0.639216, 1, 0.847059, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Supply/VBoxContainer/ColorRect"]
 layout_mode = 1

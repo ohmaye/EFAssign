@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://m0ni3edfmbfn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28xss"]
+bg_color = Color(0.672133, 0.486151, 0.947499, 1)
+
+[resource]
+DemandPanel/base_type = &"Panel"
+DemandPanel/styles/panel = SubResource("StyleBoxFlat_28xss")

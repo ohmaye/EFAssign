@@ -129,6 +129,12 @@ grow_vertical = 2
 theme_override_constants/separation = 80
 alignment = 1
 
+[node name="LoadSurveyBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Survey"
+flat = true
+
 [node name="OpenBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -153,12 +159,6 @@ layout_mode = 2
 text = "Save Cycle as..."
 flat = true
 
-[node name="LoadSurveyBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Load Survey"
-flat = true
-
 [node name="QuitBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -169,16 +169,6 @@ flat = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="FileDialog" type="FileDialog" parent="TabContainer"]
-unique_name_in_owner = true
-title = "Open a File"
-size = Vector2i(780, 227)
-ok_button_text = "Open"
-dialog_hide_on_ok = true
-file_mode = 0
-access = 2
-use_native_dialog = true
 
 [node name="Demand" type="ColorRect" parent="TabContainer"]
 visible = false
@@ -500,15 +490,25 @@ layout_mode = 2
 text = "W5
 "
 
+[node name="FileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+title = "Open a File"
+size = Vector2i(780, 227)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+file_mode = 0
+access = 2
+use_native_dialog = true
+
 [node name="Popup" parent="." instance=ExtResource("5_osk20")]
 unique_name_in_owner = true
 visible = false
 
+[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/LoadSurveyBtn" to="." method="_on_load_survey_btn_pressed"]
 [connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/OpenBtn" to="." method="_on_open_btn_pressed"]
 [connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/NewBtn" to="." method="_on_new_btn_pressed"]
 [connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]
 [connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/SaveAsBtn" to="." method="_on_save_as_btn_pressed"]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/LoadSurveyBtn" to="." method="_on_load_survey_btn_pressed"]
 [connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/SurveyBtn" to="." method="_on_survey_btn_pressed"]
 [connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/StudentsBtn" to="." method="_on_students_btn_pressed"]

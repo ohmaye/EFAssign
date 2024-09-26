@@ -16,8 +16,9 @@ func _ready():
 	GlobalVars.w5_checkbox = %Wed5
 
 
-### TOP LAYER CHOICES
-########################################################
+## UTILS
+##
+## Signals and Scene mgmt
 
 func _on_add_btn_pressed() -> void:
 	Signals.add_new.emit()
@@ -32,29 +33,26 @@ func _change_scene(content_container, scene : PackedScene):
 	content_container.add_child(scene_node)
 
 
-### FILE TAB
-########################################################
-# Open 
+## FILE TAB
+##
+## Handlers for Open, New, Save, Save As, Load Survey, and Quit
+
 func _on_open_btn_pressed() -> void:
 	var scene = preload("res://App/demand/survey.tscn")
 	_change_scene(%FileContent, scene)
 
-# New 
 func _on_new_btn_pressed() -> void:
 	var scene = preload("res://App/demand/students.tscn")
 	_change_scene(%FileContent, scene)
 
-# Save 
 func _on_save_btn_pressed() -> void:
 	var scene = preload("res://App/demand/by_student.tscn")
 	_change_scene(%FileContent, scene)
 
-# Save As...
 func _on_save_as_btn_pressed() -> void:
 	var scene = preload("res://App/demand/by_level.tscn")
 	_change_scene(%FileContent, scene)
 
-# Load Survey
 func _on_load_survey_btn_pressed() -> void:
 	var scene = preload("res://App/file/load_survey.tscn")
 	%FileDialog.visible = true
@@ -78,14 +76,14 @@ func _file_selected(path : String):
 		survey.append(row)
 	print("Survey: ", survey)
 
-# Quit
 func _on_quit_btn_pressed() -> void:
 	print("Calling quit")
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 
-### DEMAND TAB
-########################################################
+## DEMAND TAB
+##
+## Handlers for Load Survey, Students, By_Student, By_Course, and By_Level
 
 func _on_survey_btn_pressed() -> void:
 	var scene = preload("res://App/demand/survey.tscn")
@@ -108,8 +106,9 @@ func _on_by_level_btn_pressed() -> void:
 	_change_scene(%DemandContent, scene)
 
 
-# ASSIGN TAB
-########################################################
+## ASSIGN TAB
+##
+## Handlers for Assign, Assignments, Timetables, and Teacher Preferences
 
 func _on_assign_btn_pressed() -> void:
 	var scene = preload("res://App/assign/assign.tscn")
@@ -129,31 +128,28 @@ func _on_teacher_preferences_btn_pressed() -> void:
 
 
 
-# SUPPLY TAB
-########################################################
+## SUPPLY TAB
+##
+## Handlers for Classes, Courses, Teachers, Rooms, and Timeslots
 
-func _on_timeslots_btn_pressed() -> void:
-	var scene = preload("res://App/Supply/timeslots.tscn")
+func _on_classes_btn_pressed() -> void:
+	var scene = preload("res://App/Supply/classes.tscn")
 	_change_scene(%SupplyContent, scene)
-
-
-func _on_rooms_btn_pressed() -> void:
-	var scene = preload("res://App/Supply/rooms.tscn")
-	_change_scene(%SupplyContent, scene)
-
 
 func _on_courses_btn_pressed() -> void:
 	var scene = preload("res://App/Supply/courses.tscn")
 	_change_scene(%SupplyContent, scene)
 
-
 func _on_teachers_btn_pressed() -> void:
 	var scene = preload("res://App/Supply/teachers.tscn")
 	_change_scene(%SupplyContent, scene)
 
+func _on_rooms_btn_pressed() -> void:
+	var scene = preload("res://App/Supply/rooms.tscn")
+	_change_scene(%SupplyContent, scene)
 
-func _on_classes_btn_pressed() -> void:
-	var scene = preload("res://App/Supply/classes.tscn")
+func _on_timeslots_btn_pressed() -> void:
+	var scene = preload("res://App/Supply/timeslots.tscn")
 	_change_scene(%SupplyContent, scene)
 
 

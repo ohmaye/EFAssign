@@ -1,0 +1,174 @@
+[gd_scene load_steps=7 format=3 uid="uid://cndbcb81exqad"]
+
+[ext_resource type="StyleBox" uid="uid://py3oc1qy66xb" path="res://App/AppMain/style_box_btn.tres" id="1_1ruca"]
+[ext_resource type="Script" path="res://App/AppMain/app.gd" id="1_j3nuu"]
+[ext_resource type="StyleBox" uid="uid://snxtmaas4or" path="res://App/AppMain/style_box_demand_btn.tres" id="2_3otyw"]
+[ext_resource type="StyleBox" uid="uid://dimu3f3foahrr" path="res://App/AppMain/style_box_assign_btn.tres" id="3_vapd6"]
+[ext_resource type="StyleBox" uid="uid://dk4d6fjs47kh1" path="res://App/AppMain/style_box_supply_btn.tres" id="4_yexrk"]
+[ext_resource type="PackedScene" uid="uid://dw70vonudpgfe" path="res://UI/check_box.tscn" id="6_05x5c"]
+
+[node name="App" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j3nuu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = -1
+
+[node name="HeaderHBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="TabsHBox" type="HBoxContainer" parent="VBoxContainer/HeaderHBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HomeBtn" type="Button" parent="VBoxContainer/HeaderHBox/TabsHBox"]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_1ruca")
+text = "Home"
+
+[node name="FileBtn" type="Button" parent="VBoxContainer/HeaderHBox/TabsHBox"]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_1ruca")
+text = "File
+"
+
+[node name="DemandBtn" type="Button" parent="VBoxContainer/HeaderHBox/TabsHBox"]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_3otyw")
+text = "Demand
+"
+
+[node name="AssignBtn" type="Button" parent="VBoxContainer/HeaderHBox/TabsHBox"]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_vapd6")
+text = "Assign
+"
+
+[node name="SupplyBtn" type="Button" parent="VBoxContainer/HeaderHBox/TabsHBox"]
+custom_minimum_size = Vector2(140, 60)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_yexrk")
+text = "Supply"
+
+[node name="GlobalFiltersHBox" type="HBoxContainer" parent="VBoxContainer/HeaderHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HeaderHBox"]
+custom_minimum_size = Vector2(1600, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="IntensiveCheckBox" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+button_pressed = true
+text = "INTENSIVE"
+
+[node name="GeneralCheckBox" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+button_pressed = true
+text = "GENERAL
+"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HeaderHBox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 2
+
+[node name="Mon1" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "M1
+"
+
+[node name="Mon2" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "M2
+"
+
+[node name="Mon3" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "M3"
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HeaderHBox/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 2
+
+[node name="Wed1" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "W1"
+
+[node name="Wed2" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "W2"
+
+[node name="Wed3" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "W3
+"
+
+[node name="Wed4" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "W4
+"
+
+[node name="Wed5" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "W5
+"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Content" type="Control" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/HeaderHBox/TabsHBox/HomeBtn" to="." method="_on_home_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HeaderHBox/TabsHBox/FileBtn" to="." method="_on_file_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HeaderHBox/TabsHBox/DemandBtn" to="." method="_on_demand_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HeaderHBox/TabsHBox/AssignBtn" to="." method="_on_assign_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HeaderHBox/TabsHBox/SupplyBtn" to="." method="_on_supply_btn_pressed"]

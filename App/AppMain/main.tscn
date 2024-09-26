@@ -48,7 +48,7 @@ theme_override_styles/tabbar_background = ExtResource("4_jlrel")
 theme_override_styles/tab_selected = ExtResource("3_vpjxf")
 theme_override_styles/tab_hovered = ExtResource("3_vpjxf")
 theme_override_styles/tab_unselected = ExtResource("3_vpjxf")
-current_tab = 1
+current_tab = 3
 clip_tabs = false
 
 [node name="Home" type="ColorRect" parent="TabContainer"]
@@ -94,6 +94,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="File" type="ColorRect" parent="TabContainer"]
+visible = false
 layout_mode = 2
 color = Color(0.90327, 0.935962, 1, 1)
 metadata/_tab_index = 1
@@ -244,7 +245,6 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_bgp4o")
 
 [node name="Assign" type="ColorRect" parent="TabContainer"]
-visible = false
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 color = Color(0.223529, 0.929412, 0.894118, 1)

@@ -12,7 +12,7 @@ var style_hover = preload("res://UI/table/styles/style_cell_hover.tres")
 var style_normal = preload("res://UI/table/styles/style_cell_normal.tres")
 
 # Popup for editing
-var popup_panel : CanvasLayer 
+var popup_panel : CanvasLayer
 
 # Render the row inside a grid
 func render(_row, _query_info : QueryInfo, grid, cell, popup) -> void:

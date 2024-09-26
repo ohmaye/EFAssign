@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://rdx6sgduoy81"]
+
+[ext_resource type="Script" path="res://App/Supply/supply.gd" id="1_fote5"]
+[ext_resource type="StyleBox" uid="uid://bigi11vomfv16" path="res://themes/style_button.tres" id="1_i4bit"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
+color = Color(0.595154, 0.595154, 0.595154, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_au2si"]
+bg_color = Color(0.639216, 1, 0.847059, 1)
+
+[node name="Supply" type="ColorRect"]
+custom_minimum_size = Vector2(0, 72)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.876253, 0.855209, 1)
+script = ExtResource("1_fote5")
+metadata/_tab_index = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+color = Color(0.639216, 1, 0.847059, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="AddBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_styles/focus = ExtResource("1_i4bit")
+theme_override_styles/hover = ExtResource("1_i4bit")
+theme_override_styles/normal = ExtResource("1_i4bit")
+text = "Add New +"
+flat = true
+
+[node name="ClassesBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Classes"
+flat = true
+
+[node name="TeachersBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Teachers"
+flat = true
+
+[node name="CoursesBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Courses"
+flat = true
+
+[node name="RoomsBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Rooms"
+flat = true
+
+[node name="TimeslotsBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Timeslots"
+flat = true
+
+[node name="PlaceHolder" type="Control" parent="VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="SupplyContent" type="Panel" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_au2si")
+
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/ClassesBtn" to="." method="_on_classes_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/TeachersBtn" to="." method="_on_teachers_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/CoursesBtn" to="." method="_on_courses_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/RoomsBtn" to="." method="_on_rooms_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/TimeslotsBtn" to="." method="_on_timeslots_btn_pressed"]

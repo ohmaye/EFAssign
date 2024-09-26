@@ -151,9 +151,3 @@ func _on_rooms_btn_pressed() -> void:
 func _on_timeslots_btn_pressed() -> void:
 	var scene = preload("res://App/Supply/timeslots.tscn")
 	_change_scene(%SupplyContent, scene)
-
-
-
-
-
-

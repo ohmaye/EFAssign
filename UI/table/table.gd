@@ -13,7 +13,7 @@ var filter = preload("res://UI/table/filter.tscn")
 var style_header = preload("res://UI/table/styles/style_cell_header.tres")
 var style_normal = preload("res://UI/table/styles/style_cell_normal.tres")
 
-var popup
+var popup = preload("res://UI/popup/popup.tscn")
 
 func render(_query_info : QueryInfo):
 	# Clear the grid
@@ -26,7 +26,7 @@ func render(_query_info : QueryInfo):
 	filter_grid.columns = count
 	rows_grid.columns = count
 
-	popup = get_node("/root/Main/Popup")
+	var popup_node = %Popup
 
 	# Add the headers
 	for field in _query_info.columns:
@@ -45,4 +45,4 @@ func render(_query_info : QueryInfo):
 	# Add the rows
 	for row in _query_info.rows:
 		var row_node = Row.new()
-		row_node.render(row, _query_info, rows_grid, cell, popup)
+		row_node.render(row, _query_info, rows_grid, cell, popup_node)

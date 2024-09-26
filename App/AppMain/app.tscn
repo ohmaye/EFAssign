@@ -75,20 +75,20 @@ text = "Supply"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HeaderHBox"]
+[node name="FiltersHBox" type="HBoxContainer" parent="VBoxContainer/HeaderHBox"]
 custom_minimum_size = Vector2(1600, 0)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 30
 
-[node name="IntensiveCheckBox" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+[node name="IntensiveCheckBox" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 button_pressed = true
 text = "INTENSIVE"
 
-[node name="GeneralCheckBox" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+[node name="GeneralCheckBox" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
@@ -96,63 +96,63 @@ button_pressed = true
 text = "GENERAL
 "
 
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HeaderHBox/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HeaderHBox/FiltersHBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 2
 
-[node name="Mon1" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+[node name="Mon1" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "M1
 "
 
-[node name="Mon2" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+[node name="Mon2" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "M2
 "
 
-[node name="Mon3" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+[node name="Mon3" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "M3"
 
-[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HeaderHBox/HBoxContainer"]
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HeaderHBox/FiltersHBox"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 2
 
-[node name="Wed1" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+[node name="Wed1" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "W1"
 
-[node name="Wed2" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+[node name="Wed2" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "W2"
 
-[node name="Wed3" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+[node name="Wed3" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "W3
 "
 
-[node name="Wed4" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+[node name="Wed4" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "W4
 "
 
-[node name="Wed5" parent="VBoxContainer/HeaderHBox/HBoxContainer" instance=ExtResource("6_05x5c")]
+[node name="Wed5" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "W5

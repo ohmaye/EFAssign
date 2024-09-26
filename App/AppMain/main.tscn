@@ -1,24 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://x8u7tb17udya"]
+[gd_scene load_steps=10 format=3 uid="uid://x8u7tb17udya"]
 
 [ext_resource type="Script" path="res://App/AppMain/main.gd" id="1_bm34x"]
 [ext_resource type="StyleBox" uid="uid://pkeyw1gbp6s" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
+[ext_resource type="PackedScene" uid="uid://bd2c5e5xuma4d" path="res://App/Demand/demand.tscn" id="4_13axa"]
 [ext_resource type="StyleBox" uid="uid://b7ascd11wu7mk" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
-[ext_resource type="StyleBox" uid="uid://bigi11vomfv16" path="res://themes/style_button.tres" id="5_7334v"]
+[ext_resource type="PackedScene" uid="uid://baq36xx5p6jn2" path="res://App/Assign/assign.tscn" id="5_8v0d4"]
 [ext_resource type="PackedScene" uid="uid://b4da3to7mvee5" path="res://UI/popup/popup.tscn" id="5_osk20"]
+[ext_resource type="PackedScene" uid="uid://rdx6sgduoy81" path="res://App/Supply/supply.tscn" id="5_yundq"]
 [ext_resource type="PackedScene" uid="uid://dw70vonudpgfe" path="res://UI/check_box.tscn" id="6_muxi1"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
 color = Color(0.595154, 0.595154, 0.595154, 1)
 thickness = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgp4o"]
-bg_color = Color(0.639216, 0.913725, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdoff"]
-bg_color = Color(0.635294, 1, 0.972549, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_au2si"]
-bg_color = Color(0.639216, 1, 0.847059, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -48,7 +41,7 @@ theme_override_styles/tabbar_background = ExtResource("4_jlrel")
 theme_override_styles/tab_selected = ExtResource("3_vpjxf")
 theme_override_styles/tab_hovered = ExtResource("3_vpjxf")
 theme_override_styles/tab_unselected = ExtResource("3_vpjxf")
-current_tab = 3
+current_tab = 1
 clip_tabs = false
 
 [node name="Home" type="ColorRect" parent="TabContainer"]
@@ -94,7 +87,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="File" type="ColorRect" parent="TabContainer"]
-visible = false
 layout_mode = 2
 color = Color(0.90327, 0.935962, 1, 1)
 metadata/_tab_index = 1
@@ -171,235 +163,16 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Demand" type="ColorRect" parent="TabContainer"]
+[node name="Demand" parent="TabContainer" instance=ExtResource("4_13axa")]
 visible = false
 layout_mode = 2
-color = Color(0.90327, 0.935962, 1, 1)
-metadata/_tab_index = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Demand"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = -1
-
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Demand/VBoxContainer"]
+[node name="Assign" parent="TabContainer" instance=ExtResource("5_8v0d4")]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
 
-[node name="ColorRect" type="ColorRect" parent="TabContainer/Demand/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-color = Color(0.639216, 0.913725, 1, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Demand/VBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -18.0
-offset_bottom = 18.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 80
-alignment = 1
-
-[node name="SurveyBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Survey"
-flat = true
-
-[node name="StudentsBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Students"
-flat = true
-
-[node name="ByStudentBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "By Student"
-flat = true
-
-[node name="ByCourseBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "By Course"
-flat = true
-
-[node name="ByLevelBtn" type="Button" parent="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "By Level"
-flat = true
-
-[node name="DemandContent" type="Panel" parent="TabContainer/Demand/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_bgp4o")
-
-[node name="Assign" type="ColorRect" parent="TabContainer"]
-custom_minimum_size = Vector2(0, 72)
-layout_mode = 2
-color = Color(0.223529, 0.929412, 0.894118, 1)
-metadata/_tab_index = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Assign"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = -1
-
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Assign/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
-
-[node name="ColorRect" type="ColorRect" parent="TabContainer/Assign/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-color = Color(0.635294, 1, 0.972549, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Assign/VBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -16.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 80
-alignment = 1
-
-[node name="AssignBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Assign"
-flat = true
-
-[node name="AssignmentsBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Assignments"
-flat = true
-
-[node name="TimetablesBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Timetables"
-flat = true
-
-[node name="TeacherPreferencesBtn" type="Button" parent="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Teacher Preferences"
-flat = true
-
-[node name="AssignContent" type="Panel" parent="TabContainer/Assign/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_hdoff")
-
-[node name="Supply" type="ColorRect" parent="TabContainer"]
+[node name="Supply" parent="TabContainer" instance=ExtResource("5_yundq")]
 visible = false
-custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
-color = Color(1, 0.876253, 0.855209, 1)
-metadata/_tab_index = 4
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Supply"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = -1
-
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Supply/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
-
-[node name="ColorRect" type="ColorRect" parent="TabContainer/Supply/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-color = Color(0.639216, 1, 0.847059, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Supply/VBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -16.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 80
-alignment = 1
-
-[node name="AddBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 2
-theme_override_styles/focus = ExtResource("5_7334v")
-theme_override_styles/hover = ExtResource("5_7334v")
-theme_override_styles/normal = ExtResource("5_7334v")
-text = "Add New +"
-flat = true
-
-[node name="ClassesBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Classes"
-flat = true
-
-[node name="TeachersBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Teachers"
-flat = true
-
-[node name="CoursesBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Courses"
-flat = true
-
-[node name="RoomsBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Rooms"
-flat = true
-
-[node name="TimeslotsBtn" type="Button" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Timeslots"
-flat = true
-
-[node name="PlaceHolder" type="Control" parent="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 10
-
-[node name="SupplyContent" type="Panel" parent="TabContainer/Supply/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_au2si")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(1600, 0)
@@ -510,21 +283,6 @@ visible = false
 [connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]
 [connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/SaveAsBtn" to="." method="_on_save_as_btn_pressed"]
 [connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/SurveyBtn" to="." method="_on_survey_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/StudentsBtn" to="." method="_on_students_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByStudentBtn" to="." method="_on_by_student_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByCourseBtn" to="." method="_on_by_course_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByLevelBtn" to="." method="_on_by_level_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/AssignBtn" to="." method="_on_assign_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/AssignmentsBtn" to="." method="_on_assignments_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/TimetablesBtn" to="." method="_on_timetables_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/TeacherPreferencesBtn" to="." method="_on_teacher_preferences_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/AddBtn" to="." method="_on_add_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/ClassesBtn" to="." method="_on_classes_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TeachersBtn" to="." method="_on_teachers_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/CoursesBtn" to="." method="_on_courses_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/RoomsBtn" to="." method="_on_rooms_btn_pressed"]
-[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TimeslotsBtn" to="." method="_on_timeslots_btn_pressed"]
 [connection signal="pressed" from="HBoxContainer/IntensiveCheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="HBoxContainer/GeneralCheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="HBoxContainer/Mon1" to="." method="_on_check_box_pressed"]

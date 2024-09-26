@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://b4mgxtwuy0160"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://b4mgxtwuy0160"]
 
 [ext_resource type="Texture2D" uid="uid://cakclmicnguxj" path="res://Icons/checkbox_checked.svg" id="1_p02l6"]
 [ext_resource type="Texture2D" uid="uid://cyubfcjpj07tn" path="res://Icons/checkbox_checked_disabled.svg" id="2_qjlty"]
@@ -6,6 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://c4urriyiet5f6" path="res://Icons/checkbox_unchecked_disabled.svg" id="4_oggfy"]
 [ext_resource type="Texture2D" uid="uid://buisjp20ootup" path="res://Icons/expanded.svg" id="5_kcxau"]
 [ext_resource type="Texture2D" uid="uid://cddklh8aa5f28" path="res://Icons/collapsed.svg" id="6_50yuy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmbji"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.99779, 0.99779, 0.99779, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p22nk"]
 bg_color = Color(0.561149, 0.704473, 1, 1)
@@ -40,6 +51,8 @@ bg_color = Color(0.454079, 0.628234, 1, 1)
 bg_color = Color(0.662745, 0.839216, 0.976471, 1)
 
 [resource]
+AcceptDialog/font_sizes/title_font_size = 32
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_wmbji")
 Button/colors/font_color = Color(0, 0, 1, 1)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0.375733, 0.570225, 1, 1)

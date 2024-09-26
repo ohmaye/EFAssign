@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://x8u7tb17udya"]
+[gd_scene load_steps=11 format=3 uid="uid://x8u7tb17udya"]
 
-[ext_resource type="Script" path="res://App/Main/main.gd" id="1_bm34x"]
-[ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_m2frl"]
+[ext_resource type="Script" path="res://App/AppMain/main.gd" id="1_bm34x"]
 [ext_resource type="StyleBox" uid="uid://pkeyw1gbp6s" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
 [ext_resource type="StyleBox" uid="uid://b7ascd11wu7mk" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
 [ext_resource type="StyleBox" uid="uid://bigi11vomfv16" path="res://themes/style_button.tres" id="5_7334v"]
@@ -32,73 +31,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_bm34x")
 
-[node name="MenuBar" type="MenuBar" parent="."]
-layout_mode = 2
-offset_left = 10.0
-offset_top = 14.0
-offset_right = 1910.0
-offset_bottom = 1070.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
-
-[node name="File" type="PopupMenu" parent="MenuBar"]
-auto_translate_mode = 1
-title = "Demand"
-size = Vector2i(289, 344)
-theme = ExtResource("1_m2frl")
-item_count = 6
-item_0/text = "Open Cycle"
-item_1/text = "New Cycle"
-item_1/id = 1
-item_2/text = "Save Cycle"
-item_2/id = 2
-item_3/text = "Save Cycle As..."
-item_3/id = 3
-item_4/text = "Load Survey"
-item_4/id = 4
-item_5/text = "Quit"
-item_5/id = 5
-
-[node name="Demand" type="PopupMenu" parent="MenuBar"]
-auto_translate_mode = 1
-title = "Demand"
-size = Vector2i(110, 100)
-theme = ExtResource("1_m2frl")
-item_count = 3
-item_0/text = "Overview"
-item_1/text = "By Level"
-item_1/id = 1
-item_2/text = "By Program"
-item_2/id = 2
-
-[node name="Assign" type="PopupMenu" parent="MenuBar"]
-auto_translate_mode = 1
-title = "Assign"
-theme = ExtResource("1_m2frl")
-item_count = 5
-item_0/text = "Teacher Preferences"
-item_1/text = "Student Preferences"
-item_1/id = 1
-item_2/text = "Analyze Demand vs Supply"
-item_2/id = 2
-item_3/text = "Assign"
-item_3/id = 3
-item_4/text = "Reports"
-item_4/id = 4
-
-[node name="Supply" type="PopupMenu" parent="MenuBar"]
-auto_translate_mode = 1
-title = "Supply"
-theme = ExtResource("1_m2frl")
-item_count = 4
-item_0/text = "Teachers"
-item_1/text = "Courses"
-item_1/id = 1
-item_2/text = "Rooms"
-item_2/id = 2
-item_3/text = "Timeslots"
-item_3/id = 3
-
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -116,7 +48,7 @@ theme_override_styles/tabbar_background = ExtResource("4_jlrel")
 theme_override_styles/tab_selected = ExtResource("3_vpjxf")
 theme_override_styles/tab_hovered = ExtResource("3_vpjxf")
 theme_override_styles/tab_unselected = ExtResource("3_vpjxf")
-current_tab = 3
+current_tab = 1
 clip_tabs = false
 
 [node name="Home" type="ColorRect" parent="TabContainer"]
@@ -162,7 +94,6 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="File" type="ColorRect" parent="TabContainer"]
-visible = false
 layout_mode = 2
 color = Color(0.90327, 0.935962, 1, 1)
 metadata/_tab_index = 1
@@ -198,43 +129,51 @@ grow_vertical = 2
 theme_override_constants/separation = 80
 alignment = 1
 
-[node name="Button" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="OpenBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Open Cycle"
 flat = true
 
-[node name="Button2" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="NewBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "New Cycle"
 flat = true
 
-[node name="Button3" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="SaveBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Save Cycle"
 flat = true
 
-[node name="Button4" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="SaveAsBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Save Cycle as..."
 flat = true
 
-[node name="Button5" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="LoadSurveyBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Load Survey"
 flat = true
 
-[node name="Button6" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+[node name="QuitBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
 flat = true
 
 [node name="FileContent" type="Panel" parent="TabContainer/File/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="FileDialog" type="FileDialog" parent="TabContainer/File/VBoxContainer/FileContent"]
+[node name="FileDialog" type="FileDialog" parent="TabContainer"]
+unique_name_in_owner = true
 title = "Open a File"
-size = Vector2i(408, 227)
+size = Vector2i(780, 227)
 ok_button_text = "Open"
 dialog_hide_on_ok = true
 file_mode = 0
@@ -315,6 +254,7 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_bgp4o")
 
 [node name="Assign" type="ColorRect" parent="TabContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 color = Color(0.223529, 0.929412, 0.894118, 1)
@@ -564,8 +504,27 @@ text = "W5
 unique_name_in_owner = true
 visible = false
 
-[connection signal="id_pressed" from="MenuBar/Supply" to="." method="_on_supply_id_pressed"]
+[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/OpenBtn" to="." method="_on_open_btn_pressed"]
+[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/NewBtn" to="." method="_on_new_btn_pressed"]
+[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]
+[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/SaveAsBtn" to="." method="_on_save_as_btn_pressed"]
+[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/LoadSurveyBtn" to="." method="_on_load_survey_btn_pressed"]
+[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/SurveyBtn" to="." method="_on_survey_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/StudentsBtn" to="." method="_on_students_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByStudentBtn" to="." method="_on_by_student_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByCourseBtn" to="." method="_on_by_course_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Demand/VBoxContainer/ColorRect/HBoxContainer/ByLevelBtn" to="." method="_on_by_level_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/AssignBtn" to="." method="_on_assign_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/AssignmentsBtn" to="." method="_on_assignments_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/TimetablesBtn" to="." method="_on_timetables_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Assign/VBoxContainer/ColorRect/HBoxContainer/TeacherPreferencesBtn" to="." method="_on_teacher_preferences_btn_pressed"]
 [connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/AddBtn" to="." method="_on_add_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/ClassesBtn" to="." method="_on_classes_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TeachersBtn" to="." method="_on_teachers_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/CoursesBtn" to="." method="_on_courses_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/RoomsBtn" to="." method="_on_rooms_btn_pressed"]
+[connection signal="pressed" from="TabContainer/Supply/VBoxContainer/ColorRect/HBoxContainer/TimeslotsBtn" to="." method="_on_timeslots_btn_pressed"]
 [connection signal="pressed" from="HBoxContainer/IntensiveCheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="HBoxContainer/GeneralCheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="HBoxContainer/Mon1" to="." method="_on_check_box_pressed"]

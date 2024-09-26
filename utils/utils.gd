@@ -15,8 +15,8 @@ const uuid = preload('res://addons/uuid.gd')
 func save_user_prefs():
 	var user_prefs : UserPrefs = UserPrefs.new()
 
-	user_prefs.path = "aaa"
-	user_prefs.file = "bbb"
+	user_prefs.path = "user://"
+	user_prefs.file = ""
 
 	ResourceSaver.save(user_prefs, "user://user_prefs.tres")
 

@@ -1,60 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dph4jo2q1f0lx"]
+[gd_scene load_steps=2 format=3 uid="uid://dph4jo2q1f0lx"]
 
-[ext_resource type="Script" path="res://test.gd" id="1_83k01"]
 [ext_resource type="Theme" uid="uid://m0ni3edfmbfn" path="res://themes/test_theme.tres" id="1_b4sj0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggoob"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w7kl"]
-bg_color = Color(0.694395, 0.594846, 0.191425, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.23212, 0.23212, 0.23212, 1)
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eiki8"]
-bg_color = Color(0.875693, 0.483207, 0.177078, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gi63"]
-bg_color = Color(0.732812, 0.573987, 0.23325, 1)
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-
-[node name="Test" type="ColorPickerButton"]
+[node name="Test" type="Control"]
 custom_minimum_size = Vector2(120, 80)
-anchors_preset = -1
-anchor_right = 0.175
-anchor_bottom = 0.139
-offset_right = -156.0
-offset_bottom = -118.16
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_b4sj0")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/focus = SubResource("StyleBoxFlat_ggoob")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_4w7kl")
-text = "ColorPicker"
-script = ExtResource("1_83k01")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 184.0
-offset_top = 160.0
-offset_right = 1632.0
-offset_bottom = 1326.0
-theme = ExtResource("1_b4sj0")
-theme_type_variation = &"DemandPanel"
-metadata/_edit_group_ = true
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 496.0
-offset_top = 4.0
-offset_right = 912.0
-offset_bottom = 142.0
-theme = ExtResource("1_b4sj0")
-theme_override_font_sizes/font_size = 64
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_eiki8")
-theme_override_styles/normal = SubResource("StyleBoxFlat_5gi63")
-text = "Demand"
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+initial_position = 2
+size = Vector2i(1034, 122)
+visible = true
+dialog_text = "The survey has courses that are not in the system. Continue?"

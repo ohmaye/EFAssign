@@ -78,3 +78,18 @@ DATA 2024.09.25
   - timeslots
 - Utils
   - weekdays
+
+
+ToDo:
+- Add New only works for teachers (2024.09.26)
+- Assign
+  - Can be much more powerful
+  - When assigned, disable and don't count assigned students
+  - On the supply side, show who is assigned
+  - From the supply, allow to be de-assigned. Returning to demand
+  - Show checkmark in the selected students (center panel) to confirm assignment
+  - Make the Class Selected a bit more clear about Single Selection
+- Assignments
+  - Allow them to mark "Uploaded"
+- CanvasLayers
+  - Powerful to create unusual effects for a business app...

@@ -101,6 +101,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_au2si")
 
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/AddBtn" to="." method="_on_add_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/ClassesBtn" to="." method="_on_classes_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/TeachersBtn" to="." method="_on_teachers_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/CoursesBtn" to="." method="_on_courses_btn_pressed"]

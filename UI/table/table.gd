@@ -26,7 +26,8 @@ func render(_query_info : QueryInfo):
 	filter_grid.columns = count
 	rows_grid.columns = count
 
-	var popup_node = %Popup
+	var popup_node = popup.instantiate()
+	add_child(popup_node)
 
 	# Add the headers
 	for field in _query_info.columns:

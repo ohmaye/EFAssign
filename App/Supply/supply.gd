@@ -39,3 +39,8 @@ func _on_rooms_btn_pressed() -> void:
 
 func _on_timeslots_btn_pressed() -> void:
 	_change_scene(timeslots_scene)
+
+
+func _on_add_btn_pressed() -> void:
+	print("Add new")
+	Signals.add_new.emit()

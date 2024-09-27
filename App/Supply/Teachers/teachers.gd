@@ -4,6 +4,8 @@ const COLUMN_NAMES  = Constants.TEACHER_COLUMN_NAMES
 const KEY = Constants.TEACHER_KEY
 var query_info 
 
+var popup = preload("res://UI/popup/popup.tscn")
+
 func render():
 	var db = AssignDB.db
 	var result = db.query("SELECT * FROM teachers ORDER BY name")
@@ -19,7 +21,9 @@ func render():
 	$Table.render(query_info)
 
 func _add_new():
-	var popup = get_node("/root/Main/Popup")
+	var popup_node = popup.instantiate()
+	add_child(popup_node)
+	
 	var db = AssignDB.db
 	var id = Utilities.uuid.v4()
 	var sql_stmt = "INSERT INTO teachers (teacher_id)  VALUES ('{0}')"
@@ -31,5 +35,5 @@ func _add_new():
 	var result = db.query(sql_stmt.format([id]))
 
 	if result:
-		popup.render(row, query_info)
-		popup.visible = true	
+		popup_node.render(row, query_info)
+		popup_node.visible = true	

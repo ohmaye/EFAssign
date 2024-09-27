@@ -1,5 +1,7 @@
 extends Control
 
+var home_scene = preload("res://App/Home/home.tscn")
+var file_scene = preload("res://App/File/file.tscn")
 var demand_scene = preload("res://App/Demand/demand.tscn")
 var assign_scene = preload("res://App/Assign/assign.tscn")
 var supply_scene = preload("res://App/Supply/supply.tscn")
@@ -19,16 +21,28 @@ func _ready() -> void:
 	GlobalVars.w4_checkbox = %Wed4
 	GlobalVars.w5_checkbox = %Wed5
 
+## UTILS
+##
+## Signals and Scene mgmt
 
+func _on_add_btn_pressed() -> void:
+	Signals.add_new.emit()
+
+func _on_check_box_pressed() -> void:
+	Signals.data_changed.emit()
+
+	
 ## Button Handlers
 ##
 ## Handlers for Home, File, Demand, Assign, and Supply
 
 func _on_home_btn_pressed() -> void:
 	print("Home")
+	_change_scene(home_scene)
 
 func _on_file_btn_pressed() -> void:
 	print("File")
+	_change_scene(file_scene)
 
 func _on_demand_btn_pressed() -> void:
 	_change_scene(demand_scene)

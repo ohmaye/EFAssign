@@ -1,17 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://x8u7tb17udya"]
+[gd_scene load_steps=11 format=3 uid="uid://x8u7tb17udya"]
 
 [ext_resource type="Script" path="res://App/AppMain/main.gd" id="1_bm34x"]
 [ext_resource type="StyleBox" uid="uid://pkeyw1gbp6s" path="res://themes/style_tab_selected.tres" id="3_vpjxf"]
 [ext_resource type="PackedScene" uid="uid://bd2c5e5xuma4d" path="res://App/Demand/demand.tscn" id="4_13axa"]
+[ext_resource type="PackedScene" uid="uid://bhqjoyjsliodj" path="res://App/Home/home.tscn" id="4_cvnfi"]
 [ext_resource type="StyleBox" uid="uid://b7ascd11wu7mk" path="res://themes/style_tabbar_background.tres" id="4_jlrel"]
+[ext_resource type="PackedScene" uid="uid://b7y5dn1j3ymcx" path="res://App/File/file.tscn" id="4_ruvfy"]
 [ext_resource type="PackedScene" uid="uid://baq36xx5p6jn2" path="res://App/Assign/assign.tscn" id="5_8v0d4"]
 [ext_resource type="PackedScene" uid="uid://b4da3to7mvee5" path="res://UI/popup/popup.tscn" id="5_osk20"]
 [ext_resource type="PackedScene" uid="uid://rdx6sgduoy81" path="res://App/Supply/supply.tscn" id="5_yundq"]
 [ext_resource type="PackedScene" uid="uid://dw70vonudpgfe" path="res://UI/check_box.tscn" id="6_muxi1"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
-color = Color(0.595154, 0.595154, 0.595154, 1)
-thickness = 2
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -44,130 +42,19 @@ theme_override_styles/tab_unselected = ExtResource("3_vpjxf")
 current_tab = 1
 clip_tabs = false
 
-[node name="Home" type="ColorRect" parent="TabContainer"]
+[node name="Home" parent="TabContainer" instance=ExtResource("4_cvnfi")]
 visible = false
 layout_mode = 2
-metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Home"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = -1
-
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Home/VBoxContainer"]
+[node name="File" parent="TabContainer" instance=ExtResource("4_ruvfy")]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
-
-[node name="ColorRect" type="ColorRect" parent="TabContainer/Home/VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-color = Color(0.881937, 0.881937, 0.881937, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Home/VBoxContainer/ColorRect"]
-visible = false
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -16.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 80
-alignment = 1
-
-[node name="HomeContent" type="Panel" parent="TabContainer/Home/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="File" type="ColorRect" parent="TabContainer"]
-layout_mode = 2
-color = Color(0.90327, 0.935962, 1, 1)
-metadata/_tab_index = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/File"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = -1
-
-[node name="HSeparator" type="HSeparator" parent="TabContainer/File/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
-
-[node name="ColorRect" type="ColorRect" parent="TabContainer/File/VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
-layout_mode = 2
-color = Color(0.881937, 0.881937, 0.881937, 1)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/File/VBoxContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -16.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 80
-alignment = 1
-
-[node name="LoadSurveyBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Load Survey"
-flat = true
-
-[node name="OpenBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Open Cycle"
-flat = true
-
-[node name="NewBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "New Cycle"
-flat = true
-
-[node name="SaveBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Save Cycle"
-flat = true
-
-[node name="SaveAsBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Save Cycle as..."
-flat = true
-
-[node name="QuitBtn" type="Button" parent="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Quit"
-flat = true
-
-[node name="FileContent" type="Panel" parent="TabContainer/File/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
 
 [node name="Demand" parent="TabContainer" instance=ExtResource("4_13axa")]
 visible = false
 layout_mode = 2
 
 [node name="Assign" parent="TabContainer" instance=ExtResource("5_8v0d4")]
+visible = false
 layout_mode = 2
 
 [node name="Supply" parent="TabContainer" instance=ExtResource("5_yundq")]
@@ -277,12 +164,6 @@ use_native_dialog = true
 unique_name_in_owner = true
 visible = false
 
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/LoadSurveyBtn" to="." method="_on_load_survey_btn_pressed"]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/OpenBtn" to="." method="_on_open_btn_pressed"]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/NewBtn" to="." method="_on_new_btn_pressed"]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/SaveAsBtn" to="." method="_on_save_as_btn_pressed"]
-[connection signal="pressed" from="TabContainer/File/VBoxContainer/ColorRect/HBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]
 [connection signal="pressed" from="HBoxContainer/IntensiveCheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="HBoxContainer/GeneralCheckBox" to="." method="_on_check_box_pressed"]
 [connection signal="pressed" from="HBoxContainer/Mon1" to="." method="_on_check_box_pressed"]

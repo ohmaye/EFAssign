@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://6h678dbyu1yk"]
 
-[ext_resource type="Script" path="res://App/File/load_survey.gd" id="1_hkbdt"]
+[ext_resource type="Script" path="res://App/File/LoadSurvey/load_survey.gd" id="1_hkbdt"]
 [ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="2_jy6ts"]
 
 [node name="Survey" type="Control"]

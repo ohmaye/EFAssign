@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cwhxbdhymkn8v"]
 
 [ext_resource type="Script" path="res://App/Assign/Assign/connect.gd" id="1_3c7hr"]
-[ext_resource type="FontFile" uid="uid://doosudslnw4jh" path="res://Fonts/EFCircularTT-Bold.ttf" id="2_kqj5a"]
+[ext_resource type="FontFile" uid="uid://doosudslnw4jh" path="res://UI/Fonts/EFCircularTT-Bold.ttf" id="2_kqj5a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vbxr"]
 bg_color = Color(0.635294, 1, 0.972549, 1)

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dil0cr4gv2pfh"
-path="res://.godot/imported/EFCircularTT-Light.ttf-88ed62507a185466ac584453d47c1c36.fontdata"
+uid="uid://335urjs7cfn2"
+path="res://.godot/imported/EFCircularTT-Medium.ttf-6cd7dc56b02133fdf767fccf43383200.fontdata"
 
 [deps]
 
-source_file="res://Fonts/EFCircularTT-Light.ttf"
-dest_files=["res://.godot/imported/EFCircularTT-Light.ttf-88ed62507a185466ac584453d47c1c36.fontdata"]
+source_file="res://UI/Fonts/EFCircularTT-Medium.ttf"
+dest_files=["res://.godot/imported/EFCircularTT-Medium.ttf-6cd7dc56b02133fdf767fccf43383200.fontdata"]
 
 [params]
 

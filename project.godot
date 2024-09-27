@@ -44,7 +44,7 @@ enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 [gui]
 
 theme/custom="res://themes/main_theme.tres"
-theme/custom_font="res://fonts/EFCircularTT-Medium.ttf"
+theme/custom_font="res://UI/Fonts/EFCircularTT-Medium.ttf"
 
 [rendering]
 

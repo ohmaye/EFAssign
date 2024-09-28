@@ -95,3 +95,16 @@ ToDo:
   - Powerful to create unusual effects for a business app...
 - Survey
   - Add or Replace to handle trickle down students.
+- File/DB
+  - Should load preferences and check if there's a saved path
+  - If there is one, see if the file can be open and open that DB
+  - If it cannot be open, then open the default DB (in project)
+  - Save it in user://
+  - If it opens, that'll become the active DB
+  - OPEN:
+    - Check if the DB can be open.
+    - If not, then indicate so, and wait for another selection
+    - If yes, then that becomes the active DB. Save path to prefs. Next default.
+  - NEW: 
+    - Load an empty (default) DB (in project)
+    - Save it in user://

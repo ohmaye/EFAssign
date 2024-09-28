@@ -9,7 +9,8 @@ var supply_scene = preload("res://App/Supply/supply.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Utils.save_user_prefs()
-	# Utils.load_user_prefs()
+	Utils.load_user_prefs()
+	print("Loaded Prefs: ", GlobalVars.path, GlobalVars.file)
 	GlobalVars.general_checkbox = %GeneralCheckBox
 	GlobalVars.intensive_checkbox = %IntensiveCheckBox
 	GlobalVars.m1_checkbox = %Mon1
@@ -20,6 +21,12 @@ func _ready() -> void:
 	GlobalVars.w3_checkbox = %Wed3
 	GlobalVars.w4_checkbox = %Wed4
 	GlobalVars.w5_checkbox = %Wed5
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		print("Notification: Will close app")
+		Utils.save_user_prefs()
+
 
 ## Global filters and buttons
 ##
@@ -50,5 +57,3 @@ func _on_assign_btn_pressed() -> void:
 
 func _on_supply_btn_pressed() -> void:
 	Utils.change_scene(%Content, supply_scene)
-
-

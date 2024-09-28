@@ -111,6 +111,7 @@ CREATE TABLE assignments (
 -- Survey data
 DROP TABLE IF EXISTS survey;
 CREATE TABLE survey (
+  survey_id TEXT NOT NULL UNIQUE PRIMARY KEY,
   timestamp TEXT,
   email	TEXT,
   firstName TEXT,

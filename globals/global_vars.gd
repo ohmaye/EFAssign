@@ -12,3 +12,6 @@ var w2_checkbox : CheckBox
 var w3_checkbox : CheckBox
 var w4_checkbox : CheckBox
 var w5_checkbox : CheckBox
+
+var path : String
+var file : String

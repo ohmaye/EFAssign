@@ -2,11 +2,9 @@ extends Control
 
 class_name Controller
 
-# ToDo: Create one for Assign and another for Demand
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+## Track changes in data
+##
+## When a page depends on underlying data, ensure that the pages receives a signal of changes
 
 func render():
 	pass

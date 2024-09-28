@@ -27,6 +27,7 @@ func render(_query_info : QueryInfo):
 	rows_grid.columns = count
 
 	var popup_node = popup.instantiate()
+	popup_node.visible = false
 	add_child(popup_node)
 
 	# Add the headers

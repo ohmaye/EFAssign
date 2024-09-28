@@ -2,6 +2,9 @@ extends Node
 
 class_name Utilities
 
+## Remove Children
+##
+## Given a container, remove all children and free the resources
 func remove_all_children(parent_node):
 	# Loop through all children and remove them
 	for child in parent_node.get_children():
@@ -9,9 +12,12 @@ func remove_all_children(parent_node):
 		# This will delete the child from memory
 		child.queue_free()  
 
+## Create UUID
 const uuid = preload('res://addons/uuid.gd')
 
-# Save and Load user preferences
+## Save and Load user preferences
+##
+## Use the UserPrefs class to store preferences in "user://user_prefs.tres"
 func save_user_prefs():
 	var user_prefs : UserPrefs = UserPrefs.new()
 
@@ -23,9 +29,8 @@ func save_user_prefs():
 func load_user_prefs():
 	var user_prefs : UserPrefs = load("user://user_prefs.tres")
 
-	var global_path = user_prefs.path
-	var global_file = user_prefs.file
-	print("Loaded: ", global_path, global_file)
+	GlobalVars.path = user_prefs.path
+	GlobalVars.file = user_prefs.file
 
 
 ## Scene Utilities

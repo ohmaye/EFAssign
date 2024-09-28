@@ -1,5 +1,6 @@
 extends Controller
 
+const COLUMN_NAMES = Constants.SURVEY_COLUMN_NAMES
 var file_dialog = preload("res://UI/file_dialog.tscn")
 
 func _ready() -> void:
@@ -28,4 +29,7 @@ func _file_selected(path : String):
 			row.append(field)
 		survey.append(row)
 	print("Survey: ", survey)
-
+	# Clean up DB and upload
+	# AppDB.db.query("DELETE FROM survey")
+	# for row in survey:
+	# 	AppDB.db.query("INSERT INTO survey {0} VALUES {1}".format(COLUMN_NAMES, row) )

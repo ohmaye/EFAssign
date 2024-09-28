@@ -14,7 +14,7 @@ func _ready():
 	var general = "General" if GlobalVars.general_checkbox.button_pressed else ""
 	var sql_stmt = sql % [intensive, general]
 	
-	var db = AssignDB.db
+	var db = AppDB.db
 	var result = db.query(sql_stmt)
 
 	# If there are no results, return

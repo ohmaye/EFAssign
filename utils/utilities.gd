@@ -21,16 +21,14 @@ const uuid = preload('res://addons/uuid.gd')
 func save_user_prefs():
 	var user_prefs : UserPrefs = UserPrefs.new()
 
-	user_prefs.path = "user://"
-	user_prefs.file = ""
+	user_prefs.file_path = GlobalVars.file_path
 
 	ResourceSaver.save(user_prefs, "user://user_prefs.tres")
 
 func load_user_prefs():
 	var user_prefs : UserPrefs = load("user://user_prefs.tres")
 
-	GlobalVars.path = user_prefs.path
-	GlobalVars.file = user_prefs.file
+	GlobalVars.file_path = user_prefs.file_path
 
 
 ## Scene Utilities

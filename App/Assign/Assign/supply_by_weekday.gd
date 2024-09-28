@@ -14,11 +14,11 @@ func _ready():
 	root.set_text(0, "(Shift click to hide/show all)")
 
 	# Go through classes and for each populate the intersection if it exists
-	var courses = AssignDB.db_get(sql_distinct_courses)
+	var courses = AppDB.db_get(sql_distinct_courses)
 	for course in courses:
 		var course_node = _create_course_node(course, root)
 		# For each course, list the classes
-		var classes = AssignDB.db_get(sql_classes_for_course % course["course"])
+		var classes = AppDB.db_get(sql_classes_for_course % course["course"])
 		for _class in classes:
 			_create_class_node(_class, course_node)
 

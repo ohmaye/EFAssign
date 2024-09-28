@@ -8,7 +8,7 @@ func _ready():
 	GlobalVars.intensive_checkbox.disabled = true
 	GlobalVars.general_checkbox.disabled = true
 
-	var db = AssignDB.db
+	var db = AppDB.db
 	var result = db.query("SELECT * FROM survey")
 
 	# If there are no results, return

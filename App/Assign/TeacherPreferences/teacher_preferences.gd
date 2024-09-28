@@ -2,7 +2,7 @@ extends Controller
 
 var grid
 var node
-var db = AssignDB.db
+var db = AppDB.db
 
 const progress_bar = preload("res://UI/progress_bar/progress_bar.tscn")
 

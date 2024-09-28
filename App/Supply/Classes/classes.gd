@@ -20,7 +20,7 @@ func _ready():
 
 
 func _load_data_and_render():
-	var db = AssignDB.db
+	var db = AppDB.db
 	var result = db.query(sql)
 
 	# If there are no results, return

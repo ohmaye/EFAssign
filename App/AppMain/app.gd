@@ -8,9 +8,6 @@ var supply_scene = preload("res://App/Supply/supply.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Utils.save_user_prefs()
-	Utils.load_user_prefs()
-	print("Loaded Prefs: ", GlobalVars.path, GlobalVars.file)
 	GlobalVars.general_checkbox = %GeneralCheckBox
 	GlobalVars.intensive_checkbox = %IntensiveCheckBox
 	GlobalVars.m1_checkbox = %Mon1

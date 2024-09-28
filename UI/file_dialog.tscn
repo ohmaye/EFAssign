@@ -7,5 +7,3 @@ ok_button_text = "Open"
 file_mode = 0
 access = 2
 use_native_dialog = true
-
-[connection signal="file_selected" from="." to="." method="_on_file_selected"]

@@ -13,7 +13,7 @@ func _ready():
 
 
 func _load_data_and_render():
-	var db = AssignDB.db
+	var db = AppDB.db
 	var result = db.query("SELECT * FROM teachers ORDER BY name")
 	
 	# If there are no results, return
@@ -33,7 +33,7 @@ func _add_new():
 	popup_node.visible = true
 	add_child(popup_node)
 	
-	var db = AssignDB.db
+	var db = AppDB.db
 	var id = Utils.uuid.v4()
 	var sql_stmt = "INSERT INTO teachers (teacher_id)  VALUES ('{0}')"
 

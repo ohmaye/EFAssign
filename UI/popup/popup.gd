@@ -59,7 +59,7 @@ func _on_cancel_btn_pressed() -> void:
 	visible = false
 
 func _on_save_btn_pressed() -> void:
-	var db = AssignDB.db
+	var db = AppDB.db
 	const sql = "UPDATE {0} SET {1}='{2}' WHERE {3} = '{4}'"
 	var sql_stmt
 
@@ -77,7 +77,7 @@ func _on_save_btn_pressed() -> void:
 			
 
 func _on_delete_btn_pressed():
-	var db = AssignDB.db
+	var db = AppDB.db
 	var sql = "DELETE FROM {0} WHERE {1} = '{2}' "
 	var sql_stm = sql.format([query_info.table, query_info.key, row[query_info.key]])
 	db.query(sql_stm)

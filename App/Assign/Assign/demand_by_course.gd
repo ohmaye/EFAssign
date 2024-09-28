@@ -20,15 +20,15 @@ func _ready():
 	root.set_selectable(2,false)
 
 	# Get Courses
-	var courses = AssignDB.db_get(sql_courses)
+	var courses = AppDB.db_get(sql_courses)
 	# Populate the tree with items
 	for course in courses:
 		var course_node = _create_course_node(course, root)
 		# Get Levels
-		var levels = AssignDB.db_get(sql_levels % course["course_code"])
+		var levels = AppDB.db_get(sql_levels % course["course_code"])
 		for level in levels:
 			var level_node = _create_level_node(level, course_node)
-			var students = AssignDB.db_get(sql_students % [course["course_code"], level["level"]])
+			var students = AppDB.db_get(sql_students % [course["course_code"], level["level"]])
 			for student in students:
 				_create_student_node(student, level_node)
 

@@ -1,18 +1,32 @@
-extends Node
+extends Control
 
 class_name AssignDB
 
 static var db : SQLite = null
-
 const verbosity_level : int = SQLite.NORMAL
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _init():
 	db = SQLite.new()
-	db.path = GlobalVars.db_name
 	db.verbosity_level = verbosity_level
-	# Open the database using the db_name found in the path variable
-	db.open_db()
+	print("Called Init")
+
+	# Utils.save_user_prefs()
+	Utils.load_user_prefs()
+	print("Loaded Prefs: ", GlobalVars.file_path)
+
+	var result : bool = false
+	if GlobalVars.file_path != "":
+		db.path = GlobalVars.file_path
+		result = db.open_db()
+
+	if !result:
+		print("Opening Default DB")
+		db.path = GlobalVars.default_path
+		result = db.open_db()
+		if !result:
+			print("Could not open DB")
+
 
 func _exit_tree() -> void:
 	db.close_db()

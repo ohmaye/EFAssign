@@ -5,7 +5,7 @@ const KEY = Constants.STUDENT_KEY
 
 const sql = "SELECT * FROM demand WHERE program IN ('%s', '%s') ORDER BY firstName, lastName"
 
-func render():   
+func _ready():   
 	# Enable Intensive/General
 	GlobalVars.intensive_checkbox.disabled = false
 	GlobalVars.general_checkbox.disabled = false

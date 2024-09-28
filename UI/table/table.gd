@@ -17,9 +17,9 @@ var popup = preload("res://UI/popup/popup.tscn")
 
 func render(_query_info : QueryInfo):
 	# Clear the grid
-	Utilities.remove_all_children(header_grid)
-	Utilities.remove_all_children(filter_grid)
-	Utilities.remove_all_children(rows_grid)
+	Utils.remove_all_children(header_grid)
+	Utils.remove_all_children(filter_grid)
+	Utils.remove_all_children(rows_grid)
 	
 	var count = _query_info.columns.size()
 	header_grid.columns = count

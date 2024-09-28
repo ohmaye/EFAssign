@@ -6,7 +6,7 @@ var query_info
 
 var popup = preload("res://UI/popup/popup.tscn")
 
-func render():
+func _ready():
 	var db = AssignDB.db
 	var result = db.query("SELECT * FROM teachers ORDER BY name")
 
@@ -25,7 +25,7 @@ func _add_new():
 	add_child(popup_node)
 	
 	var db = AssignDB.db
-	var id = Utilities.uuid.v4()
+	var id = Utils.uuid.v4()
 	var sql_stmt = "INSERT INTO teachers (teacher_id)  VALUES ('{0}')"
 
 	var row = {"teacher_id": id}

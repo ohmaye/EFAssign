@@ -5,8 +5,7 @@ var demand_by_course = preload("res://App/assign/Assign/demand_by_course.tscn")
 var connect_scene = preload("res://App/assign/Assign/connect.tscn")
 var supply_by_weekday = preload("res://App/assign/Assign/supply_by_weekday.tscn")
 
-func render():
-
+func _ready():
 	var scene = demand_by_course.instantiate()
 	%DemandTable.add_child(scene)
 	scene = connect_scene.instantiate()

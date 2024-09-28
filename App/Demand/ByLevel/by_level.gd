@@ -3,7 +3,7 @@ extends Controller
 const COLUMN_NAMES  = Constants.BY_LEVEL_COLUMN_NAMES
 const KEY = Constants.BY_LEVEL_KEY
 
-func render():
+func _ready():
 	# Enable Intensive/General
 	GlobalVars.intensive_checkbox.disabled = false
 	GlobalVars.general_checkbox.disabled = false

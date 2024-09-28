@@ -3,7 +3,7 @@ extends Controller
 const COLUMN_NAMES  = Constants.TIMESLOT_COLUMN_NAMES
 const KEY = Constants.TIMESLOT_KEY
 
-func render():
+func _ready():
 	var db = AssignDB.db
 	var result = db.query("SELECT * FROM timeslots ORDER BY weekday, start_time")
 

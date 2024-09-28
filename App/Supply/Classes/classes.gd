@@ -11,7 +11,7 @@ const sql = """
 	LEFT JOIN teachers USING (teacher_id)
 """
 
-func render():
+func _ready():
 	var db = AssignDB.db
 	var result = db.query(sql)
 

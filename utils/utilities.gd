@@ -1,6 +1,6 @@
 extends Node
 
-class_name Utils
+class_name Utilities
 
 func remove_all_children(parent_node):
 	# Loop through all children and remove them
@@ -26,3 +26,15 @@ func load_user_prefs():
 	var global_path = user_prefs.path
 	var global_file = user_prefs.file
 	print("Loaded: ", global_path, global_file)
+
+
+## Scene Utilities
+##
+## First empty the parent container, then load the next scene
+
+func change_scene(container : Control, scene : PackedScene):
+	Utils.remove_all_children(container)
+	var scene_node = scene.instantiate()
+	# scene_node.call_deferred("render")	
+	container.add_child(scene_node)
+	return scene_node

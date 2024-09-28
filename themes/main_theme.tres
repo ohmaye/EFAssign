@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://b4mgxtwuy0160"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://b4mgxtwuy0160"]
 
 [ext_resource type="Texture2D" uid="uid://cakclmicnguxj" path="res://Icons/checkbox_checked.svg" id="1_p02l6"]
 [ext_resource type="Texture2D" uid="uid://cyubfcjpj07tn" path="res://Icons/checkbox_checked_disabled.svg" id="2_qjlty"]
@@ -41,6 +41,10 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0.8, 1)
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_12on8"]
+color = Color(0.639216, 0.8, 1, 1)
+thickness = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esviw"]
 bg_color = Color(1, 1, 1, 1)
 
@@ -49,6 +53,9 @@ bg_color = Color(0.454079, 0.628234, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8rof"]
 bg_color = Color(0.662745, 0.839216, 0.976471, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_oi4nj"]
+color = Color(0.639216, 0.8, 1, 1)
 
 [resource]
 AcceptDialog/font_sizes/title_font_size = 32
@@ -75,6 +82,7 @@ CheckBox/icons/unchecked_disabled = ExtResource("4_oggfy")
 CheckBox/styles/hover = SubResource("StyleBoxFlat_hoyh4")
 CheckBox/styles/normal = SubResource("StyleBoxFlat_4arhb")
 CheckBox/styles/pressed = SubResource("StyleBoxFlat_3ok1e")
+HSeparator/styles/separator = SubResource("StyleBoxLine_12on8")
 Label/colors/font_color = Color(0.237539, 0.237539, 0.237539, 1)
 Label/font_sizes/font_size = 36
 LineEdit/colors/font_color = Color(0.0497768, 0.0497766, 0.0497766, 1)
@@ -103,3 +111,4 @@ Tree/font_sizes/title_button_font_size = 32
 Tree/icons/arrow = ExtResource("5_kcxau")
 Tree/icons/arrow_collapsed = ExtResource("6_50yuy")
 Tree/styles/panel = SubResource("StyleBoxFlat_l8rof")
+VSeparator/styles/separator = SubResource("StyleBoxLine_oi4nj")

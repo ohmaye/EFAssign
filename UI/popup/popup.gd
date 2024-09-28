@@ -18,7 +18,7 @@ func _ready() -> void:
 	colorrect = $ColorRect
 
 func render(_row, _query_info : QueryInfo) -> void:
-	Utilities.remove_all_children(container)
+	Utils.remove_all_children(container)
 	query_info = _query_info
 	row = _row
 

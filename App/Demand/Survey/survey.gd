@@ -3,7 +3,7 @@ extends Controller
 const COLUMN_NAMES  = Constants.SURVEY_COLUMN_NAMES
 const KEY = Constants.SURVEY_KEY
 
-func render():
+func _ready():
 	# Enable Intensive/General
 	GlobalVars.intensive_checkbox.disabled = true
 	GlobalVars.general_checkbox.disabled = true

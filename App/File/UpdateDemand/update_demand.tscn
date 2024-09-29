@@ -32,17 +32,17 @@ theme_override_constants/separation = 60
 [node name="ReplaceDemandBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("2_5ksv2")
-text = "Replace Student Demand"
+text = "Survey -> Replace  Demand"
 
 [node name="AddDemandBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("2_5ksv2")
-text = "Add to Student Demand"
+text = "Survey -> Add to  Demand"
 
 [node name="ClearDemandBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("2_5ksv2")
-text = "Clear Student Demand"
+text = "Clear  Demand & Assignments"
 
 [node name="StatusMsg" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

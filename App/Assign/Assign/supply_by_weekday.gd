@@ -44,7 +44,7 @@ func _create_class_node(_class, _parent):
 	var class_node = _parent.create_child()
 	class_node.set_text(0,class_title)
 	var class_time = _class["when"] if _class["when"] else "/"
-	class_node.set_text(1, class_title)
+	class_node.set_text(1, class_time)
 	var class_teacher = _class["who"] if _class["who"] else "?"
 	class_node.set_text(2, class_teacher)
 	class_node.set_text(3, "0")

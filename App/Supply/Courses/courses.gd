@@ -8,6 +8,7 @@ var popup = preload("res://UI/popup/popup.tscn")
 
 func _ready():
 	Signals.add_new.connect(_add_new)
+	Signals.data_changed.connect(_on_data_changed)
 	_load_data_and_render()
 
 

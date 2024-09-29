@@ -3,17 +3,10 @@
 SELECT lower(hex(randomblob(16)))
 
 -- MATCH (s:Student) RETURN s.id, s.firstName, s.lastName, s.email, s.level, s.program, s.enddate, s.active
-DROP TABLE IF EXISTS students;
-CREATE TABLE students (
-  student_id TEXT NOT NULL UNIQUE PRIMARY KEY,
-  firstName TEXT,
-  lastName TEXT,
-  email TEXT,
-  level TEXT,
-  program TEXT,
-  enddate TEXT,
-  active INT
-);
+DROP VIEW IF EXISTS students;
+CREATE VIEW students AS 
+  SELECT student_id, email, firstName, lastName, level, program FROM demand
+
 
 -- MATCH (t:Teacher) RETURN t.id, t.name, t.nameJP, t.email, t.active
 DROP TABLE IF EXISTS teachers;
@@ -334,3 +327,5 @@ CREATE VIEW  classes_view as
     LEFT JOIN teachers USING (teacher_id)
     LEFT JOIN weekdays ON weekdays.weekday = timeslots.weekday
     ORDER BY course, classes.title, weekday_sort_key;
+
+

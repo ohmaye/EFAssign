@@ -15,7 +15,12 @@ func _on_replace_demand_btn_pressed():
 		%StatusMsg.text += "Status: Demand Loaded"
 
 func _on_add_demand_btn_pressed() -> void:
-	print("Add to demand")
+	var loadResult = _load_demand()
+	if loadResult:
+		%StatusMsg.text += "Status: Demand Added"
+	else:
+		%StatusMsg.text += "Status: There was a problem adding from the survey\n"
+		%StatusMsg.text += DB.error_message
 
 func _on_clear_demand_btn_pressed() -> void:
 	var result = _clear_demand()
@@ -26,15 +31,10 @@ func _on_clear_demand_btn_pressed() -> void:
 
 
 func _clear_demand() -> bool:
-	var studentResult = DB.query("DELETE FROM students")
 	var assignmentResult = DB.query("DELETE FROM assignments")
 	var demandResult = DB.query("DELETE FROM demand") 
 
-	return studentResult and assignmentResult and demandResult
-
-
-func _load_students() -> bool:
-	return true
+	return assignmentResult and demandResult
 
 
 func _load_demand() -> bool:

@@ -7,9 +7,10 @@ var file_dialog = preload("res://UI/file_dialog.tscn")
 
 func _ready() -> void:
 	_show_survey()
-	var file_dialog_node = file_dialog.instantiate()
-	file_dialog_node.visible = true
-	file_dialog_node.file_selected.connect(_file_selected)
+	var dialog_node : FileDialog = file_dialog.instantiate()
+	dialog_node.visible = true
+	dialog_node.file_mode = FileDialog.FILE_MODE_OPEN_FILE
+	dialog_node.file_selected.connect(_file_selected)
 
 
 ## Handle file selection
@@ -33,6 +34,8 @@ func _file_selected(path : String):
 			row.append(field)
 		survey.append(row)
 
+	# Clear the current survey table
+	AppDB.db.query("DELETE FROM survey")
 	# Insert rows into table "survey"
 	var columns = ", ".join(COLUMN_NAMES)
 	for row in survey:

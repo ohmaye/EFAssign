@@ -41,7 +41,7 @@ layout_mode = 2
 theme_override_constants/separation = 12
 
 [node name="HomeBtn" type="Button" parent="VBoxContainer/HeaderHBox/TabsHBox"]
-custom_minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(140, 60)
 layout_mode = 2
 theme_override_styles/normal = ExtResource("1_1ruca")
 text = "Home"

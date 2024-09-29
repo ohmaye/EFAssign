@@ -5,6 +5,8 @@ class_name AssignDB
 static var db : SQLite = null
 const verbosity_level : int = SQLite.NORMAL
 
+func _ready() -> void:
+	DisplayServer.window_set_title(db.path)
 
 func _init():
 	db = SQLite.new()
@@ -26,7 +28,6 @@ func _init():
 		result = db.open_db()
 		if !result:
 			print("Could not open DB")
-
 
 func _exit_tree() -> void:
 	db.close_db()

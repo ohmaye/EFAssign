@@ -8,9 +8,6 @@ var update_demand_scene = preload("res://App/file/UpdateDemand/update_demand.tsc
 var new_cycle_scene = preload("res://App/File/NewCycle/new_cycle.tscn")
 var save_cycle_as_scene = preload("res://App/File/SaveCycleAs/save_cycle_as.tscn")
 
-func _ready() -> void:
-	DisplayServer.window_set_title("Your Window Title")
-
 ## FILE TAB
 ##
 ## Handlers for Open, New, Save, Save As, Load Survey, and Quit

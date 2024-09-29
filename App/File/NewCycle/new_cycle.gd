@@ -20,3 +20,6 @@ func _clear_demand() -> bool:
 	var surveyResult = DB.query("DELETE FROM survey")
 
 	return assignmentResult and demandResult and surveyResult
+
+
+## EO ToDo: Finish this module.

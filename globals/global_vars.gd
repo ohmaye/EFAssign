@@ -11,5 +11,8 @@ var w3_checkbox : CheckBox
 var w4_checkbox : CheckBox
 var w5_checkbox : CheckBox
 
-var file_path : String = ""
 var default_path : String = "res://data/EFAssign.db"
+var file_path : String :
+	set(path):
+		file_path = path
+		DisplayServer.window_set_title(path)

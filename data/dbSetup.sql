@@ -1,4 +1,7 @@
 
+-- Create a UUID
+SELECT lower(hex(randomblob(16)))
+
 -- MATCH (s:Student) RETURN s.id, s.firstName, s.lastName, s.email, s.level, s.program, s.enddate, s.active
 DROP TABLE IF EXISTS students;
 CREATE TABLE students (
@@ -111,7 +114,7 @@ CREATE TABLE assignments (
 -- Survey data
 DROP TABLE IF EXISTS survey;
 CREATE TABLE survey (
-  survey_id TEXT NOT NULL UNIQUE PRIMARY KEY,
+  student_id TEXT NOT NULL UNIQUE PRIMARY KEY,
   timestamp TEXT,
   email	TEXT,
   firstName TEXT,
@@ -153,7 +156,7 @@ CREATE TABLE demand (
   active int
 );
 INSERT INTO demand (student_id, email, firstName,lastName, level, program, Mon01, Mon02, Mon03, Wed01, Wed02, Wed03, Wed04, Wed05, active)
-SELECT lower(hex(randomblob(16))), email, firstName, lastName, level, 
+SELECT student_id, email, firstName, lastName, level, 
 CASE WHEN instr(program, "Intensive") THEN "Intensive" ELSE "General" END, 
 CASE WHEN instr(program, "Intensive") THEN IMon01 ELSE "" END, 
 CASE WHEN instr(program, "Intensive") THEN IMon02 ELSE "" END, 

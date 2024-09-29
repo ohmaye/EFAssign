@@ -21,6 +21,7 @@ func _on_file_dialog_file_selected(path : String) -> void:
 		%MsgLabel.text = "Could not open cycle."
 	else:
 		%MsgLabel.text = "Ready: " + path
+		%ErrorMsg.text = "Status: " + AppDB.db.error_message
 		GlobalVars.file_path = path
 		Utils.save_user_prefs()
 

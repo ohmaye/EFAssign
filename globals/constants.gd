@@ -30,6 +30,7 @@ const TIMESLOT_KEY = "timeslot_id"
 
 # Survey
 const SURVEY_COLUMN_NAMES = [  
+	"student_id",
 	"timestamp",
 	"email",
 	"firstName",
@@ -50,7 +51,7 @@ const SURVEY_COLUMN_NAMES = [
 	"GWed03",
 	"GWed05" 
 ]
-const SURVEY_KEY = "timestamp"
+const SURVEY_KEY = "student_id"
 
 # Survey
 const DEMAND_COLUMN_NAMES = [  

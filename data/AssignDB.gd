@@ -5,7 +5,7 @@ class_name AssignDB
 static var db : SQLite = null
 const verbosity_level : int = SQLite.NORMAL
 
-# Called when the node enters the scene tree for the first time.
+
 func _init():
 	db = SQLite.new()
 	db.verbosity_level = verbosity_level

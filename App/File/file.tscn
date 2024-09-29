@@ -59,10 +59,10 @@ layout_mode = 2
 text = "Open Survey"
 flat = true
 
-[node name="LoadSurveyBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+[node name="UpdateDemandBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Load Survey"
+text = "Update Demand"
 flat = true
 
 [node name="NewCycleBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
@@ -96,7 +96,7 @@ size_flags_vertical = 3
 
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/OpenCycleBtn" to="." method="_on_open_cycle_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/OpenSurveyBtn" to="." method="_on_open_survey_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/LoadSurveyBtn" to="." method="_on_load_survey_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/UpdateDemandBtn" to="." method="_on_update_demand_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/NewCycleBtn" to="." method="_on_new_cycle_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/SaveCycleBtn" to="." method="_on_save_cycle_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/SaveCycleAsBtn" to="." method="_on_save_cycle_as_btn_pressed"]

@@ -10,8 +10,8 @@ func _ready():
 	GlobalVars.intensive_checkbox.disabled = false
 	GlobalVars.general_checkbox.disabled = false
 
-	var intensive = "Intensive" if GlobalVars.intensive_checkbox.button_pressed else ""
-	var general = "General" if GlobalVars.general_checkbox.button_pressed else ""
+	var intensive = "Intensive" if GlobalVars.show_intensive else ""
+	var general = "General" if GlobalVars.show_general else ""
 	var sql_stmt = sql % [intensive, general]
 
 	var db = AppDB.db

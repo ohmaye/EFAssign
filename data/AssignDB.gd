@@ -6,7 +6,7 @@ static var db : SQLite = null
 const verbosity_level : int = SQLite.NORMAL
 
 func _ready() -> void:
-	DisplayServer.window_set_title(db.path)
+	DisplayServer.window_set_title((db.path).get_file())
 
 func _init():
 	db = SQLite.new()

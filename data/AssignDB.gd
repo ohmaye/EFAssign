@@ -15,7 +15,7 @@ func _init():
 
 	# Utils.save_user_prefs()
 	Utils.load_user_prefs()
-	print("Loaded Prefs: ", GlobalVars.file_path)
+	print("Loaded path from Prefs: ", GlobalVars.file_path)
 
 	var result : bool = false
 	if GlobalVars.file_path != "":

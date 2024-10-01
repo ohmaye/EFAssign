@@ -20,6 +20,11 @@ func _ready() -> void:
 	GlobalVars.w5_checkbox = %Wed5
 	_update_global_filters()
 
+	# By default, set to Home
+	_toggle_buttons_off()
+	%HomeBtn.button_pressed = true
+	Utils.change_scene(%Content, home_scene)
+
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		print("Notification: Will close app")
@@ -31,19 +36,41 @@ func _notification(what: int) -> void:
 ## Handlers for Home, File, Demand, Assign, and Supply
 
 func _on_home_btn_pressed() -> void:
+	_toggle_buttons_off()
+	%HomeBtn.button_pressed = true
 	Utils.change_scene(%Content, home_scene)
 
+
 func _on_file_btn_pressed() -> void:
+	_toggle_buttons_off()
+	%FileBtn.button_pressed = true
 	Utils.change_scene(%Content, file_scene)
 
+
 func _on_demand_btn_pressed() -> void:
+	_toggle_buttons_off()
+	%DemandBtn.button_pressed = true
 	Utils.change_scene(%Content, demand_scene)
 
+
 func _on_assign_btn_pressed() -> void:
+	_toggle_buttons_off()
+	%AssignBtn.button_pressed = true
 	Utils.change_scene(%Content, assign_scene)
 
+
 func _on_supply_btn_pressed() -> void:
+	_toggle_buttons_off()
+	%SupplyBtn.button_pressed = true
 	Utils.change_scene(%Content, supply_scene)
+
+
+func _toggle_buttons_off() -> void:
+	%HomeBtn.button_pressed = false
+	%FileBtn.button_pressed = false
+	%DemandBtn.button_pressed = false
+	%AssignBtn.button_pressed = false
+	%SupplyBtn.button_pressed = false
 
 
 ## Global filters and buttons
@@ -54,6 +81,7 @@ func _on_add_btn_pressed() -> void:
 	Signals.add_new.emit()
 
 func _on_check_box_pressed() -> void:
+	print("Pressed checkbox: ")
 	_update_global_filters()
 	Signals.filters_changed.emit()
 	Signals.data_changed.emit()
@@ -70,3 +98,6 @@ func _update_global_filters():
 	GlobalVars.show_w3 = %Wed3.button_pressed
 	GlobalVars.show_w4 = %Wed4.button_pressed
 	GlobalVars.show_w5 = %Wed5.button_pressed
+	var columns = Constants.DEMAND_COLUMN_NAMES
+	printt("Filters: ", columns)
+	printt("Filtered:", Utils.filtered_columns(columns))

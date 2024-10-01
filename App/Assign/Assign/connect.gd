@@ -19,3 +19,7 @@ func _student_selected(students : Dictionary):
 	list.sort()
 	for student in list:
 		%StudentList.add_item(student, null, false)
+
+
+func _on_assign_btn_pressed() -> void:
+	pass # Replace with function body.

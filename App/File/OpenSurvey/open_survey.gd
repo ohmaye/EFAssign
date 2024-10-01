@@ -6,11 +6,17 @@ const KEY = Constants.SURVEY_KEY
 var file_dialog = preload("res://UI/file_dialog.tscn")
 
 func _ready() -> void:
-	_show_survey()
+	# Enable Intensive/General
+	GlobalVars.intensive_checkbox.disabled = true
+	GlobalVars.general_checkbox.disabled = true
+
+	_load_data_and_render()
+
 	var dialog_node : FileDialog = file_dialog.instantiate()
 	dialog_node.visible = true
 	dialog_node.file_mode = FileDialog.FILE_MODE_OPEN_FILE
 	dialog_node.file_selected.connect(_file_selected)
+	Signals.data_changed.connect(_on_data_changed)
 
 
 ## Handle file selection
@@ -46,12 +52,14 @@ func _file_selected(path : String):
 		var sql = "INSERT INTO survey ({0}) VALUES ({1})".format([columns, values_str])
 		AppDB.db.query(sql)
 		
-	_show_survey()
+	_load_data_and_render()
 
-func _show_survey():
-	# Enable Intensive/General
-	GlobalVars.intensive_checkbox.disabled = true
-	GlobalVars.general_checkbox.disabled = true
+
+func _on_data_changed():
+	_load_data_and_render()
+
+
+func _load_data_and_render():
 
 	var db = AppDB.db
 	var result = db.query("SELECT * FROM survey")

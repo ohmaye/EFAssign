@@ -15,6 +15,7 @@ CREATE TABLE teachers (
   name TEXT,
   nameJP TEXT,
   email TEXT,
+  note TEXT,
   active INT
 );
 

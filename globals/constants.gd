@@ -8,8 +8,8 @@ const STUDENT_KEY = "student_id"
 
 
 # Teachers
-const TEACHER_COLUMN_NAMES = ["name", "nameJP", "email", "active"]
-const TEACHER_COLUMN_RATIOS = [1,1,1,0.2]
+const TEACHER_COLUMN_NAMES = ["name", "nameJP", "email", "note", "active"]
+const TEACHER_COLUMN_RATIOS = [1,1,1,2,0.2]
 const TEACHER_KEY = "teacher_id"
 
 # Classes

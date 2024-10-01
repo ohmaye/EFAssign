@@ -105,6 +105,10 @@ ToDo:
     - Check if the DB can be open.
     - If not, then indicate so, and wait for another selection
     - If yes, then that becomes the active DB. Save path to prefs. Next default.
+  - UserPreferences
+    - Trying to load a non-existend file first time app runs
   - NEW: 
     - Load an empty (default) DB (in project)
     - Save it in user://
+  - Teacher Note
+    - Strange behavior. Adding "-" or "" causes problems

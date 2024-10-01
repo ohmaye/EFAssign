@@ -33,6 +33,8 @@ func _on_clear_demand_btn_pressed() -> void:
 func _clear_demand() -> bool:
 	var assignmentResult = DB.query("DELETE FROM assignments")
 	var demandResult = DB.query("DELETE FROM demand") 
+	
+	# EO Cannot do this (below) when the update is partial
 	var studentPreferencesResult = DB.query("DELETE FROM studentpreferences") 
 
 	return assignmentResult and demandResult and studentPreferencesResult

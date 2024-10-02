@@ -13,7 +13,6 @@ func _ready() -> void:
 	dialog_node.visible = true
 	dialog_node.file_mode = FileDialog.FILE_MODE_OPEN_FILE
 	dialog_node.file_selected.connect(_file_selected)
-	Signals.data_changed.connect(_on_data_changed)
 
 
 ## Handle file selection

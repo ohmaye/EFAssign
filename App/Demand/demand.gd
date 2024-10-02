@@ -2,7 +2,7 @@ extends ColorRect
 
 @onready var container = %DemandContent
 
-var survey_scene = preload("res://App/Demand/Survey/Survey.tscn")
+var survey_scene = preload("res://App/Demand/Survey/survey.tscn")
 var students_scene = preload("res://App/Demand/Students/students.tscn")
 var by_student_scene = preload("res://App/Demand/ByStudent/by_student.tscn")
 var by_course_scene = preload("res://App/Demand/ByCourse/by_course.tscn")

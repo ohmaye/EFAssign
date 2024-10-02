@@ -6,5 +6,6 @@ initial_position = 2
 size = Vector2i(1137, 242)
 ok_button_text = "Open"
 file_mode = 0
+access = 2
 filters = PackedStringArray("*.db")
 use_native_dialog = true

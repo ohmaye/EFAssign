@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhqjoyjsliodj"]
+[gd_scene load_steps=4 format=3 uid="uid://bhqjoyjsliodj"]
 
-[ext_resource type="PackedScene" uid="uid://ccenobp0t5rod" path="res://App/Home/home/home.tscn" id="1_t45cb"]
+[ext_resource type="Script" path="res://App/Home/home.gd" id="1_j08bo"]
+[ext_resource type="PackedScene" uid="uid://ccenobp0t5rod" path="res://App/Home/Overview/overview.tscn" id="1_t45cb"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
 color = Color(0.595154, 0.595154, 0.595154, 1)
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_j08bo")
 metadata/_tab_index = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -45,13 +47,50 @@ grow_vertical = 2
 theme_override_constants/separation = 80
 alignment = 1
 
+[node name="OverviewBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Overview
+"
+flat = true
+
+[node name="OpenCycleBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Open Cycle"
+flat = true
+
+[node name="SaveCycleAsBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save Cycle as..."
+flat = true
+
+[node name="NewCycleBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "New Cycle"
+flat = true
+
+[node name="QuitBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+flat = true
+
 [node name="HomeContent" type="Panel" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ColorRect" parent="VBoxContainer/HomeContent" instance=ExtResource("1_t45cb")]
+[node name="Overview" parent="VBoxContainer/HomeContent" instance=ExtResource("1_t45cb")]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_bottom = 0.5
+size_flags_vertical = 3
+script = null
+
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/OverviewBtn" to="." method="_on_overview_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/OpenCycleBtn" to="." method="_on_open_cycle_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/SaveCycleAsBtn" to="." method="_on_save_cycle_as_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/NewCycleBtn" to="." method="_on_new_cycle_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/QuitBtn" to="." method="_on_quit_btn_pressed"]

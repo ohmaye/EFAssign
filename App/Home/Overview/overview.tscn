@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://ccenobp0t5rod"]
 
-[ext_resource type="Script" path="res://App/Home/home/home.gd" id="1_7kg32"]
-[ext_resource type="Texture2D" uid="uid://cwfbfosh8lk4a" path="res://svg/SVG/DemandBasket.svg" id="2_ws4t8"]
-[ext_resource type="FontFile" uid="uid://doosudslnw4jh" path="res://UI/Fonts/EFCircularTT-Bold.ttf" id="3_k28rj"]
-[ext_resource type="Texture2D" uid="uid://51xfnktdrc46" path="res://svg/SVG/AssignBasket.svg" id="4_d2e4j"]
-[ext_resource type="Texture2D" uid="uid://bi2x0wkv55lt4" path="res://svg/SVG/Arc.svg" id="6_r84h5"]
-[ext_resource type="Texture2D" uid="uid://c5sbgpt1hmx2c" path="res://svg/SVG/SupplyBasket.svg" id="7_l1fmp"]
+[ext_resource type="Script" path="res://App/Home/Overview/overview.gd" id="1_3d34b"]
+[ext_resource type="Texture2D" uid="uid://cwfbfosh8lk4a" path="res://svg/SVG/DemandBasket.svg" id="2_8u51j"]
+[ext_resource type="FontFile" uid="uid://doosudslnw4jh" path="res://UI/Fonts/EFCircularTT-Bold.ttf" id="3_njnas"]
+[ext_resource type="Texture2D" uid="uid://51xfnktdrc46" path="res://svg/SVG/AssignBasket.svg" id="4_xr4rp"]
+[ext_resource type="Texture2D" uid="uid://bi2x0wkv55lt4" path="res://svg/SVG/Arc.svg" id="5_ypdj8"]
+[ext_resource type="Texture2D" uid="uid://c5sbgpt1hmx2c" path="res://svg/SVG/SupplyBasket.svg" id="6_l8fax"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivt4g"]
 bg_color = Color(0.639216, 0.913725, 1, 1)
@@ -51,7 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7kg32")
+script = ExtResource("1_3d34b")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -73,7 +73,7 @@ size_flags_vertical = 3
 [node name="DemandBasket" type="Sprite2D" parent="CenterContainer/VBoxContainer/TopIllustration"]
 position = Vector2(141, -88)
 scale = Vector2(2, 2)
-texture = ExtResource("2_ws4t8")
+texture = ExtResource("2_8u51j")
 
 [node name="DemandLabel" type="Label" parent="CenterContainer/VBoxContainer/TopIllustration"]
 layout_mode = 0
@@ -81,14 +81,14 @@ offset_left = 48.0
 offset_top = -127.0
 offset_right = 235.0
 offset_bottom = -79.0
-theme_override_fonts/font = ExtResource("3_k28rj")
+theme_override_fonts/font = ExtResource("3_njnas")
 theme_override_font_sizes/font_size = 48
 text = "Demand"
 
 [node name="AssignBasket" type="Sprite2D" parent="CenterContainer/VBoxContainer/TopIllustration"]
 position = Vector2(500, -34)
 scale = Vector2(2, 2)
-texture = ExtResource("4_d2e4j")
+texture = ExtResource("4_xr4rp")
 
 [node name="AssignLabel" type="Label" parent="CenterContainer/VBoxContainer/TopIllustration"]
 layout_mode = 0
@@ -96,19 +96,19 @@ offset_left = 427.0
 offset_top = -17.0
 offset_right = 576.0
 offset_bottom = 31.0
-theme_override_fonts/font = ExtResource("3_k28rj")
+theme_override_fonts/font = ExtResource("3_njnas")
 theme_override_font_sizes/font_size = 48
 text = "Assign"
 
 [node name="Arc" type="Sprite2D" parent="CenterContainer/VBoxContainer/TopIllustration"]
 position = Vector2(499, -66)
 scale = Vector2(2.5199, 2)
-texture = ExtResource("6_r84h5")
+texture = ExtResource("5_ypdj8")
 
 [node name="SupplyBasket" type="Sprite2D" parent="CenterContainer/VBoxContainer/TopIllustration"]
 position = Vector2(845, -86)
 scale = Vector2(2, 2)
-texture = ExtResource("7_l1fmp")
+texture = ExtResource("6_l8fax")
 
 [node name="SupplyLabel" type="Label" parent="CenterContainer/VBoxContainer/TopIllustration"]
 layout_mode = 0
@@ -116,7 +116,7 @@ offset_left = 761.0
 offset_top = -124.0
 offset_right = 948.0
 offset_bottom = -76.0
-theme_override_fonts/font = ExtResource("3_k28rj")
+theme_override_fonts/font = ExtResource("3_njnas")
 theme_override_font_sizes/font_size = 48
 text = "Supply"
 

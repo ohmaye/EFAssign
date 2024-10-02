@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bouk7bpqxbeg0"]
 
-[ext_resource type="Script" path="res://App/File/OpenCycle/open_cycle.gd" id="1_erb8b"]
+[ext_resource type="Script" path="res://App/Home/OpenCycle/open_cycle.gd" id="1_erb8b"]
 
 [node name="OpenCycle" type="Control"]
 layout_mode = 3

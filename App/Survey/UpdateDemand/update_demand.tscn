@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c83tysuqg6cji"]
 
-[ext_resource type="Script" path="res://App/File/UpdateDemand/update_demand.gd" id="1_pwkst"]
-[ext_resource type="StyleBox" uid="uid://250lcb4bmlfa" path="res://App/File/UpdateDemand/style_btn.tres" id="2_5ksv2"]
+[ext_resource type="Script" path="res://App/Survey/UpdateDemand/update_demand.gd" id="1_pwkst"]
+[ext_resource type="StyleBox" uid="uid://250lcb4bmlfa" path="res://App/Survey/UpdateDemand/style_btn.tres" id="2_5ksv2"]
 
 [node name="LoadSurvey" type="Control"]
 layout_mode = 3
@@ -32,17 +32,17 @@ theme_override_constants/separation = 60
 [node name="ReplaceDemandBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("2_5ksv2")
-text = "Survey -> Replace  Demand"
+text = "Survey -> Transfer & Replace All Demand Data"
 
 [node name="AddDemandBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("2_5ksv2")
-text = "Survey -> Add to  Demand"
+text = "Survey -> Add to existing Demand Data"
 
 [node name="ClearDemandBtn" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("2_5ksv2")
-text = "Clear  Demand & Assignments"
+text = "Clear All (Survey, Demand, Assignments)"
 
 [node name="StatusMsg" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

@@ -58,12 +58,6 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="SurveyBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Survey"
-flat = true
-
 [node name="StudentsBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -102,7 +96,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_bgp4o")
 
-[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/SurveyBtn" to="." method="_on_survey_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/StudentsBtn" to="." method="_on_students_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/ByStudentBtn" to="." method="_on_by_student_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/ByCourseBtn" to="." method="_on_by_course_btn_pressed"]

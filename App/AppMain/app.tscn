@@ -64,7 +64,7 @@ theme_override_styles/normal = ExtResource("1_1ruca")
 toggle_mode = true
 text = "Home"
 
-[node name="FileBtn" type="Button" parent="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox"]
+[node name="SurveyBtn" type="Button" parent="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 60)
 layout_mode = 2
@@ -73,7 +73,7 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_styles/pressed = ExtResource("3_42yw7")
 theme_override_styles/normal = ExtResource("1_1ruca")
 toggle_mode = true
-text = "File
+text = "Survey
 "
 
 [node name="DemandBtn" type="Button" parent="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox"]
@@ -212,7 +212,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox/HomeBtn" to="." method="_on_home_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox/FileBtn" to="." method="_on_file_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox/SurveyBtn" to="." method="_on_survey_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox/DemandBtn" to="." method="_on_demand_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox/AssignBtn" to="." method="_on_assign_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox/SupplyBtn" to="." method="_on_supply_btn_pressed"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpi1vhnntq3h3"]
 
-[ext_resource type="Script" path="res://App/File/NewCycle/new_cycle.gd" id="1_inj6b"]
-[ext_resource type="StyleBox" uid="uid://250lcb4bmlfa" path="res://App/File/UpdateDemand/style_btn.tres" id="2_kegqi"]
+[ext_resource type="Script" path="res://App/Home/NewCycle/new_cycle.gd" id="1_inj6b"]
+[ext_resource type="StyleBox" uid="uid://250lcb4bmlfa" path="res://App/Survey/UpdateDemand/style_btn.tres" id="2_kegqi"]
 
 [node name="LoadSurvey" type="Control"]
 layout_mode = 3

@@ -2,7 +2,6 @@ extends ColorRect
 
 @onready var container = %DemandContent
 
-var survey_scene = preload("res://App/Demand/Survey/survey.tscn")
 var students_scene = preload("res://App/Demand/Students/students.tscn")
 var by_student_scene = preload("res://App/Demand/ByStudent/by_student.tscn")
 var by_course_scene = preload("res://App/Demand/ByCourse/by_course.tscn")
@@ -12,9 +11,6 @@ var by_level_scene = preload("res://App/Demand/ByLevel/by_level.tscn")
 ## DEMAND TAB
 ##
 ## Handlers for Survey, Students, By_Student, By_Course, and By_Level
-
-func _on_survey_btn_pressed() -> void:
-	Utils.change_scene(container, survey_scene)
 
 func _on_students_btn_pressed() -> void:
 	Utils.change_scene(container, students_scene)

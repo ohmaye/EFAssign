@@ -115,29 +115,6 @@ ToDo:
 - Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
 
 
-
-Called Init
-Loaded path from Prefs: /Users/enioohmaye/Godot/EF Assign Data/EFAssign2443.db
-Opened database successfully (/Users/enioohmaye/Godot/EF Assign Data/EFAssign2443.db)
-Filters: 	["firstName", "lastName", "email", "level", "program", "Mon01", "Mon02", "Mon03", "Wed01", "Wed02", "Wed03", "Wed04", "Wed05"]
-Filtered:	["firstName", "lastName", "email", "level", "program", "Mon01", "Mon02", "Mon03", "Wed01", "Wed02", "Wed03"]
-File: <FileAccess#-9223371868075981366>
-Notification: Will close app
-Closed database (/Users/enioohmaye/Godot/EF Assign Data/EFAssign2443.db)
-GDSQLite Error: Can't close database if connection is not open!
-USER WARNING: 9 RIDs of type "Canvas" were leaked.
-   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2485)
-USER WARNING: 285 RIDs of type "CanvasItem" were leaked.
-   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2485)
-ERROR: 9 RID allocations of type 'N10RendererRD12LightStorage11ShadowAtlasE' were leaked at exit.
-ERROR: 9 RID allocations of type 'N10RendererRD14TextureStorage12RenderTargetE' were leaked at exit.
-ERROR: 58 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.
-ERROR: 9 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
-USER WARNING: 114 RIDs of type "Texture" were leaked.
-   at: finalize (servers/rendering/rendering_device.cpp:5758)
-ERROR: 108 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
-ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
-USER WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
-   at: cleanup (core/object/object.cpp:2284)
-USER ERROR: 20 resources still in use at exit (run with --verbose for details).
-   at: clear (core/io/resource.cpp:604)
+- Naming case errors show up in exported app. Log files:
+  - /Library/Application Support/Godot
+  - Very helpful

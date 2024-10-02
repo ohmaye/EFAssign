@@ -112,3 +112,34 @@ ToDo:
     - Save it in user://
   - Teacher Note
     - Strange behavior. Adding "-" or "" causes problems
+- Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+Vulkan 1.2.283 - Forward+ - Using Device #0: Apple - Apple M1 Max
+
+Called Init
+Loaded path from Prefs: /Users/enioohmaye/Godot/EF Assign Data/EFAssign2443.db
+Opened database successfully (/Users/enioohmaye/Godot/EF Assign Data/EFAssign2443.db)
+USER SCRIPT ERROR: Parse Error: Preload file "res://App/file/OpenSurvey/open_survey.tscn" does not exist.
+   at: GDScript::reload (res://App/File/file.gd:6)
+USER SCRIPT ERROR: Parse Error: Preload file "res://App/file/UpdateDemand/update_demand.tscn" does not exist.
+   at: GDScript::reload (res://App/File/file.gd:7)
+ERROR: Failed to load script "res://App/File/file.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript.cpp:2936)
+USER SCRIPT ERROR: Parse Error: Preload file "res://App/Demand/Survey/Survey.tscn" does not exist.
+   at: GDScript::reload (res://App/Demand/demand.gd:5)
+ERROR: Failed to load script "res://App/Demand/demand.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript.cpp:2936)
+USER SCRIPT ERROR: Parse Error: Preload file "res://App/assign/Assign/assign.tscn" does not exist.
+   at: GDScript::reload (res://App/Assign/assign.gd:5)
+USER SCRIPT ERROR: Parse Error: Preload file "res://App/assign/Assignments/assignments.tscn" does not exist.
+   at: GDScript::reload (res://App/Assign/assign.gd:6)
+USER SCRIPT ERROR: Parse Error: Preload file "res://App/assign/Timetables/timetables.tscn" does not exist.
+   at: GDScript::reload (res://App/Assign/assign.gd:7)
+USER SCRIPT ERROR: Parse Error: Preload file "res://App/assign/TeacherPreferences/teacher_preferences.tscn" does not exist.
+   at: GDScript::reload (res://App/Assign/assign.gd:8)
+ERROR: Failed to load script "res://App/Assign/assign.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript.cpp:2936)
+Filters: 	["firstName", "lastName", "email", "level", "program", "Mon01", "Mon02", "Mon03", "Wed01", "Wed02", "Wed03", "Wed04", "Wed05"]
+Filtered:	["firstName", "lastName", "email", "level", "program", "Mon01", "Mon02", "Mon03", "Wed01", "Wed02", "Wed03"]
+Notification: Will close app
+Closed database (/Users/enioohmaye/Godot/EF Assign Data/EFAssign2443.db)
+GDSQLite Error: Can't close database if connection is not open!

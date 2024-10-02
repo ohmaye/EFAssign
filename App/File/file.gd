@@ -3,8 +3,8 @@ extends ColorRect
 @onready var container = %FileContent
 
 var open_cycle_scene = preload("res://App/File/OpenCycle/open_cycle.tscn")
-var open_survey_scene = preload("res://App/file/OpenSurvey/open_survey.tscn")
-var update_demand_scene = preload("res://App/file/UpdateDemand/update_demand.tscn")
+var open_survey_scene = preload("res://App/File/OpenSurvey/open_survey.tscn")
+var update_demand_scene = preload("res://App/File/UpdateDemand/update_demand.tscn")
 var new_cycle_scene = preload("res://App/File/NewCycle/new_cycle.tscn")
 var save_cycle_as_scene = preload("res://App/File/SaveCycleAs/save_cycle_as.tscn")
 

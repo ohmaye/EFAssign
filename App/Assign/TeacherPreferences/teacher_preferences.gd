@@ -9,9 +9,6 @@ const progress_bar = preload("res://UI/progress_bar/progress_bar.tscn")
 
 func _ready():
 	grid = %ContentGrid
-	# Enable Intensive/General
-	GlobalVars.intensive_checkbox.disabled = true
-	GlobalVars.general_checkbox.disabled = true
 
 	# Load Courses (header)
 	var result = db.query(sql_courses)

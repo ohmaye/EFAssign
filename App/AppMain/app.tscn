@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cndbcb81exqad"]
+[gd_scene load_steps=11 format=3 uid="uid://cndbcb81exqad"]
 
 [ext_resource type="StyleBox" uid="uid://py3oc1qy66xb" path="res://App/AppMain/style_box_btn.tres" id="1_1ruca"]
 [ext_resource type="Script" path="res://App/AppMain/app.gd" id="1_j3nuu"]
@@ -8,6 +8,16 @@
 [ext_resource type="StyleBox" uid="uid://dimu3f3foahrr" path="res://App/AppMain/style_box_assign_btn.tres" id="3_vapd6"]
 [ext_resource type="StyleBox" uid="uid://dk4d6fjs47kh1" path="res://App/AppMain/style_box_supply_btn.tres" id="4_yexrk"]
 [ext_resource type="PackedScene" uid="uid://dw70vonudpgfe" path="res://UI/check_box.tscn" id="6_05x5c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bg2t"]
+bg_color = Color(0.556953, 0.556953, 0.556953, 1)
+border_width_left = 2
+border_width_right = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afdba"]
+bg_color = Color(0.503375, 0.503375, 0.503374, 1)
+border_width_left = 2
+border_width_right = 2
 
 [node name="App" type="Control"]
 layout_mode = 3
@@ -19,29 +29,31 @@ grow_vertical = 2
 theme = ExtResource("1_mfr3e")
 script = ExtResource("1_j3nuu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 6.0
-offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = -1
 
-[node name="HeaderHBox" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HeaderHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="TabsHBox" type="HBoxContainer" parent="VBoxContainer/HeaderHBox"]
+[node name="TabsHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HeaderHBox"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="HomeBtn" type="Button" parent="VBoxContainer/HeaderHBox/TabsHBox"]
+[node name="HomeBtn" type="Button" parent="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 60)
 layout_mode = 2
@@ -52,7 +64,7 @@ theme_override_styles/normal = ExtResource("1_1ruca")
 toggle_mode = true
 text = "Home"
 
-[node name="FileBtn" type="Button" parent="VBoxContainer/HeaderHBox/TabsHBox"]
+[node name="FileBtn" type="Button" parent="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 60)
 layout_mode = 2
@@ -64,7 +76,7 @@ toggle_mode = true
 text = "File
 "
 
-[node name="DemandBtn" type="Button" parent="VBoxContainer/HeaderHBox/TabsHBox"]
+[node name="DemandBtn" type="Button" parent="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
@@ -76,7 +88,7 @@ toggle_mode = true
 text = "Demand
 "
 
-[node name="AssignBtn" type="Button" parent="VBoxContainer/HeaderHBox/TabsHBox"]
+[node name="AssignBtn" type="Button" parent="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 60)
 layout_mode = 2
@@ -88,7 +100,7 @@ toggle_mode = true
 text = "Assign
 "
 
-[node name="SupplyBtn" type="Button" parent="VBoxContainer/HeaderHBox/TabsHBox"]
+[node name="SupplyBtn" type="Button" parent="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(140, 60)
 layout_mode = 2
@@ -99,24 +111,26 @@ theme_override_styles/normal = ExtResource("4_yexrk")
 toggle_mode = true
 text = "Supply"
 
-[node name="GlobalFiltersHBox" type="HBoxContainer" parent="VBoxContainer/HeaderHBox"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HeaderHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
 
-[node name="FiltersHBox" type="HBoxContainer" parent="VBoxContainer/HeaderHBox"]
-custom_minimum_size = Vector2(1600, 0)
+[node name="FiltersHBox" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer"]
+custom_minimum_size = Vector2(1580, 0)
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 30
+theme_override_constants/separation = 25
 
-[node name="IntensiveCheckBox" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
+[node name="IntensiveCheckBox" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 button_pressed = true
 text = "INTENSIVE"
 
-[node name="GeneralCheckBox" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
+[node name="GeneralCheckBox" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
@@ -124,89 +138,91 @@ button_pressed = true
 text = "GENERAL
 "
 
-[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HeaderHBox/FiltersHBox"]
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_3bg2t")
 
-[node name="Mon1" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
+[node name="Mon1" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "M1
 "
 
-[node name="Mon2" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
+[node name="Mon2" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "M2
 "
 
-[node name="Mon3" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
+[node name="Mon3" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "M3"
 
-[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HeaderHBox/FiltersHBox"]
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_afdba")
 
-[node name="Wed1" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
+[node name="Wed1" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "W1"
 
-[node name="Wed2" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
+[node name="Wed2" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "W2"
 
-[node name="Wed3" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
+[node name="Wed3" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 text = "W3
 "
 
-[node name="Wed4" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
+[node name="Wed4" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "W4
 "
 
-[node name="Wed5" parent="VBoxContainer/HeaderHBox/FiltersHBox" instance=ExtResource("6_05x5c")]
+[node name="Wed5" parent="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "W5
 "
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Content" type="Control" parent="VBoxContainer"]
+[node name="Content" type="Control" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/TabsHBox/HomeBtn" to="." method="_on_home_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/TabsHBox/FileBtn" to="." method="_on_file_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/TabsHBox/DemandBtn" to="." method="_on_demand_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/TabsHBox/AssignBtn" to="." method="_on_assign_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/TabsHBox/SupplyBtn" to="." method="_on_supply_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/FiltersHBox/IntensiveCheckBox" to="." method="_on_check_box_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/FiltersHBox/GeneralCheckBox" to="." method="_on_check_box_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/FiltersHBox/Mon1" to="." method="_on_check_box_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/FiltersHBox/Mon2" to="." method="_on_check_box_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/FiltersHBox/Mon3" to="." method="_on_check_box_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/FiltersHBox/Wed1" to="." method="_on_check_box_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/FiltersHBox/Wed2" to="." method="_on_check_box_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/FiltersHBox/Wed3" to="." method="_on_check_box_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/FiltersHBox/Wed4" to="." method="_on_check_box_pressed"]
-[connection signal="pressed" from="VBoxContainer/HeaderHBox/FiltersHBox/Wed5" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox/HomeBtn" to="." method="_on_home_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox/FileBtn" to="." method="_on_file_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox/DemandBtn" to="." method="_on_demand_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox/AssignBtn" to="." method="_on_assign_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/TabsHBox/SupplyBtn" to="." method="_on_supply_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox/IntensiveCheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox/GeneralCheckBox" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox/Mon1" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox/Mon2" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox/Mon3" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox/Wed1" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox/Wed2" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox/Wed3" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox/Wed4" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox/Wed5" to="." method="_on_check_box_pressed"]

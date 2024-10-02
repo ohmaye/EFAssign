@@ -20,6 +20,9 @@ func _load_data_and_render():
 	if not result:
 		return
 
+	# Show Total Entries
+	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % db.query_result.size()
+
 	query_info = QueryInfo.new("rooms", COLUMN_NAMES, db.query_result, KEY )
 	
 	$Table.render(query_info)

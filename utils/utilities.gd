@@ -55,22 +55,22 @@ func change_scene(container : Control, scene : PackedScene):
 # Return an array of selected column names
 func _get_choice_filters() -> Array:
 	var result = []
-	if GlobalVars.show_m1:
+	if not GlobalVars.show_m1:
 		result.append("Mon01")
-	if GlobalVars.show_m2:
+	if not GlobalVars.show_m2:
 		result.append("Mon02")
-	if GlobalVars.show_m3:
+	if not GlobalVars.show_m3:
 		result.append("Mon03")
 
-	if GlobalVars.show_w1:
+	if not GlobalVars.show_w1:
 		result.append("Wed01")	
-	if GlobalVars.show_w2:
+	if not GlobalVars.show_w2:
 		result.append("Wed02")	
-	if GlobalVars.show_w3:
+	if not GlobalVars.show_w3:
 		result.append("Wed03")	
-	if GlobalVars.show_w4:
+	if not GlobalVars.show_w4:
 		result.append("Wed04")
-	if GlobalVars.show_w5:
+	if not GlobalVars.show_w5:
 		result.append("Wed05")
 
 	return result
@@ -81,7 +81,18 @@ func filtered_columns(columns : Array) -> Array:
 	var filters = _get_choice_filters()
 
 	for item in columns:
-		if item in filters:
+		if not item in filters:
 			result.append(item)
 	
+	return result
+
+
+func selected_programs() -> Array:
+	var result : Array = []
+	
+	if GlobalVars.show_intensive:
+		result.append("Intensive")
+	if GlobalVars.show_general:
+		result.append("General")
+
 	return result

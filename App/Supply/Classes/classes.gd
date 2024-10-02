@@ -27,6 +27,9 @@ func _load_data_and_render():
 	if not result:
 		return
 
+	# Show Total Entries
+	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % db.query_result.size()
+
 	query_info = QueryInfo.new("courses", COLUMN_NAMES, db.query_result, KEY )
 	
 	$Table.render(query_info)
@@ -34,6 +37,3 @@ func _load_data_and_render():
 
 func _on_data_changed():
 	_load_data_and_render()
-
-
-

@@ -8,20 +8,10 @@ var supply_scene = preload("res://App/Supply/supply.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GlobalVars.general_checkbox = %GeneralCheckBox
-	GlobalVars.intensive_checkbox = %IntensiveCheckBox
-	GlobalVars.m1_checkbox = %Mon1
-	GlobalVars.m2_checkbox = %Mon2
-	GlobalVars.m3_checkbox = %Mon3
-	GlobalVars.w1_checkbox = %Wed1
-	GlobalVars.w2_checkbox = %Wed2
-	GlobalVars.w3_checkbox = %Wed3
-	GlobalVars.w4_checkbox = %Wed4
-	GlobalVars.w5_checkbox = %Wed5
 	_update_global_filters()
 
 	# By default, set to Home
-	_toggle_buttons_off()
+	_toggle_tabs_off()
 	%HomeBtn.button_pressed = true
 	Utils.change_scene(%Content, home_scene)
 
@@ -36,36 +26,36 @@ func _notification(what: int) -> void:
 ## Handlers for Home, File, Demand, Assign, and Supply
 
 func _on_home_btn_pressed() -> void:
-	_toggle_buttons_off()
+	_toggle_tabs_off()
 	%HomeBtn.button_pressed = true
 	Utils.change_scene(%Content, home_scene)
 
 
 func _on_file_btn_pressed() -> void:
-	_toggle_buttons_off()
+	_toggle_tabs_off()
 	%FileBtn.button_pressed = true
 	Utils.change_scene(%Content, file_scene)
 
 
 func _on_demand_btn_pressed() -> void:
-	_toggle_buttons_off()
+	_toggle_tabs_off()
 	%DemandBtn.button_pressed = true
 	Utils.change_scene(%Content, demand_scene)
 
 
 func _on_assign_btn_pressed() -> void:
-	_toggle_buttons_off()
+	_toggle_tabs_off()
 	%AssignBtn.button_pressed = true
 	Utils.change_scene(%Content, assign_scene)
 
 
 func _on_supply_btn_pressed() -> void:
-	_toggle_buttons_off()
+	_toggle_tabs_off()
 	%SupplyBtn.button_pressed = true
 	Utils.change_scene(%Content, supply_scene)
 
 
-func _toggle_buttons_off() -> void:
+func _toggle_tabs_off() -> void:
 	%HomeBtn.button_pressed = false
 	%FileBtn.button_pressed = false
 	%DemandBtn.button_pressed = false

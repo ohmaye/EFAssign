@@ -3,12 +3,9 @@ extends Controller
 const COLUMN_NAMES = Constants.SURVEY_COLUMN_NAMES
 const KEY = Constants.SURVEY_KEY
 
-var file_dialog = preload("res://UI/file_dialog.tscn")
+var file_dialog = preload("res://UI/file_dialog_csv.tscn")
 
 func _ready() -> void:
-	# Enable Intensive/General
-	GlobalVars.intensive_checkbox.disabled = true
-	GlobalVars.general_checkbox.disabled = true
 
 	_load_data_and_render()
 
@@ -62,7 +59,7 @@ func _on_data_changed():
 func _load_data_and_render():
 
 	var db = AppDB.db
-	var result = db.query("SELECT * FROM survey")
+	var result = db.query("SELECT * FROM survey ORDER BY firstName, lastName")
 
 	# If there are no results, return
 	if not result:

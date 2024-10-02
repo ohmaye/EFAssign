@@ -6,10 +6,6 @@ const KEY = Constants.DEMAND_KEY
 const sql = "SELECT * FROM demand WHERE program IN ('%s', '%s') ORDER BY firstName, lastName"
 
 func _ready():
-	# Enable Intensive/General
-	GlobalVars.intensive_checkbox.disabled = false
-	GlobalVars.general_checkbox.disabled = false
-
 	Signals.data_changed.connect(_on_data_changed)
 	_load_data_and_render()
 

@@ -2,7 +2,9 @@ extends Tree
 
 const sql_courses = "SELECT DISTINCT course_code FROM studentpreferences ORDER BY course_code"
 const sql_levels = "SELECT DISTINCT level FROM studentpreferences WHERE course_code = '%s' ORDER BY level" 
-const sql_students = "SELECT DISTINCT student_id, firstName, lastName, weekday FROM studentpreferences WHERE course_code = '%s' AND level = '%s' ORDER BY level"
+const sql_students = """SELECT DISTINCT student_id, firstName, lastName, weekday 
+					FROM studentpreferences 
+					WHERE course_code = '%s' AND level = '%s' ORDER BY level"""
 
 var root
 var selections = {}

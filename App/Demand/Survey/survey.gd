@@ -3,12 +3,9 @@ extends Controller
 const COLUMN_NAMES  = Constants.SURVEY_COLUMN_NAMES
 const KEY = Constants.SURVEY_KEY
 
-const sql = "SELECT * FROM survey"
+const sql = "SELECT * FROM survey ORDER BY firstName, lastName"
 
 func _ready():
-	# Enable Intensive/General
-	GlobalVars.intensive_checkbox.disabled = true
-	GlobalVars.general_checkbox.disabled = true
 	Signals.data_changed.connect(_on_data_changed)
 	_load_data_and_render()
 
@@ -23,6 +20,9 @@ func _load_data_and_render():
 	# If there are no results, return
 	if not result:
 		return
+
+	# Show Total Entries
+	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % db.query_result.size()
 		
 	var query_info = QueryInfo.new("survey", COLUMN_NAMES, db.query_result, KEY )
 

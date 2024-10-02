@@ -6,9 +6,6 @@ const KEY = Constants.STUDENT_KEY
 const sql = "SELECT * FROM demand WHERE program IN ('%s', '%s') ORDER BY firstName, lastName"
 
 func _ready():   
-	# Enable Intensive/General
-	GlobalVars.intensive_checkbox.disabled = false
-	GlobalVars.general_checkbox.disabled = false
 
 	var intensive = "Intensive" if GlobalVars.show_intensive else ""
 	var general = "General" if GlobalVars.show_general else ""

@@ -9,6 +9,7 @@ func _ready() -> void:
 	dialog_node.visible = true
 	dialog_node.file_mode = FileDialog.FILE_MODE_OPEN_FILE
 	dialog_node.file_selected.connect(_on_file_dialog_file_selected)
+	add_child(dialog_node)
 
 
 

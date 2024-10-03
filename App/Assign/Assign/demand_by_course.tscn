@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bn36qduvtbqhf"]
 
 [ext_resource type="Script" path="res://App/Assign/Assign/demand_by_course.gd" id="1_2ruca"]
-[ext_resource type="Texture2D" uid="uid://b0f118yrgx5pe" path="res://Icons/treeitem_checked.svg" id="1_odwf7"]
-[ext_resource type="Texture2D" uid="uid://bt2vns0m7oudu" path="res://Icons/treeitem_unchecked.svg" id="2_3t4hh"]
+[ext_resource type="Texture2D" uid="uid://b0f118yrgx5pe" path="res://icons/treeitem_checked.svg" id="1_odwf7"]
+[ext_resource type="Texture2D" uid="uid://bt2vns0m7oudu" path="res://icons/treeitem_unchecked.svg" id="2_3t4hh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaoud"]
 bg_color = Color(0.639216, 0.913725, 1, 1)

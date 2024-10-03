@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://ct5ypfrakx0c8"
-path="res://.godot/imported/EFCircularTT-Medium.ttf-99062ddc70a3492fb7d9552cc63e401c.fontdata"
+path="res://.godot/imported/EFCircularTT-Medium.ttf-8eda34f93e0b52e6f11cad61f2c8c589.fontdata"
 
 [deps]
 
-source_file="res://Icons/EFCircularTT-Medium.ttf"
-dest_files=["res://.godot/imported/EFCircularTT-Medium.ttf-99062ddc70a3492fb7d9552cc63e401c.fontdata"]
+source_file="res://icons/EFCircularTT-Medium.ttf"
+dest_files=["res://.godot/imported/EFCircularTT-Medium.ttf-8eda34f93e0b52e6f11cad61f2c8c589.fontdata"]
 
 [params]
 

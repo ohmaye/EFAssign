@@ -3,7 +3,7 @@ extends Controller
 const COLUMN_NAMES  = Constants.STUDENT_COLUMN_NAMES
 const KEY = Constants.STUDENT_KEY
 
-const sql = "SELECT * FROM students WHERE program IN ('%s', '%s') ORDER BY firstName, lastName"
+const sql = "SELECT * FROM filtered_students_view ORDER BY firstName, lastName"
 
 func _ready():   
 
@@ -14,12 +14,8 @@ func _on_data_changed():
 	_load_data_and_render()
 
 func _load_data_and_render():
-	var intensive = "Intensive" if GlobalVars.show_intensive else ""
-	var general = "General" if GlobalVars.show_general else ""
-	var sql_stmt = sql % [intensive, general]
-
 	var db = AppDB.db
-	var result = db.query(sql_stmt)
+	var result = db.query(sql)
 
 	# If there are no results, return
 	if not result:
@@ -28,6 +24,6 @@ func _load_data_and_render():
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % db.query_result.size()
 
-	var query_info = QueryInfo.new("demand", COLUMN_NAMES, db.query_result, KEY )
+	var query_info = QueryInfo.new("students", COLUMN_NAMES, db.query_result, KEY )
 	
 	$Table.render(query_info)

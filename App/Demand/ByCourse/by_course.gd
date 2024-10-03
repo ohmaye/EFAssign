@@ -14,12 +14,8 @@ func _on_data_changed():
 
 
 func _load_data_and_render():
-	var intensive = "Intensive" if GlobalVars.show_intensive else ""
-	var general = "General" if GlobalVars.show_general else ""
-	var sql_stmt = sql % [intensive, general, intensive, general]
-
 	var db = AppDB.db
-	var result = db.query(sql_stmt)
+	var result = db.query(sql)
 
 	# If there are no results, return
 	if not result:
@@ -63,7 +59,6 @@ FROM (
 	UNION ALL
 	SELECT Wed05 AS course, 'Wed05' AS time_slot, program FROM filtered_demand_view WHERE Wed05 IS NOT NULL AND Wed05 != ''
 )
-WHERE program IN ('%s', '%s')
 GROUP BY course
 
 -- Add the row for column totals using a UNION ALL
@@ -96,4 +91,4 @@ FROM (
 	SELECT Wed04 AS course, 'Wed04' AS time_slot, program FROM filtered_demand_view WHERE Wed04 IS NOT NULL AND Wed04 != ''
 	UNION ALL
 	SELECT Wed05 AS course, 'Wed05' AS time_slot, program FROM filtered_demand_view WHERE Wed05 IS NOT NULL AND Wed05 != ''
-) WHERE program IN ('%s', '%s')"""
+)"""

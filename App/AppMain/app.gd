@@ -78,8 +78,11 @@ func _on_check_box_pressed() -> void:
 
 
 func _update_global_filters():
+	var sql_program = "UPDATE meta_filters SET active = %d WHERE category = 'program' AND name = '%s'"
 	GlobalVars.show_general = %GeneralCheckBox.button_pressed
+	AppDB.db.query(sql_program % [1 if GlobalVars.show_general else 0, "General"])
 	GlobalVars.show_intensive = %IntensiveCheckBox.button_pressed
+	AppDB.db.query(sql_program % [1 if GlobalVars.show_intensive else 0, "Intensive"])
 	GlobalVars.show_m1 = %Mon1.button_pressed
 	GlobalVars.show_m2 = %Mon2.button_pressed
 	GlobalVars.show_m3 = %Mon3.button_pressed

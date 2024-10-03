@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://crvhn35855k4r"]
 
-[ext_resource type="Script" path="res://App/Assign/TeacherPreferences/teacher_preferences.gd" id="1_j145g"]
+[ext_resource type="Script" path="res://App/Supply/TeacherPreferences/teacher_preferences.gd" id="1_j145g"]
 
 [node name="TeacherPreferences" type="Control"]
 layout_mode = 3

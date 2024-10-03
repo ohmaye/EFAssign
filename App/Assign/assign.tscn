@@ -72,12 +72,6 @@ layout_mode = 2
 text = "Timetables"
 flat = true
 
-[node name="TeacherPreferencesBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Teacher Preferences"
-flat = true
-
 [node name="AssignContent" type="Panel" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -87,4 +81,3 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hdoff")
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/AssignBtn" to="." method="_on_assign_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/AssignmentsBtn" to="." method="_on_assignments_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/TimetablesBtn" to="." method="_on_timetables_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/TeacherPreferencesBtn" to="." method="_on_teacher_preferences_btn_pressed"]

@@ -28,7 +28,7 @@ func _load_data_and_render():
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % db.query_result.size()
 		
-	var query_info = QueryInfo.new("demand", Utils.filtered_columns(COLUMN_NAMES), db.query_result, KEY )
+	var query_info = QueryInfo.new("demand_view", Utils.filtered_columns(COLUMN_NAMES), db.query_result, KEY )
 
 	$Table.render(query_info)
 
@@ -47,21 +47,21 @@ SELECT course,
 	   -- Total for each row (course)
 	   SUM(CASE WHEN time_slot IN ('Mon01', 'Mon02', 'Mon03', 'Wed01', 'Wed02', 'Wed03', 'Wed04', 'Wed05') THEN 1 ELSE 0 END) AS Total
 FROM (
-	SELECT Mon01 AS course, 'Mon01' AS time_slot, program FROM demand WHERE Mon01 IS NOT NULL AND Mon01 != ''
+	SELECT Mon01 AS course, 'Mon01' AS time_slot, program FROM demand_view WHERE Mon01 IS NOT NULL AND Mon01 != ''
 	UNION ALL
-	SELECT Mon02 AS course, 'Mon02' AS time_slot, program FROM demand WHERE Mon02 IS NOT NULL AND Mon02 != ''
+	SELECT Mon02 AS course, 'Mon02' AS time_slot, program FROM demand_view WHERE Mon02 IS NOT NULL AND Mon02 != ''
 	UNION ALL
-	SELECT Mon03 AS course, 'Mon03' AS time_slot, program FROM demand WHERE Mon03 IS NOT NULL AND Mon03 != ''
+	SELECT Mon03 AS course, 'Mon03' AS time_slot, program FROM demand_view WHERE Mon03 IS NOT NULL AND Mon03 != ''
 	UNION ALL
-	SELECT Wed01 AS course, 'Wed01' AS time_slot, program FROM demand WHERE Wed01 IS NOT NULL AND Wed01 != ''
+	SELECT Wed01 AS course, 'Wed01' AS time_slot, program FROM demand_view WHERE Wed01 IS NOT NULL AND Wed01 != ''
 	UNION ALL
-	SELECT Wed02 AS course, 'Wed02' AS time_slot, program FROM demand WHERE Wed02 IS NOT NULL AND Wed02 != ''
+	SELECT Wed02 AS course, 'Wed02' AS time_slot, program FROM demand_view WHERE Wed02 IS NOT NULL AND Wed02 != ''
 	UNION ALL
-	SELECT Wed03 AS course, 'Wed03' AS time_slot, program FROM demand WHERE Wed03 IS NOT NULL AND Wed03 != ''
+	SELECT Wed03 AS course, 'Wed03' AS time_slot, program FROM demand_view WHERE Wed03 IS NOT NULL AND Wed03 != ''
 	UNION ALL
-	SELECT Wed04 AS course, 'Wed04' AS time_slot, program FROM demand WHERE Wed04 IS NOT NULL AND Wed04 != ''
+	SELECT Wed04 AS course, 'Wed04' AS time_slot, program FROM demand_view WHERE Wed04 IS NOT NULL AND Wed04 != ''
 	UNION ALL
-	SELECT Wed05 AS course, 'Wed05' AS time_slot, program FROM demand WHERE Wed05 IS NOT NULL AND Wed05 != ''
+	SELECT Wed05 AS course, 'Wed05' AS time_slot, program FROM demand_view WHERE Wed05 IS NOT NULL AND Wed05 != ''
 )
 WHERE program IN ('%s', '%s')
 GROUP BY course
@@ -81,19 +81,19 @@ SELECT 'Total' AS course,
 	   -- Total across all columns (time slots)
 	   SUM(CASE WHEN time_slot IN ('Mon01', 'Mon02', 'Mon03', 'Wed01', 'Wed02', 'Wed03', 'Wed04', 'Wed05') THEN 1 ELSE 0 END) AS Total
 FROM (
-	SELECT Mon01 AS course, 'Mon01' AS time_slot, program FROM demand WHERE Mon01 IS NOT NULL AND Mon01 != ''
+	SELECT Mon01 AS course, 'Mon01' AS time_slot, program FROM demand_view WHERE Mon01 IS NOT NULL AND Mon01 != ''
 	UNION ALL
-	SELECT Mon02 AS course, 'Mon02' AS time_slot, program FROM demand WHERE Mon02 IS NOT NULL AND Mon02 != ''
+	SELECT Mon02 AS course, 'Mon02' AS time_slot, program FROM demand_view WHERE Mon02 IS NOT NULL AND Mon02 != ''
 	UNION ALL
-	SELECT Mon03 AS course, 'Mon03' AS time_slot, program FROM demand WHERE Mon03 IS NOT NULL AND Mon03 != ''
+	SELECT Mon03 AS course, 'Mon03' AS time_slot, program FROM demand_view WHERE Mon03 IS NOT NULL AND Mon03 != ''
 	UNION ALL
-	SELECT Wed01 AS course, 'Wed01' AS time_slot, program FROM demand WHERE Wed01 IS NOT NULL AND Wed01 != ''
+	SELECT Wed01 AS course, 'Wed01' AS time_slot, program FROM demand_view WHERE Wed01 IS NOT NULL AND Wed01 != ''
 	UNION ALL
-	SELECT Wed02 AS course, 'Wed02' AS time_slot, program FROM demand WHERE Wed02 IS NOT NULL AND Wed02 != ''
+	SELECT Wed02 AS course, 'Wed02' AS time_slot, program FROM demand_view WHERE Wed02 IS NOT NULL AND Wed02 != ''
 	UNION ALL
-	SELECT Wed03 AS course, 'Wed03' AS time_slot, program FROM demand WHERE Wed03 IS NOT NULL AND Wed03 != ''
+	SELECT Wed03 AS course, 'Wed03' AS time_slot, program FROM demand_view WHERE Wed03 IS NOT NULL AND Wed03 != ''
 	UNION ALL
-	SELECT Wed04 AS course, 'Wed04' AS time_slot, program FROM demand WHERE Wed04 IS NOT NULL AND Wed04 != ''
+	SELECT Wed04 AS course, 'Wed04' AS time_slot, program FROM demand_view WHERE Wed04 IS NOT NULL AND Wed04 != ''
 	UNION ALL
-	SELECT Wed05 AS course, 'Wed05' AS time_slot, program FROM demand WHERE Wed05 IS NOT NULL AND Wed05 != ''
+	SELECT Wed05 AS course, 'Wed05' AS time_slot, program FROM demand_view WHERE Wed05 IS NOT NULL AND Wed05 != ''
 ) WHERE program IN ('%s', '%s')"""

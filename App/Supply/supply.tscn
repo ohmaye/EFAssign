@@ -77,6 +77,12 @@ layout_mode = 2
 text = "Teachers"
 flat = true
 
+[node name="TeacherPreferencesBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Teacher Preferences"
+flat = true
+
 [node name="CoursesBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -112,6 +118,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_au2si")
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/AddBtn" to="." method="_on_add_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/ClassesBtn" to="." method="_on_classes_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/TeachersBtn" to="." method="_on_teachers_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/TeacherPreferencesBtn" to="." method="_on_teacher_preferences_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/CoursesBtn" to="." method="_on_courses_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/RoomsBtn" to="." method="_on_rooms_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/TimeslotsBtn" to="." method="_on_timeslots_btn_pressed"]

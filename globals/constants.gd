@@ -3,7 +3,7 @@ extends Node
 # Constants (Available everywhere in the project -- autoloaded)
 
 # Students
-const STUDENT_COLUMN_NAMES = ["firstName", "lastName", "email", "level","program","active"]
+const STUDENT_COLUMN_NAMES = ["firstName", "lastName", "email", "program", "level", "active", "timestamp"]
 const STUDENT_KEY = "student_id"
 
 

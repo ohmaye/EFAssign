@@ -3,7 +3,7 @@ extends Controller
 const COLUMN_NAMES  = Constants.STUDENT_COLUMN_NAMES
 const KEY = Constants.STUDENT_KEY
 
-const sql = "SELECT * FROM demand WHERE program IN ('%s', '%s') ORDER BY firstName, lastName"
+const sql = "SELECT * FROM students WHERE program IN ('%s', '%s') ORDER BY firstName, lastName"
 
 func _ready():   
 

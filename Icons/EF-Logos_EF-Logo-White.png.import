@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b1iccgo2me5xq"
-path="res://.godot/imported/EF-Logos_EF-Logo-White.png-94896220077aad3fc39ae77bfae0d70d.ctex"
+path="res://.godot/imported/EF-Logos_EF-Logo-White.png-337af80ba50056de7d359954c12f97c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/EF-Logos_EF-Logo-White.png"
-dest_files=["res://.godot/imported/EF-Logos_EF-Logo-White.png-94896220077aad3fc39ae77bfae0d70d.ctex"]
+source_file="res://Icons/EF-Logos_EF-Logo-White.png"
+dest_files=["res://.godot/imported/EF-Logos_EF-Logo-White.png-337af80ba50056de7d359954c12f97c3.ctex"]
 
 [params]
 

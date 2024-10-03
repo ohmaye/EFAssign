@@ -5,6 +5,7 @@ extends ColorRect
 var classes_scene = preload("res://App/Supply/Classes/classes.tscn")
 var courses_scene = preload("res://App/Supply/Courses/courses.tscn")
 var teachers_scene = preload("res://App/Supply/Teachers/teachers.tscn")
+var teacher_preferences_scene = preload("res://App/Supply/TeacherPreferences/teacher_preferences.tscn")
 var rooms_scene = preload("res://App/Supply/Rooms/rooms.tscn")
 var timeslots_scene = preload("res://App/Supply/Timeslots/timeslots.tscn")
 
@@ -16,17 +17,26 @@ var timeslots_scene = preload("res://App/Supply/Timeslots/timeslots.tscn")
 func _on_classes_btn_pressed() -> void:
 	Utils.change_scene(container, classes_scene)
 
+
 func _on_courses_btn_pressed() -> void:
 	Utils.change_scene(container, courses_scene)
+
 
 func _on_teachers_btn_pressed() -> void:
 	Utils.change_scene(container, teachers_scene)
 
+
+func _on_teacher_preferences_btn_pressed() -> void:
+	Utils.change_scene(container, teacher_preferences_scene)
+
+
 func _on_rooms_btn_pressed() -> void:
 	Utils.change_scene(container, rooms_scene)
 
+
 func _on_timeslots_btn_pressed() -> void:
 	Utils.change_scene(container, timeslots_scene)
+
 
 
 func _on_add_btn_pressed() -> void:

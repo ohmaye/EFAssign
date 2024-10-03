@@ -70,7 +70,7 @@ flat = true
 [node name="UpdateDemandBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Transfer to Demand"
+text = "Update Demand"
 flat = true
 
 [node name="TotalLbl" type="Label" parent="VBoxContainer/ColorRect/HBoxContainer"]

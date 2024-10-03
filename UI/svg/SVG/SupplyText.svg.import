@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0f118yrgx5pe"
-path="res://.godot/imported/treeitem_checked.svg-1325d055a8ee703a65eb57f2a4adb2cb.ctex"
+uid="uid://cqya3htugelcm"
+path="res://.godot/imported/SupplyText.svg-b4d2ebf1d99eb70c05ddde300498f534.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/treeitem_checked.svg"
-dest_files=["res://.godot/imported/treeitem_checked.svg-1325d055a8ee703a65eb57f2a4adb2cb.ctex"]
+source_file="res://UI/svg/SVG/SupplyText.svg"
+dest_files=["res://.godot/imported/SupplyText.svg-b4d2ebf1d99eb70c05ddde300498f534.ctex"]
 
 [params]
 

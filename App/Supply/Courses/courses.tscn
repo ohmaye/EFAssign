@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bd5scidlisrur"]
 
-[ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://themes/main_theme.tres" id="1_2dx3t"]
+[ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://UI/themes/main_theme.tres" id="1_2dx3t"]
 [ext_resource type="Script" path="res://App/Supply/Courses/courses.gd" id="2_yejbl"]
 [ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="3_n8lhr"]
 

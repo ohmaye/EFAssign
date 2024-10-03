@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://ccenobp0t5rod"]
 
 [ext_resource type="Script" path="res://App/Home/Overview/overview.gd" id="1_3d34b"]
-[ext_resource type="Texture2D" uid="uid://cwfbfosh8lk4a" path="res://svg/SVG/DemandBasket.svg" id="2_8u51j"]
+[ext_resource type="Texture2D" uid="uid://cwfbfosh8lk4a" path="res://UI/svg/SVG/DemandBasket.svg" id="2_8u51j"]
 [ext_resource type="FontFile" uid="uid://doosudslnw4jh" path="res://UI/Fonts/EFCircularTT-Bold.ttf" id="3_njnas"]
-[ext_resource type="Texture2D" uid="uid://51xfnktdrc46" path="res://svg/SVG/AssignBasket.svg" id="4_xr4rp"]
-[ext_resource type="Texture2D" uid="uid://bi2x0wkv55lt4" path="res://svg/SVG/Arc.svg" id="5_ypdj8"]
-[ext_resource type="Texture2D" uid="uid://c5sbgpt1hmx2c" path="res://svg/SVG/SupplyBasket.svg" id="6_l8fax"]
+[ext_resource type="Texture2D" uid="uid://51xfnktdrc46" path="res://UI/svg/SVG/AssignBasket.svg" id="4_xr4rp"]
+[ext_resource type="Texture2D" uid="uid://bi2x0wkv55lt4" path="res://UI/svg/SVG/Arc.svg" id="5_ypdj8"]
+[ext_resource type="Texture2D" uid="uid://c5sbgpt1hmx2c" path="res://UI/svg/SVG/SupplyBasket.svg" id="6_l8fax"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivt4g"]
 bg_color = Color(0.639216, 0.913725, 1, 1)

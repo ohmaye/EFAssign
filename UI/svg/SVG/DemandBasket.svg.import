@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://51xfnktdrc46"
-path="res://.godot/imported/AssignBasket.svg-e16e80d543ad08681df81faf04c04348.ctex"
+uid="uid://cwfbfosh8lk4a"
+path="res://.godot/imported/DemandBasket.svg-bd0ff430342e7d8d06d5322a01941938.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://svg/SVG/AssignBasket.svg"
-dest_files=["res://.godot/imported/AssignBasket.svg-e16e80d543ad08681df81faf04c04348.ctex"]
+source_file="res://UI/svg/SVG/DemandBasket.svg"
+dest_files=["res://.godot/imported/DemandBasket.svg-bd0ff430342e7d8d06d5322a01941938.ctex"]
 
 [params]
 

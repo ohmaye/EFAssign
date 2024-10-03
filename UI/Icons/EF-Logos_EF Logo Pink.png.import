@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3q55cmwmgyub"
-path="res://.godot/imported/EF-Logos_EF Logo Blue.png-6b6a687d78b8232b9c509198307c64a5.ctex"
+uid="uid://deljsstrw3s0q"
+path="res://.godot/imported/EF-Logos_EF Logo Pink.png-bc5caae8681b0acafd6169895fbfe238.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/EF-Logos_EF Logo Blue.png"
-dest_files=["res://.godot/imported/EF-Logos_EF Logo Blue.png-6b6a687d78b8232b9c509198307c64a5.ctex"]
+source_file="res://UI/Icons/EF-Logos_EF Logo Pink.png"
+dest_files=["res://.godot/imported/EF-Logos_EF Logo Pink.png-bc5caae8681b0acafd6169895fbfe238.ctex"]
 
 [params]
 

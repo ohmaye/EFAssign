@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqya3htugelcm"
-path="res://.godot/imported/SupplyText.svg-873109c279b4da0626ffa1e14b87760d.ctex"
+uid="uid://bi2x0wkv55lt4"
+path="res://.godot/imported/Arc.svg-fbfa7276420e651acec81d94373c7f9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://svg/SVG/SupplyText.svg"
-dest_files=["res://.godot/imported/SupplyText.svg-873109c279b4da0626ffa1e14b87760d.ctex"]
+source_file="res://UI/svg/SVG/Arc.svg"
+dest_files=["res://.godot/imported/Arc.svg-fbfa7276420e651acec81d94373c7f9a.ctex"]
 
 [params]
 

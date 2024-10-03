@@ -113,6 +113,7 @@ ToDo:
   - Teacher Note
     - Strange behavior. Adding "-" or "" causes problems
 - Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+- Check EDITING features given all the views used
 
 
 - Naming case errors show up in exported app. Log files:

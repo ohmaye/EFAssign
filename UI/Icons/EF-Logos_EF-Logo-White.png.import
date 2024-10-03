@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da57m31wnkkwr"
-path="res://.godot/imported/EF-Logos_Tiny-Use-Logo.png-fe8d1a17baff7c91672436a086b22066.ctex"
+uid="uid://b1iccgo2me5xq"
+path="res://.godot/imported/EF-Logos_EF-Logo-White.png-6d9acbc575d2a378b1e525c9b3443b6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/EF-Logos_Tiny-Use-Logo.png"
-dest_files=["res://.godot/imported/EF-Logos_Tiny-Use-Logo.png-fe8d1a17baff7c91672436a086b22066.ctex"]
+source_file="res://UI/Icons/EF-Logos_EF-Logo-White.png"
+dest_files=["res://.godot/imported/EF-Logos_EF-Logo-White.png-6d9acbc575d2a378b1e525c9b3443b6d.ctex"]
 
 [params]
 

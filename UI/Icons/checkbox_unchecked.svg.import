@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1iccgo2me5xq"
-path="res://.godot/imported/EF-Logos_EF-Logo-White.png-337af80ba50056de7d359954c12f97c3.ctex"
+uid="uid://cqx8v8wet6sbw"
+path="res://.godot/imported/checkbox_unchecked.svg-5a7b4e8d2e44861e8738b6870c7d03ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Icons/EF-Logos_EF-Logo-White.png"
-dest_files=["res://.godot/imported/EF-Logos_EF-Logo-White.png-337af80ba50056de7d359954c12f97c3.ctex"]
+source_file="res://UI/Icons/checkbox_unchecked.svg"
+dest_files=["res://.godot/imported/checkbox_unchecked.svg-5a7b4e8d2e44861e8738b6870c7d03ab.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=0.9
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -411,9 +411,12 @@ WHERE Wed05 != '';
 DROP VIEW IF EXISTS filtered_students_view;
 CREATE VIEW filtered_students_view AS SELECT * FROM students WHERE program IN (SELECT program FROM program_filters WHERE show = 1);
 
+
+DROP VIEW IF EXISTS filtered_demand_view;
 CREATE VIEW filtered_demand_view AS SELECT * FROM demand_view WHERE program IN (SELECT program FROM program_filters WHERE show = 1)
-AND weekday IN (SELECT choice FROM choice_filters WHERE show = 1)
+AND weekday IN (SELECT choice FROM choices WHERE show = 1)
+
 
 DROP VIEW IF EXISTS filtered_student_choices_view;
 CREATE VIEW filtered_student_choices_view AS  SELECT * FROM student_choices WHERE program IN (SELECT program FROM program_filters WHERE show = 1)
-AND weekday IN (SELECT choice FROM choice_filters WHERE show = 1)
+AND weekday IN (SELECT choice FROM choices WHERE show = 1)

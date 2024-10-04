@@ -65,10 +65,10 @@ func change_scene(container : Control, scene : PackedScene):
 func _get_choice_filters() -> Array:
 	var db = AppDB.db
 
-	db.query("SELECT choice FROM choice_filters WHERE show = 0")
+	db.query("SELECT legacy_choice FROM choices WHERE show = 0")
 	var result = []
 	for item in db.query_result:
-		result.append(item['choice'])
+		result.append(item['legacy_choice'])
 
 	return result
 
@@ -84,6 +84,3 @@ func filtered_columns(columns : Array) -> Array:
 	print("Columns: ", Constants.DEMAND_COLUMN_NAMES)
 	print("Filterd: ", result)
 	return result
-
-
-

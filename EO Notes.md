@@ -114,6 +114,10 @@ ToDo:
     - Strange behavior. Adding "-" or "" causes problems
 - Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
 - Check EDITING features given all the views used
+- Totals:
+  - Need to work on the totals in the demand tab.
+  - When we selected choices, the total is still counting rows from the entire set
+  - That query needs to be written in gdscript and run agains sqlite -- sqlite can't create queries dynamically.
 
 
 - Naming case errors show up in exported app. Log files:

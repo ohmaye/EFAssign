@@ -18,8 +18,8 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=24
 run/low_processor_mode=true
 boot_splash/bg_color=Color(1, 0.878431, 1, 1)
-boot_splash/image="res://icons/EF-Logos_EF-Logo-White.png"
-config/icon="res://icons/EF-Logos_EF Logo Blue.png"
+boot_splash/image="res://UI/Icons/EF-Logos_EF Logo Pink.png"
+config/icon="res://UI/Icons/EF-Logos_EF Logo Blue.png"
 boot_splash/minimum_display_time=200
 
 [autoload]

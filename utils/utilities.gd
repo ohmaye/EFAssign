@@ -5,12 +5,21 @@ class_name Utilities
 ## Remove Children
 ##
 ## Given a container, remove all children and free the resources
-func remove_all_children(parent_node):
+func free_all_children(parent_node):
 	# Loop through all children and remove them
 	for child in parent_node.get_children():
-		parent_node.remove_child(child)
+		free_all_children(child)
 		# This will delete the child from memory
 		child.queue_free()  
+
+## Remove treeitem children
+##
+## Given a treeitem, remove all children and free the resources
+func free_all_treeitems(treeitem):
+	# Loop through all children and remove them
+	for child in treeitem.get_children():
+		treeitem.remove_child(child)
+
 
 ## Create UUID
 const uuid = preload('res://addons/uuid.gd')
@@ -42,7 +51,7 @@ func load_user_prefs():
 ## First empty the parent container, then load the next scene
 
 func change_scene(container : Control, scene : PackedScene):
-	Utils.remove_all_children(container)
+	Utils.free_all_children(container)
 	var scene_node = scene.instantiate()
 	# scene_node.call_deferred("render")	
 	container.add_child(scene_node)
@@ -54,24 +63,12 @@ func change_scene(container : Control, scene : PackedScene):
 
 # Return an array of selected column names
 func _get_choice_filters() -> Array:
-	var result = []
-	if not GlobalVars.show_m1:
-		result.append("Mon01")
-	if not GlobalVars.show_m2:
-		result.append("Mon02")
-	if not GlobalVars.show_m3:
-		result.append("Mon03")
+	var db = AppDB.db
 
-	if not GlobalVars.show_w1:
-		result.append("Wed01")	
-	if not GlobalVars.show_w2:
-		result.append("Wed02")	
-	if not GlobalVars.show_w3:
-		result.append("Wed03")	
-	if not GlobalVars.show_w4:
-		result.append("Wed04")
-	if not GlobalVars.show_w5:
-		result.append("Wed05")
+	db.query("SELECT choice FROM choice_filters WHERE show = 0")
+	var result = []
+	for item in db.query_result:
+		result.append(item['choice'])
 
 	return result
 
@@ -84,15 +81,9 @@ func filtered_columns(columns : Array) -> Array:
 		if not item in filters:
 			result.append(item)
 	
+	print("Columns: ", Constants.DEMAND_COLUMN_NAMES)
+	print("Filterd: ", result)
 	return result
 
 
-func selected_programs() -> Array:
-	var result : Array = []
-	
-	if GlobalVars.show_intensive:
-		result.append("Intensive")
-	if GlobalVars.show_general:
-		result.append("General")
 
-	return result

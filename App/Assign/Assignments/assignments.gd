@@ -3,7 +3,7 @@ extends Controller
 const COLUMN_NAMES  = Constants.DEMAND_COLUMN_NAMES
 const KEY = Constants.DEMAND_KEY
 
-const sql = "SELECT * FROM demand WHERE program IN ('%s', '%s') ORDER BY firstName, lastName"
+const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName, lastName"
 
 func _ready():
 	Signals.data_changed.connect(_on_data_changed)
@@ -16,12 +16,9 @@ func _on_data_changed():
 	
 
 func _load_data_and_render():
-	var intensive = "Intensive" if GlobalVars.show_intensive else ""
-	var general = "General" if GlobalVars.show_general else ""
-	var sql_stmt = sql % [intensive, general]
 	
 	var db = AppDB.db
-	var result = db.query(sql_stmt)
+	var result = db.query(sql)
 
 	# If there are no results, return
 	if not result:

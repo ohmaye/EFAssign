@@ -1,15 +1,18 @@
 extends Tree
 
-const sql_courses = "SELECT DISTINCT course_code FROM student_choices ORDER BY course_code"
-const sql_levels = "SELECT DISTINCT level FROM student_choices WHERE course_code = '%s' ORDER BY level" 
+const sql_courses = "SELECT DISTINCT course_code FROM filtered_student_choices_view ORDER BY course_code"
+const sql_levels = "SELECT DISTINCT level FROM filtered_student_choices_view WHERE course_code = '%s' ORDER BY level" 
 const sql_students = """SELECT DISTINCT student_id, firstName, lastName, weekday 
-					FROM student_choices 
+					FROM filtered_student_choices_view 
 					WHERE course_code = '%s' AND level = '%s' ORDER BY level"""
 
 var root
 var selections = {}
 
 func _ready():
+	# Doesn't inherit from Controller so need to connect signal
+	Signals.data_changed.connect(_on_data_changed)
+
 	setup_tree_control()
 	
 	# Create the root item
@@ -20,7 +23,15 @@ func _ready():
 	root.set_text_alignment(3, HORIZONTAL_ALIGNMENT_CENTER)
 	root.set_selectable(1,false)
 	root.set_selectable(2,false)
+	_load_data_and_render()
 
+
+func _on_data_changed():
+	_load_data_and_render() 
+
+
+func _load_data_and_render():
+	Utils.free_all_treeitems(root)
 	# Get Courses
 	var courses = AppDB.db_get(sql_courses)
 	# Populate the tree with items

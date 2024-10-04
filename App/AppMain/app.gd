@@ -106,3 +106,4 @@ func _update_global_filters():
 	var columns = Constants.DEMAND_COLUMN_NAMES
 
 	printt("Filtered:", Utils.filtered_columns(columns))
+	print("Choices: ", Utils.get_choices())

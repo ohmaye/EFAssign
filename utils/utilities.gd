@@ -61,6 +61,18 @@ func change_scene(container : Control, scene : PackedScene):
 ##
 ## Make it easier to handle Global Filters affecting SQL queries and Colums in tables
 
+# Return an array of  column names
+func get_choices() -> Array:
+	var db = AppDB.db
+
+	db.query("SELECT choice FROM choices")
+	var result = []
+	for item in db.query_result:
+		result.append(item['choice'])
+
+	return result
+
+
 # Return an array of selected column names
 func _get_choice_filters() -> Array:
 	var db = AppDB.db

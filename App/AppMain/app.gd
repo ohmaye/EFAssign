@@ -8,7 +8,7 @@ var supply_scene = preload("res://App/Supply/supply.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_update_global_filters()
+	_update_db_from_ui()
 
 	# By default, set to Home
 	_toggle_tabs_off()
@@ -77,7 +77,7 @@ func _on_program_check_box_pressed() -> void:
 	AppDB.db_run(sql_program_filters % [1 if show_general else 0, "General"])
 	var show_intensive = %IntensiveCheckBox.button_pressed
 	AppDB.db_run(sql_program_filters % [1 if show_intensive else 0, "Intensive"])
-	
+
 	if not show_general and not show_intensive:
 		_deactivate_all_choices()
 	elif show_general and not show_intensive:
@@ -86,59 +86,54 @@ func _on_program_check_box_pressed() -> void:
 	elif not show_general and show_intensive:
 		_deactivate_all_choices()
 		_activate_I_choices()
+
+	_update_ui_from_db()
 	Signals.filters_changed.emit()
 	Signals.data_changed.emit()
 
 
 func _on_check_box_pressed() -> void:
 	print("Pressed checkbox: ")
-	_update_global_filters()
+	_update_db_from_ui()
 	Signals.filters_changed.emit()
 	Signals.data_changed.emit()
 
 
-func _update_global_filters():
+func _update_db_from_ui():
 	var sql_choice_filters = "UPDATE choices SET show = %d WHERE choice = '%s'"
 	var db = AppDB.db
-	
+	var buttons = [%IM1, %IM2, %IM3, %Ia1, %Ia2, %Ia3, %Ia4, %Ia5, %Ga1, %Ga2, %Ga3, %Ga4, %Ga5]
 
-	var show_m1 = %IM1.button_pressed
-	db.query(sql_choice_filters % [1 if show_m1 else 0, "IM1"])
-	var show_m2 = %IM2.button_pressed
-	db.query(sql_choice_filters % [1 if show_m2 else 0, "IM2"])
-	var show_m3 = %IM3.button_pressed
-	db.query(sql_choice_filters % [1 if show_m3 else 0, "IM3"])
-	var show_w1 = %Ia1.button_pressed
-	db.query(sql_choice_filters % [1 if show_w1 else 0, "Ia1"])
-	var show_w2 = %Ia2.button_pressed
-	db.query(sql_choice_filters % [1 if show_w2 else 0, "Ia2"])
-	var show_w3 = %Ia3.button_pressed
-	db.query(sql_choice_filters % [1 if show_w3 else 0, "Ia3"])
-	var show_w4 = %Ia4.button_pressed
-	db.query(sql_choice_filters % [1 if show_w4 else 0, "Ia4"])
-	var show_w5 = %Ia5.button_pressed
-	db.query(sql_choice_filters % [1 if show_w5 else 0, "Ia5"])
-	var show_g1 = %Ga1.button_pressed
-	db.query(sql_choice_filters % [1 if show_g1 else 0, "Ga1"])
-	var show_g2 = %Ga2.button_pressed
-	db.query(sql_choice_filters % [1 if show_g2 else 0, "Ga2"])
-	var show_g3 = %Ga3.button_pressed
-	db.query(sql_choice_filters % [1 if show_g3 else 0, "Ga3"])
-	var show_g4= %Ga4.button_pressed
-	db.query(sql_choice_filters % [1 if show_g4 else 0, "Ga4"])
-	var show_g5 = %Ga5.button_pressed
-	db.query(sql_choice_filters % [1 if show_g5 else 0, "Ga5"])
+	for button in buttons:
+		var is_show = button.button_pressed
+		db.query(sql_choice_filters % [1 if is_show else 0, button.name])
+
+
+func _update_ui_from_db():
+	var sql_choices_array = AppDB.db_get("SELECT choice, show FROM choices")
+	print("Choices: ", sql_choices_array)
+	var buttons = [%IM1, %IM2, %IM3, %Ia1, %Ia2, %Ia3, %Ia4, %Ia5, %Ga1, %Ga2, %Ga3, %Ga4, %Ga5]
+	
+	# Create a mapping from choice to show
+	var sql_choices = {}
+	for item in sql_choices_array:
+		sql_choices[item["choice"]] = item["show"]
+	
+	for button in buttons:
+		var show_value = sql_choices.get(button.name, 0)  # Default to 0 if not found
+		button.button_pressed = show_value == 1
+
 
 func _deactivate_all_choices():
 	var sql_deactivate = "UPDATE choices SET show = 0"
 	AppDB.db_run(sql_deactivate)
 
+
 func _activate_I_choices():
 	var sql_activate = "UPDATE choices SET show = 1 WHERE choice LIKE 'I%'"
 	AppDB.db_run(sql_activate)
 
+
 func _activate_G_choices():
 	var sql_activate = "UPDATE choices SET show = 1 WHERE choice LIKE 'G%'"
 	AppDB.db_run(sql_activate)
-
-

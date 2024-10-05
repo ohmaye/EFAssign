@@ -30,6 +30,7 @@ func _load_data_and_render():
 	$Table.render(query_info)
 
 
+
 # Below based on filtered_demand_vew
 const sql = """
 -- Main query for pivot table

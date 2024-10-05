@@ -94,3 +94,14 @@ func filtered_columns(columns : Array) -> Array:
 			result.append(item)
 	
 	return result
+
+# Get a list of active weekdays
+func _get_active_weekdays() -> Array:
+	var sql_active_weekdays = """
+		SELECT t.weekday as weekday, start_time, end_time, sort_key FROM timeslots AS t
+		JOIN weekdays AS w ON w.weekday = t.weekday
+		WHERE t.active = 1
+		ORDER BY sort_key
+	"""
+	var active_weekdays = AppDB.db_get(sql_active_weekdays)
+	return active_weekdays

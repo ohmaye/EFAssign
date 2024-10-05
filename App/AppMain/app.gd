@@ -70,6 +70,26 @@ func _toggle_tabs_off() -> void:
 func _on_add_btn_pressed() -> void:
 	Signals.add_new.emit()
 
+
+func _on_program_check_box_pressed() -> void:
+	var sql_program_filters = "UPDATE programs SET show = %d WHERE program = '%s'"
+	var show_general = %GeneralCheckBox.button_pressed
+	AppDB.db_run(sql_program_filters % [1 if show_general else 0, "General"])
+	var show_intensive = %IntensiveCheckBox.button_pressed
+	AppDB.db_run(sql_program_filters % [1 if show_intensive else 0, "Intensive"])
+	
+	if not show_general and not show_intensive:
+		_deactivate_all_choices()
+	elif show_general and not show_intensive:
+		_deactivate_all_choices()
+		_activate_G_choices()
+	elif not show_general and show_intensive:
+		_deactivate_all_choices()
+		_activate_I_choices()
+	Signals.filters_changed.emit()
+	Signals.data_changed.emit()
+
+
 func _on_check_box_pressed() -> void:
 	print("Pressed checkbox: ")
 	_update_global_filters()
@@ -78,14 +98,9 @@ func _on_check_box_pressed() -> void:
 
 
 func _update_global_filters():
-	var sql_program_filters = "UPDATE programs SET show = %d WHERE program = '%s'"
 	var sql_choice_filters = "UPDATE choices SET show = %d WHERE choice = '%s'"
 	var db = AppDB.db
 	
-	var show_general = %GeneralCheckBox.button_pressed
-	db.query(sql_program_filters % [1 if show_general else 0, "General"])
-	var show_intensive = %IntensiveCheckBox.button_pressed
-	db.query(sql_program_filters % [1 if show_intensive else 0, "Intensive"])
 
 	var show_m1 = %IM1.button_pressed
 	db.query(sql_choice_filters % [1 if show_m1 else 0, "IM1"])
@@ -113,3 +128,17 @@ func _update_global_filters():
 	db.query(sql_choice_filters % [1 if show_g4 else 0, "Ga4"])
 	var show_g5 = %Ga5.button_pressed
 	db.query(sql_choice_filters % [1 if show_g5 else 0, "Ga5"])
+
+func _deactivate_all_choices():
+	var sql_deactivate = "UPDATE choices SET show = 0"
+	AppDB.db_run(sql_deactivate)
+
+func _activate_I_choices():
+	var sql_activate = "UPDATE choices SET show = 1 WHERE choice LIKE 'I%'"
+	AppDB.db_run(sql_activate)
+
+func _activate_G_choices():
+	var sql_activate = "UPDATE choices SET show = 1 WHERE choice LIKE 'G%'"
+	AppDB.db_run(sql_activate)
+
+

@@ -48,3 +48,4 @@ func _on_assign_btn_pressed() -> void:
 			return
 
 	%StatusMsg.text = "Status: Successfully assigned students to class."
+	Signals.emit_signal("data_changed")

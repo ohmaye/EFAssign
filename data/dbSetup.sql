@@ -233,190 +233,73 @@ LEFT JOIN timeslots USING (timeslot_id)
 LEFT JOIN teachers USING (teacher_id)
 
 
--- CREATE denormalized classes view
-DROP VIEW IF EXISTS classes_view;
-CREATE VIEW  classes_view as 
-    SELECT courses.code as 'course', 
-      classes.title as 'class', 
-      rooms.name as 'where', 
-      weekdays.sort_key as weekday_sort_key, 
-      timeslots.weekday as weekday,
-      timeslots.weekday || ' ' || timeslots.start_time as 'when', 
-      teachers.name as 'who'
-    FROM classes
-    LEFT JOIN courses USING (course_id)
-    LEFT JOIN rooms USING (room_id)
-    LEFT JOIN timeslots USING (timeslot_id)
-    LEFT JOIN teachers USING (teacher_id)
-    LEFT JOIN weekdays ON weekdays.weekday = timeslots.weekday
-    ORDER BY course, classes.title, weekday_sort_key;
 
+-- CREATE Views
 
--- Drop the student_choices table if it exists
-DROP TABLE IF EXISTS student_choices;
+-- Classes_view
+DROP VIEW IF EXISTS "main"."classes_view";
+CREATE VIEW classes_view as 
+SELECT class_id, courses.code as 'course', 
+classes.title as 'class', 
+rooms.name as 'where', 
+weekdays.sort_key as weekday_sort_key, 
+timeslots.weekday as weekday,
+ timeslots.weekday || ' ' || timeslots.start_time as 'when', 
+ teachers.name as 'who'
+ FROM classes
+	LEFT JOIN courses USING (course_id)
+	LEFT JOIN rooms USING (room_id)
+	LEFT JOIN timeslots USING (timeslot_id)
+	LEFT JOIN teachers USING (teacher_id)
+	LEFT JOIN weekdays ON weekdays.weekday = timeslots.weekday
+	ORDER BY course, classes.title, weekday_sort_key;
 
--- Create the student_choices table
-CREATE TABLE student_choices (
-  student_id TEXT NOT NULL,
-  firstName TEXT,
-  lastName TEXT,
-  program TEXT,
-  level TEXT,
-  weekday TEXT,
-  ranking INTEGER,
-  course_code TEXT
-);
-
--- Create student_choices directly from survey
-WITH student_data AS (
-  SELECT
-    student_id,
-    firstName,
-    lastName,
-    level,
-    -- Determine the program type
-    CASE WHEN instr(program, 'Intensive') THEN 'Intensive' ELSE 'General' END AS program,
-    -- Adjust Mon and Wed columns based on the program type
-    CASE WHEN instr(program, 'Intensive') THEN IMon01 ELSE '' END AS Mon01,
-    CASE WHEN instr(program, 'Intensive') THEN IMon02 ELSE '' END AS Mon02,
-    CASE WHEN instr(program, 'Intensive') THEN IMon03 ELSE '' END AS Mon03,
-    CASE WHEN instr(program, 'Intensive') THEN IWed01 ELSE GWed01 END AS Wed01,
-    CASE WHEN instr(program, 'Intensive') THEN IWed02 ELSE GWed02 END AS Wed02,
-    CASE WHEN instr(program, 'Intensive') THEN IWed03 ELSE GWed03 END AS Wed03,
-    CASE WHEN instr(program, 'Intensive') THEN IWed04 ELSE GWed04 END AS Wed04,
-    CASE WHEN instr(program, 'Intensive') THEN IWed05 ELSE GWed05 END AS Wed05
-  FROM survey
-)
-
-INSERT INTO student_choices (student_id, firstName, lastName, program, level, weekday, ranking, course_code)
--- Mon01 Preferences
+-- Demand_view
+DROP VIEW IF EXISTS "main"."demand_view";
+CREATE VIEW demand_view AS
 SELECT
-  student_id,
-  firstName,
-  lastName,
-  program,
-  level,
-  'Mon01' AS weekday,
-  1 AS ranking,
-  substr(Mon01, instr(Mon01, '_') + 1) AS course_code
-FROM student_data
-WHERE Mon01 != ''
-
-UNION ALL
-
--- Mon02 Preferences
-SELECT
-  student_id,
-  firstName,
-  lastName,
-  program,
-  level,
-  'Mon02',
-  2,
-  substr(Mon02, instr(Mon02, '_') + 1)
-FROM student_data
-WHERE Mon02 != ''
-
-UNION ALL
-
--- Mon03 Preferences
-SELECT
-  student_id,
-  firstName,
-  lastName,
-  program,
-  level,
-  'Mon03',
-  3,
-  substr(Mon03, instr(Mon03, '_') + 1)
-FROM student_data
-WHERE Mon03 != ''
-
-UNION ALL
-
--- Wed01 Preferences
-SELECT
-  student_id,
-  firstName,
-  lastName,
-  program,
-  level,
-  'Wed01',
-  1,
-  substr(Wed01, instr(Wed01, '_') + 1)
-FROM student_data
-WHERE Wed01 != ''
-
-UNION ALL
-
--- Wed02 Preferences
-SELECT
-  student_id,
-  firstName,
-  lastName,
-  program,
-  level,
-  'Wed02',
-  2,
-  substr(Wed02, instr(Wed02, '_') + 1)
-FROM student_data
-WHERE Wed02 != ''
-
-UNION ALL
-
--- Wed03 Preferences
-SELECT
-  student_id,
-  firstName,
-  lastName,
-  program,
-  level,
-  'Wed03',
-  3,
-  substr(Wed03, instr(Wed03, '_') + 1)
-FROM student_data
-WHERE Wed03 != ''
-
-UNION ALL
-
--- Wed04 Preferences
-SELECT
-  student_id,
-  firstName,
-  lastName,
-  program,
-  level,
-  'Wed04',
-  4,
-  substr(Wed04, instr(Wed04, '_') + 1)
-FROM student_data
-WHERE Wed04 != ''
-
-UNION ALL
-
--- Wed05 Preferences
-SELECT
-  student_id,
-  firstName,
-  lastName,
-  program,
-  level,
-  'Wed05',
-  5,
-  substr(Wed05, instr(Wed05, '_') + 1)
-FROM student_data
-WHERE Wed05 != '';
-
--- Filtered Views
-DROP VIEW IF EXISTS filtered_students_view;
-CREATE VIEW filtered_students_view AS SELECT * FROM students WHERE program IN (SELECT program FROM program_filters WHERE show = 1);
+  s.student_id,
+  s.email,
+  s.firstName,
+  s.lastName,
+  s.level,
+  s.program,
+  -- Pivoting choices for Monday
+  MAX(CASE WHEN sc.choice = 'IM1' THEN sc.course_code END) AS IM1,
+  MAX(CASE WHEN sc.choice = 'IM2' THEN sc.course_code END) AS IM2,
+  MAX(CASE WHEN sc.choice = 'IM3' THEN sc.course_code END) AS IM3,
+  MAX(CASE WHEN sc.choice = 'Ia1' THEN sc.course_code END) AS Ia1,
+  MAX(CASE WHEN sc.choice = 'Ia2' THEN sc.course_code END) AS Ia2,
+  MAX(CASE WHEN sc.choice = 'Ia3' THEN sc.course_code END) AS Ia3,
+  MAX(CASE WHEN sc.choice = 'Ia4' THEN sc.course_code END) AS Ia4,
+  MAX(CASE WHEN sc.choice = 'Ia4' THEN sc.course_code END) AS Ia5,
+  MAX(CASE WHEN sc.choice = 'Ga1' THEN sc.course_code END) AS Ga1,
+  MAX(CASE WHEN sc.choice = 'Ga2' THEN sc.course_code END) AS Ga2,
+  MAX(CASE WHEN sc.choice = 'Ga3' THEN sc.course_code END) AS Ga3,
+  MAX(CASE WHEN sc.choice = 'Ga4' THEN sc.course_code END) AS Ga4,
+  MAX(CASE WHEN sc.choice = 'Ga5' THEN sc.course_code END) AS Ga5,
+  s.active
+FROM
+  students s
+LEFT JOIN
+  student_choices sc ON s.student_id = sc.student_id
+GROUP BY
+  s.student_id;
 
 
-DROP VIEW IF EXISTS filtered_demand_view;
-CREATE VIEW filtered_demand_view AS SELECT * FROM demand_view WHERE program IN (SELECT program FROM program_filters WHERE show = 1)
-AND weekday IN (SELECT choice FROM choices WHERE show = 1)
+-- Filtered views
 
+-- Filtered demand view
+DROP VIEW IF EXISTS "main"."filtered_demand_view";
+CREATE VIEW filtered_demand_view AS SELECT * FROM demand_view WHERE program IN (SELECT program FROM programs WHERE show = 1);
 
-DROP VIEW IF EXISTS filtered_student_choices_view;
-CREATE VIEW filtered_student_choices_view AS  SELECT * FROM student_choices WHERE program IN (SELECT program FROM program_filters WHERE show = 1)
-AND weekday IN (SELECT choice FROM choices WHERE show = 1)
+-- Filtered student_chocies view
+DROP VIEW IF EXISTS "main"."filtered_student_choices_view";
+CREATE VIEW filtered_student_choices_view AS  
+SELECT * FROM student_choices sc JOIN students s USING (student_id)
+WHERE s.program IN (SELECT program FROM programs WHERE show = 1)
+AND sc.choice IN (SELECT choice FROM choices WHERE show = 1);
+
+-- Filtered students view
+DROP VIEW IF EXISTS "main"."filtered_students_view";
+CREATE VIEW filtered_students_view AS SELECT * FROM students WHERE program IN (SELECT program FROM programs WHERE show = 1);

@@ -13,4 +13,5 @@ grow_vertical = 2
 script = ExtResource("1_1mslv")
 
 [node name="Table" parent="." instance=ExtResource("2_mmnvq")]
+unique_name_in_owner = true
 layout_mode = 1

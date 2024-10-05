@@ -79,7 +79,7 @@ func _on_check_box_pressed() -> void:
 
 func _update_global_filters():
 	var sql_program_filters = "UPDATE programs SET show = %d WHERE program = '%s'"
-	var sql_choice_filters = "UPDATE choices SET show = %d WHERE legacy_choice = '%s'"
+	var sql_choice_filters = "UPDATE choices SET show = %d WHERE choice = '%s'"
 	var db = AppDB.db
 	
 	var show_general = %GeneralCheckBox.button_pressed
@@ -87,23 +87,29 @@ func _update_global_filters():
 	var show_intensive = %IntensiveCheckBox.button_pressed
 	db.query(sql_program_filters % [1 if show_intensive else 0, "Intensive"])
 
-	var show_m1 = %Mon1.button_pressed
-	db.query(sql_choice_filters % [1 if show_m1 else 0, "Mon01"])
-	var show_m2 = %Mon2.button_pressed
-	db.query(sql_choice_filters % [1 if show_m2 else 0, "Mon02"])
-	var show_m3 = %Mon3.button_pressed
-	db.query(sql_choice_filters % [1 if show_m3 else 0, "Mon03"])
-	var show_w1 = %Wed1.button_pressed
-	db.query(sql_choice_filters % [1 if show_w1 else 0, "Wed01"])
-	var show_w2 = %Wed2.button_pressed
-	db.query(sql_choice_filters % [1 if show_w2 else 0, "Wed02"])
-	var show_w3 = %Wed3.button_pressed
-	db.query(sql_choice_filters % [1 if show_w3 else 0, "Wed03"])
-	var show_w4 = %Wed4.button_pressed
-	db.query(sql_choice_filters % [1 if show_w4 else 0, "Wed04"])
-	var show_w5 = %Wed5.button_pressed
-	db.query(sql_choice_filters % [1 if show_w5 else 0, "Wed05"])
-	var columns = Constants.DEMAND_COLUMN_NAMES
-
-	printt("Filtered:", Utils.filtered_columns(columns))
-	print("Choices: ", Utils.get_choices())
+	var show_m1 = %IM1.button_pressed
+	db.query(sql_choice_filters % [1 if show_m1 else 0, "IM1"])
+	var show_m2 = %IM2.button_pressed
+	db.query(sql_choice_filters % [1 if show_m2 else 0, "IM2"])
+	var show_m3 = %IM3.button_pressed
+	db.query(sql_choice_filters % [1 if show_m3 else 0, "IM3"])
+	var show_w1 = %Ia1.button_pressed
+	db.query(sql_choice_filters % [1 if show_w1 else 0, "Ia1"])
+	var show_w2 = %Ia2.button_pressed
+	db.query(sql_choice_filters % [1 if show_w2 else 0, "Ia2"])
+	var show_w3 = %Ia3.button_pressed
+	db.query(sql_choice_filters % [1 if show_w3 else 0, "Ia3"])
+	var show_w4 = %Ia4.button_pressed
+	db.query(sql_choice_filters % [1 if show_w4 else 0, "Ia4"])
+	var show_w5 = %Ia5.button_pressed
+	db.query(sql_choice_filters % [1 if show_w5 else 0, "Ia5"])
+	var show_g1 = %Ga1.button_pressed
+	db.query(sql_choice_filters % [1 if show_g1 else 0, "Ga1"])
+	var show_g2 = %Ga2.button_pressed
+	db.query(sql_choice_filters % [1 if show_g2 else 0, "Ga2"])
+	var show_g3 = %Ga3.button_pressed
+	db.query(sql_choice_filters % [1 if show_g3 else 0, "Ga3"])
+	var show_g4= %Ga4.button_pressed
+	db.query(sql_choice_filters % [1 if show_g4 else 0, "Ga4"])
+	var show_g5 = %Ga5.button_pressed
+	db.query(sql_choice_filters % [1 if show_g5 else 0, "Ga5"])

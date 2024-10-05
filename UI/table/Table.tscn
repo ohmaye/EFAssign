@@ -15,7 +15,6 @@ script = ExtResource("1_7pvqh")
 
 [node name="HeaderGridContainer" type="GridContainer" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(360, 0)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -42,6 +41,8 @@ offset_top = 121.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 2
 
 [node name="RowsGridContainer" type="GridContainer" parent="RowsScrollContainer"]
 unique_name_in_owner = true

@@ -34,7 +34,7 @@ func render(_query_info : QueryInfo):
 	for field in _query_info.columns:
 		var node = cell.instantiate()
 		node.add_theme_stylebox_override("normal", style_header)
-		node.text = field.capitalize()
+		node.text = field
 		header_grid.add_child(node)
 
 	# Add the filters

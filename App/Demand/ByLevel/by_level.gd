@@ -30,34 +30,50 @@ func _load_data_and_render():
 	$Table.render(query_info)
 
 
+# Below based on filtered_demand_vew
 const sql = """
 SELECT course, level,
-	   SUM(CASE WHEN time_slot = 'Mon01' THEN 1 ELSE 0 END) AS Mon01,
-	   SUM(CASE WHEN time_slot = 'Mon02' THEN 1 ELSE 0 END) AS Mon02,
-	   SUM(CASE WHEN time_slot = 'Mon03' THEN 1 ELSE 0 END) AS Mon03,
-	   SUM(CASE WHEN time_slot = 'Wed01' THEN 1 ELSE 0 END) AS Wed01,
-	   SUM(CASE WHEN time_slot = 'Wed02' THEN 1 ELSE 0 END) AS Wed02,
-	   SUM(CASE WHEN time_slot = 'Wed03' THEN 1 ELSE 0 END) AS Wed03,
-	   SUM(CASE WHEN time_slot = 'Wed04' THEN 1 ELSE 0 END) AS Wed04,
-	   SUM(CASE WHEN time_slot = 'Wed05' THEN 1 ELSE 0 END) AS Wed05,
+	   SUM(CASE WHEN time_slot = 'IM1' THEN 1 ELSE 0 END) AS IM1,
+	   SUM(CASE WHEN time_slot = 'IM2' THEN 1 ELSE 0 END) AS IM2,
+	   SUM(CASE WHEN time_slot = 'IM3' THEN 1 ELSE 0 END) AS IM3,
+	   SUM(CASE WHEN time_slot = 'Ia1' THEN 1 ELSE 0 END) AS Ia1,
+	   SUM(CASE WHEN time_slot = 'Ia2' THEN 1 ELSE 0 END) AS Ia2,
+	   SUM(CASE WHEN time_slot = 'Ia3' THEN 1 ELSE 0 END) AS Ia3,
+	   SUM(CASE WHEN time_slot = 'Ia4' THEN 1 ELSE 0 END) AS Ia4,
+	   SUM(CASE WHEN time_slot = 'Ia5' THEN 1 ELSE 0 END) AS Ia5,
+	   SUM(CASE WHEN time_slot = 'Ga1' THEN 1 ELSE 0 END) AS Ga1,
+	   SUM(CASE WHEN time_slot = 'Ga2' THEN 1 ELSE 0 END) AS Ga2,
+	   SUM(CASE WHEN time_slot = 'Ga3' THEN 1 ELSE 0 END) AS Ga3,
+	   SUM(CASE WHEN time_slot = 'Ga4' THEN 1 ELSE 0 END) AS Ga4,
+	   SUM(CASE WHEN time_slot = 'Ga5' THEN 1 ELSE 0 END) AS Ga5,
 	   -- Total for each course and level (row total)
-	   SUM(CASE WHEN time_slot IN ('Mon01', 'Mon02', 'Mon03', 'Wed01', 'Wed02', 'Wed03', 'Wed04', 'Wed05') THEN 1 ELSE 0 END) AS Total
+	   SUM(CASE WHEN time_slot IN (SELECT choice FROM choices) THEN 1 ELSE 0 END) AS Total
 FROM (
-	SELECT Mon01 AS course, level, 'Mon01' AS time_slot FROM filtered_demand_view WHERE Mon01 IS NOT NULL AND Mon01 != '' 
+	SELECT IM1 AS course, level, 'IM1' AS time_slot FROM filtered_demand_view WHERE IM1 IS NOT NULL AND IM1 != '' 
 	UNION ALL
-	SELECT Mon02 AS course, level, 'Mon02' AS time_slot FROM filtered_demand_view WHERE Mon02 IS NOT NULL AND Mon02 != '' 
+	SELECT IM2 AS course, level, 'IM2' AS time_slot FROM filtered_demand_view WHERE IM2 IS NOT NULL AND IM2 != '' 
 	UNION ALL
-	SELECT Mon03 AS course, level, 'Mon03' AS time_slot FROM filtered_demand_view WHERE Mon03 IS NOT NULL AND Mon03 != '' 
+	SELECT IM3 AS course, level, 'IM3' AS time_slot FROM filtered_demand_view WHERE IM3 IS NOT NULL AND IM3 != '' 
 	UNION ALL
-	SELECT Wed01 AS course, level, 'Wed01' AS time_slot FROM filtered_demand_view WHERE Wed01 IS NOT NULL AND Wed01 != '' 
+	SELECT Ia1 AS course, level, 'Ia1' AS time_slot FROM filtered_demand_view WHERE Ia1 IS NOT NULL AND Ia1 != '' 
 	UNION ALL
-	SELECT Wed02 AS course, level, 'Wed02' AS time_slot FROM filtered_demand_view WHERE Wed02 IS NOT NULL AND Wed02 != '' 
+	SELECT Ia2 AS course, level, 'Ia2' AS time_slot FROM filtered_demand_view WHERE Ia2 IS NOT NULL AND Ia2 != '' 
 	UNION ALL
-	SELECT Wed03 AS course, level, 'Wed03' AS time_slot FROM filtered_demand_view WHERE Wed03 IS NOT NULL AND Wed03 != '' 
+	SELECT Ia3 AS course, level, 'Ia3' AS time_slot FROM filtered_demand_view WHERE Ia3 IS NOT NULL AND Ia3 != '' 
 	UNION ALL
-	SELECT Wed04 AS course, level, 'Wed04' AS time_slot FROM filtered_demand_view WHERE Wed04 IS NOT NULL AND Wed04 != '' 
+	SELECT Ia4 AS course, level, 'Ia4' AS time_slot FROM filtered_demand_view WHERE Ia4 IS NOT NULL AND Ia4 != '' 
 	UNION ALL
-	SELECT Wed05 AS course, level, 'Wed05' AS time_slot FROM filtered_demand_view WHERE Wed05 IS NOT NULL AND Wed05 != '' 
+	SELECT Ga5 AS course, level, 'Ga5' AS time_slot FROM filtered_demand_view WHERE Ga5 IS NOT NULL AND Ga5 != '' 
+	UNION ALL
+	SELECT Ga1 AS course, level, 'Ga1' AS time_slot FROM filtered_demand_view WHERE Ga1 IS NOT NULL AND Ga1 != '' 
+	UNION ALL
+	SELECT Ga2 AS course, level, 'Ga2' AS time_slot FROM filtered_demand_view WHERE Ga2 IS NOT NULL AND Ga2 != '' 
+	UNION ALL
+	SELECT Ga3 AS course, level, 'Ga3' AS time_slot FROM filtered_demand_view WHERE Ga3 IS NOT NULL AND Ga3 != '' 
+	UNION ALL
+	SELECT Ga4 AS course, level, 'Ga4' AS time_slot FROM filtered_demand_view WHERE Ga4 IS NOT NULL AND Ga4 != '' 
+	UNION ALL
+	SELECT Ga5 AS course, level, 'Ga5' AS time_slot FROM filtered_demand_view WHERE Ga5 IS NOT NULL AND Ga5 != '' 
 )
 GROUP BY course, level
 ORDER BY course, level;

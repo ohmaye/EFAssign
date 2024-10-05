@@ -6,9 +6,6 @@ const KEY = Constants.SURVEY_KEY
 var file_dialog = preload("res://UI/file_dialog_csv.tscn")
 
 func _ready() -> void:
-
-	_load_data_and_render()
-
 	var dialog_node : FileDialog = file_dialog.instantiate()
 	dialog_node.visible = true
 	dialog_node.file_mode = FileDialog.FILE_MODE_OPEN_FILE
@@ -28,6 +25,10 @@ func _file_selected(path : String):
 		print("Couldn't open the file")
 		return
 
+	# Read the header
+	file.get_csv_line(",")
+
+	# Read the CSV file
 	while not file.eof_reached():
 		var csvRow = file.get_csv_line(",")
 		var id = Utils.uuid.v4()
@@ -48,22 +49,6 @@ func _file_selected(path : String):
 		var sql = "INSERT INTO survey ({0}) VALUES ({1})".format([columns, values_str])
 		AppDB.db.query(sql)
 		
-	_load_data_and_render()
+	print("Loaded Survey Msgs")
 
 
-func _on_data_changed():
-	_load_data_and_render()
-
-
-func _load_data_and_render():
-
-	var db = AppDB.db
-	var result = db.query("SELECT * FROM survey ORDER BY firstName, lastName")
-
-	# If there are no results, return
-	if not result:
-		return
-		
-	var query_info = QueryInfo.new("survey", COLUMN_NAMES, db.query_result, KEY )
-
-	$Table.render(query_info)

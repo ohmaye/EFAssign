@@ -39,3 +39,9 @@ func db_get(sql : String) -> Array:
 		return []
 	else:
 		return db.query_result
+
+
+func db_run(sql : String) -> bool:
+	var result = db.query(sql)
+	# print("Run query: ", sql)
+	return result

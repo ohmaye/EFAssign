@@ -2,8 +2,9 @@ extends Tree
 
 # Uses classes_view, a denormalized view of classes, for all queries.
 const sql_distinct_courses = "SELECT DISTINCT course FROM classes_view ORDER BY course"
-const sql_classes_for_course = """SELECT DISTINCT cv.class, cv.'when', cv.who 
+const sql_classes_for_course = """SELECT cv.class_id, cv.class, cv.'when', cv.who 
 									FROM classes_view AS cv WHERE course = '%s'"""
+const sql_assignments_for_class = "SELECT student_id FROM assignments WHERE class_id = '%s'"
 
 
 func _ready():	
@@ -17,16 +18,20 @@ func _ready():
 	var courses = AppDB.db_get(sql_distinct_courses)
 	for course in courses:
 		var course_node = _create_course_node(course, root)
+		course_node.set_selectable(0, false)
 		# For each course, list the classes
 		var classes = AppDB.db_get(sql_classes_for_course % course["course"])
 		for _class in classes:
-			_create_class_node(_class, course_node)
+			var class_node = _create_class_node(_class, course_node)
+			var assignments = AppDB.db_get(sql_assignments_for_class % _class["class_id"])	
+			for student in assignments:
+				_create_student_node(student, class_node)
 
 
 func setup_tree_control():
 	# Set up the columns & titles
 	set_columns(4)
-	set_column_title(0, "Course/Class")
+	set_column_title(0, "Course/Class/Student")
 	set_column_custom_minimum_width(0,300)
 	set_column_title(1, "Time")
 	set_column_title(2, "Teacher")
@@ -42,6 +47,9 @@ func _create_course_node(_course, _parent):
 func _create_class_node(_class, _parent):
 	var class_title = _class["class"] if _class["class"] else "?"
 	var class_node = _parent.create_child()
+	# Save class for assignment
+	class_node.set_metadata(1, _class)
+
 	class_node.set_text(0,class_title)
 	var class_time = _class["when"] if _class["when"] else "/"
 	class_node.set_text(1, class_time)
@@ -52,11 +60,25 @@ func _create_class_node(_class, _parent):
 	class_node.set_text_alignment(3, HORIZONTAL_ALIGNMENT_CENTER)
 	return class_node
 
+func _create_student_node(_student, _parent):
+	var student_node = _parent.create_child()
+	var student_details = AppDB.db_get("SELECT firstName, lastName FROM students WHERE student_id = '%s'" % _student["student_id"])
+	var student_name = student_details[0]["firstName"] + " " + student_details[0]["lastName"]
+	print("Student: ", student_details)
+	student_node.set_text(0, student_name)
+	student_node.set_text(1, "")
+	student_node.set_text(2, "")
+	student_node.set_text(3, "")
+	student_node.set_selectable(1, true)
+	student_node.set_selectable(2, false)
+	student_node.set_selectable(3, false)
+	return student_node
 
 func _on_cell_selected():
 	print("Cell selected")
 	
 func _on_item_selected():
-	var class_title = get_selected().get_text(0)
-	print("Item selected", class_title)
-	Signals.emit_signal("class_selected", class_title )
+	var _class = get_selected().get_metadata(1)
+	print("Item selected", _class)
+	if _class:
+		Signals.emit_signal("class_selected", _class )

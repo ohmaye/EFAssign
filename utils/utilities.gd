@@ -77,10 +77,10 @@ func get_choices() -> Array:
 func _get_choice_filters() -> Array:
 	var db = AppDB.db
 
-	db.query("SELECT legacy_choice FROM choices WHERE show = 0")
+	db.query("SELECT choice FROM choices WHERE show = 0")
 	var result = []
 	for item in db.query_result:
-		result.append(item['legacy_choice'])
+		result.append(item['choice'])
 
 	return result
 
@@ -93,6 +93,4 @@ func filtered_columns(columns : Array) -> Array:
 		if not item in filters:
 			result.append(item)
 	
-	print("Columns: ", Constants.DEMAND_COLUMN_NAMES)
-	print("Filterd: ", result)
 	return result

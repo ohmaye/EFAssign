@@ -26,4 +26,4 @@ func _load_data_and_render():
 		
 	var query_info = QueryInfo.new("survey", COLUMN_NAMES, db.query_result, KEY )
 
-	$Table.render(query_info)
+	%Table.render(query_info)

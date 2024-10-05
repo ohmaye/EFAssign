@@ -2,7 +2,7 @@ extends Tree
 
 const sql_courses = "SELECT DISTINCT course_code FROM filtered_student_choices_view ORDER BY course_code"
 const sql_levels = "SELECT DISTINCT level FROM filtered_student_choices_view WHERE course_code = '%s' ORDER BY level" 
-const sql_students = """SELECT DISTINCT student_id, firstName, lastName, weekday 
+const sql_students = """SELECT choice_id, student_id, firstName, lastName, choice 
 					FROM filtered_student_choices_view 
 					WHERE course_code = '%s' AND level = '%s' ORDER BY level"""
 
@@ -86,15 +86,16 @@ func _create_level_node(_level, _parent):
 func _create_student_node(_student, _parent):
 	var student_node = _parent.create_child()
 	student_node.set_metadata(0,"student")
+	student_node.set_metadata(1,_student)		# Store the student_choice data in the metadata
 
 	student_node.set_text(0, _student["firstName"] + " " + _student["lastName"])
 	student_node.set_cell_mode(1, TreeItem.CELL_MODE_CHECK)
-	student_node.set_text(2, _student["weekday"])
+	student_node.set_text(2, _student["choice"])
 	student_node.set_text(3,"")
 	student_node.set_text_alignment(1, HORIZONTAL_ALIGNMENT_CENTER)
 	student_node.set_text_alignment(2, HORIZONTAL_ALIGNMENT_CENTER)
 	student_node.set_text_alignment(3, HORIZONTAL_ALIGNMENT_CENTER)
-	student_node.set_editable(1, true)
+	student_node.set_editable(1, false)
 	student_node.set_selectable(1,false)
 	student_node.set_selectable(2,false)
 	student_node.set_selectable(3,false)
@@ -105,11 +106,12 @@ func _on_column_title_clicked():
 
 
 func _on_multi_selected(item: TreeItem, column: int, selected: bool) -> void:
-	print("Multi selection: ", item, " ", column, " ", selected)
+	# print("Multi selection: ", item, " ", column, " ", selected)
 
 	_update_selections(item, column, selected)
 	
 	Signals.emit_signal("student_selected", selections) 
+
 		
 func _update_selections(item: TreeItem, column: int, selected: bool) -> void:
 	var metadata = item.get_metadata(0)
@@ -120,12 +122,13 @@ func _update_selections(item: TreeItem, column: int, selected: bool) -> void:
 			_update_selections(child, column, selected)
 
 	if metadata == "student":
-		print("Student : ", selected, " - ", item.get_text(0))
+		print("Student : ", selected, " - ", item.get_text(0), item.get_metadata(1))
 		item.set_checked(1, selected)
 		if selected:
-			selections[item.get_text(0)] = true
+			selections[item.get_text(0)] = item.get_metadata(1)
 		else:
 			selections.erase(item.get_text(0))
+
 
 # func _update_counts() -> void:
 # 	root.set_text(3, str(_count_students(root)))

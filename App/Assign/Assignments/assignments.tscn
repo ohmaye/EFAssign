@@ -11,3 +11,14 @@ grow_vertical = 2
 column_titles_visible = true
 hide_root = true
 script = ExtResource("1_0w8o7")
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+unique_name_in_owner = true
+size = Vector2i(400, 600)
+item_count = 3
+item_0/text = "9COM"
+item_0/id = 0
+item_1/text = "KANJI"
+item_1/id = 1
+item_2/text = "9GAM"
+item_2/id = 2

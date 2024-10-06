@@ -18,6 +18,7 @@ const sql_assignment = """
 var root : TreeItem
 var active_weekdays = []
 var weekdays = []
+var popup_menu : PopupMenu
 
 func _ready():
 	# Doesn't inherit from Controller so need to connect signal
@@ -27,12 +28,27 @@ func _ready():
 	
 	# Create the root item
 	root = create_item()
+	popup_menu = %PopupMenu
 
 	_load_data_and_render()
 	
 
 func _on_assignment_btn_pressed(item: Object, column: int, id: , mouse_button_index: int):
 	printt("Button clicked: ", item,"Col:", column, id, mouse_button_index)
+	popup_menu.visible = true
+	popup_menu.position = get_global_mouse_position() - Vector2(200, 0)
+	popup_menu.id_pressed.connect(func (_id) -> void:
+		printt("ID Pressed: ", _id)
+		popup_menu.visible = false
+		# Open the assignment dialog
+		# Signals.assignment_selected.emit(id)
+	)
+	popup_menu.index_pressed.connect(func (index) -> void:
+		printt("Index Pressed: ", index)
+		popup_menu.visible = false
+		# Open the assignment dialog
+		# Signals.assignment_selected.emit(index)
+	)	
 
 func _set_format_and_headers() -> Array:
 	active_weekdays = _get_active_timeslots()

@@ -1,2 +1,166 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="EFAssign 2438.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="8272"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="filtered_student_view" custom_title="0" dock_id="24" table="4,21:mainfiltered_student_view"/><table title="filtered_student_view" custom_title="0" dock_id="25" table="4,21:mainfiltered_student_view"/><dock_state state="000000ff00000000fd0000000100000002000008ee0000044dfc0100000003fb000000160064006f0063006b00420072006f00770073006500310100000000000008ee0000000000000000fb000000180064006f0063006b00420072006f007700730065003200330100000000ffffffff0000000000000000fc00000000000008ee000001c600fffffffa000000010100000002fb000000180064006f0063006b00420072006f007700730065003200340100000000ffffffff000001c600fffffffb000000180064006f0063006b00420072006f007700730065003200350100000000ffffffff000001c600ffffff000008ee0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="assignments" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="111"/><column index="2" value="86"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="demand_view" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="300"/><column index="3" value="169"/><column index="4" value="300"/><column index="5" value="155"/><column index="6" value="101"/><column index="7" value="72"/><column index="8" value="75"/><column index="9" value="75"/><column index="10" value="73"/><column index="11" value="76"/><column index="12" value="76"/><column index="13" value="77"/><column index="14" value="76"/><column index="15" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="filtered_demand_view" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="300"/><column index="3" value="169"/><column index="4" value="177"/><column index="5" value="155"/><column index="6" value="101"/><column index="7" value="110"/><column index="8" value="110"/><column index="9" value="110"/><column index="10" value="107"/><column index="11" value="107"/><column index="12" value="107"/><column index="13" value="107"/><column index="14" value="107"/><column index="15" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="filtered_student_view" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="300"/><column index="3" value="169"/><column index="4" value="300"/><column index="5" value="155"/><column index="6" value="101"/><column index="7" value="222"/><column index="8" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="meta_filters" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="93"/><column index="2" value="228"/><column index="3" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="student_choices" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort><column index="0" mode="0"/></sort><column_widths><column index="1" value="300"/><column index="2" value="156"/><column index="3" value="129"/><column index="4" value="207"/><column index="5" value="300"/><column index="6" value="92"/><column index="7" value="80"/><column index="8" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="students" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="300"/><column index="3" value="300"/><column index="4" value="300"/><column index="5" value="300"/><column index="6" value="101"/><column index="7" value="222"/><column index="8" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="survey" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="222"/><column index="3" value="300"/><column index="4" value="300"/><column index="5" value="300"/><column index="6" value="300"/><column index="7" value="300"/><column index="8" value="300"/><column index="9" value="300"/><column index="10" value="300"/><column index="11" value="300"/><column index="12" value="300"/><column index="13" value="300"/><column index="14" value="300"/><column index="15" value="300"/><column index="16" value="300"/><column index="17" value="300"/><column index="18" value="300"/><column index="19" value="300"/><column index="20" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE VIEW filtered_student_view AS SELECT * FROM students WHERE program IN (SELECT name FROM meta_filters WHERE category = 'program' AND active = 1)</sql><sql name="Edit View filtered_student_view">DROP VIEW IF EXISTS &quot;main&quot;.&quot;filtered_students_view&quot;;
-CREATE VIEW filtered_students_view AS SELECT * FROM students WHERE program IN (SELECT name FROM meta_filters WHERE category = 'program' AND active = 1)</sql><current_tab id="1"/></tab_sql></sqlb_project>
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="EFAssign 2438.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="418"/><column_width id="1" width="0"/><column_width id="2" width="98"/><column_width id="3" width="10510"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="11" parent="0"/><expanded_item id="12" parent="0"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="filtered_students_view" custom_title="0" dock_id="31" table="4,22:mainfiltered_students_view"/><table title="assignments" custom_title="0" dock_id="30" table="4,11:mainassignments"/><table title="assignments" custom_title="0" dock_id="29" table="4,11:mainassignments"/><table title="student_choices" custom_title="0" dock_id="28" table="4,15:mainstudent_choices"/><table title="choices" custom_title="0" dock_id="27" table="4,7:mainchoices"/><table title="assignments" custom_title="0" dock_id="26" table="4,11:mainassignments"/><table title="filtered_students_view" custom_title="0" dock_id="25" table="4,22:mainfiltered_students_view"/><table title="assignments" custom_title="0" dock_id="24" table="4,11:mainassignments"/><table title="timeslots" custom_title="0" dock_id="32" table="4,9:maintimeslots"/><dock_state state="000000ff00000000fd0000000100000002000009880000044dfc0100000003fb000000160064006f0063006b00420072006f00770073006500310100000000000008ee0000000000000000fb000000180064006f0063006b00420072006f007700730065003200330100000000ffffffff0000000000000000fc0000000000000988000001fe00fffffffa000000080100000009fb000000180064006f0063006b00420072006f007700730065003200340100000000ffffffff000001c600fffffffb000000180064006f0063006b00420072006f007700730065003200350100000000ffffffff000001c600fffffffb000000180064006f0063006b00420072006f007700730065003200360100000000ffffffff000001c600fffffffb000000180064006f0063006b00420072006f007700730065003200370100000000ffffffff000001c600fffffffb000000180064006f0063006b00420072006f007700730065003200380100000000ffffffff000001c600fffffffb000000180064006f0063006b00420072006f007700730065003200390100000000ffffffff000001c600fffffffb000000180064006f0063006b00420072006f007700730065003300300100000000ffffffff000001c600fffffffb000000180064006f0063006b00420072006f007700730065003300310100000000ffffffff000001c600fffffffb000000180064006f0063006b00420072006f007700730065003300320100000000ffffffff000001c600ffffff000009880000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="assignments" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="368"/><column index="2" value="525"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="choices" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="111"/><column index="2" value="144"/><column index="3" value="161"/><column index="4" value="224"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="classes" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="243"/><column index="3" value="300"/><column index="4" value="87"/><column index="5" value="300"/><column index="6" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="classes_view" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="332"/><column index="2" value="243"/><column index="3" value="279"/><column index="4" value="185"/><column index="5" value="92"/><column index="6" value="113"/><column index="7" value="225"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="courses" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="110"/><column index="3" value="300"/><column index="4" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="demand_view" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="300"/><column index="3" value="235"/><column index="4" value="300"/><column index="5" value="176"/><column index="6" value="101"/><column index="7" value="110"/><column index="8" value="110"/><column index="9" value="110"/><column index="10" value="107"/><column index="11" value="107"/><column index="12" value="107"/><column index="13" value="107"/><column index="14" value="107"/><column index="15" value="107"/><column index="16" value="107"/><column index="17" value="107"/><column index="18" value="107"/><column index="19" value="107"/><column index="20" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="filtered_demand_view" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="300"/><column index="3" value="235"/><column index="4" value="300"/><column index="5" value="176"/><column index="6" value="101"/><column index="7" value="110"/><column index="8" value="110"/><column index="9" value="110"/><column index="10" value="107"/><column index="11" value="107"/><column index="12" value="107"/><column index="13" value="107"/><column index="14" value="107"/><column index="15" value="107"/><column index="16" value="107"/><column index="17" value="107"/><column index="18" value="107"/><column index="19" value="107"/><column index="20" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="filtered_student_choices_view" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="300"/><column index="3" value="71"/><column index="4" value="80"/><column index="5" value="130"/><column index="6" value="94"/><column index="7" value="300"/><column index="8" value="160"/><column index="9" value="226"/><column index="10" value="176"/><column index="11" value="101"/><column index="12" value="219"/><column index="13" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="filtered_students_view" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="300"/><column index="3" value="169"/><column index="4" value="300"/><column index="5" value="155"/><column index="6" value="101"/><column index="7" value="222"/><column index="8" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="programs" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="101"/><column index="2" value="59"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="rooms" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="258"/><column index="3" value="111"/><column index="4" value="89"/><column index="5" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="student_choices" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort><column index="2" mode="0"/></sort><column_widths><column index="1" value="300"/><column index="2" value="156"/><column index="3" value="129"/><column index="4" value="207"/><column index="5" value="300"/><column index="6" value="92"/><column index="7" value="80"/><column index="8" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="students" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="300"/><column index="3" value="300"/><column index="4" value="300"/><column index="5" value="300"/><column index="6" value="101"/><column index="7" value="222"/><column index="8" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="survey" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="222"/><column index="3" value="300"/><column index="4" value="300"/><column index="5" value="300"/><column index="6" value="300"/><column index="7" value="300"/><column index="8" value="300"/><column index="9" value="300"/><column index="10" value="300"/><column index="11" value="300"/><column index="12" value="300"/><column index="13" value="300"/><column index="14" value="300"/><column index="15" value="300"/><column index="16" value="300"/><column index="17" value="300"/><column index="18" value="300"/><column index="19" value="300"/><column index="20" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="teacherpreferences" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="300"/><column index="3" value="64"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="teachers" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="225"/><column index="3" value="290"/><column index="4" value="297"/><column index="5" value="95"/><column index="6" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="timeslots" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="300"/><column index="2" value="92"/><column index="3" value="107"/><column index="4" value="97"/><column index="5" value="65"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="weekdays" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="91"/><column index="2" value="92"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">CREATE VIEW filtered_student_view AS SELECT * FROM students WHERE program IN (SELECT name FROM meta_filters WHERE category = 'program' AND active = 1)</sql><sql name="Edit View filtered_student_view*">CREATE VIEW filtered_demand_view AS SELECT * FROM demand_view WHERE program IN (SELECT program FROM program_filters WHERE show = 1)
+AND weekday IN (SELECT choice FROM choice_filters WHERE show = 1)</sql><sql name="Edit View filtered_demand_view*">UPDATE choices SET legacy_choice = survey</sql><sql name="Edit View filtered_demand_view*">DROP VIEW IF EXISTS &quot;main&quot;.&quot;filtered_demand_view&quot;;
+CREATE VIEW filtered_demand_view AS SELECT * FROM demand_view WHERE program IN (SELECT program FROM program_filters WHERE show = 1)</sql><sql name="Edit View filtered_student_choices_view*">INSERT INTO programs  SELECT * FROM program_filters</sql><sql name="Edit View filtered_demand_view*">DROP VIEW IF EXISTS &quot;main&quot;.&quot;filtered_demand_view&quot;;
+CREATE VIEW filtered_demand_view AS SELECT * FROM demand_view WHERE program IN (SELECT program FROM programs WHERE show = 1)</sql><sql name="Edit View filtered_student_choices_view*">DROP VIEW IF EXISTS &quot;main&quot;.&quot;filtered_student_choices_view&quot;;
+CREATE VIEW filtered_student_choices_view AS  SELECT * FROM student_choices WHERE program IN (SELECT program FROM programs WHERE show = 1)
+AND weekday IN (SELECT legacy_choice FROM choice_filters WHERE show = 1)</sql><sql name="Edit View filtered_students_view*">DROP VIEW IF EXISTS &quot;main&quot;.&quot;filtered_students_view&quot;;
+CREATE VIEW filtered_students_view AS SELECT * FROM students WHERE program IN (SELECT program FROM programs WHERE show = 1)</sql><sql name="Edit View filtered_student_choices_view*">CREATE VIEW filtered_student_choices_view AS  SELECT * FROM student_choices WHERE program IN (SELECT program FROM programs WHERE show = 1)
+AND weekday IN (SELECT legacy_choice FROM choices WHERE show = 1)</sql><sql name="Edit View filtered_student_choices_view*">-- Main query for pivot table
+SELECT course,
+	   SUM(CASE WHEN choice = 'IM1' THEN 1 ELSE 0 END) AS IM1,
+	   SUM(CASE WHEN choice = 'IM2' THEN 1 ELSE 0 END) AS IM2,
+	   SUM(CASE WHEN choice = 'IM3' THEN 1 ELSE 0 END) AS IM3,
+	   SUM(CASE WHEN choice = 'Ia1' THEN 1 ELSE 0 END) AS Ia1,
+	   SUM(CASE WHEN choice = 'Ia2' THEN 1 ELSE 0 END) AS Ia2,
+	   SUM(CASE WHEN choice = 'Ia3' THEN 1 ELSE 0 END) AS Ia3,
+	   SUM(CASE WHEN choice = 'Ia4' THEN 1 ELSE 0 END) AS Ia4,
+	   SUM(CASE WHEN choice = 'Ia5' THEN 1 ELSE 0 END) AS Ia5,
+	   SUM(CASE WHEN choice = 'Ga1' THEN 1 ELSE 0 END) AS Ga1,
+	   SUM(CASE WHEN choice = 'Ga2' THEN 1 ELSE 0 END) AS Ga2,
+	   SUM(CASE WHEN choice = 'Ga3' THEN 1 ELSE 0 END) AS Ga3,
+	   SUM(CASE WHEN choice = 'Ga4' THEN 1 ELSE 0 END) AS Ga4,
+	   SUM(CASE WHEN choice = 'Ga5' THEN 1 ELSE 0 END) AS Ga5,
+	   -- Total for each row (course)
+	   SUM(CASE WHEN choice IN (SELECT choice FROM choices) THEN 1 ELSE 0 END) AS Total
+FROM (
+	SELECT IM1 AS course, 'IM1' AS choice, program FROM filtered_demand_view WHERE IM1 IS NOT NULL AND IM1 != ''
+	UNION ALL
+	SELECT IM2 AS course, 'IM2' AS choice, program FROM filtered_demand_view WHERE IM2 IS NOT NULL AND IM2 != ''
+	UNION ALL
+	SELECT IM3 AS course, 'IM3' AS choice, program FROM filtered_demand_view WHERE IM3 IS NOT NULL AND IM3 != ''
+	UNION ALL
+	SELECT Ia1 AS course, 'Ia1' AS choice, program FROM filtered_demand_view WHERE Ia1 IS NOT NULL AND Ia1 != ''
+	UNION ALL
+	SELECT Ia2 AS course, 'Ia2' AS choice, program FROM filtered_demand_view WHERE Ia2 IS NOT NULL AND Ia2 != ''
+	UNION ALL
+	SELECT Ia3 AS course, 'Ia3' AS choice, program FROM filtered_demand_view WHERE Ia3 IS NOT NULL AND Ia3 != ''
+	UNION ALL
+	SELECT Ia4 AS course, 'Ia4' AS choice, program FROM filtered_demand_view WHERE Ia4 IS NOT NULL AND Ia4 != ''
+	UNION ALL
+	SELECT Ia5 AS course, 'Ia5' AS choice, program FROM filtered_demand_view WHERE Ia5 IS NOT NULL AND Ia5 != ''
+	UNION ALL
+	SELECT Ga1 AS course, 'Ga1' AS choice, program FROM filtered_demand_view WHERE Ga1 IS NOT NULL AND Ga1 != ''
+	UNION ALL
+	SELECT Ga2 AS course, 'Ga2' AS choice, program FROM filtered_demand_view WHERE Ga2 IS NOT NULL AND Ga2 != ''
+	UNION ALL
+	SELECT Ga3 AS course, 'Ga3' AS choice, program FROM filtered_demand_view WHERE Ga3 IS NOT NULL AND Ga3 != ''
+	UNION ALL
+	SELECT Ga4 AS course, 'Ga4' AS choice, program FROM filtered_demand_view WHERE Ga4 IS NOT NULL AND Ga4 != ''
+	UNION ALL
+	SELECT Ga5 AS course, 'Ga5' AS choice, program FROM filtered_demand_view WHERE Ga5 IS NOT NULL AND Ga5 != ''
+)
+GROUP BY course
+
+-- Add the row for column totals using a UNION ALL
+UNION ALL
+
+SELECT 'Total' AS course,
+	   SUM(CASE WHEN choice = 'IM1' THEN 1 ELSE 0 END) AS IM1,
+	   SUM(CASE WHEN choice = 'IM2' THEN 1 ELSE 0 END) AS IM2,
+	   SUM(CASE WHEN choice = 'IM3' THEN 1 ELSE 0 END) AS IM3,
+	   SUM(CASE WHEN choice = 'Ia1' THEN 1 ELSE 0 END) AS Ia1,
+	   SUM(CASE WHEN choice = 'Ia2' THEN 1 ELSE 0 END) AS Ia2,
+	   SUM(CASE WHEN choice = 'Ia3' THEN 1 ELSE 0 END) AS Ia3,
+	   SUM(CASE WHEN choice = 'Ia4' THEN 1 ELSE 0 END) AS Ia4,
+	   SUM(CASE WHEN choice = 'Ia5' THEN 1 ELSE 0 END) AS Ia5,
+	   SUM(CASE WHEN choice = 'Ga1' THEN 1 ELSE 0 END) AS Ga1,
+	   SUM(CASE WHEN choice = 'Ga2' THEN 1 ELSE 0 END) AS Ga2,
+	   SUM(CASE WHEN choice = 'Ga3' THEN 1 ELSE 0 END) AS Ga3,
+	   SUM(CASE WHEN choice = 'Ga4' THEN 1 ELSE 0 END) AS Ga4,
+	   SUM(CASE WHEN choice = 'Ga5' THEN 1 ELSE 0 END) AS Ga5,
+	   -- Total across all columns (time slots)
+	   SUM(CASE WHEN choice IN (SELECT choice FROM choices) THEN 1 ELSE 0 END) AS Total
+FROM (
+	SELECT IM1 AS course, 'IM1' AS choice, program FROM filtered_demand_view WHERE IM1 IS NOT NULL AND IM1 != ''
+	UNION ALL
+	SELECT IM2 AS course, 'IM2' AS choice, program FROM filtered_demand_view WHERE IM2 IS NOT NULL AND IM2 != ''
+	UNION ALL
+	SELECT IM3 AS course, 'IM3' AS choice, program FROM filtered_demand_view WHERE IM3 IS NOT NULL AND IM3 != ''
+	UNION ALL
+	SELECT Ia1 AS course, 'Ia1' AS choice, program FROM filtered_demand_view WHERE Ia1 IS NOT NULL AND Ia1 != ''
+	UNION ALL
+	SELECT Ia2 AS course, 'Ia2' AS choice, program FROM filtered_demand_view WHERE Ia2 IS NOT NULL AND Ia2 != ''
+	UNION ALL
+	SELECT Ia3 AS course, 'Ia3' AS choice, program FROM filtered_demand_view WHERE Ia3 IS NOT NULL AND Ia3 != ''
+	UNION ALL
+	SELECT Ia4 AS course, 'Ia4' AS choice, program FROM filtered_demand_view WHERE Ia4 IS NOT NULL AND Ia4 != ''
+	UNION ALL
+	SELECT Ia5 AS course, 'Ia5' AS choice, program FROM filtered_demand_view WHERE Ia5 IS NOT NULL AND Ia5 != ''
+	UNION ALL
+	SELECT Ga1 AS course, 'Ga1' AS choice, program FROM filtered_demand_view WHERE Ga1 IS NOT NULL AND Ga1 != ''
+	UNION ALL
+	SELECT Ga2 AS course, 'Ga2' AS choice, program FROM filtered_demand_view WHERE Ga2 IS NOT NULL AND Ga2 != ''
+	UNION ALL
+	SELECT Ga3 AS course, 'Ga3' AS choice, program FROM filtered_demand_view WHERE Ga3 IS NOT NULL AND Ga3 != ''
+	UNION ALL
+	SELECT Ga4 AS course, 'Ga4' AS choice, program FROM filtered_demand_view WHERE Ga4 IS NOT NULL AND Ga4 != ''
+	UNION ALL
+	SELECT Ga5 AS course, 'Ga5' AS choice, program FROM filtered_demand_view WHERE Ga5 IS NOT NULL AND Ga5 != ''
+)</sql><sql name="Edit View classes_view*">DROP VIEW IF EXISTS &quot;main&quot;.&quot;classes_view&quot;;
+CREATE VIEW classes_view as 
+SELECT class_id, courses.code as 'course', 
+classes.title as 'class', 
+rooms.name as 'where', 
+weekdays.sort_key as weekday_sort_key, 
+timeslots.weekday as weekday,
+ timeslots.weekday || ' ' || timeslots.start_time as 'when', 
+ teachers.name as 'who'
+ FROM classes
+	LEFT JOIN courses USING (course_id)
+	LEFT JOIN rooms USING (room_id)
+	LEFT JOIN timeslots USING (timeslot_id)
+	LEFT JOIN teachers USING (teacher_id)
+	LEFT JOIN weekdays ON weekdays.weekday = timeslots.weekday
+	ORDER BY course, classes.title, weekday_sort_key</sql><sql name="Edit View classes_view*">DROP VIEW IF EXISTS &quot;main&quot;.&quot;classes_view&quot;;
+CREATE VIEW classes_view as 
+SELECT class_id, courses.code as 'course', 
+classes.title as 'class', 
+rooms.name as 'where', 
+weekdays.sort_key as weekday_sort_key, 
+timeslots.weekday as weekday,
+ timeslots.weekday || ' ' || timeslots.start_time as 'when', 
+ teachers.name as 'who'
+ FROM classes
+	LEFT JOIN courses USING (course_id)
+	LEFT JOIN rooms USING (room_id)
+	LEFT JOIN timeslots USING (timeslot_id)
+	LEFT JOIN teachers USING (teacher_id)
+	LEFT JOIN weekdays ON weekdays.weekday = timeslots.weekday
+	ORDER BY course, classes.title, weekday_sort_key</sql><sql name="Edit View demand_view*">DROP VIEW IF EXISTS &quot;main&quot;.&quot;demand_view&quot;;
+CREATE VIEW demand_view AS
+SELECT
+  s.student_id,
+  s.email,
+  s.firstName,
+  s.lastName,
+  s.level,
+  s.program,
+  -- Pivoting choices for Monday
+  MAX(CASE WHEN sc.choice = 'IM1' THEN sc.course_code END) AS IM1,
+  MAX(CASE WHEN sc.choice = 'IM2' THEN sc.course_code END) AS IM2,
+  MAX(CASE WHEN sc.choice = 'IM3' THEN sc.course_code END) AS IM3,
+  MAX(CASE WHEN sc.choice = 'Ia1' THEN sc.course_code END) AS Ia1,
+  MAX(CASE WHEN sc.choice = 'Ia2' THEN sc.course_code END) AS Ia2,
+  MAX(CASE WHEN sc.choice = 'Ia3' THEN sc.course_code END) AS Ia3,
+  MAX(CASE WHEN sc.choice = 'Ia4' THEN sc.course_code END) AS Ia4,
+  MAX(CASE WHEN sc.choice = 'Ia4' THEN sc.course_code END) AS Ia5,
+  MAX(CASE WHEN sc.choice = 'Ga1' THEN sc.course_code END) AS Ga1,
+  MAX(CASE WHEN sc.choice = 'Ga2' THEN sc.course_code END) AS Ga2,
+  MAX(CASE WHEN sc.choice = 'Ga3' THEN sc.course_code END) AS Ga3,
+  MAX(CASE WHEN sc.choice = 'Ga4' THEN sc.course_code END) AS Ga4,
+  MAX(CASE WHEN sc.choice = 'Ga5' THEN sc.course_code END) AS Ga5,
+  s.active
+FROM
+  students s
+LEFT JOIN
+  student_choices sc ON s.student_id = sc.student_id
+GROUP BY
+  s.student_id</sql><sql name="Edit View filtered_demand_view*">DROP VIEW IF EXISTS &quot;main&quot;.&quot;filtered_demand_view&quot;;
+CREATE VIEW filtered_demand_view AS SELECT * FROM demand_view WHERE program IN (SELECT program FROM programs WHERE show = 1)</sql><sql name="Edit View filtered_student_choices_view*">DROP VIEW IF EXISTS &quot;main&quot;.&quot;filtered_student_choices_view&quot;;
+CREATE VIEW filtered_student_choices_view AS  
+SELECT * FROM student_choices sc JOIN students s USING (student_id)
+WHERE s.program IN (SELECT program FROM programs WHERE show = 1)
+AND sc.choice IN (SELECT choice FROM choices WHERE show = 1)</sql><sql name="Edit View filtered_students_view*">		SELECT t.weekday as weekday, start_time, end_time, sort_key FROM timeslots AS t
+		JOIN weekdays AS w ON w.weekday = t.weekday
+		WHERE t.active = 1
+		ORDER BY sort_key, start_time</sql><current_tab id="15"/></tab_sql></sqlb_project>

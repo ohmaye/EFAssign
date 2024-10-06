@@ -6,7 +6,7 @@ const sql_students = """SELECT choice_id, student_id, firstName, lastName, choic
 					FROM filtered_student_choices_view 
 					WHERE course_code = '%s' AND level = '%s' ORDER BY level"""
 
-var root
+var root : TreeItem
 var selections = {}
 
 func _ready():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bouk7bpqxbeg0"]
+[gd_scene load_steps=2 format=3 uid="uid://cyul4bbl0gxny"]
 
 [ext_resource type="Script" path="res://App/Home/SaveCycleAs/save_cycle_as.gd" id="1_pi6tg"]
 
@@ -37,3 +37,4 @@ offset_top = -36.0
 grow_horizontal = 2
 grow_vertical = 0
 horizontal_alignment = 1
+script = ExtResource("1_pi6tg")

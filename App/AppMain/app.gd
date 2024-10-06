@@ -8,6 +8,8 @@ var supply_scene = preload("res://App/Supply/supply.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AppDB.setup_db()
+
 	_update_db_from_ui()
 
 	# By default, set to Home
@@ -19,6 +21,7 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		print("Notification: Will close app")
 		Utils.save_user_prefs()
+		AppDB.db.close_db()
 
 
 ## Button Handlers

@@ -14,7 +14,7 @@ config/name="EF Assign"
 config/description="Assign students to SPIN classes"
 config/version="0.2"
 run/main_scene="res://App/AppMain/app.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=24
 run/low_processor_mode=true
 boot_splash/bg_color=Color(1, 0.878431, 1, 1)
@@ -28,7 +28,6 @@ Signals="*res://globals/Signals.gd"
 Constants="*res://globals/constants.gd"
 GlobalVars="*res://globals/global_vars.gd"
 Utils="*res://utils/utilities.gd"
-AppDB="*res://data/AssignDB.gd"
 
 [display]
 

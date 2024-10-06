@@ -1,11 +1,11 @@
 extends Tree
 
-@onready var grid : GridContainer = %GridContainer
-
 const COLUMN_NAMES  = Constants.DEMAND_COLUMN_NAMES
 const KEY = Constants.DEMAND_KEY
 
 const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName, lastName"
+
+var button_icon = preload("res://UI/Icons/expanded.svg")
 
 const sql_assignment = """
 		SELECT c.title FROM assignments
@@ -22,12 +22,17 @@ var weekdays = []
 func _ready():
 	# Doesn't inherit from Controller so need to connect signal
 	Signals.data_changed.connect(_on_data_changed)
+
+	button_clicked.connect(_on_assignment_btn_pressed)
 	
 	# Create the root item
 	root = create_item()
 
 	_load_data_and_render()
+	
 
+func _on_assignment_btn_pressed(item: Object, column: int, id: , mouse_button_index: int):
+	printt("Button clicked: ", item,"Col:", column, id, mouse_button_index)
 
 func _set_format_and_headers() -> Array:
 	active_weekdays = _get_active_timeslots()
@@ -67,20 +72,27 @@ func _load_data_and_render():
 
 
 func _create_student_row(student, parent):
-	var item = create_item(parent)
-	for index in range(student.size()):
-		var txt = student[student.keys()[index]]
+	var item = parent.create_child()
+	for column in Utils.filtered_columns(COLUMN_NAMES):
+		var index = Utils.filtered_columns(COLUMN_NAMES).find(column)
+		var txt = student[column]
 		item.set_text(index, str(txt) if txt else "") 
 		item.set_text_alignment(index, HORIZONTAL_ALIGNMENT_CENTER)
 
-	for index in range(active_weekdays.size()):
+	for weekday in active_weekdays:
+		var index = active_weekdays.find(weekday)
 		var adjusted_index = index + Utils.filtered_columns(COLUMN_NAMES).size()
-		item.set_text(adjusted_index, _get_student_assignment_in_timeslot(student['student_id'], index))
+		item.set_text(adjusted_index, _get_student_assignment_in_timeslot(student['student_id'], weekday))
 		item.set_text_alignment(adjusted_index, HORIZONTAL_ALIGNMENT_CENTER)
+		if item.get_text(adjusted_index) != "":
+			item.set_custom_bg_color(adjusted_index, "#91E2A4")
+			item.add_button(adjusted_index, button_icon)
+		else:
+			item.set_custom_bg_color(adjusted_index, "#A3FFD8")
 
 
-func _get_student_assignment_in_timeslot(student_id, timeslot_index):
-	var sql_stmt = sql_assignment % [student_id, active_weekdays[timeslot_index]['timeslot_id']]
+func _get_student_assignment_in_timeslot(student_id, weekday):
+	var sql_stmt = sql_assignment % [student_id, weekday['timeslot_id']]
 	var result = AppDB.db_get(sql_stmt)
 	return result[0]['title'] if result.size() > 0 else ""
 

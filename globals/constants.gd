@@ -1,5 +1,9 @@
 extends Node
 
+@export var color_demand : Color
+@export var color_assign: Color
+@export var color_supply: Color
+
 # Constants (Available everywhere in the project -- autoloaded)
 
 # Students
@@ -13,7 +17,7 @@ const TEACHER_COLUMN_RATIOS = [1,1,1,2,0.2]
 const TEACHER_KEY = "teacher_id"
 
 # Classes
-const CLASSES_COLUMN_NAMES = ["course", "class", "when", "where", "who"]
+const CLASSES_COLUMN_NAMES = ["course", "class", "for_program", "when", "where", "who"]
 const CLASSES_KEY = "class_id"
 
 # Courses

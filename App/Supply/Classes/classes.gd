@@ -7,11 +7,12 @@ var query_info
 var popup = preload("res://UI/popup/popup.tscn")
 
 const sql = """
-	SELECT courses.code as 'course', classes.title as 'class', rooms.name as 'where', timeslots.weekday || ' ' || timeslots.start_time as 'when', teachers.name as 'who' FROM classes
-	LEFT JOIN courses USING (course_id)
-	LEFT JOIN rooms USING (room_id)
-	LEFT JOIN timeslots USING (timeslot_id)
-	LEFT JOIN teachers USING (teacher_id)
+	SELECT c.code as 'course', cls.title as 'class', cls.for_program as 'for_program', r.name as 'where', ts.weekday || ' ' || ts.start_time as 'when', t.name as 'who' 
+	FROM classes cls
+	LEFT JOIN courses c USING (course_id)
+	LEFT JOIN rooms r USING (room_id)
+	LEFT JOIN timeslots ts USING (timeslot_id)
+	LEFT JOIN teachers t USING (teacher_id)
 """
 
 func _ready():

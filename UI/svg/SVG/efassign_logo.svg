@@ -1,0 +1,56 @@
+<svg width="200" height="250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Define Styles -->
+  <defs>
+    <style>
+      .letter-a { 
+        fill: none; 
+        stroke: #4C94FF; /* Playful Blue */
+        stroke-width: 8; 
+        stroke-linecap: round; 
+        stroke-linejoin: round;
+      }
+      .scale-beam { 
+        stroke: #6C757D; /* Gray for Beam */ 
+        stroke-width: 4; 
+      }
+      .demand { 
+        fill: #FF4C4C; /* Playful Red */ 
+        stroke: #6C757D; 
+        stroke-width: 2;
+      }
+      .supply { 
+        fill: #4CFF88; /* Playful Green */ 
+        stroke: #6C757D; 
+        stroke-width: 2;
+      }
+      .label {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        fill: #333333;
+        text-anchor: middle;
+        dominant-baseline: middle;
+      }
+    </style>
+  </defs>
+
+  <!-- Stylized "A" Letter -->
+  <path class="letter-a" d="M50,200 L100,50 L150,200" />
+
+  <!-- Extended Scale Beam from "A" -->
+  <line x1="100" y1="50" x2="100" y2="80" class="scale-beam" />
+
+  <!-- Left Tray (Demand) -->
+  <g>
+    <circle cx="100" cy="110" r="15" class="demand" />
+    <text x="100" y="110" class="label">Demand</text>
+  </g>
+
+  <!-- Right Tray (Supply) -->
+  <g>
+    <circle cx="100" cy="140" r="15" class="supply" />
+    <text x="100" y="140" class="label">Supply</text>
+  </g>
+
+  <!-- Scale Base -->
+  <line x1="90" y1="200" x2="110" y2="200" stroke="#6C757D" stroke-width="4"/>
+</svg>

@@ -2,6 +2,8 @@ extends PopupMenu
 
 var classes : Array
 
+var current_assignment = {}
+
 const sql_classes = """
 		SELECT cv.class_id, cv.title, cv.'when', cv.who, cv.for_program FROM classes_view cv
 		WHERE timeslot_active = 1
@@ -12,7 +14,8 @@ func _ready():
 	index_pressed.connect(_on_assignment_selected)
 
 
-func load_and_render():
+func load_and_render(item: Dictionary):
+	current_assignment = item
 	classes = AppDB.db_get(sql_classes)
 	# print("Loaded classes: ", classes)
 	clear()
@@ -28,3 +31,10 @@ func load_and_render():
 
 func _on_assignment_selected(index):
 	printt("id_pressed -> Class ID: ", index, classes[index - 1].get('title'))
+	printt("Metadata: ", current_assignment)
+	if index == 0:
+		print("Clearing assignment")
+		var sql = "DELETE FROM assignments WHERE assignment_id = '%s'"
+		var sql_stmt = sql % current_assignment['assignment_id']
+		AppDB.db_run(sql_stmt)
+		Signals.emit_signal("data_changed")

@@ -7,16 +7,6 @@ const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName, lastName"
 
 var button_icon = preload("res://UI/Icons/expanded.svg")
 
-const sql_assignment = """
-		SELECT c.title FROM assignments
-		JOIN classes AS c USING (class_id)
-		JOIN students AS s USING (student_id)
-		JOIN timeslots AS ts ON c.timeslot_id = ts.timeslot_id
-		WHERE s.student_id = '%s' AND ts.timeslot_id = '%s';
-"""
-
-
-
 var root : TreeItem
 var active_weekdays = []
 var weekdays = []
@@ -35,11 +25,18 @@ func _ready():
 	_load_data_and_render()
 	
 
-func _on_assignment_btn_pressed(item: Object, column: int, id: , mouse_button_index: int):
-	printt("Button clicked: ", item,"Col:", column, id, mouse_button_index)
-	popup_menu.visible = true
-	popup_menu.position = get_global_mouse_position() - Vector2(200, 0)
-	popup_menu.load_and_render()
+func _load_data_and_render():
+	_set_format_and_headers()
+
+	Utils.free_all_treeitems(root)
+
+	var students = AppDB.db_get(sql)
+	
+	# Show Total Entries
+	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % students.size()
+
+	for student in students:
+		_create_student_row(student, root)
 
 
 func _set_format_and_headers() -> Array:
@@ -61,24 +58,6 @@ func _set_format_and_headers() -> Array:
 	return headers
 
 
-func _on_data_changed():
-	_load_data_and_render()
-
-
-func _load_data_and_render():
-	_set_format_and_headers()
-
-	Utils.free_all_treeitems(root)
-
-	var students = AppDB.db_get(sql)
-	
-	# Show Total Entries
-	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % students.size()
-
-	for student in students:
-		_create_student_row(student, root)
-
-
 func _create_student_row(student, parent):
 	var item = parent.create_child()
 	for column in Utils.filtered_columns(COLUMN_NAMES):
@@ -90,19 +69,43 @@ func _create_student_row(student, parent):
 	for weekday in active_weekdays:
 		var index = active_weekdays.find(weekday)
 		var adjusted_index = index + Utils.filtered_columns(COLUMN_NAMES).size()
-		item.set_text(adjusted_index, _get_student_assignment_in_timeslot(student['student_id'], weekday))
-		item.set_text_alignment(adjusted_index, HORIZONTAL_ALIGNMENT_CENTER)
-		item.add_button(adjusted_index, button_icon)
-		if item.get_text(adjusted_index) != "-":
+		
+		# If student has an assignment in this timeslot, show the class title and store it as metadata
+		var student_assignment = _get_student_assignment_in_timeslot(student['student_id'], weekday)
+		if student_assignment:
+			item.set_text(adjusted_index, student_assignment['title'])
+			item.set_text_alignment(adjusted_index, HORIZONTAL_ALIGNMENT_CENTER)
 			item.set_custom_bg_color(adjusted_index, "#91E2A4")
+			item.set_metadata(adjusted_index, student_assignment)
 		else:
 			item.set_custom_bg_color(adjusted_index, "#A3FFD8")
 
+		item.add_button(adjusted_index, button_icon)
+	
 
+
+func _on_assignment_btn_pressed(item: Object, column: int, id: , mouse_button_index: int):
+	printt("Button clicked: ", item,"Col:", column, id, mouse_button_index)
+	popup_menu.visible = true
+	popup_menu.position = get_global_mouse_position() - Vector2(200, 0)
+	popup_menu.load_and_render(item.get_metadata(column))
+
+
+func _on_data_changed():
+	_load_data_and_render()
+
+
+const sql_assignment = """
+		SELECT a.assignment_id, a.student_id, a.class_id, c.title FROM assignments a
+		JOIN classes AS c USING (class_id)
+		JOIN students AS s USING (student_id)
+		JOIN timeslots AS ts ON c.timeslot_id = ts.timeslot_id
+		WHERE s.student_id = '%s' AND ts.timeslot_id = '%s';
+"""
 func _get_student_assignment_in_timeslot(student_id, weekday):
 	var sql_stmt = sql_assignment % [student_id, weekday['timeslot_id']]
 	var result = AppDB.db_get(sql_stmt)
-	return result[0]['title'] if result.size() > 0 else "-"
+	return null if result.size() == 0 else result[0]
 
 
 func _get_active_timeslots() -> Array:

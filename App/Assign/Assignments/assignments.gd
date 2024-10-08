@@ -76,7 +76,7 @@ func _create_student_row(student, parent):
 			item.set_text(adjusted_index, student_assignment['title'])
 			item.set_text_alignment(adjusted_index, HORIZONTAL_ALIGNMENT_CENTER)
 			item.set_custom_bg_color(adjusted_index, "#91E2A4")
-			item.set_metadata(adjusted_index, student_assignment)
+			item.set_metadata(0, student_assignment)
 		else:
 			item.set_custom_bg_color(adjusted_index, "#A3FFD8")
 
@@ -88,7 +88,7 @@ func _on_assignment_btn_pressed(item: Object, column: int, id: , mouse_button_in
 	printt("Button clicked: ", item,"Col:", column, id, mouse_button_index)
 	popup_menu.visible = true
 	popup_menu.position = get_global_mouse_position() - Vector2(200, 0)
-	popup_menu.load_and_render(item.get_metadata(column))
+	popup_menu.load_and_render(item.get_metadata(0))
 
 
 func _on_data_changed():

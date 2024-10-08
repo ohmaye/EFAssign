@@ -14,7 +14,7 @@ func _ready():
 	index_pressed.connect(_on_assignment_selected)
 
 
-func load_and_render(item: Dictionary):
+func load_and_render(item):
 	current_assignment = item
 	classes = AppDB.db_get(sql_classes)
 	# print("Loaded classes: ", classes)
@@ -34,7 +34,13 @@ func _on_assignment_selected(index):
 	printt("Metadata: ", current_assignment)
 	if index == 0:
 		print("Clearing assignment")
-		var sql = "DELETE FROM assignments WHERE assignment_id = '%s'"
-		var sql_stmt = sql % current_assignment['assignment_id']
-		AppDB.db_run(sql_stmt)
-		Signals.emit_signal("data_changed")
+		# If there is an assignment, delete it
+		if current_assignment:
+			_delete_current_assignment()
+
+
+func _delete_current_assignment():
+	var sql = "DELETE FROM assignments WHERE assignment_id = '%s'"
+	var sql_stmt = sql % current_assignment['assignment_id']
+	AppDB.db_run(sql_stmt)
+	Signals.emit_signal("data_changed")

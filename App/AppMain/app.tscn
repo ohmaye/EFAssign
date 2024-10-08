@@ -170,7 +170,6 @@ text = "IM2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
-button_pressed = true
 text = "IM3"
 
 [node name="VSeparator2" type="VSeparator" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox"]
@@ -198,7 +197,6 @@ text = "Ia2"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
-button_pressed = true
 text = "Ia3
 "
 
@@ -219,6 +217,7 @@ text = "Ia5
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
+button_pressed = true
 text = "Ga1
 "
 
@@ -226,6 +225,7 @@ text = "Ga1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
+button_pressed = true
 text = "Ga2"
 
 [node name="Ga3" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]

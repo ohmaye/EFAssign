@@ -63,11 +63,10 @@ func change_scene(container : Control, scene : PackedScene):
 
 # Return an array of  column names
 func get_choices() -> Array:
-	var db = AppDB.db
-
-	db.query("SELECT choice FROM choices")
 	var result = []
-	for item in db.query_result:
+
+	var choices = AppDB.db_get("SELECT choice FROM choices")
+	for item in choices:
 		result.append(item['choice'])
 
 	return result
@@ -75,11 +74,10 @@ func get_choices() -> Array:
 
 # Return an array of selected column names
 func _get_choice_filters() -> Array:
-	var db = AppDB.db
-
-	db.query("SELECT choice FROM choices WHERE show = 0")
 	var result = []
-	for item in db.query_result:
+
+	var filters = AppDB.db_get("SELECT choice FROM choices WHERE show = 0")
+	for item in filters:
 		result.append(item['choice'])
 
 	return result

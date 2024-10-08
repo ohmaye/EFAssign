@@ -1,6 +1,6 @@
 extends Controller
 
-const COLUMN_NAMES  = Constants.TEACHER_COLUMN_NAMES
+const COLUMN_NAMES  = Constants.TEACHER_SHOW_COLUMNS
 const KEY = Constants.TEACHER_KEY
 var query_info 
 
@@ -13,17 +13,13 @@ func _ready():
 
 
 func _load_data_and_render():
-	var db = AppDB.db
-	var result = db.query("SELECT * FROM teachers ORDER BY name")
+	var teachers = AppDB.db_get("SELECT * FROM teachers ORDER BY name")
 	
-	# If there are no results, return
-	if not result:
-		return
 
 	# Show Total Entries
-	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % db.query_result.size()
+	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % teachers.size()
 		
-	query_info = QueryInfo.new("teachers", COLUMN_NAMES, db.query_result, KEY )
+	query_info = QueryInfo.new("teachers", COLUMN_NAMES, teachers, KEY )
 	$Table.render(query_info)
 
 
@@ -36,7 +32,6 @@ func _add_new():
 	popup_node.visible = true
 	add_child(popup_node)
 	
-	var db = AppDB.db
 	var id = Utils.uuid.v4()
 	var sql_stmt = "INSERT INTO teachers (teacher_id)  VALUES ('{0}')"
 
@@ -44,7 +39,7 @@ func _add_new():
 	for column in COLUMN_NAMES:
 		row[column] = ""
 
-	var result = db.query(sql_stmt.format([id]))
+	var result = AppDB.db_run(sql_stmt.format([id]))
 
 	if result:
 		popup_node.render(row, query_info)

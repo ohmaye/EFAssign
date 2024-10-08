@@ -1,6 +1,6 @@
 extends Tree
 
-const COLUMN_NAMES  = Constants.DEMAND_COLUMN_NAMES
+const COLUMN_NAMES  = Constants.DEMAND_SHOW_COLUMNS
 const KEY = Constants.DEMAND_KEY
 
 const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName, lastName"

@@ -1,6 +1,6 @@
 extends Controller
 
-const COLUMN_NAMES  = Constants.STUDENT_COLUMN_NAMES
+const COLUMN_NAMES  = Constants.STUDENT_SHOW_COLUMNS
 const KEY = Constants.STUDENT_KEY
 
 const sql = "SELECT * FROM filtered_students_view ORDER BY firstName, lastName"
@@ -14,13 +14,8 @@ func _on_data_changed():
 
 func _load_data_and_render():
 	
-	var db = AppDB.db
-	var result = db.query(sql)
-
-	# If there are no results, return
-	if not result:
-		return
+	var timetables = AppDB.db_get(sql)
 		
-	var query_info = QueryInfo.new("students", COLUMN_NAMES, db.query_result, KEY )
+	var query_info = QueryInfo.new("students", COLUMN_NAMES, timetables, KEY )
 
 	$Table.render(query_info)

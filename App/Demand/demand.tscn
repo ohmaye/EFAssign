@@ -11,7 +11,7 @@ content_margin_right = 20.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgp4o"]
-bg_color = Color(0.639216, 0.913725, 1, 1)
+bg_color = Color(0, 1, 0.968627, 1)
 
 [node name="Demand" type="ColorRect"]
 anchors_preset = 15
@@ -19,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.90327, 0.935962, 1, 1)
+color = Color(0, 1, 0.968627, 1)
 script = ExtResource("1_cu6kb")
 metadata/_tab_index = 2
 
@@ -39,7 +39,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_67y6w")
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-color = Color(0.639216, 0.913725, 1, 1)
+color = Color(0, 1, 0.968627, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ColorRect"]
 layout_mode = 1

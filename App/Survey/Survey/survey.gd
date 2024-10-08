@@ -1,6 +1,6 @@
 extends Controller
 
-const COLUMN_NAMES  = Constants.SURVEY_COLUMN_NAMES
+const COLUMN_NAMES  = Constants.SURVEY_SHOW_COLUMNS
 const KEY = Constants.SURVEY_KEY
 
 const sql = "SELECT * FROM survey ORDER BY firstName, lastName"
@@ -14,16 +14,11 @@ func _on_data_changed():
 
 
 func _load_data_and_render():
-	var db = AppDB.db
-	var result = db.query(sql)
-
-	# If there are no results, return
-	if not result:
-		return
+	var surveys = AppDB.db_get(sql)
 
 	# Show Total Entries
-	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % db.query_result.size()
+	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % surveys.size()
 		
-	var query_info = QueryInfo.new("survey", COLUMN_NAMES, db.query_result, KEY )
+	var query_info = QueryInfo.new("survey", COLUMN_NAMES, surveys, KEY )
 
 	%Table.render(query_info)

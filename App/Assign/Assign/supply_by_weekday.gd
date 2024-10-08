@@ -2,7 +2,7 @@ extends Tree
 
 # Uses classes_view, a denormalized view of classes, for all queries.
 const sql_distinct_courses = "SELECT DISTINCT course FROM classes_view ORDER BY course"
-const sql_classes_for_course = """SELECT cv.class_id, cv.class, cv.'when', cv.who 
+const sql_classes_for_course = """SELECT cv.class_id, cv.title, cv.'when', cv.who 
 									FROM classes_view AS cv WHERE course = '%s'"""
 const sql_assignments_for_class = "SELECT student_id FROM assignments WHERE class_id = '%s'"
 
@@ -61,7 +61,7 @@ func _create_course_node(_course, _parent):
 
 
 func _create_class_node(_class, _parent):
-	var class_title = _class["class"] if _class["class"] else "?"
+	var class_title = _class["title"] if _class["title"] else "?"
 	var class_node = _parent.create_child()
 	# Save class for assignment
 	class_node.set_metadata(1, _class)

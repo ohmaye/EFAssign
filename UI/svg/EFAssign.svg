@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224.79 224.79">
-  <circle cx="112.39" cy="112.39" r="106.43" style="fill: #a3ccff; stroke: #a3ccff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 11.93px;"/>
-  <line x1="132.59" y1="130.97" x2="196.43" y2="130.97" style="fill: #f9ed32; stroke: #a3ffd8; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.99px;"/>
-  <line x1="28.7" y1="130.97" x2="92.58" y2="130.97" style="fill: none; stroke: #a3e9ff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.99px;"/>
-  <line x1="111.47" y1="80.45" x2="81.54" y2="162.66" style="fill: none; stroke: #00fff7; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 7.75px;"/>
-  <line x1="142.01" y1="162.66" x2="112.09" y2="80.45" style="fill: none; stroke: #00fff7; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 7.75px;"/>
-  <circle cx="49.43" cy="94.66" r="20.73" style="fill: none; stroke: #a3e9ff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.99px;"/>
-  <circle cx="175.7" cy="94.66" r="20.73" style="fill: none; stroke: #a3ffd8; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.99px;"/>
-  <circle cx="110.75" cy="130.97" r="1.64" style="fill: none; stroke: #00fff7; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.99px;"/>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 205.09 205.09">
+  <circle cx="102.55" cy="102.55" r="97.11" style="fill: #a3ccff; stroke: #a3ccff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.88px;"/>
+  <line x1="120.97" y1="119.5" x2="179.22" y2="119.5" style="fill: #f9ed32; stroke: #a3ffd8; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.03px;"/>
+  <line x1="24.03" y1="119.5" x2="82.32" y2="119.5" style="fill: none; stroke: #00fff7; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.03px;"/>
+  <line x1="101.7" y1="73.4" x2="74.4" y2="148.41" style="fill: none; stroke: #a3e9ff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 7.07px;"/>
+  <line x1="129.57" y1="148.41" x2="102.27" y2="73.4" style="fill: none; stroke: #a3e9ff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 7.07px;"/>
+  <circle cx="45.1" cy="86.36" r="18.91" style="fill: none; stroke: #00fff7; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.03px;"/>
+  <circle cx="160.31" cy="86.36" r="18.91" style="fill: none; stroke: #a3ffd8; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.03px;"/>
+  <circle cx="101.05" cy="119.5" r="1.5" style="fill: none; stroke: #a3e9ff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.03px;"/>
 </svg>

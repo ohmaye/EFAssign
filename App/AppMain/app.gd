@@ -104,12 +104,11 @@ func _on_check_box_pressed() -> void:
 
 func _update_db_from_ui():
 	var sql_choice_filters = "UPDATE choices SET show = %d WHERE choice = '%s'"
-	var db = AppDB.db
 	var buttons = [%IM1, %IM2, %IM3, %Ia1, %Ia2, %Ia3, %Ia4, %Ia5, %Ga1, %Ga2, %Ga3, %Ga4, %Ga5]
 
 	for button in buttons:
 		var is_show = button.button_pressed
-		db.query(sql_choice_filters % [1 if is_show else 0, button.name])
+		AppDB.db_get(sql_choice_filters % [1 if is_show else 0, button.name])
 
 
 func _update_ui_from_db():

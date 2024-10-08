@@ -1,7 +1,5 @@
 extends Control
 
-var DB = AppDB.db
-
 var file_dialog = preload("res://UI/file_dialog_save_as.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -24,8 +22,8 @@ func _on_file_dialog_file_selected(path : String) -> void:
 		%ErrorMsg.text = "Status: " + AppDB.db.error_message
 
 	AppDB.db.close_db()
-	DB.path = file_path
-	result = DB.open_db()
+	AppDB.db.path = file_path
+	result = AppDB.db.open_db()
 	if !result:
 		%MsgLabel.text = "Could not open new cycle."
 		%ErrorMsg.text = "Status: " + AppDB.db.error_message
@@ -36,7 +34,7 @@ func _on_file_dialog_file_selected(path : String) -> void:
 
 
 func _save_db_as(new_file_path: String) -> bool:
-	var result = DB.backup_to(new_file_path)
+	var result = AppDB.db.backup_to(new_file_path)
 
 	if !result:
 		%MsgLabel.text = "Could not save DB\n."

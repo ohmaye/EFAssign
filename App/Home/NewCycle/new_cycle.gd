@@ -1,7 +1,5 @@
 extends Control
 
-var DB = AppDB.db
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,9 +13,9 @@ func _on_new_cycle_btn_pressed():
 	Utils.save_user_prefs()
 
 func _clear_demand() -> bool:
-	var assignmentResult = DB.query("DELETE FROM assignments")
-	var demandResult = DB.query("DELETE FROM demand") 
-	var surveyResult = DB.query("DELETE FROM survey")
+	var assignmentResult = AppDB.db_run("DELETE FROM assignments")
+	var demandResult = AppDB.db_run("DELETE FROM demand") 
+	var surveyResult = AppDB.db_run("DELETE FROM survey")
 
 	return assignmentResult and demandResult and surveyResult
 

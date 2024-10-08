@@ -32,6 +32,7 @@ func _on_data_changed():
 
 func _load_data_and_render():
 	Utils.free_all_treeitems(root)
+	selections = {}
 	# Get Courses
 	var courses = AppDB.db_get(sql_courses)
 	# Populate the tree with items
@@ -109,7 +110,8 @@ func _on_multi_selected(item: TreeItem, column: int, selected: bool) -> void:
 	# print("Multi selection: ", item, " ", column, " ", selected)
 
 	_update_selections(item, column, selected)
-	
+	# for selection in selections:
+	# 	print("Selections: ", selection)
 	Signals.emit_signal("student_selected", selections) 
 
 		
@@ -122,7 +124,7 @@ func _update_selections(item: TreeItem, column: int, selected: bool) -> void:
 			_update_selections(child, column, selected)
 
 	if metadata == "student":
-		print("Student : ", selected, " - ", item.get_text(0), item.get_metadata(1))
+		# print("Student : ", selected, " - ", item.get_text(0))
 		item.set_checked(1, selected)
 		if selected:
 			selections[item.get_text(0)] = item.get_metadata(1)

@@ -1,6 +1,6 @@
 extends Controller
 
-const COLUMN_NAMES = Constants.SURVEY_COLUMN_NAMES
+const COLUMN_NAMES = Constants.SURVEY_SHOW_COLUMNS
 const KEY = Constants.SURVEY_KEY
 
 var file_dialog = preload("res://UI/file_dialog_csv.tscn")

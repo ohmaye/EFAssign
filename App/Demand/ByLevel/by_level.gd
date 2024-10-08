@@ -1,6 +1,6 @@
 extends Controller
 
-const COLUMN_NAMES  = Constants.BY_LEVEL_COLUMN_NAMES
+const COLUMN_NAMES  = Constants.BY_LEVEL_SHOW_COLUMNS
 const KEY = Constants.BY_LEVEL_KEY
 
 func _ready():
@@ -12,15 +12,7 @@ func _on_data_changed():
 
 
 func _load_data_and_render():
-	var db = AppDB.db
-	var result = db.query(sql)
-	var rows = []
-
-	# If there are no results, return
-	if not result:
-		return
-	else:
-		rows = db.query_result
+	var rows = AppDB.db_get(sql)
 
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % rows.size()

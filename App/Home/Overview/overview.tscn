@@ -1,14 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccenobp0t5rod"]
+[gd_scene load_steps=8 format=3 uid="uid://ccenobp0t5rod"]
 
 [ext_resource type="Script" path="res://App/Home/Overview/overview.gd" id="1_3d34b"]
-[ext_resource type="Texture2D" uid="uid://cwfbfosh8lk4a" path="res://UI/svg/SVG/DemandBasket.svg" id="2_8u51j"]
+[ext_resource type="Texture2D" uid="uid://dlir0aqoj3lt1" path="res://UI/svg/EFAssign.svg" id="3_7m57x"]
 [ext_resource type="FontFile" uid="uid://doosudslnw4jh" path="res://UI/Fonts/EFCircularTT-Bold.ttf" id="3_njnas"]
-[ext_resource type="Texture2D" uid="uid://51xfnktdrc46" path="res://UI/svg/SVG/AssignBasket.svg" id="4_xr4rp"]
 [ext_resource type="Texture2D" uid="uid://bi2x0wkv55lt4" path="res://UI/svg/SVG/Arc.svg" id="5_ypdj8"]
-[ext_resource type="Texture2D" uid="uid://c5sbgpt1hmx2c" path="res://UI/svg/SVG/SupplyBasket.svg" id="6_l8fax"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivt4g"]
-bg_color = Color(0.639216, 0.913725, 1, 1)
+bg_color = Color(0, 1, 0.968627, 1)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -24,7 +22,7 @@ expand_margin_right = 24.0
 expand_margin_bottom = 24.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dk0ds"]
-bg_color = Color(0, 1, 0.968627, 1)
+bg_color = Color(0.639216, 0.913725, 1, 1)
 corner_radius_top_left = 24
 corner_radius_top_right = 24
 corner_radius_bottom_right = 24
@@ -51,118 +49,74 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_3d34b")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="EfAssign" type="Sprite2D" parent="."]
+position = Vector2(1241, 430)
+scale = Vector2(2.05448, 2.05448)
+texture = ExtResource("3_7m57x")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-custom_minimum_size = Vector2(1000, 0)
+[node name="Arc" type="Sprite2D" parent="."]
+position = Vector2(1248, 577)
+scale = Vector2(5.57671, 3.97561)
+texture = ExtResource("5_ypdj8")
+
+[node name="DemandLabel" type="Label" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 80
-
-[node name="TopIllustration" type="Panel" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="DemandBasket" type="Sprite2D" parent="CenterContainer/VBoxContainer/TopIllustration"]
-position = Vector2(141, -88)
-scale = Vector2(2, 2)
-texture = ExtResource("2_8u51j")
-
-[node name="DemandLabel" type="Label" parent="CenterContainer/VBoxContainer/TopIllustration"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = -127.0
-offset_right = 235.0
-offset_bottom = -79.0
+offset_left = 431.0
+offset_top = 370.0
+offset_right = 618.0
+offset_bottom = 418.0
 theme_override_fonts/font = ExtResource("3_njnas")
 theme_override_font_sizes/font_size = 48
 text = "Demand"
 
-[node name="AssignBasket" type="Sprite2D" parent="CenterContainer/VBoxContainer/TopIllustration"]
-position = Vector2(500, -34)
-scale = Vector2(2, 2)
-texture = ExtResource("4_xr4rp")
-
-[node name="AssignLabel" type="Label" parent="CenterContainer/VBoxContainer/TopIllustration"]
+[node name="DemandMenu" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 427.0
-offset_top = -17.0
-offset_right = 576.0
-offset_bottom = 31.0
-theme_override_fonts/font = ExtResource("3_njnas")
-theme_override_font_sizes/font_size = 48
-text = "Assign"
-
-[node name="Arc" type="Sprite2D" parent="CenterContainer/VBoxContainer/TopIllustration"]
-position = Vector2(499, -66)
-scale = Vector2(2.5199, 2)
-texture = ExtResource("5_ypdj8")
-
-[node name="SupplyBasket" type="Sprite2D" parent="CenterContainer/VBoxContainer/TopIllustration"]
-position = Vector2(845, -86)
-scale = Vector2(2, 2)
-texture = ExtResource("6_l8fax")
-
-[node name="SupplyLabel" type="Label" parent="CenterContainer/VBoxContainer/TopIllustration"]
-layout_mode = 0
-offset_left = 761.0
-offset_top = -124.0
-offset_right = 948.0
-offset_bottom = -76.0
-theme_override_fonts/font = ExtResource("3_njnas")
-theme_override_font_sizes/font_size = 48
-text = "Supply"
-
-[node name="HFlowContainer" type="HFlowContainer" parent="CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(900, 500)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/h_separation = 100
-
-[node name="DemandMenu" type="Panel" parent="CenterContainer/VBoxContainer/HFlowContainer"]
-custom_minimum_size = Vector2(0, 500)
-layout_mode = 2
+offset_left = 408.0
+offset_top = 552.0
+offset_right = 658.0
+offset_bottom = 872.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_ivt4g")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HFlowContainer/DemandMenu"]
-custom_minimum_size = Vector2(2.08165e-12, 80)
-layout_mode = 2
-offset_right = 315.0
-offset_bottom = 404.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="DemandMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -53.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 30
 
-[node name="Survey" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/DemandMenu/VBoxContainer2"]
+[node name="Survey" type="Button" parent="DemandMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Survey"
 flat = true
 
-[node name="Students" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/DemandMenu/VBoxContainer2"]
+[node name="Students" type="Button" parent="DemandMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Students"
 flat = true
 
-[node name="By Students" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/DemandMenu/VBoxContainer2"]
+[node name="By Students" type="Button" parent="DemandMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "By Students"
 flat = true
 
-[node name="By Course" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/DemandMenu/VBoxContainer2"]
+[node name="By Course" type="Button" parent="DemandMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -170,28 +124,45 @@ text = "By Course
 "
 flat = true
 
-[node name="By Level" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/DemandMenu/VBoxContainer2"]
+[node name="By Level" type="Button" parent="DemandMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "By Level"
 flat = true
 
-[node name="AssignMenu" type="Panel" parent="CenterContainer/VBoxContainer/HFlowContainer"]
+[node name="AssignLabel" type="Label" parent="."]
 layout_mode = 2
+offset_left = 1161.0
+offset_top = 560.0
+offset_right = 1310.0
+offset_bottom = 608.0
+theme_override_fonts/font = ExtResource("3_njnas")
+theme_override_font_sizes/font_size = 48
+text = "Assign"
+
+[node name="AssignMenu" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1132.0
+offset_top = 753.0
+offset_right = 1382.0
+offset_bottom = 1003.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_dk0ds")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HFlowContainer/AssignMenu"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="AssignMenu"]
 custom_minimum_size = Vector2(2.08165e-12, 80)
-layout_mode = 2
-offset_right = 315.0
-offset_bottom = 404.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 30
 
-[node name="Assign" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/AssignMenu/VBoxContainer2"]
+[node name="Assign" type="Button" parent="AssignMenu/VBoxContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
@@ -200,56 +171,73 @@ text = "Assign"
 flat = true
 alignment = 0
 
-[node name="Assignments" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/AssignMenu/VBoxContainer2"]
+[node name="Assignments" type="Button" parent="AssignMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Assignments"
 flat = true
 
-[node name="Timetables" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/AssignMenu/VBoxContainer2"]
+[node name="Timetables" type="Button" parent="AssignMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Timetables"
 flat = true
 
-[node name="Teacher Preferences" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/AssignMenu/VBoxContainer2"]
+[node name="Teacher Preferences" type="Button" parent="AssignMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Teacher Prefs"
 flat = true
 
-[node name="SupplyMenu" type="Panel" parent="CenterContainer/VBoxContainer/HFlowContainer"]
+[node name="SupplyLabel" type="Label" parent="."]
 layout_mode = 2
+offset_left = 1940.0
+offset_top = 370.0
+offset_right = 2096.0
+offset_bottom = 418.0
+theme_override_fonts/font = ExtResource("3_njnas")
+theme_override_font_sizes/font_size = 48
+text = "Supply"
+
+[node name="SupplyMenu" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1922.0
+offset_top = 541.0
+offset_right = 2172.0
+offset_bottom = 861.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6ibkc")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HFlowContainer/SupplyMenu"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="SupplyMenu"]
 custom_minimum_size = Vector2(2.08165e-12, 80)
-layout_mode = 2
-offset_right = 315.0
-offset_bottom = 404.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 30
 
-[node name="Classes" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/SupplyMenu/VBoxContainer2"]
+[node name="Classes" type="Button" parent="SupplyMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Classes"
 flat = true
 
-[node name="Teachers" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/SupplyMenu/VBoxContainer2"]
+[node name="Teachers" type="Button" parent="SupplyMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Teachers"
 flat = true
 
-[node name="Courses" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/SupplyMenu/VBoxContainer2"]
+[node name="Courses" type="Button" parent="SupplyMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
@@ -257,14 +245,14 @@ text = "Courses
 "
 flat = true
 
-[node name="Rooms" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/SupplyMenu/VBoxContainer2"]
+[node name="Rooms" type="Button" parent="SupplyMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Rooms"
 flat = true
 
-[node name="TimeSlots" type="Button" parent="CenterContainer/VBoxContainer/HFlowContainer/SupplyMenu/VBoxContainer2"]
+[node name="TimeSlots" type="Button" parent="SupplyMenu/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0

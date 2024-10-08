@@ -7,21 +7,21 @@ extends Node
 # Constants (Available everywhere in the project -- autoloaded)
 
 # Students
-const STUDENT_COLUMN_NAMES = ["firstName", "lastName", "email", "program", "level", "active", "timestamp"]
+const STUDENT_SHOW_COLUMNS = ["firstName", "lastName", "email", "program", "level", "active", "timestamp"]
 const STUDENT_KEY = "student_id"
 
 
 # Teachers
-const TEACHER_COLUMN_NAMES = ["name", "nameJP", "email", "note", "active"]
-const TEACHER_COLUMN_RATIOS = [1,1,1,2,0.2]
+const TEACHER_SHOW_COLUMNS = ["name", "nameJP", "email", "note", "active"]
+const TEACHER_SHOW_COLUMN_RATIOS = [1,1,1,2,0.2]
 const TEACHER_KEY = "teacher_id"
 
 # Classes
-const CLASSES_COLUMN_NAMES = ["course", "class", "for_program", "when", "where", "who"]
+const CLASSES_SHOW_COLUMNS = ["course", "class", "for_program", "when", "where", "who"]
 const CLASSES_KEY = "class_id"
 
 # Courses
-const COURSE_COLUMN_NAMES = ["code", "title", "active"]
+const COURSE_SHOW_COLUMNS = ["code", "title", "active"]
 const COURSE_KEY = "course_id"
 
 # Rooms
@@ -29,11 +29,11 @@ const ROOM_COLUMN_NAMES = ["name", "type", "capacity", "active"]
 const ROOM_KEY = "room_id"
 
 # Time Slots
-const TIMESLOT_COLUMN_NAMES = ["weekday", "start_time", "end_time", "active"]
+const TIMESLOT_SHOW_COLUMNS = ["weekday", "start_time", "end_time", "active"]
 const TIMESLOT_KEY = "timeslot_id"
 
 # Survey
-const SURVEY_COLUMN_NAMES = [  
+const SURVEY_SHOW_COLUMNS = [  
 	"student_id",
 	"timestamp",
 	"email",
@@ -58,7 +58,7 @@ const SURVEY_COLUMN_NAMES = [
 const SURVEY_KEY = "student_id"
 
 # Survey
-const DEMAND_COLUMN_NAMES = [  
+const DEMAND_SHOW_COLUMNS = [  
 	"firstName",
 	"lastName",
 	"email",
@@ -81,7 +81,7 @@ const DEMAND_COLUMN_NAMES = [
 const DEMAND_KEY = "student_id"
 
 # By Course
-const BY_COURSE_COLUMN_NAMES = [  
+const BY_COURSE_SHOW_COLUMNS = [  
     "course",
 	"IM1",
 	"IM2",
@@ -101,7 +101,7 @@ const BY_COURSE_COLUMN_NAMES = [
 const BY_COURSE_KEY = "course"
 
 # By Level
-const BY_LEVEL_COLUMN_NAMES = [  
+const BY_LEVEL_SHOW_COLUMNS = [  
     "course",
     "level",
 	"IM1",
@@ -122,5 +122,5 @@ const BY_LEVEL_COLUMN_NAMES = [
 const BY_LEVEL_KEY = "level"
 
 # Classes
-const SUPPLY_BY_WEEKDAY_COLUMN_NAMES = ["course", "class", "when", "where", "who"]
+const SUPPLY_BY_WEEKDAY_SHOW_COLUMNS = ["course", "class", "when", "where", "who"]
 const SUPPLY_BY_WEEKDAY_KEY = "class_id"

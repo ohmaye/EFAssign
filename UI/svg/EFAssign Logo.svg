@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.96 255.08">
+  <circle cx="128.15" cy="130.64" r="97.11" style="fill: #a3ccff; stroke: #a3ccff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.88px;"/>
+  <line x1="146.57" y1="147.6" x2="204.82" y2="147.6" style="fill: #f9ed32; stroke: #a3ffd8; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.03px;"/>
+  <line x1="49.64" y1="147.6" x2="107.92" y2="147.6" style="fill: none; stroke: #00fff7; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.03px;"/>
+  <line x1="127.3" y1="101.5" x2="100" y2="176.51" style="fill: none; stroke: #a3e9ff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 7.07px;"/>
+  <line x1="155.17" y1="176.51" x2="127.87" y2="101.5" style="fill: none; stroke: #a3e9ff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 7.07px;"/>
+  <circle cx="70.7" cy="114.46" r="18.91" style="fill: none; stroke: #00fff7; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.03px;"/>
+  <circle cx="185.91" cy="114.46" r="18.91" style="fill: none; stroke: #a3ffd8; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.03px;"/>
+  <circle cx="126.65" cy="147.6" r="1.5" style="fill: none; stroke: #a3e9ff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 10.03px;"/>
+  <rect x="4.24" y="4.24" width="248.48" height="246.61" rx="11.3" ry="11.3" style="fill: none; stroke: #a3e9ff; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 8.47px;"/>
+</svg>

@@ -18,8 +18,8 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=24
 run/low_processor_mode=true
 boot_splash/bg_color=Color(1, 0.878431, 1, 1)
-boot_splash/image="res://UI/svg/EFAssign_Splash.png"
-config/icon="res://UI/svg/EFAssign_Splash.png"
+boot_splash/image="res://UI/svg/EFAssign.png"
+config/icon="res://UI/svg/EFAssign Logo.svg"
 boot_splash/minimum_display_time=200
 
 [autoload]

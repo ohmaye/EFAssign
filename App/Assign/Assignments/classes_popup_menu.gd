@@ -3,9 +3,9 @@ extends PopupMenu
 var classes : Array
 
 const sql_classes = """
-		SELECT cv.class_id, cv.class as title, cv.'when', cv.who, cv.for_program FROM classes_view cv
+		SELECT cv.class_id, cv.title, cv.'when', cv.who, cv.for_program FROM classes_view cv
 		WHERE timeslot_active = 1
-		ORDER BY cv.class, cv.weekday_sort_key, cv.'when'
+		ORDER BY cv.title, cv.weekday_sort_key, cv.'when'
 """
 
 func _ready():
@@ -14,7 +14,7 @@ func _ready():
 
 func load_and_render():
 	classes = AppDB.db_get(sql_classes)
-	print("Loaded classes: ", classes)
+	# print("Loaded classes: ", classes)
 	clear()
 
 	add_item("Clear Assignment")

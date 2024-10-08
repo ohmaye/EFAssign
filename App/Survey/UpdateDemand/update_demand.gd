@@ -1,7 +1,5 @@
 extends Control
 
-var DB = AppDB.db
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -20,7 +18,7 @@ func _on_add_demand_btn_pressed() -> void:
 		%StatusMsg.text += "Status: Demand Added"
 	else:
 		%StatusMsg.text += "Status: There was a problem adding from the survey\n"
-		%StatusMsg.text += DB.error_message
+		%StatusMsg.text += AppDB.db.error_message
 
 func _on_clear_demand_btn_pressed() -> void:
 	var result = _clear_demand()
@@ -31,18 +29,18 @@ func _on_clear_demand_btn_pressed() -> void:
 
 
 func _clear_demand() -> bool:
-	var assignmentResult = DB.query("DELETE FROM assignments")
-	var student_choicesResult = DB.query("DELETE FROM student_choices") 
-	var studentsResult = DB.query("DELETE FROM students") 
+	var assignmentResult = AppDB.db_run("DELETE FROM assignments")
+	var student_choicesResult = AppDB.db_run("DELETE FROM student_choices") 
+	var studentsResult = AppDB.db_run("DELETE FROM students") 
 	
 	return assignmentResult and student_choicesResult and studentsResult
 
 
 func _load_demand() -> bool:
 	# Insert students from the survey
-	var studentsResult = DB.query(INSERT_STUDENTS_SQL)
+	var studentsResult = AppDB.db_run(INSERT_STUDENTS_SQL)
 	# Insert student_choices from the survey
-	var student_choicesResult = DB.query(_get_insert_student_choices_sql())
+	var student_choicesResult = AppDB.db_run(_get_insert_student_choices_sql())
 	return studentsResult and student_choicesResult
 
 

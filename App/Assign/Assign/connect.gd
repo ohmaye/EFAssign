@@ -11,7 +11,7 @@ func _ready() -> void:
 func _class_selected(_class):
 	# print("Got it: ", _class)
 	selected_class = _class
-	%ClassLbl.text = _class["class"] if _class["class"] else _class["class_id"]
+	%ClassLbl.text = _class["title"] if _class["title"] else _class["class_id"]
 
 
 func _student_selected(students : Dictionary):

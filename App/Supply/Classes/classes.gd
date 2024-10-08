@@ -1,6 +1,6 @@
 extends Controller
 
-const COLUMN_NAMES  = Constants.CLASSES_COLUMN_NAMES
+const COLUMN_NAMES  = Constants.CLASSES_SHOW_COLUMNS
 const KEY = Constants.CLASSES_KEY
 var query_info 
 
@@ -21,17 +21,12 @@ func _ready():
 
 
 func _load_data_and_render():
-	var db = AppDB.db
-	var result = db.query(sql)
-
-	# If there are no results, return
-	if not result:
-		return
+	var classes = AppDB.db_get(sql)
 
 	# Show Total Entries
-	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % db.query_result.size()
+	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % classes.size()
 
-	query_info = QueryInfo.new("courses", COLUMN_NAMES, db.query_result, KEY )
+	query_info = QueryInfo.new("courses", COLUMN_NAMES, classes, KEY )
 	
 	$Table.render(query_info)
 

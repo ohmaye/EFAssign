@@ -94,7 +94,6 @@ size_flags_vertical = 3
 
 [node name="Overview" parent="VBoxContainer/HomeContent" instance=ExtResource("1_t45cb")]
 layout_mode = 1
-size_flags_vertical = 3
 script = null
 
 [connection signal="pressed" from="VBoxContainer/ColorRect/HBoxContainer/OverviewBtn" to="." method="_on_overview_btn_pressed"]

@@ -27,12 +27,13 @@ boot_splash/minimum_display_time=200
 Signals="*res://globals/Signals.gd"
 Constants="*res://globals/constants.gd"
 GlobalVars="*res://globals/global_vars.gd"
+AppDB="*res://data/AssignDB.gd"
 Utils="*res://utils/utilities.gd"
 
 [display]
 
-window/size/viewport_width=2560
-window/size/viewport_height=1440
+window/size/viewport_width=1440
+window/size/viewport_height=980
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

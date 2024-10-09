@@ -1,11 +1,11 @@
 extends Node
 
-class_name AppDB
+class_name AssignDB
 
-static var db : SQLite = null
+var db : SQLite = null
 const verbosity_level : int = SQLite.NORMAL
 
-static func setup_db() -> void:
+func setup_db() -> void:
 	db = SQLite.new()
 	# db.verbosity_level = verbosity_level
 	print("Called Init")
@@ -32,7 +32,7 @@ static func setup_db() -> void:
 # 	db.close_db()
 
 
-static func db_get(sql : String) -> Array:
+func db_get(sql : String) -> Array:
 	var result = db.query(sql)
 	if not result:
 		return []
@@ -40,7 +40,7 @@ static func db_get(sql : String) -> Array:
 		return db.query_result
 
 
-static func db_run(sql : String) -> bool:
+func db_run(sql : String) -> bool:
 	var result = db.query(sql)
 	# print("Run query: ", sql)
 	return result

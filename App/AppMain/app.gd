@@ -8,6 +8,7 @@ var supply_scene = preload("res://App/Supply/supply.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# DisplayServer.window_set_mode(0)
 	AppDB.setup_db()
 
 	_update_db_from_ui()

@@ -123,3 +123,6 @@ ToDo:
 - Naming case errors show up in exported app. Log files:
   - /Library/Application Support/Godot
   - Very helpful
+
+4.4.3 - Had problems with SQLITE. 4.4.3 was deleting .godot/extension_list.cfg on start. SQLITE not found.
+4.4.2 - Rolled back and SQLITE was okay. Now, Windows goes fullscreen. Need to solve that but otherwise seems okay.

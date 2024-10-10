@@ -6,7 +6,6 @@ const KEY = Constants.SURVEY_KEY
 const sql = "SELECT * FROM survey ORDER BY firstName, lastName"
 
 func _ready():
-	Signals.data_changed.connect(_on_data_changed)
 	_load_data_and_render()
 
 func _on_data_changed():

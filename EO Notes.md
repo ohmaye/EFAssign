@@ -126,3 +126,8 @@ ToDo:
 
 4.4.3 - Had problems with SQLITE. 4.4.3 was deleting .godot/extension_list.cfg on start. SQLITE not found.
 4.4.2 - Rolled back and SQLITE was okay. Now, Windows goes fullscreen. Need to solve that but otherwise seems okay.
+
+4.4.2 To make it run on Windows
+- Tricky combo
+  - Export x86 (otherwise SQLITE won't work on ARM, if it is compiled to ARM)
+  - Look at performance issues on ARM with an emulator (Parallels)

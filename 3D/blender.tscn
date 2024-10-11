@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://caxe7pa7o6bm7"]
+
+[ext_resource type="PackedScene" uid="uid://ctd31r5i2l6r5" path="res://3D/cube.blend" id="1_u412k"]
+
+[sub_resource type="Environment" id="Environment_h6jm6"]
+background_mode = 1
+background_color = Color(0.619489, 0.619489, 0.619489, 1)
+
+[node name="Blender" type="Node3D"]
+
+[node name="cube" parent="." instance=ExtResource("1_u412k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0133549, 1.19209e-07, -0.334593)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h6jm6")

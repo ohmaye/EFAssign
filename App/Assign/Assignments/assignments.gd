@@ -1,6 +1,7 @@
 extends Tree
 
 const COLUMN_NAMES  = Constants.DEMAND_SHOW_COLUMNS
+var headers = []
 
 const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName, lastName"
 
@@ -47,7 +48,7 @@ func _set_format_and_headers():
 		ts_headers.append(timeslot.weekday + " " + timeslot.start_time)
 		
 	# Combine headers for student choices with active ts_headers
-	var headers = Utils.filtered_columns(COLUMN_NAMES) + ts_headers
+	headers = Utils.filtered_columns(COLUMN_NAMES) + ts_headers
 
 	# Set up the # of columns & titles
 	set_columns(headers.size())
@@ -80,12 +81,13 @@ func _create_student_row(student, parent_node):
 		# If student has an assignment in this timeslot, show the class title and store it as metadata
 		var student_assignment = _get_student_assignment_in_timeslot(student['student_id'], timeslot)
 		if student_assignment:
-			_row.set_text(timeslot_index, student_assignment['title'])
+			_row.set_text(timeslot_index, str(student_assignment.get('title','???')))
 			_row.set_text_alignment(timeslot_index, HORIZONTAL_ALIGNMENT_CENTER)
 			_row.set_custom_bg_color(timeslot_index, "#91E2A4")
-			_row.set_metadata(timeslot_index, student_assignment)
+			_row.set_metadata(timeslot_index,[student_assignment, timeslot])
 		else:
 			_row.set_custom_bg_color(timeslot_index, "#A3FFD8")
+			_row.set_metadata(timeslot_index,[null, timeslot])
 
 		_row.add_button(timeslot_index, button_icon)
 	
@@ -98,7 +100,7 @@ func _on_assignment_btn_pressed(item: Object, _column: int, _id: , _mouse_button
 	# Pass the metadata to the popup menu, which is the student's assignment
 	printt("Metadata 0: ", item.get_metadata(0))
 	printt("Metadata 1", item.get_metadata(_column))
-	popup_menu.load_and_render(item.get_metadata(0), item.get_metadata(1))
+	popup_menu.load_and_render(item.get_metadata(0), item.get_metadata(_column)[0], item.get_metadata(_column)[1])
 
 
 func _on_data_changed():

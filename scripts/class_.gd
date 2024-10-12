@@ -1,7 +1,7 @@
 # File: res://scripts/ClassEntry.gd
 extends Object
 
-class_name ClassEntry  # Registers the class globally as 'ClassEntry'
+class_name Class_  # Registers the class globally as 'ClassEntry'
 
 # Class Properties
 var class_id: String

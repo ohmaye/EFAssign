@@ -9,7 +9,7 @@ var current_assignment = {}
 # (for_program) and then filter by that.
 const sql_classes = """
 		SELECT cv.class_id, cv.title, cv.'when', cv.who, cv.for_program FROM classes_view cv
-		WHERE timeslot_active = 1
+		WHERE timeslot_active = 1 AND timeslot_id = '%s'
 		ORDER BY cv.title, cv.weekday_sort_key, cv.'when'
 """
 
@@ -17,7 +17,7 @@ func _ready():
 	index_pressed.connect(_on_assignment_selected)
 
 
-func load_and_render(student, student_assignment):
+func load_and_render(student, student_assignment, timeslot):
 	current_student = student
 	current_assignment = student_assignment
 	# print("Loaded classes: ", classes)
@@ -27,11 +27,11 @@ func load_and_render(student, student_assignment):
 	add_item("Clear Assignment")
 
 	# Add the classes available
-	classes = AppDB.db_get(sql_classes)
-	for _class in classes:
-		var time = _class.get('when') if _class.get('when') else "?"
-		var class_title = _class.get('title') if _class.get('title') else "?"
-		var who = _class.get('who') if _class.get('who') else "?"
+	classes = AppDB.db_get(sql_classes % timeslot['timeslot_id'])
+	for class_ in classes:
+		var time = class_.get('when') if class_.get('when') else "?"
+		var class_title = class_.get('title') if class_.get('title') else "?"
+		var who = class_.get('who') if class_.get('who') else "?"
 		# Combine the time, class title, and who
 		var text = "%s - %s - %s" % [time, class_title, who]
 		add_item(str(text))

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl66xxs4n3t2h"]
+
+[ext_resource type="Theme" uid="uid://ibcba6vdplpj" path="res://UI/tree_table/tree_table_theme.tres" id="1_jbqnr"]
+[ext_resource type="Script" path="res://UI/tree_table/tree_table.gd" id="2_5d2k8"]
+
+[node name="Tree" type="Tree"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jbqnr")
+column_titles_visible = true
+script = ExtResource("2_5d2k8")

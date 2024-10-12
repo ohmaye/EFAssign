@@ -1,7 +1,5 @@
 extends Controller
 
-const COLUMN_NAMES  = Constants.TIMESLOT_SHOW_COLUMNS
-const KEY = Constants.TIMESLOT_KEY
 var query_info 
 
 var popup = preload("res://UI/popup/popup.tscn")
@@ -19,7 +17,7 @@ func _load_data_and_render():
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % timeslots.size()
 
 	
-	query_info = QueryInfo.new("timeslots", COLUMN_NAMES, timeslots, KEY )
+	query_info = QueryInfo.new("timeslots", TimeSlot.SHOW_COLUMNS, timeslots, TimeSlot.KEY )
 	
 	$Table.render(query_info)
 
@@ -37,7 +35,7 @@ func _add_new():
 	var sql_stmt = "INSERT INTO timeslots (timeslot_id)  VALUES ('{0}')"
 
 	var row = {"timeslot_id": id}
-	for column in COLUMN_NAMES:
+	for column in TimeSlot.SHOW_COLUMNS:
 		row[column] = ""
 
 	var result = AppDB.db_run(sql_stmt.format([id]))

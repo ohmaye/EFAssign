@@ -1,7 +1,5 @@
 extends Controller
 
-const COLUMN_NAMES  = Constants.COURSE_SHOW_COLUMNS
-const KEY = Constants.COURSE_KEY
 var query_info 
 
 var popup = preload("res://UI/popup/popup.tscn")
@@ -17,7 +15,7 @@ func _load_data_and_render():
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % courses.size()
 
-	query_info = QueryInfo.new("courses", COLUMN_NAMES, courses, KEY )
+	query_info = QueryInfo.new("courses", Course.SHOW_COLUMNS, courses, Course.KEY )
 	
 	$Table.render(query_info)
 
@@ -35,7 +33,7 @@ func _add_new():
 	var sql_stmt = "INSERT INTO courses (course_id)  VALUES ('{0}')"
 
 	var row = {"course_id": id}
-	for column in COLUMN_NAMES:
+	for column in Course.SHOW_COLUMNS:
 		row[column] = ""
 
 	var result = AppDB.db_run(sql_stmt.format([id]))

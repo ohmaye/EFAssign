@@ -1,8 +1,5 @@
 extends Controller
 
-const COLUMN_NAMES = Constants.SURVEY_SHOW_COLUMNS
-const KEY = Constants.SURVEY_KEY
-
 var file_dialog = preload("res://UI/file_dialog_csv.tscn")
 
 func _ready() -> void:
@@ -40,7 +37,7 @@ func _file_selected(path : String):
 	# Clear the current survey table
 	AppDB.db.query("DELETE FROM survey")
 	# Insert rows into table "survey"
-	var columns = ", ".join(COLUMN_NAMES)
+	var columns = ", ".join(Survey.SHOW_COLUMNS)
 	for row in survey:
 		var values = []
 		for v in row:
@@ -50,5 +47,3 @@ func _file_selected(path : String):
 		AppDB.db.query(sql)
 		
 	print("Loaded Survey Msgs")
-
-

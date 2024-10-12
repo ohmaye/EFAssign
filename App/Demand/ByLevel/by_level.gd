@@ -1,7 +1,25 @@
 extends Controller
 
-const COLUMN_NAMES  = Constants.BY_LEVEL_SHOW_COLUMNS
-const KEY = Constants.BY_LEVEL_KEY
+# By Level
+const SHOW_COLUMNS = [  
+    "course",
+    "level",
+	"IM1",
+	"IM2",
+	"IM3",
+	"Ia1",
+	"Ia2",
+	"Ia3",
+	"Ia4",
+	"Ia5",
+	"Ga1",
+	"Ga2",
+	"Ga3",
+	"Ga4",
+	"Ga5",
+    "Total"
+]
+const KEY = "level"
 
 func _ready():
 	_load_data_and_render()
@@ -17,7 +35,7 @@ func _load_data_and_render():
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % rows.size()
 		
-	var query_info = QueryInfo.new("demand_view", Utils.filtered_columns(COLUMN_NAMES), rows, KEY )   
+	var query_info = QueryInfo.new("demand_view", Utils.filtered_columns(SHOW_COLUMNS), rows, KEY )   
 
 	$Table.render(query_info)
 

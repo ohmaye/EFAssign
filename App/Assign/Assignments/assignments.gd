@@ -1,6 +1,5 @@
 extends Tree
 
-const COLUMN_NAMES  = Constants.DEMAND_SHOW_COLUMNS
 var headers = []
 
 const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName, lastName"
@@ -48,7 +47,7 @@ func _set_format_and_headers():
 		ts_headers.append(timeslot.weekday + " " + timeslot.start_time)
 		
 	# Combine headers for student choices with active ts_headers
-	headers = Utils.filtered_columns(COLUMN_NAMES) + ts_headers
+	headers = Utils.filtered_columns(DemandView.SHOW_COLUMNS) + ts_headers
 
 	# Set up the # of columns & titles
 	set_columns(headers.size())
@@ -62,7 +61,7 @@ func _set_format_and_headers():
 func _create_student_row(student, parent_node):
 	# First sep: Fill in the student & choice data (left part)
 	var _row = parent_node.create_child()
-	var _columns = Utils.filtered_columns(COLUMN_NAMES)
+	var _columns = Utils.filtered_columns(DemandView.SHOW_COLUMNS)
 
 	# Store the student data as metadata (0)
 	_row.set_metadata(0, student)

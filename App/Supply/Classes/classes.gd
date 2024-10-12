@@ -1,7 +1,5 @@
 extends Controller
 
-const COLUMN_NAMES  = Constants.CLASSES_SHOW_COLUMNS
-const KEY = Constants.CLASSES_KEY
 var query_info 
 
 var popup = preload("res://UI/popup/popup.tscn")
@@ -21,12 +19,12 @@ func _ready():
 
 
 func _load_data_and_render():
-	var classes = AppDB.db_get(sql)
+	var db_classes = AppDB.db_get(sql)
 
 	# Show Total Entries
-	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % classes.size()
+	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % db_classes.size()
 
-	query_info = QueryInfo.new("courses", COLUMN_NAMES, classes, KEY )
+	query_info = QueryInfo.new("classes", Class_.SHOW_COLUMNS, db_classes, Class_.KEY )
 	
 	$Table.render(query_info)
 

@@ -3,6 +3,10 @@ extends Object
 
 class_name Course  # Registers the class globally as 'Course'
 
+# Courses
+static var SHOW_COLUMNS = ["code", "title", "active"]
+static var KEY = "course_id"
+
 # Class Properties
 var course_id: String
 var code: String
@@ -16,9 +20,3 @@ func _init(data: Dictionary = {}):
     title = data.get("title", "")
     active = data.get("active", 0)
 
-# Optional: Method to display details
-func display_details():
-    print("Course ID:", course_id)
-    print("Code:", code)
-    print("Title:", title)
-    print("Active:", active)

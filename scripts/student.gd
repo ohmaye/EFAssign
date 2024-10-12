@@ -3,6 +3,10 @@ extends Object
 
 class_name Student  # Registers the class globally as 'Student'
 
+# Students
+static var SHOW_COLUMNS = ["firstName", "lastName", "email", "program", "level", "active", "timestamp"]
+static var KEY = "student_id"
+
 # Class Properties
 var student_id: String
 var email: String

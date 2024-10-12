@@ -3,6 +3,10 @@ extends Object
 
 class_name TimeSlot  # Registers the class globally as 'TimeSlot'
 
+# Time Slots
+static var SHOW_COLUMNS = ["weekday", "start_time", "end_time", "active"]
+static var KEY = "timeslot_id"
+
 # Class Properties
 var timeslot_id: String
 var weekday: String

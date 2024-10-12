@@ -3,6 +3,29 @@ extends Object
 
 class_name DemandView  # Registers the class globally as 'DemandView'
 
+# Survey
+static var SHOW_COLUMNS = [  
+	"firstName",
+	"lastName",
+	"email",
+	"level",
+	"program",
+	"IM1",
+	"IM2",
+	"IM3",
+	"Ia1",
+	"Ia2",
+	"Ia3",
+	"Ia4",
+	"Ia5",
+	"Ga1",
+	"Ga2",
+	"Ga3",
+	"Ga4",
+	"Ga5"
+]
+static var KEY = "student_id"
+
 # Class Properties
 var student_id: String
 var email: String

@@ -1,7 +1,5 @@
 extends Controller
 
-const COLUMN_NAMES  = Constants.ROOM_COLUMN_NAMES
-const KEY = Constants.ROOM_KEY
 var query_info 
 
 var popup = preload("res://UI/popup/popup.tscn")
@@ -18,7 +16,7 @@ func _load_data_and_render():
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % rooms.size()
 
-	query_info = QueryInfo.new("rooms", COLUMN_NAMES, rooms, KEY )
+	query_info = QueryInfo.new("rooms", Room.SHOW_COLUMNS, rooms, Room.KEY )
 	
 	$Table.render(query_info)
 
@@ -36,7 +34,7 @@ func _add_new():
 	var sql_stmt = "INSERT INTO rooms (room_id)  VALUES ('{0}')"
 
 	var row = {"room_id": id}
-	for column in COLUMN_NAMES:
+	for column in Room.SHOW_COLUMNS:
 		row[column] = ""
 
 	var result = AppDB.db_run(sql_stmt.format([id]))

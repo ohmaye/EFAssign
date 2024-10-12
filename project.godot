@@ -34,6 +34,7 @@ Utils="*res://utils/utilities.gd"
 
 window/size/viewport_width=2560
 window/size/viewport_height=1440
+window/size/initial_position_type=0
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

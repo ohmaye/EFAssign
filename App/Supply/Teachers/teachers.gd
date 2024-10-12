@@ -1,7 +1,5 @@
 extends Controller
 
-const COLUMN_NAMES  = Constants.TEACHER_SHOW_COLUMNS
-const KEY = Constants.TEACHER_KEY
 var query_info 
 
 var popup = preload("res://UI/popup/popup.tscn")
@@ -13,13 +11,15 @@ func _ready():
 
 
 func _load_data_and_render():
-	var teachers = AppDB.db_get("SELECT * FROM teachers ORDER BY name")
-	
+	var db_teachers = AppDB.db_get("SELECT * FROM teachers ORDER BY name")
+	var teachers = []
+	for teacher in db_teachers:
+		teachers.append(Teacher.new(teacher))
 
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % teachers.size()
 		
-	query_info = QueryInfo.new("teachers", COLUMN_NAMES, teachers, KEY )
+	query_info = QueryInfo.new("teachers", Teacher.SHOW_COLUMNS, teachers, Teacher.KEY )
 	$Table.render(query_info)
 
 
@@ -36,7 +36,7 @@ func _add_new():
 	var sql_stmt = "INSERT INTO teachers (teacher_id)  VALUES ('{0}')"
 
 	var row = {"teacher_id": id}
-	for column in COLUMN_NAMES:
+	for column in Teacher.SHOW_COLUMNS:
 		row[column] = ""
 
 	var result = AppDB.db_run(sql_stmt.format([id]))

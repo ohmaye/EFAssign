@@ -3,6 +3,11 @@ extends Object
 
 class_name Class_  # Registers the class globally as 'ClassEntry'
 
+
+# Classes
+static var SHOW_COLUMNS = ["course", "class", "for_program", "when", "where", "who"]
+static var KEY = "class_id"
+
 # Class Properties
 var class_id: String
 var title: String
@@ -21,13 +26,3 @@ func _init(data: Dictionary = {}):
     timeslot_id = data.get("timeslot_id", "")
     teacher_id = data.get("teacher_id", "")
     for_program = data.get("for_program", "")
-
-# Optional: Method to display details
-func display_details():
-    print("Class ID:", class_id)
-    print("Title:", title)
-    print("Course ID:", course_id)
-    print("Room ID:", room_id)
-    print("Timeslot ID:", timeslot_id)
-    print("Teacher ID:", teacher_id)
-    print("For Program:", for_program)

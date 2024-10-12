@@ -3,6 +3,10 @@ extends Object
 
 class_name Room  # Registers the class globally as 'Room'
 
+# Rooms
+static var SHOW_COLUMNS = ["name", "type", "capacity", "active"]
+static var KEY = "room_id"
+
 # Class Properties
 var room_id: String
 var name: String
@@ -18,10 +22,3 @@ func _init(data: Dictionary = {}):
     capacity = data.get("capacity", 0)
     active = data.get("active", 0)
 
-# Optional: Method to display details
-func display_details():
-    print("Room ID:", room_id)
-    print("Name:", name)
-    print("Type:", type)
-    print("Capacity:", capacity)
-    print("Active:", active)

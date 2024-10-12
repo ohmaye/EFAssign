@@ -69,7 +69,8 @@ func _toggle_tabs_off() -> void:
 
 ## Global filters and buttons
 ##
-## Signals and Scene mgmt
+## Signals and Scene mgmt. The choices that should be shown are stored in the database.
+## The user can toggle the choices on and off. The choices are used to filter the data
 
 func _on_add_btn_pressed() -> void:
 	Signals.add_new.emit()
@@ -90,6 +91,9 @@ func _on_program_check_box_pressed() -> void:
 	elif not show_general and show_intensive:
 		_deactivate_all_choices()
 		_activate_I_choices()
+	else:
+		_activate_G_choices()
+		_activate_I_choices()
 
 	_update_ui_from_db()
 	Signals.filters_changed.emit()
@@ -97,7 +101,7 @@ func _on_program_check_box_pressed() -> void:
 
 
 func _on_check_box_pressed() -> void:
-	print("Pressed checkbox: ")
+	# print("Pressed checkbox: ")
 	_update_db_from_ui()
 	Signals.filters_changed.emit()
 	Signals.data_changed.emit()
@@ -114,7 +118,7 @@ func _update_db_from_ui():
 
 func _update_ui_from_db():
 	var sql_choices_array = AppDB.db_get("SELECT choice, show FROM choices")
-	print("Choices: ", sql_choices_array)
+	# print("Choices: ", sql_choices_array)
 	var buttons = [%IM1, %IM2, %IM3, %Ia1, %Ia2, %Ia3, %Ia4, %Ia5, %Ga1, %Ga2, %Ga3, %Ga4, %Ga5]
 	
 	# Create a mapping from choice to show

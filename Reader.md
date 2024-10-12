@@ -1,33 +1,62 @@
-CREATE VIEW filtered_student_choices_view AS  SELECT * FROM student_choices WHERE program IN (SELECT program FROM programs WHERE show = 1)
-AND weekday IN (SELECT choice FROM choices WHERE show = 1)
+CREATE TABLE students (
+  student_id TEXT NOT NULL UNIQUE PRIMARY KEY,
+  email	TEXT,
+  firstName TEXT,
+  lastName TEXT,
+  level TEXT,
+  program TEXT,
+  timestamp TEXT,
+  active int
+)
 
-CREATE VIEW demand_view AS
-SELECT
-  s.student_id,
-  s.email,
-  s.firstName,
-  s.lastName,
-  s.level,
-  s.program,
-  -- Pivoting choices for Monday
-  MAX(CASE WHEN sc.weekday = 'Mon01' THEN sc.course_code END) AS Mon01,
-  MAX(CASE WHEN sc.weekday = 'Mon02' THEN sc.course_code END) AS Mon02,
-  MAX(CASE WHEN sc.weekday = 'Mon03' THEN sc.course_code END) AS Mon03,
-  -- Pivoting choices for Wednesday
-  MAX(CASE WHEN sc.weekday = 'Wed01' THEN sc.course_code END) AS Wed01,
-  MAX(CASE WHEN sc.weekday = 'Wed02' THEN sc.course_code END) AS Wed02,
-  MAX(CASE WHEN sc.weekday = 'Wed03' THEN sc.course_code END) AS Wed03,
-  MAX(CASE WHEN sc.weekday = 'Wed04' THEN sc.course_code END) AS Wed04,
-  MAX(CASE WHEN sc.weekday = 'Wed05' THEN sc.course_code END) AS Wed05,
-  s.active
-FROM
-  students s
-LEFT JOIN
-  student_choices sc ON s.student_id = sc.student_id
-GROUP BY
-  s.student_id
-  
-  
-  CREATE VIEW filtered_demand_view AS SELECT * FROM demand_view WHERE program IN (SELECT program FROM programs WHERE show = 1)
-  
-  CREATE VIEW filtered_demand_view AS SELECT * FROM demand_view WHERE program IN (SELECT program FROM programs WHERE show = 1)
+CREATE TABLE "survey" (
+	"student_id"	TEXT NOT NULL UNIQUE,
+	"timestamp"	TEXT,
+	"email"	TEXT,
+	"firstName"	TEXT,
+	"lastName"	TEXT,
+	"level"	TEXT,
+	"program"	TEXT,
+	"IM1"	TEXT,
+	"IM2"	TEXT,
+	"IM3"	TEXT,
+	"Ia1"	TEXT,
+	"Ia2"	TEXT,
+	"Ia3"	TEXT,
+	"Ia4"	TEXT,
+	"Ia5"	TEXT,
+	"Ga1"	TEXT,
+	"Ga2"	TEXT,
+	"Ga3"	TEXT,
+	"Ga4"	TEXT,
+	"Ga5"	TEXT,
+	PRIMARY KEY("student_id")
+)
+
+CREATE TABLE teacherpreferences (
+  teacher_id TEXT,
+  course_id TEXT,
+  rating INT
+)
+
+CREATE TABLE teachers (
+  teacher_id TEXT NOT NULL UNIQUE PRIMARY KEY,
+  name TEXT,
+  nameJP TEXT,
+  email TEXT,
+  note TEXT,
+  active INT
+)
+
+CREATE TABLE timeslots (
+  timeslot_id TEXT NOT NULL UNIQUE PRIMARY KEY,
+  weekday TEXT,
+  start_time TEXT,
+  end_time TEXT,
+  active INT
+)
+
+CREATE TABLE weekdays (
+  sort_key INT,
+  weekday TEXT
+)

@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dclr43o5p8yn"]
-
-[ext_resource type="Script" path="res://globals/constants.gd" id="1_cirxc"]
-
-[node name="Constants" type="Node"]
-script = ExtResource("1_cirxc")
-color_demand = Color(0.639216, 0.913725, 1, 1)
-color_assign = Color(0, 1, 0.968627, 1)
-color_supply = Color(0.639216, 1, 0.847059, 1)

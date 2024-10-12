@@ -25,7 +25,6 @@ boot_splash/minimum_display_time=200
 [autoload]
 
 Signals="*res://globals/Signals.gd"
-Constants="*res://globals/constants.gd"
 GlobalVars="*res://globals/global_vars.gd"
 AppDB="*res://data/AssignDB.gd"
 Utils="*res://utils/utilities.gd"
@@ -46,6 +45,19 @@ enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
 theme/custom="res://UI/themes/main_theme.tres"
 theme/custom_font="res://UI/Fonts/EFCircularTT-Medium.ttf"
+
+[input]
+
+zoom_in={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"command_or_control_autoremap":true,"alt_pressed":false,"shift_pressed":false,"pressed":false,"keycode":0,"physical_keycode":61,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+zoom_out={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"command_or_control_autoremap":true,"alt_pressed":false,"shift_pressed":false,"pressed":false,"keycode":0,"physical_keycode":45,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [rendering]
 

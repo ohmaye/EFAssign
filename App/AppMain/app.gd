@@ -27,8 +27,19 @@ func _notification(what: int) -> void:
 
 ## Button Handlers
 ##
-## Handlers for Home, File, Demand, Assign, and Supply
+## Handlers for Home, File, Demand, Assign, and Supply, zoom in and zoom out (font size)
+var theme_ = preload("res://UI/themes/main_theme.tres")
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("zoom_in"):
+		print("Zoom_in")
+		theme_.default_font_size += 1
+	elif event.is_action_pressed("zoom_out"):
+		print("Zoom_out")
+		theme_.default_font_size -= 1
+
+
+					
 func _on_home_btn_pressed() -> void:
 	_toggle_tabs_off()
 	%HomeBtn.button_pressed = true

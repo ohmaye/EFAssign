@@ -17,7 +17,6 @@ var active: int
 
 # Custom Constructor
 func _init(data: Dictionary = {}):
-	printt("Room Dict: ", data)
 	room_id = data.get("room_id")
 	name = data.get("name", "") if data.get("name") else ""
 	type = data.get("type", "") if data.get("type") else ""

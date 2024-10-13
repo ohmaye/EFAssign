@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl66xxs4n3t2h"]
+[gd_scene load_steps=4 format=3 uid="uid://dl66xxs4n3t2h"]
 
 [ext_resource type="Theme" uid="uid://ibcba6vdplpj" path="res://UI/tree_table/tree_table_theme.tres" id="1_jbqnr"]
 [ext_resource type="Script" path="res://UI/tree_table/tree_table.gd" id="2_5d2k8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbka3"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.531051, 0.531051, 0.531051, 1)
 
 [node name="TreeTable" type="Tree"]
 anchors_preset = 15
@@ -9,9 +16,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_jbqnr")
+theme_override_styles/title_button_normal = SubResource("StyleBoxFlat_fbka3")
 column_titles_visible = true
 allow_reselect = true
+enable_recursive_folding = false
 hide_root = true
 select_mode = 1
 script = ExtResource("2_5d2k8")

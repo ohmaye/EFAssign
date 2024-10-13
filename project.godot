@@ -34,7 +34,6 @@ Utils="*res://utils/utilities.gd"
 window/size/viewport_width=2560
 window/size/viewport_height=1440
 window/energy_saving/keep_screen_on=false
-window/stretch/aspect="ignore"
 
 [editor_plugins]
 

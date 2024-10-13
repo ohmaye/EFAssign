@@ -1,5 +1,5 @@
 # File: res://scripts/ClassesView.gd
-extends Object
+extends Assign
 
 class_name ClassesView  # Registers the class globally as 'ClassesView'
 

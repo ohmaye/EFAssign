@@ -1,5 +1,5 @@
 # File: res://scripts/ClassEntry.gd
-extends Object
+extends Assign
 
 class_name Class_  # Registers the class globally as 'ClassEntry'
 

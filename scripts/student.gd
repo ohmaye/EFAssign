@@ -1,5 +1,5 @@
 # File: res://scripts/Student.gd
-extends Object
+extends Assign
 
 class_name Student  # Registers the class globally as 'Student'
 

@@ -1,5 +1,5 @@
 # File: res://scripts/Survey.gd
-extends Object
+extends Assign
 
 class_name Survey  # Registers the class globally as 'Survey'
 

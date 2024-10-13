@@ -1,5 +1,5 @@
 # File: res://scripts/TeacherPreference.gd
-extends Object
+extends Assign
 
 class_name TeacherPreference  # Registers the class globally as 'TeacherPreference'
 

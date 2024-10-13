@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi525u20m67xa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xfse"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+
+[node name="PopupLabel" type="Label"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_3xfse")

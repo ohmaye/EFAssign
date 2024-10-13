@@ -1,5 +1,5 @@
 # File: res://scripts/DemandView.gd
-extends Object
+extends Assign
 
 class_name DemandView  # Registers the class globally as 'DemandView'
 

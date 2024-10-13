@@ -1,5 +1,5 @@
 # File: res://scripts/Weekday.gd
-extends Object
+extends Assign
 
 class_name Weekday  # Registers the class globally as 'Weekday'
 

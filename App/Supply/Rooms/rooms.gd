@@ -11,14 +11,18 @@ func _ready():
 
 
 func _load_data_and_render():
-	var rooms = AppDB.db_get("SELECT * FROM rooms ORDER BY name")
+	var db_rooms = AppDB.db_get("SELECT * FROM rooms ORDER BY name")
+	var rooms : Array[Room] = []
+	for db_room in db_rooms:
+		rooms.append(Room.new(db_room))
 
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % rooms.size()
 
 	query_info = QueryInfo.new("rooms", Room.SHOW_COLUMNS, rooms, Room.KEY )
 	
-	$Table.render(query_info)
+	# $Table.render(query_info)
+	%TreeTable.render(Room, rooms)
 
 
 func _on_data_changed():

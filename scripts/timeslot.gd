@@ -1,5 +1,5 @@
 # File: res://scripts/TimeSlot.gd
-extends Object
+extends Assign
 
 class_name TimeSlot  # Registers the class globally as 'TimeSlot'
 

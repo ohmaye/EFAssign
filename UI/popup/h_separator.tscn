@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpdcavjo75054"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_km0ba"]
-color = Color(1, 1, 1, 1)
-
-[node name="HSeparator" type="HSeparator"]
-theme_override_constants/separation = 18
-theme_override_styles/separator = SubResource("StyleBoxLine_km0ba")

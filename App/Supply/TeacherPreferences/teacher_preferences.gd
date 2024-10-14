@@ -40,7 +40,7 @@ const sql_courses = """
 	SELECT DISTINCT course_id, code, title FROM courses WHERE active = 1 ORDER BY code
 """
 const sql_teachers = """
-	SELECT DISTINCT teacher_id, name FROM teachers WHERE active = 1 ORDER BY name
+	SELECT DISTINCT teacher_id, name FROM teachers WHERE active = 1 ORDER BY name COLLATE NOCASE
 """
 
 const sql_rating = """

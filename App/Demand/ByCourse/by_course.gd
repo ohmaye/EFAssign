@@ -8,7 +8,7 @@ func _ready():
 
 
 func _load_data_and_render():
-	var db_courses = AppDB.db_get("SELECT * FROM demand_by_course_view ORDER BY course")
+	var db_courses = AppDB.db_get("SELECT * FROM demand_by_course_view")
 	var courses : Array[DemandByCourseView] = []
 	for course in db_courses:
 		courses.append(DemandByCourseView.new(course))

@@ -5,9 +5,14 @@ var survey_scene = preload("res://App/Survey/survey.tscn")
 var demand_scene = preload("res://App/Demand/demand.tscn")
 var assign_scene = preload("res://App/Assign/assign.tscn")
 var supply_scene = preload("res://App/Supply/supply.tscn")
+var theme_ = preload("res://UI/themes/main_theme.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Utils.save_user_prefs()
+	Utils.load_user_prefs()
+	theme_.default_font_size = GlobalVars.font_size
+
 	# DisplayServer.window_set_mode(0)
 	AppDB.setup_db()
 
@@ -21,6 +26,7 @@ func _ready() -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		print("Notification: Will close app")
+		# Save preferences and close the database
 		Utils.save_user_prefs()
 		AppDB.db.close_db()
 
@@ -28,7 +34,6 @@ func _notification(what: int) -> void:
 ## Button Handlers
 ##
 ## Handlers for Home, File, Demand, Assign, and Supply, zoom in and zoom out (font size)
-var theme_ = preload("res://UI/themes/main_theme.tres")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("zoom_in"):
@@ -37,6 +42,8 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("zoom_out"):
 		print("Zoom_out")
 		theme_.default_font_size -= 1
+
+	GlobalVars.font_size = theme_.default_font_size
 
 
 					

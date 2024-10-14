@@ -4,7 +4,7 @@ const sql_courses = "SELECT DISTINCT course_code FROM filtered_student_choices_v
 const sql_levels = "SELECT DISTINCT level FROM filtered_student_choices_view WHERE course_code = '%s' ORDER BY level" 
 const sql_students = """SELECT choice_id, student_id, firstName, lastName, choice 
 					FROM filtered_student_choices_view 
-					WHERE course_code = '%s' AND level = '%s' ORDER BY level"""
+					WHERE course_code = '%s' AND level = '%s' ORDER BY firstName COLLATE NOCASE, lastName COLLATE NOCASE"""
 
 var root : TreeItem
 var selections = {}

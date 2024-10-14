@@ -8,11 +8,6 @@ const verbosity_level : int = SQLite.NORMAL
 func setup_db() -> void:
 	db = SQLite.new()
 	# db.verbosity_level = verbosity_level
-	print("Called Init")
-
-	# Utils.save_user_prefs()
-	Utils.load_user_prefs()
-	print("Loaded path from Prefs: ", GlobalVars.file_path)
 
 	var result : bool = false
 	if GlobalVars.file_path != "":
@@ -43,4 +38,50 @@ func db_get(sql : String) -> Array:
 func db_run(sql : String) -> bool:
 	var result = db.query(sql)
 	# print("Run query: ", sql)
+	return result
+
+# Return an array of selected column names
+func _get_choice_filters() -> Array:
+	var result = []
+
+	var filters = AppDB.db_get("SELECT choice FROM choices WHERE show = 0")
+	for item in filters:
+		result.append(item['choice'])
+
+	return result
+
+
+func filtered_columns(columns : Array) -> Array:
+	var result : Array = []
+	var filters = _get_choice_filters()
+
+	for item in columns:
+		if not item in filters:
+			result.append(item)
+	
+	return result
+
+## Active Timeslots propertly sorted by weekday
+func get_active_timeslots() -> Array[TimeSlot]:
+	var sql_active_weekdays = """
+		SELECT t.timeslot_id, t.weekday, t.start_time, t.end_time,
+			CASE 
+				WHEN t.weekday = 'Mon' THEN 1
+				WHEN t.weekday = 'Tue' THEN 2
+				WHEN t.weekday = 'Wed' THEN 3
+				WHEN t.weekday = 'Thu' THEN 4
+				WHEN t.weekday = 'Fri' THEN 5
+				WHEN t.weekday = 'Sat' THEN 6
+				WHEN t.weekday = 'Sun' THEN 7
+			END AS sort_key
+		FROM timeslots AS t
+		WHERE t.active = 1
+		ORDER BY sort_key;
+	"""
+
+	var result : Array[TimeSlot]= []
+	for timeslot in AppDB.db_get(sql_active_weekdays):
+		var ts = TimeSlot.new(timeslot)
+		result.append(ts)
+
 	return result

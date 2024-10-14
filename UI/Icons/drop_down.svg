@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="32" viewBox="0 0 64 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Downward-pointing equilateral triangle, left-aligned -->
+  <path d="M0,0 L28,0 L14,24 Z" fill="#91E2A4" stroke="#91E2A4" stroke-width="2" stroke-linejoin="round"/>
+</svg>

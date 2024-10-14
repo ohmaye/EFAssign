@@ -31,6 +31,7 @@ func save_user_prefs():
 	var user_prefs : UserPrefs = UserPrefs.new()
 
 	user_prefs.file_path = GlobalVars.file_path
+	user_prefs.font_size = GlobalVars.font_size
 
 	ResourceSaver.save(user_prefs, "user://user_prefs.tres")
 
@@ -44,6 +45,7 @@ func load_user_prefs():
 		user_prefs = load("user://user_prefs.tres")
 
 	GlobalVars.file_path = user_prefs.file_path
+	GlobalVars.font_size = user_prefs.font_size
 
 
 ## Scene Utilities
@@ -72,34 +74,4 @@ func get_choices() -> Array:
 	return result
 
 
-# Return an array of selected column names
-func _get_choice_filters() -> Array:
-	var result = []
 
-	var filters = AppDB.db_get("SELECT choice FROM choices WHERE show = 0")
-	for item in filters:
-		result.append(item['choice'])
-
-	return result
-
-
-func filtered_columns(columns : Array) -> Array:
-	var result : Array = []
-	var filters = _get_choice_filters()
-
-	for item in columns:
-		if not item in filters:
-			result.append(item)
-	
-	return result
-
-# Get a list of active weekdays
-func _get_active_weekdays() -> Array:
-	var sql_active_weekdays = """
-		SELECT t.weekday as weekday, start_time, end_time, sort_key FROM timeslots AS t
-		JOIN weekdays AS w ON w.weekday = t.weekday
-		WHERE t.active = 1
-		ORDER BY sort_key
-	"""
-	var active_weekdays = AppDB.db_get(sql_active_weekdays)
-	return active_weekdays

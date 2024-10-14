@@ -2,7 +2,7 @@ extends Controller
 
 @onready var _class = DemandView
 
-const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName, lastName"
+const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName COLLATE NOCASE, lastName COLLATE NOCASE"
 
 func _ready():
 	_load_data_and_render()

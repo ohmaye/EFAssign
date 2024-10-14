@@ -11,7 +11,7 @@ func _ready():
 
 
 func _load_data_and_render():
-	var db_teachers = AppDB.db_get("SELECT * FROM teachers ORDER BY name")
+	var db_teachers = AppDB.db_get("SELECT * FROM teachers ORDER BY name COLLATE NOCASE")
 	var teachers = []
 	for teacher in db_teachers:
 		teachers.append(Teacher.new(teacher))

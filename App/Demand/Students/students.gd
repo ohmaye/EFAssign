@@ -4,7 +4,7 @@ extends Controller
 
 var popup = preload("res://UI/tree_table/popup/popup.tscn")
 
-const sql = "SELECT * FROM filtered_students_view ORDER BY firstName, lastName"
+const sql = "SELECT * FROM filtered_students_view ORDER BY firstName COLLATE NOCASE, lastName COLLATE NOCASE"
 
 func _ready():   
 	Signals.add_new.connect(_add_new)

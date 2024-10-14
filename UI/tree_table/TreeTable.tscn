@@ -9,6 +9,7 @@ content_margin_top = 12.0
 content_margin_right = 12.0
 content_margin_bottom = 12.0
 bg_color = Color(0.205117, 0.205117, 0.205117, 1)
+border_color = Color(0, 0, 0, 1)
 
 [node name="TreeTable" type="Tree"]
 anchors_preset = 15

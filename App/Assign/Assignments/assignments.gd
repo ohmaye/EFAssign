@@ -80,7 +80,8 @@ func _create_student_row(student, parent_node):
 		# If student has an assignment in this timeslot, show the class title and store it as metadata
 		var student_assignment = _get_student_assignment_in_timeslot(student['student_id'], timeslot)
 		if student_assignment:
-			_row.set_text(timeslot_index, str(student_assignment.get('title','???')))
+			var title = student_assignment.get('title') if student_assignment.get('title') else "???"
+			_row.set_text(timeslot_index, title)
 			_row.set_text_alignment(timeslot_index, HORIZONTAL_ALIGNMENT_CENTER)
 			_row.set_custom_bg_color(timeslot_index, "#91E2A4")
 			_row.set_metadata(timeslot_index,[student_assignment, timeslot])

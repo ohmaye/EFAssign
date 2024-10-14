@@ -6,10 +6,16 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ta858"]
 bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.637843, 0.637843, 0.637843, 1)
 
 [resource]
 Tree/colors/guide_color = Color(3.08037e-06, 0.522109, 0.631651, 1)
 Tree/constants/draw_guides = 1
+Tree/constants/outline_size = 1
 Tree/constants/v_separation = 24
 Tree/icons/checked = ExtResource("1_0nc6o")
 Tree/icons/checked_disabled = ExtResource("1_0nc6o")

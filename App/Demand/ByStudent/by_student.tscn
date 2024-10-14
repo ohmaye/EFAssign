@@ -22,6 +22,7 @@ grow_vertical = 2
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 40
 
 [node name="TreeTable" parent="MarginContainer" instance=ExtResource("2_ym6sp")]
 unique_name_in_owner = true

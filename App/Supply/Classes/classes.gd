@@ -1,8 +1,8 @@
 extends Controller
 
-var query_info 
+@onready var _class = Class_
 
-var popup = preload("res://UI/popup/popup.tscn")
+var popup = preload("res://UI/tree_table/popup/popup.tscn")
 
 const sql = """
 	SELECT c.code as 'course', cls.title as 'class', cls.for_program as 'for_program', r.name as 'where', ts.weekday || ' ' || ts.start_time as 'when', t.name as 'who' 
@@ -20,13 +20,14 @@ func _ready():
 
 func _load_data_and_render():
 	var db_classes = AppDB.db_get(sql)
+	var classes : Array[Class_] = []
+	for db_class in db_classes:
+		classes.append(Class_.new(db_class))
 
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % db_classes.size()
 
-	query_info = QueryInfo.new("classes", Class_.SHOW_COLUMNS, db_classes, Class_.KEY )
-	
-	$Table.render(query_info)
+	%TreeTable.render(_class, classes)
 
 
 func _on_data_changed():

@@ -1,8 +1,8 @@
 extends Controller
 
-var query_info 
+@onready var _class = Teacher
 
-var popup = preload("res://UI/popup/popup.tscn")
+var popup = preload("res://UI/tree_table/popup/popup.tscn")
 
 
 func _ready():
@@ -19,9 +19,7 @@ func _load_data_and_render():
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % teachers.size()
 		
-	query_info = QueryInfo.new("teachers", Teacher.SHOW_COLUMNS, teachers, Teacher.KEY )
-	$Table.render(query_info)
-
+	%TreeTable.render(_class, teachers)
 
 func _on_data_changed():
 	_load_data_and_render()
@@ -33,15 +31,13 @@ func _add_new():
 	add_child(popup_node)
 	
 	var id = Utils.uuid.v4()
-	var sql_stmt = "INSERT INTO teachers (teacher_id)  VALUES ('{0}')"
+	var sql_stmt = "INSERT INTO teachers (teacher_id)  VALUES ('%s')" % id
 
-	var row = {"teacher_id": id}
-	for column in Teacher.SHOW_COLUMNS:
-		row[column] = ""
+	var teacher = Teacher.new({"teacher_id": id})
 
 	var result = AppDB.db_run(sql_stmt.format([id]))
 
 	if result:
-		popup_node.render(row, query_info)
+		popup_node.render(teacher, _class)
 		popup_node.visible = true	
 		Signals.data_changed.emit()

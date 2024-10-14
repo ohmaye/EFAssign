@@ -1,8 +1,8 @@
 extends Controller
 
-var query_info 
+@onready var _class = Room
 
-var popup = preload("res://UI/popup/popup.tscn")
+var popup = preload("res://UI/tree_table/popup/popup.tscn")
 
 
 func _ready():
@@ -19,10 +19,7 @@ func _load_data_and_render():
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % rooms.size()
 
-	query_info = QueryInfo.new("rooms", Room.SHOW_COLUMNS, rooms, Room.KEY )
-	
-	# $Table.render(query_info)
-	%TreeTable.render(Room, rooms)
+	%TreeTable.render(_class, rooms)
 
 
 func _on_data_changed():
@@ -35,15 +32,13 @@ func _add_new():
 	add_child(popup_node)
 	
 	var id = Utils.uuid.v4()
-	var sql_stmt = "INSERT INTO rooms (room_id)  VALUES ('{0}')"
+	var sql_stmt = "INSERT INTO rooms (room_id)  VALUES ('%s')" % id
 
-	var row = {"room_id": id}
-	for column in Room.SHOW_COLUMNS:
-		row[column] = ""
+	var room = Room.new({"room_id": id})
 
 	var result = AppDB.db_run(sql_stmt.format([id]))
 
 	if result:
-		popup_node.render(row, query_info)
+		popup_node.render(room, _class)
 		popup_node.visible = true	
 		Signals.data_changed.emit()

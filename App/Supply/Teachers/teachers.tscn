@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dykg85pktfhtx"]
 
 [ext_resource type="Script" path="res://App/Supply/Teachers/teachers.gd" id="1_h6j0p"]
-[ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="2_h503q"]
+[ext_resource type="PackedScene" uid="uid://dl66xxs4n3t2h" path="res://UI/tree_table/TreeTable.tscn" id="2_dthjg"]
 
 [node name="Teachers" type="Control"]
 layout_mode = 3
@@ -14,5 +14,17 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_h6j0p")
 
-[node name="Table" parent="." instance=ExtResource("2_h503q")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 320
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 320
+
+[node name="TreeTable" parent="MarginContainer" instance=ExtResource("2_dthjg")]
+unique_name_in_owner = true
+layout_mode = 2

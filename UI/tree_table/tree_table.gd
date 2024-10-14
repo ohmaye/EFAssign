@@ -1,26 +1,25 @@
 extends Tree
 
-var button_icon = preload("res://UI/Icons/expanded.svg")
-
 var root : TreeItem
+var current_class
+var current_entries
 
 # Popup for editing
-var popup = preload("popup/popup.tscn")
+var popup_scene = preload("popup/popup.tscn")
 var popup_node : CanvasLayer
-var current_entries
-var current_class
 
 # Styles for table data
-var style_hover = preload("res://UI/table/styles/style_cell_hover.tres")
-var style_normal = preload("res://UI/table/styles/style_cell_normal.tres")
+var style_hover = preload("styles/style_cell_hover.tres")
+var style_normal = preload("styles/style_cell_normal.tres")
 
 
 func _ready():
 	# Doesn't inherit from Controller so need to connect signal
 	Signals.data_changed.connect(_on_data_changed)
-	item_selected.connect(_on_btn_pressed)
+	item_selected.connect(_on_item_selected)
 	
-	popup_node = popup.instantiate()
+	# Create an instance of the popup dialog scene
+	popup_node = popup_scene.instantiate()
 	popup_node.visible = false
 	add_child(popup_node)
 
@@ -28,33 +27,29 @@ func _ready():
 	root = create_item()
 
 
-
-func render(class_, entries):
+func render(class_, entries : Array):
 	# Set the current class and entries
-	current_entries = entries
 	current_class = class_
+	current_entries = entries
+
+	# Clear the tree
+	Utils.free_all_treeitems(root)
 
 	# Set Tree format and initialize headers
 	_set_format_and_headers(class_.SHOW_COLUMNS)
-	Utils.free_all_treeitems(root)
 
 	# Create a row for each entry
 	for entry in entries:
 		_create_row(class_, entry, root)
 
-	# Show Total Entries
-	# EO FIX: Change this to send signals to update the total entries
-	get_parent().get_parent().get_node("%TotalLbl").text = "( Total: %d )" % entries.size()
-
 
 func _set_format_and_headers(headers):
-	# Set up the # of columns & titles
+	# Set up the # of columns & headers
 	set_columns(headers.size())
 	for header in headers:
 		var column_index = headers.find(header)
 		set_column_title(column_index, header.capitalize())
 		set_column_title_alignment(column_index, HORIZONTAL_ALIGNMENT_LEFT)
-		set_column_custom_minimum_width(column_index, 50)
 	return
 
 
@@ -65,18 +60,28 @@ func _create_row(class_, entry, parent_node):
 
 	for column in _columns:
 		var index = _columns.find(column)
-		var txt = entry[column]
-		_row.set_text(index, str(txt) if txt else "-") 
-		_row.set_text_alignment(index, HORIZONTAL_ALIGNMENT_LEFT)
+		_create_field(index, entry[column], _row)
 
+
+func _create_field(index, field, row):
+	match typeof(field):
+		TYPE_STRING:
+			row.set_text(index, str(field) if field else "-") 
+			row.set_text_alignment(index, HORIZONTAL_ALIGNMENT_LEFT)
+		TYPE_INT:
+			row.set_text(index, str(field) if field else "0") 
+			row.set_text_alignment(index, HORIZONTAL_ALIGNMENT_LEFT)
+		TYPE_BOOL:
+			row.set_cell_mode(index, TreeItem.CELL_MODE_CHECK)
+			row.set_checked(index, field)
+		_:
+			print("Unknown type")
 
 func _on_data_changed():
 	render(current_class, current_entries)
 
 
-func _on_btn_pressed():
-	# printt("Button Pressed", get_selected().get_metadata(0), current_class)	
-	# var query_info = QueryInfo.new("rooms", Room.SHOW_COLUMNS, current_entries, Room.KEY )
+func _on_item_selected():
 	popup_node.render(get_selected().get_metadata(0), current_class)
 	popup_node.visible = true
 
@@ -102,7 +107,6 @@ func _gui_input(event):
 			hover_item = item
 
 			
-		
 func _clear_item_row(item): 
 	for i in range(0, columns):
 		item.clear_custom_bg_color(i)

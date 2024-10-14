@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b4mgxtwuy0160" path="res://UI/themes/main_theme.tres" id="1_2dx3t"]
 [ext_resource type="Script" path="res://App/Supply/Courses/courses.gd" id="2_yejbl"]
-[ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="3_n8lhr"]
+[ext_resource type="PackedScene" uid="uid://dl66xxs4n3t2h" path="res://UI/tree_table/TreeTable.tscn" id="3_bkqsb"]
 
 [node name="Courses" type="Control"]
 layout_mode = 3
@@ -14,5 +14,17 @@ grow_vertical = 2
 theme = ExtResource("1_2dx3t")
 script = ExtResource("2_yejbl")
 
-[node name="Table" parent="." instance=ExtResource("3_n8lhr")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 320
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 320
+
+[node name="TreeTable" parent="MarginContainer" instance=ExtResource("3_bkqsb")]
+unique_name_in_owner = true
+layout_mode = 2

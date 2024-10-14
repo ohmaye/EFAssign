@@ -8,7 +8,7 @@ content_margin_left = 12.0
 content_margin_top = 12.0
 content_margin_right = 12.0
 content_margin_bottom = 12.0
-bg_color = Color(0.531051, 0.531051, 0.531051, 1)
+bg_color = Color(0.205117, 0.205117, 0.205117, 1)
 
 [node name="TreeTable" type="Tree"]
 anchors_preset = 15
@@ -18,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_mode = 0
 theme = ExtResource("1_jbqnr")
 theme_override_styles/title_button_normal = SubResource("StyleBoxFlat_fbka3")
 column_titles_visible = true

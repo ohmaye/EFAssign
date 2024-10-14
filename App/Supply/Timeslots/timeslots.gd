@@ -1,8 +1,8 @@
 extends Controller
 
-var query_info 
+@onready var _class = TimeSlot
 
-var popup = preload("res://UI/popup/popup.tscn")
+var popup = preload("res://UI/tree_table/popup/popup.tscn")
 
 
 func _ready():
@@ -11,15 +11,15 @@ func _ready():
 
 
 func _load_data_and_render():
-	var timeslots = AppDB.db_get("SELECT * FROM timeslots ORDER BY weekday, start_time")
+	var db_timeslots = AppDB.db_get("SELECT * FROM timeslots ORDER BY weekday, start_time")
+	var timeslots : Array[TimeSlot] = []
+	for db_timeslot in db_timeslots:
+		timeslots.append(TimeSlot.new(db_timeslot))
 		
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % timeslots.size()
-
 	
-	query_info = QueryInfo.new("timeslots", TimeSlot.SHOW_COLUMNS, timeslots, TimeSlot.KEY )
-	
-	$Table.render(query_info)
+	%TreeTable.render(_class, timeslots)
 
 
 func _on_data_changed():
@@ -32,15 +32,13 @@ func _add_new():
 	add_child(popup_node)
 	
 	var id = Utils.uuid.v4()
-	var sql_stmt = "INSERT INTO timeslots (timeslot_id)  VALUES ('{0}')"
+	var sql_stmt = "INSERT INTO timeslots (timeslot_id)  VALUES ('%s')" % id
 
-	var row = {"timeslot_id": id}
-	for column in TimeSlot.SHOW_COLUMNS:
-		row[column] = ""
+	var timeslot = TimeSlot.new({"timeslot_id": id})
 
 	var result = AppDB.db_run(sql_stmt.format([id]))
 
 	if result:
-		popup_node.render(row, query_info)
+		popup_node.render(timeslot, _class)
 		popup_node.visible = true	
 		Signals.data_changed.emit()

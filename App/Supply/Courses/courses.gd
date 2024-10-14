@@ -1,8 +1,8 @@
 extends Controller
 
-var query_info 
+@onready var _class = Course
 
-var popup = preload("res://UI/popup/popup.tscn")
+var popup = preload("res://UI/tree_table/popup/popup.tscn")
 
 func _ready():
 	Signals.add_new.connect(_add_new)
@@ -10,14 +10,15 @@ func _ready():
 
 
 func _load_data_and_render():
-	var courses = AppDB.db_get("SELECT * FROM courses ORDER BY code")
+	var db_courses = AppDB.db_get("SELECT * FROM courses ORDER BY code")
+	var courses : Array[Course] = []
+	for course in db_courses:
+		courses.append(Course.new(course))
 
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % courses.size()
-
-	query_info = QueryInfo.new("courses", Course.SHOW_COLUMNS, courses, Course.KEY )
 	
-	$Table.render(query_info)
+	%TreeTable.render(_class, courses)
 
 
 func _on_data_changed():
@@ -30,15 +31,13 @@ func _add_new():
 	add_child(popup_node)
 	
 	var id = Utils.uuid.v4()
-	var sql_stmt = "INSERT INTO courses (course_id)  VALUES ('{0}')"
+	var sql_stmt = "INSERT INTO courses (course_id)  VALUES ('%s')" % id
 
-	var row = {"course_id": id}
-	for column in Course.SHOW_COLUMNS:
-		row[column] = ""
+	var course = Course.new({"course_id": id})
 
 	var result = AppDB.db_run(sql_stmt.format([id]))
 
 	if result:
-		popup_node.render(row, query_info)
+		popup_node.render(course, _class)
 		popup_node.visible = true	
 		Signals.data_changed.emit()

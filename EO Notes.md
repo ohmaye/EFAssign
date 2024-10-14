@@ -131,3 +131,12 @@ ToDo:
 - Tricky combo
   - Export x86 (otherwise SQLITE won't work on ARM, if it is compiled to ARM)
   - Look at performance issues on ARM with an emulator (Parallels)
+2024.10.14
+- VIEWS
+  - Gotta be careful with the panels based on views. They cannot be edited directly.
+    - Students: OK
+    - By Student: Based on Demand_view. NOT OK
+    - By Course
+    - By Level
+    - Teacher Preferences
+    - Classes 

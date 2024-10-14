@@ -4,7 +4,7 @@ extends ColorRect
 
 var assign_scene = preload("res://App/Assign/Assign/assign.tscn")
 var assignments_scene = preload("res://App/Assign/Assignments/assignments.tscn")
-var timetables_scene = preload("res://App/Assign/Timetables/timetables.tscn")
+# var timetables_scene = preload("res://App/Assign/Timetables/timetables.tscn")
 
 
 ## ASSIGN TAB
@@ -20,5 +20,5 @@ func _on_assignments_btn_pressed() -> void:
 
 
 func _on_timetables_btn_pressed() -> void:
-	Utils.change_scene(container, timetables_scene)
-
+	# Utils.change_scene(container, timetables_scene)
+	pass

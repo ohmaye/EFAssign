@@ -48,6 +48,7 @@ func _set_format_and_headers(headers):
 	set_columns(headers.size())
 	for header in headers:
 		var column_index = headers.find(header)
+		# EO FIX - Capitalize the header vs filter
 		set_column_title(column_index, header.capitalize())
 		set_column_title_alignment(column_index, HORIZONTAL_ALIGNMENT_LEFT)
 	return

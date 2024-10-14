@@ -1,21 +1,24 @@
 extends Controller
 
+@onready var _class = DemandView
+
 const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName, lastName"
 
 func _ready():
 	_load_data_and_render()
 
 
-func _on_data_changed():
-	_load_data_and_render()
-
-	
-
 func _load_data_and_render():
-	var rows = AppDB.db_get(sql)
+	var db_demand = AppDB.db_get(sql)
+	var demands : Array[DemandView] = []
+	for demand in db_demand:
+		demands.append(DemandView.new(demand))
 	
 	# Show Total Entries
-	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % rows.size()
-	var query_info = QueryInfo.new("demand_view", Utils.filtered_columns(DemandView.SHOW_COLUMNS), rows, DemandView.KEY )
+	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % demands.size()
 
-	$Table.render(query_info)
+	%TreeTable.render(_class, demands)
+
+
+func _on_data_changed():
+	_load_data_and_render()

@@ -4,7 +4,6 @@ extends Controller
 
 var popup = preload("res://UI/tree_table/popup/popup.tscn")
 
-
 func _ready():
 	Signals.add_new.connect(_add_new)
 	_load_data_and_render()
@@ -13,8 +12,8 @@ func _ready():
 func _load_data_and_render():
 	var db_rooms = AppDB.db_get("SELECT * FROM rooms ORDER BY name")
 	var rooms : Array[Room] = []
-	for db_room in db_rooms:
-		rooms.append(Room.new(db_room))
+	for room in db_rooms:
+		rooms.append(Room.new(room))
 
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % rooms.size()

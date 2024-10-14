@@ -36,7 +36,7 @@ func render(class_, entries : Array):
 	Utils.free_all_treeitems(root)
 
 	# Set Tree format and initialize headers
-	_set_format_and_headers(class_.SHOW_COLUMNS)
+	_set_format_and_headers(Utils.filtered_columns(class_.SHOW_COLUMNS))
 
 	# Create a row for each entry
 	for entry in entries:
@@ -49,14 +49,14 @@ func _set_format_and_headers(headers):
 	for header in headers:
 		var column_index = headers.find(header)
 		# EO FIX - Capitalize the header vs filter
-		set_column_title(column_index, header.capitalize())
+		set_column_title(column_index, header)
 		set_column_title_alignment(column_index, HORIZONTAL_ALIGNMENT_LEFT)
 	return
 
 
 func _create_row(class_, entry, parent_node):
 	var _row = parent_node.create_child()
-	var _columns = class_.SHOW_COLUMNS
+	var _columns = (Utils.filtered_columns(class_.SHOW_COLUMNS))
 	_row.set_metadata(0, entry)
 
 	for column in _columns:

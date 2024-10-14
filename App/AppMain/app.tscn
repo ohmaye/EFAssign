@@ -127,7 +127,7 @@ theme_override_constants/margin_right = 20
 custom_minimum_size = Vector2(1580, 0)
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 25
+theme_override_constants/separation = 10
 
 [node name="IntensiveCheckBox" parent="ScrollContainer/MarginContainer/VBoxContainer/HeaderHBox/MarginContainer/FiltersHBox" instance=ExtResource("6_05x5c")]
 unique_name_in_owner = true

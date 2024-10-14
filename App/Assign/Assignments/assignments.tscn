@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsn0g214ij6g3"]
+[gd_scene load_steps=5 format=3 uid="uid://bsn0g214ij6g3"]
 
 [ext_resource type="Script" path="res://App/Assign/Assignments/assignments.gd" id="1_0w8o7"]
+[ext_resource type="Theme" uid="uid://ibcba6vdplpj" path="res://UI/tree_table/tree_table_theme.tres" id="1_3xe5p"]
 [ext_resource type="Script" path="res://App/Assign/Assignments/classes_popup_menu.gd" id="2_rshjn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nty8n"]
+content_margin_left = 10.0
+content_margin_top = 12.0
+content_margin_right = 10.0
+content_margin_bottom = 12.0
+bg_color = Color(0.144063, 0.144063, 0.144062, 1)
 
 [node name="AssignmentsTree" type="Tree"]
 anchors_preset = 15
@@ -9,6 +17,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_3xe5p")
+theme_override_styles/title_button_normal = SubResource("StyleBoxFlat_nty8n")
 column_titles_visible = true
 hide_root = true
 script = ExtResource("1_0w8o7")

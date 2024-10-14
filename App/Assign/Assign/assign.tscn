@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjnupjmsbao0y"]
+[gd_scene load_steps=2 format=3 uid="uid://bjnupjmsbao0y"]
 
 [ext_resource type="Script" path="res://App/Assign/Assign/assign.gd" id="1_2yj8f"]
-[ext_resource type="PackedScene" uid="uid://dwewyn1fpg7ki" path="res://UI/table/Table.tscn" id="2_o4cf5"]
 
 [node name="Assign" type="Control"]
 layout_mode = 3
@@ -21,17 +20,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="DemandTable" parent="MarginContainer/HSplitContainer" instance=ExtResource("2_o4cf5")]
+[node name="DemandTable" type="MarginContainer" parent="MarginContainer/HSplitContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_stretch_ratio = 0.4
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.35
 
 [node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/HSplitContainer"]
 layout_mode = 2
@@ -39,12 +39,14 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
 theme_override_constants/separation = 24
 
-[node name="AssignTable" parent="MarginContainer/HSplitContainer/HSplitContainer" instance=ExtResource("2_o4cf5")]
+[node name="AssignTable" type="MarginContainer" parent="MarginContainer/HSplitContainer/HSplitContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 
-[node name="SupplyTable" parent="MarginContainer/HSplitContainer/HSplitContainer" instance=ExtResource("2_o4cf5")]
+[node name="SupplyTable" type="MarginContainer" parent="MarginContainer/HSplitContainer/HSplitContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7

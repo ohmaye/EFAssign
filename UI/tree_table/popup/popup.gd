@@ -5,9 +5,9 @@ var class_
 var row 
 
 # UI Elements
-var label_scn = preload("res://UI/popup/popup_label.tscn")
-var field_scn = preload("res://UI/popup/popup_field.tscn")
-var separator = preload("res://UI/popup/h_separator.tscn")
+var label_scn = preload("popup_label.tscn")
+var field_scn = preload("popup_field.tscn")
+var separator = preload("h_separator.tscn")
 var container
 var gray_screen
 var colorrect

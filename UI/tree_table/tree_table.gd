@@ -1,8 +1,8 @@
 extends Tree
 
 var root : TreeItem
-var current_class
-var current_entries
+var current_class = []
+var current_entries = []
 
 # Popup for editing
 var popup_scene = preload("popup/popup.tscn")
@@ -15,7 +15,7 @@ var style_normal = preload("styles/style_cell_normal.tres")
 
 func _ready():
 	# Doesn't inherit from Controller so need to connect signal
-	Signals.data_changed.connect(_on_data_changed)
+	# Signals.data_changed.connect(_on_data_changed)
 	item_selected.connect(_on_item_selected)
 	
 	# Create an instance of the popup dialog scene
@@ -26,6 +26,34 @@ func _ready():
 	# Create the root item
 	root = create_item()
 
+	item_edited.connect(on_Tree_item_edited)
+
+func on_Tree_item_edited():
+	var item = get_edited()
+	var column_index = get_edited_column()
+	var column_name = current_class.SHOW_COLUMNS[column_index]
+	current_class.FILTERS[column_name] = item.get_text(column_index)
+	print("Edited: ", current_class.FILTERS) 
+	render(current_class, current_entries)
+
+func _filter_entries(entries):
+	var filters = current_class.FILTERS
+	var result = []
+
+	for entry in entries:
+		var flag = false
+		for key in filters:
+			if filters[key].is_empty():
+				flag = true
+			elif entry[key].is_empty():
+				flag = true
+			elif entry[key].begins_with(filters[key]):
+				printt("Filters", entry[key],"Key: ", key, "Filters:", filters[key])
+				flag = true
+		if flag:
+			result.append(entry)
+
+	return result
 
 func render(class_, entries : Array):
 	# Set the current class and entries
@@ -38,8 +66,11 @@ func render(class_, entries : Array):
 	# Set Tree format and initialize headers
 	_set_format_and_headers(AppDB.filtered_columns(class_.SHOW_COLUMNS))
 
+	# Create the filters
+	_create_filters(class_, root)
+
 	# Create a row for each entry
-	for entry in entries:
+	for entry in _filter_entries(entries):
 		_create_row(class_, entry, root)
 
 
@@ -48,10 +79,21 @@ func _set_format_and_headers(headers):
 	set_columns(headers.size())
 	for header in headers:
 		var column_index = headers.find(header)
-		# EO FIX - Capitalize the header vs filter
 		set_column_title(column_index, header)
 		set_column_title_alignment(column_index, HORIZONTAL_ALIGNMENT_LEFT)
 	return
+
+	
+func _create_filters(class_, parent_node):
+	var _row = parent_node.create_child()
+	var _columns = (AppDB.filtered_columns(class_.SHOW_COLUMNS))
+
+	for column in _columns:
+		var index = _columns.find(column)
+		_row.set_cell_mode(index, TreeItem.CELL_MODE_STRING)
+		_row.set_editable(index, true)
+		_row.set_metadata(index, column)
+		_row.set_custom_bg_color(index, Color(0.5, 0.5, 0.5, 0.5))
 
 
 func _create_row(class_, entry, parent_node):
@@ -83,6 +125,13 @@ func _on_data_changed():
 
 
 func _on_item_selected():
+	if not get_selected():
+		return
+
+	if get_selected().get_metadata(0):
+		print("Filtering")
+		return
+
 	popup_node.render(get_selected().get_metadata(0), current_class)
 	popup_node.visible = true
 

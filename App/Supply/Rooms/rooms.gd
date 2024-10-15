@@ -10,10 +10,7 @@ func _ready():
 
 
 func _load_data_and_render():
-	var db_rooms = AppDB.db_get("SELECT * FROM rooms ORDER BY name")
-	var rooms : Array[Room] = []
-	for room in db_rooms:
-		rooms.append(Room.new(room))
+	var rooms = AppDB.db_get_objects(_class, "SELECT * FROM rooms ORDER BY name")
 
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % rooms.size()

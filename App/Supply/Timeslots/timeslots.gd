@@ -11,10 +11,7 @@ func _ready():
 
 
 func _load_data_and_render():
-	var db_timeslots = AppDB.db_get("SELECT * FROM timeslots ORDER BY weekday, start_time")
-	var timeslots : Array[TimeSlot] = []
-	for db_timeslot in db_timeslots:
-		timeslots.append(TimeSlot.new(db_timeslot))
+	var timeslots = AppDB.db_get_objects(_class, "SELECT * FROM timeslots ORDER BY weekday, start_time")
 		
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % timeslots.size()

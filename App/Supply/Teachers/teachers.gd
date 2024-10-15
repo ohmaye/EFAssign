@@ -11,10 +11,7 @@ func _ready():
 
 
 func _load_data_and_render():
-	var db_teachers = AppDB.db_get("SELECT * FROM teachers ORDER BY name COLLATE NOCASE")
-	var teachers = []
-	for teacher in db_teachers:
-		teachers.append(Teacher.new(teacher))
+	var teachers = AppDB.db_get_objects(_class, "SELECT * FROM teachers ORDER BY name COLLATE NOCASE")
 
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % teachers.size()

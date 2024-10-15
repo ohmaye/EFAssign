@@ -10,10 +10,7 @@ func _ready():
 
 
 func _load_data_and_render():
-	var db_courses = AppDB.db_get("SELECT * FROM courses ORDER BY code")
-	var courses : Array[Course] = []
-	for course in db_courses:
-		courses.append(Course.new(course))
+	var courses = AppDB.db_get_objects(_class, "SELECT * FROM courses ORDER BY code")
 
 	# Show Total Entries
 	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % courses.size()

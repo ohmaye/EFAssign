@@ -35,6 +35,17 @@ func db_get(sql : String) -> Array:
 		return db.query_result
 
 
+func db_get_objects(class_, sql : String, ) -> Array:
+	var result = db.query(sql)
+	if not result:
+		return []
+	else:
+		var objects = []
+		for item in db.query_result:
+			objects.append(class_.new(item))
+		return objects
+
+
 func db_run(sql : String) -> bool:
 	var result = db.query(sql)
 	# print("Run query: ", sql)

@@ -11,13 +11,10 @@ func _ready():
 
 
 func _load_data_and_render():
-	var db_classes = AppDB.db_get("SELECT * FROM classes_view")
-	var classes : Array[ClassesView] = []
-	for a_class in db_classes:
-		classes.append(ClassesView.new(a_class))
+	var classes = AppDB.db_get_objects(_class, "SELECT * FROM classes_view")
 
 	# Show Total Entries
-	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % db_classes.size()
+	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % classes.size()
 
 	%TreeTable.render(_class, classes)
 

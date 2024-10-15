@@ -26,9 +26,10 @@ func _ready():
 	# Create the root item
 	root = create_item()
 
-	item_edited.connect(on_Tree_item_edited)
+	item_edited.connect(on_tree_item_edited)
 
-func on_Tree_item_edited():
+
+func on_tree_item_edited():
 	var item = get_edited()
 	var column_index = get_edited_column()
 	var column_name = current_class.SHOW_COLUMNS[column_index]
@@ -36,24 +37,34 @@ func on_Tree_item_edited():
 	print("Edited: ", current_class.FILTERS) 
 	render(current_class, current_entries)
 
-func _filter_entries(entries):
+
+func _filter_entries(rows : Array):
 	var filters = current_class.FILTERS
-	var result = []
+	var filtered = []
 
-	for entry in entries:
-		var flag = false
-		for key in filters:
-			if filters[key].is_empty():
-				flag = true
-			elif entry[key].is_empty():
-				flag = true
-			elif entry[key].begins_with(filters[key]):
-				printt("Filters", entry[key],"Key: ", key, "Filters:", filters[key])
-				flag = true
-		if flag:
-			result.append(entry)
+	# Get the filters with values
+	var filters_with_value = {}
+	for key in filters:
+		if not filters[key].is_empty():
+			filters_with_value[key] = filters[key]
 
-	return result
+	# If there is no filter, return all entries
+	if filters_with_value.size() == 0:
+		return rows
+	
+	print("Filters with value: ", filters_with_value)
+	# Filter the entries
+	for row in rows:
+		var pass_all = true
+		for key in filters_with_value:
+			if not row[key].begins_with(filters[key]):
+				pass_all = false
+
+		if pass_all:
+			filtered.append(row)
+
+	return filtered
+	
 
 func render(class_, entries : Array):
 	# Set the current class and entries
@@ -94,6 +105,8 @@ func _create_filters(class_, parent_node):
 		_row.set_editable(index, true)
 		_row.set_metadata(index, column)
 		_row.set_custom_bg_color(index, Color(0.5, 0.5, 0.5, 0.5))
+		if column != "active":
+			_row.set_text(index, class_.FILTERS[column] if class_.FILTERS[column] else "")
 
 
 func _create_row(class_, entry, parent_node):

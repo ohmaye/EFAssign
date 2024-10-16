@@ -140,3 +140,10 @@ ToDo:
     - By Level
     - Teacher Preferences
     - Classes 
+  2024.10.16
+  - Better to put Control (or Node) at the top of a scene to make it easier to shuffle the tree around
+  - Did that with Assignments. Also, aligning coluns with the Tree columns (columns of a gridcontainer). If done via "resized" signal can keep things aligned perfectly. Get the column width from the Tree and set the size in the gridcontainer.
+  - Doing that for filters.
+  - EO Note: Every time I want to do something in Godot, I end up finding the path to a solution. 
+      - Very satisfying.
+  - 

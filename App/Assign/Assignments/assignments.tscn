@@ -1,8 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsn0g214ij6g3"]
+[gd_scene load_steps=8 format=3 uid="uid://bxfvfrsq2xrr6"]
 
 [ext_resource type="Script" path="res://App/Assign/Assignments/assignments.gd" id="1_0w8o7"]
 [ext_resource type="Theme" uid="uid://ibcba6vdplpj" path="res://UI/tree_table/tree_table_theme.tres" id="1_3xe5p"]
+[ext_resource type="Script" path="res://App/Assign/Assignments/grid_container.gd" id="1_how34"]
 [ext_resource type="Script" path="res://App/Assign/Assignments/classes_popup_menu.gd" id="2_rshjn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxj4l"]
+content_margin_left = 18.0
+content_margin_top = 18.0
+content_margin_right = 18.0
+content_margin_bottom = 18.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.661361, 0.773651, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21rcl"]
+content_margin_left = 18.0
+content_margin_top = 12.0
+content_margin_right = 18.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.496609, 0.65537, 0.999999, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nty8n"]
 content_margin_left = 10.0
@@ -10,20 +43,61 @@ content_margin_top = 18.0
 content_margin_right = 10.0
 content_margin_bottom = 18.0
 bg_color = Color(0.144063, 0.144063, 0.144062, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
 
-[node name="AssignmentsTree" type="Tree"]
+[node name="Control" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 14
+script = ExtResource("1_how34")
+
+[node name="PopupField" type="LineEdit" parent="ScrollContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/caret_color = Color(1.2514e-06, 0, 0.52583, 1)
+theme_override_constants/caret_width = 5
+theme_override_styles/focus = SubResource("StyleBoxFlat_sxj4l")
+theme_override_styles/normal = SubResource("StyleBoxFlat_21rcl")
+placeholder_text = "filter"
+caret_blink = true
+
+[node name="AssignmentsTree" type="Tree" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 theme = ExtResource("1_3xe5p")
 theme_override_styles/title_button_normal = SubResource("StyleBoxFlat_nty8n")
 column_titles_visible = true
 hide_root = true
+scroll_horizontal_enabled = false
 script = ExtResource("1_0w8o7")
 
-[node name="ClassesPopupMenu" type="PopupMenu" parent="."]
+[node name="ClassesPopupMenu" type="PopupMenu" parent="ScrollContainer/VBoxContainer/AssignmentsTree"]
 unique_name_in_owner = true
 size = Vector2i(400, 400)
 max_size = Vector2i(600, 600)

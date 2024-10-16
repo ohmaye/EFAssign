@@ -23,10 +23,13 @@ func _ready():
 	_load_data_and_render()
 	
 	column_title_clicked.connect(func (_column, _index): print("Column Title Clicked"))
-	# for i in 14:
-	# 	var lbl = Label.new()
-	# 	lbl.text = "Title " + str(i)
-	# 	get_parent().get_node("%GridContainer").add_child(lbl)
+
+	# Resize columns
+	resized.connect(func(): 
+		print("Resized: ")
+		for i in 14:
+			print("Col ", i, " Width: ", get_column_width(i))	
+	)
 
 
 func _load_data_and_render():
@@ -41,7 +44,7 @@ func _load_data_and_render():
 		_create_demand_row(demand, root)
 
 	# Show Total Entries
-	get_parent().get_node("%TotalLbl").text = "( Total: %d )" % demands.size()
+	# get_parent().get_parent().get_parent().get_node("%TotalLbl").text = "( Total: %d )" % demands.size()
 
 
 func _set_format_and_headers():

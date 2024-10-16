@@ -4,7 +4,7 @@ extends Assign
 class_name Teacher  # Registers the class globally as 'Teacher'
 
 static var SHOW_COLUMNS = ["name", "active", "nameJP", "email", "note"]
-static var FILTERS = {"name": "", "nameJP": "", "email": "", "note": ""}
+static var FILTERS = {"name": "", "active": "", "nameJP": "", "email": "", "note": ""}
 static var COLUMN_RATIOS = [1,1,1,2,0.2]
 static var KEY = "teacher_id"
 static var TABLE = "teachers"

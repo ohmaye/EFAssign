@@ -17,7 +17,7 @@ var active: bool
 
 # Custom Constructor
 func _init(data: Dictionary = {}):
-    timeslot_id = data.get("timeslot_id")
+    timeslot_id = data.get("timeslot_id") if data.get("timeslot_id") else ""
     weekday = data.get("weekday") if data.get("weekday") else ""
     start_time = data.get("start_time") if data.get("start_time") else ""
     end_time = data.get("end_time") if data.get("end_time") else ""

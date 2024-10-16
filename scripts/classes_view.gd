@@ -5,6 +5,7 @@ class_name ClassesView  # Registers the class globally as 'ClassesView'
 
 # Classes
 static var SHOW_COLUMNS = ["course", "title", "for_program", "when", "where", "who"]
+static var FILTERS = {"course": "", "title": "", "for_program": "", "when": "", "where": "", "who": ""} 
 static var KEY = "class_id"
 static var TABLE = "classes_view"
 

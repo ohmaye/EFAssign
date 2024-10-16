@@ -79,7 +79,7 @@ func _create_class_node(_class, _parent):
 
 func _create_student_node(_student, _parent):
 	var student_node = _parent.create_child()
-	print("Student ID: ", _student["student_id"]) 
+	# print("Student ID: ", _student["student_id"]) 
 	var student_details = AppDB.db_get("SELECT firstName, lastName FROM students WHERE student_id = '%s'" % _student["student_id"])
 	var student_name = student_details[0]["firstName"] + " " + student_details[0]["lastName"]
 	student_node.set_text(0, student_name)

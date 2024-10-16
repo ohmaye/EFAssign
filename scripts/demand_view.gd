@@ -51,7 +51,7 @@ var active: int
 
 # Custom Constructor
 func _init(data: Dictionary = {}):
-    student_id = data.get("student_id")
+    student_id = data.get("student_id") if data.get("student_id") else ""
     email = data.get("email") if data.get("email") else ""
     firstName = data.get("firstName") if data.get("firstName") else ""
     lastName = data.get("lastName") if data.get("lastName") else ""

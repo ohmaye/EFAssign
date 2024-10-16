@@ -22,6 +22,12 @@ func _ready():
 
 	_load_data_and_render()
 	
+	column_title_clicked.connect(func (_column, _index): print("Column Title Clicked"))
+	# for i in 14:
+	# 	var lbl = Label.new()
+	# 	lbl.text = "Title " + str(i)
+	# 	get_parent().get_node("%GridContainer").add_child(lbl)
+
 
 func _load_data_and_render():
 	# Set Tree format and initialize headers
@@ -123,7 +129,7 @@ func _get_assignment_info_in_timeslot(student_id, timeslot : TimeSlot):
 	# printt("Student ID: ", student_id, "Timeslot: ", timeslot)
 	var sql_stmt = sql_assignment % [student_id, timeslot.timeslot_id]
 	var result = AppDB.db_get(sql_stmt)
-	if result.size() != 0:
-		printt("Assignment found for student: ", student_id, "Timeslot: ", timeslot.timeslot_id)
+	# if result.size() != 0:
+	# 	printt("Assignment found for student: ", student_id, "Timeslot: ", timeslot.timeslot_id)
 
 	return null if result.size() == 0 else result[0]

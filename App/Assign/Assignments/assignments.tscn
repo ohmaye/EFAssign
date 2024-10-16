@@ -6,9 +6,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nty8n"]
 content_margin_left = 10.0
-content_margin_top = 12.0
+content_margin_top = 18.0
 content_margin_right = 10.0
-content_margin_bottom = 12.0
+content_margin_bottom = 18.0
 bg_color = Color(0.144063, 0.144063, 0.144062, 1)
 
 [node name="AssignmentsTree" type="Tree"]

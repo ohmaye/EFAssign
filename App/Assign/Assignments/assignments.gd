@@ -22,7 +22,9 @@ func _ready():
 	_load_data_and_render()
 	
 	tree.button_clicked.connect(_on_assignment_btn_pressed)
-	tree.column_title_clicked.connect(func (_column, _index): print("Column Title Clicked"))
+	tree.column_title_clicked.connect(func (_column, _index): 
+		printt("Column Title Clicked", _column, _index)
+		_sort_tree(_column)	)
 
 
 func _on_data_changed():
@@ -112,6 +114,34 @@ func _resize_filters():
 		filter.custom_minimum_size = Vector2(column_width, 50)
 
 
+var sort_order = {}
+func _sort_tree(column: int, ascending: bool = true):
+	var items = []
+	for i in range(root.get_child_count()):
+		items.append(root.get_child(i))
+
+	if column in sort_order:
+		sort_order[column] = not sort_order[column]
+	else:
+		sort_order[column] = ascending
+
+	items.sort_custom(func (a,b): return _compare_items(a,b,column,sort_order[column]))
+
+	# Clear the root and add items back in sorted order
+	for item in items:
+		root.remove_child(item)
+	for item in items:
+		root.add_child(item)
+
+func _compare_items(a, b, column, ascending):
+	var text_a = a.get_text(column)
+	var text_b = b.get_text(column)
+	if ascending:
+		return text_a.naturalnocasecmp_to(text_b) < 0
+	else:
+		return text_a.naturalnocasecmp_to(text_b) > 0
+
+		
 func _create_demand_row(demand : DemandView, parent_node):
 	# First sep: Fill in the student & choice data (left part)
 	var _row = parent_node.create_child()

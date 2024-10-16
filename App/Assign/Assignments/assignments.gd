@@ -1,9 +1,10 @@
-extends Tree
+extends Control
 
 const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName COLLATE NOCASE, lastName COLLATE NOCASE"
 
 var button_icon = preload("res://UI/Icons/drop_down.svg")
 
+@onready var tree : Tree = %AssignmentsTree
 @onready var popup_menu : PopupMenu = %ClassesPopupMenu
 
 var root : TreeItem
@@ -15,20 +16,20 @@ func _ready():
 	# Doesn't inherit from Controller so need to connect signal
 	Signals.data_changed.connect(_on_data_changed)
 
-	button_clicked.connect(_on_assignment_btn_pressed)
+	tree.button_clicked.connect(_on_assignment_btn_pressed)
 	
 	# Create the root item
-	root = create_item()
+	root = tree.create_item()
 
 	_load_data_and_render()
 	
-	column_title_clicked.connect(func (_column, _index): print("Column Title Clicked"))
+	tree.column_title_clicked.connect(func (_column, _index): print("Column Title Clicked"))
 
 	# Resize columns
 	resized.connect(func(): 
 		print("Resized: ")
 		for i in 14:
-			print("Col ", i, " Width: ", get_column_width(i))	
+			print("Col ", i, " Width: ", tree.get_column_width(i))	
 	)
 
 
@@ -62,9 +63,9 @@ func _set_format_and_headers():
 
 	var headers = demand_columns + assignment_columns
 	# Set up the # of columns & titles
-	set_columns(headers.size())
+	tree.set_columns(headers.size())
 	for header in headers:
-		set_column_title(headers.find(header), header)
+		tree.set_column_title(headers.find(header), header)
 
 	return
 
@@ -77,7 +78,7 @@ func _create_demand_row(demand : DemandView, parent_node):
 		var index = demand_columns.find(column)
 		var txt = demand.get(column)
 		_row.set_text(index, str(txt) if txt else "-") 
-		set_column_custom_minimum_width(index, 200)
+		tree.set_column_custom_minimum_width(index, 200)
 		_row.set_text_alignment(index, HORIZONTAL_ALIGNMENT_CENTER)
 
 	# Second sep: Fill in the assignment data (right part)
@@ -95,7 +96,7 @@ func _create_demand_row(demand : DemandView, parent_node):
 			_row.set_text(timeslot_index, title)
 			_row.set_text_alignment(timeslot_index, HORIZONTAL_ALIGNMENT_CENTER)
 			_row.set_custom_bg_color(timeslot_index, "#91E2A4")
-			set_column_custom_minimum_width(timeslot_index, 280)
+			tree.set_column_custom_minimum_width(timeslot_index, 280)
 			assignment_metadata["assignment_info"] = assignment_info
 			assignment_metadata["timeslot"] =  timeslot
 		else:

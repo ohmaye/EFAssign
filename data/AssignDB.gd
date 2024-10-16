@@ -51,6 +51,7 @@ func db_run(sql : String) -> bool:
 	# print("Run query: ", sql)
 	return result
 
+
 # Return an array of selected column names
 func _get_choice_filters() -> Array:
 	var result = []
@@ -71,6 +72,7 @@ func filtered_columns(columns : Array) -> Array:
 			result.append(item)
 	
 	return result
+
 
 ## Active Timeslots propertly sorted by weekday
 func get_active_timeslots() -> Array[TimeSlot]:

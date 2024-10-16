@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxfvfrsq2xrr6"]
+[gd_scene load_steps=7 format=3 uid="uid://bxfvfrsq2xrr6"]
 
 [ext_resource type="Script" path="res://App/Assign/Assignments/assignments.gd" id="1_0w8o7"]
 [ext_resource type="Theme" uid="uid://ibcba6vdplpj" path="res://UI/tree_table/tree_table_theme.tres" id="1_3xe5p"]
-[ext_resource type="Script" path="res://App/Assign/Assignments/grid_container.gd" id="1_how34"]
 [ext_resource type="Script" path="res://App/Assign/Assignments/classes_popup_menu.gd" id="2_rshjn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxj4l"]
@@ -73,17 +72,21 @@ theme_override_constants/separation = 8
 
 [node name="MarginContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 18
 
-[node name="GridContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer/MarginContainer"]
+[node name="FiltersGridContainer" type="GridContainer" parent="ScrollContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/h_separation = 20
 columns = 14
-script = ExtResource("1_how34")
 
-[node name="PopupField" type="LineEdit" parent="ScrollContainer/VBoxContainer/MarginContainer/GridContainer"]
+[node name="FieldContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer/MarginContainer"]
 unique_name_in_owner = true
 visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Field" type="LineEdit" parent="ScrollContainer/VBoxContainer/MarginContainer/FieldContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/caret_color = Color(1.2514e-06, 0, 0.52583, 1)
 theme_override_constants/caret_width = 5

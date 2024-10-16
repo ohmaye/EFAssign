@@ -1,4 +1,4 @@
-extends Control
+extends Controller
 
 const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName COLLATE NOCASE, lastName COLLATE NOCASE"
 
@@ -6,68 +6,110 @@ var button_icon = preload("res://UI/Icons/drop_down.svg")
 
 @onready var tree : Tree = %AssignmentsTree
 @onready var popup_menu : PopupMenu = %ClassesPopupMenu
+@onready var filters_container = %FiltersGridContainer
+@onready var field_container = %FieldContainer
 
 var root : TreeItem
 var active_timeslots : Array[TimeSlot] = []
 var demand_columns = []
 var assignment_columns = []
+var headers = []
 
 func _ready():
-	# Doesn't inherit from Controller so need to connect signal
-	Signals.data_changed.connect(_on_data_changed)
-
-	tree.button_clicked.connect(_on_assignment_btn_pressed)
-	
 	# Create the root item
 	root = tree.create_item()
 
 	_load_data_and_render()
 	
+	tree.button_clicked.connect(_on_assignment_btn_pressed)
 	tree.column_title_clicked.connect(func (_column, _index): print("Column Title Clicked"))
 
-	# Resize columns
-	resized.connect(func(): 
-		print("Resized: ")
-		for i in 14:
-			print("Col ", i, " Width: ", tree.get_column_width(i))	
-	)
+
+func _on_data_changed():
+	_load_data_and_render()
 
 
 func _load_data_and_render():
 	# Set Tree format and initialize headers
-	_set_format_and_headers()
+	_setup_tree_format_and_headers()
 
+	# Clean up Tree then create a row for each student
 	Utils.free_all_treeitems(root)
-
-	# Create a row for each student
 	var demands = AppDB.db_get_objects(DemandView, sql)
 	for demand in demands:
 		_create_demand_row(demand, root)
 
+	# Set up column filters after rendering content for proper alignment
+	_setup_column_filters()
 	# Show Total Entries
 	# get_parent().get_parent().get_parent().get_node("%TotalLbl").text = "( Total: %d )" % demands.size()
 
 
-func _set_format_and_headers():
-	active_timeslots = AppDB.get_active_timeslots()
+func _setup_tree_format_and_headers():
+	# For this view, don't show email. Note that they are filtered in the SQL query
+	demand_columns = AppDB.filtered_columns(DemandView.SHOW_COLUMNS).filter(func(column):
+		return column != "email"
+	)
 
 	# Get weekday + start_time in a format suitable for the headers
+	active_timeslots = AppDB.get_active_timeslots()
 	assignment_columns = []
 	for timeslot in active_timeslots:
 		assignment_columns.append(timeslot.weekday + " " + timeslot.start_time)
 		
 	# Combine headers for student choices with active assignment_columns
-	demand_columns = AppDB.filtered_columns(DemandView.SHOW_COLUMNS).filter(func(column):
-		return column != "email"
-	)
+	headers = demand_columns + assignment_columns
 
-	var headers = demand_columns + assignment_columns
 	# Set up the # of columns & titles
 	tree.set_columns(headers.size())
 	for header in headers:
 		tree.set_column_title(headers.find(header), header)
 
 	return
+
+
+func _setup_column_filters() -> void:
+	# Clear the filters container
+	Utils.free_all_children(filters_container)
+	filters_container.columns = headers.size()
+
+	for i in headers.size():
+		var filter = field_container.duplicate()
+		filter.visible = true
+		var column_width = tree.get_column_width(i) - 3
+		filter.custom_minimum_size = Vector2(column_width, 50)
+		filters_container.add_child(filter)
+		filter.get_node("Field").text_submitted.connect(_on_filter_text_submitted)
+
+func _on_filter_text_submitted(text):
+	print("Filter Text Submitted: ", text)
+	var filters = []
+	for i in headers.size():
+		var filter = filters_container.get_child(i)
+		var filter_text = filter.get_node("Field").text
+		filters.append(filter_text)
+	print("Filters: ", filters)
+	_apply_filters(filters)
+
+
+func _apply_filters(filters : Array):
+	for row in range(root.get_child_count()):
+		var item = root.get_child(row)
+		var show_row = true
+		for col in range(headers.size()):
+			var cell_text = item.get_text(col)
+			if filters[col] != "" and not cell_text.to_lower().begins_with(filters[col].to_lower()):
+				print("Cell Text: ", cell_text)		
+				show_row = false
+				break
+		item.visible = show_row
+
+
+func _resize_filters():
+	for i in headers.size():
+		var filter = filters_container.get_child(i)
+		var column_width = tree.get_column_width(i) - 3
+		filter.custom_minimum_size = Vector2(column_width, 50)
 
 
 func _create_demand_row(demand : DemandView, parent_node):
@@ -118,8 +160,6 @@ func _on_assignment_btn_pressed(item: Object, _column: int, _id: , _mouse_button
 	popup_menu.load_and_render(_metadata["demand"], _metadata["assignment_info"], _metadata["timeslot"])
 
 
-func _on_data_changed():
-	_load_data_and_render()
 
 
 const sql_assignment = """

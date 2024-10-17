@@ -1,0 +1,298 @@
+CREATE TABLE teacherpreferences (
+  teacher_id TEXT,
+  course_id TEXT,
+  rating INT
+)
+CREATE TABLE timeslots (
+  timeslot_id TEXT NOT NULL UNIQUE PRIMARY KEY,
+  weekday TEXT,
+  start_time TEXT,
+  end_time TEXT,
+  active INT
+)
+CREATE TABLE courses (
+  course_id TEXT NOT NULL UNIQUE PRIMARY KEY,
+  code TEXT,
+  title TEXT,
+  active INT
+)
+CREATE TABLE rooms (
+  room_id TEXT NOT NULL UNIQUE PRIMARY KEY,
+  name TEXT,
+  type TEXT,
+  capacity INT,
+  active INT
+)
+CREATE TABLE teachers (
+  teacher_id TEXT NOT NULL UNIQUE PRIMARY KEY,
+  name TEXT,
+  nameJP TEXT,
+  email TEXT,
+  note TEXT,
+  active INT
+)
+CREATE TABLE students (
+  student_id TEXT NOT NULL UNIQUE PRIMARY KEY,
+  email	TEXT,
+  firstName TEXT,
+  lastName TEXT,
+  level TEXT,
+  program TEXT,
+  timestamp TEXT,
+  active int
+)
+CREATE TABLE "programs" (
+	"program"	TEXT,
+	"show"	INTEGER
+)
+CREATE TABLE "survey" (
+	"student_id"	TEXT NOT NULL UNIQUE,
+	"timestamp"	TEXT,
+	"email"	TEXT,
+	"firstName"	TEXT,
+	"lastName"	TEXT,
+	"level"	TEXT,
+	"program"	TEXT,
+	"IM1"	TEXT,
+	"IM2"	TEXT,
+	"IM3"	TEXT,
+	"Ia1"	TEXT,
+	"Ia2"	TEXT,
+	"Ia3"	TEXT,
+	"Ia4"	TEXT,
+	"Ia5"	TEXT,
+	"Ga1"	TEXT,
+	"Ga2"	TEXT,
+	"Ga3"	TEXT,
+	"Ga4"	TEXT,
+	"Ga5"	TEXT,
+	PRIMARY KEY("student_id")
+)
+CREATE TABLE "choices" (
+	"choice"	TEXT,
+	"show"	INTEGER,
+	"weekday"	TEXT
+)
+CREATE TABLE "student_choices" (
+	"choice_id"	TEXT NOT NULL,
+	"student_id"	TEXT NOT NULL,
+	"choice"	TEXT,
+	"ranking"	INTEGER,
+	"course_code"	TEXT,
+	"assigned"	INTEGER,
+	PRIMARY KEY("choice_id")
+)
+CREATE TABLE "classes" (
+	"class_id"	TEXT NOT NULL UNIQUE,
+	"title"	TEXT,
+	"course_id"	TEXT,
+	"room_id"	TEXT,
+	"timeslot_id"	TEXT,
+	"teacher_id"	TEXT,
+	"for_program"	TEXT,
+	PRIMARY KEY("class_id")
+)
+CREATE TABLE "assignments" (
+	"assignment_id"	TEXT,
+	"student_id"	TEXT,
+	"class_id"	TEXT,
+	PRIMARY KEY("assignment_id")
+)
+
+CREATE VIEW filtered_students_view AS SELECT * FROM students WHERE program IN (SELECT program FROM programs WHERE show = 1)
+CREATE VIEW filtered_demand_view AS SELECT * FROM demand_view WHERE program IN (SELECT program FROM programs WHERE show = 1)
+CREATE VIEW filtered_student_choices_view AS  
+SELECT * FROM student_choices sc JOIN students s USING (student_id)
+WHERE s.program IN (SELECT program FROM programs WHERE show = 1)
+AND sc.choice IN (SELECT choice FROM choices WHERE show = 1)
+CREATE VIEW demand_view AS
+SELECT
+  s.student_id,
+  s.email,
+  s.firstName,
+  s.lastName,
+  s.level,
+  s.program,
+  -- Pivoting choices for Monday
+  MAX(CASE WHEN sc.choice = 'IM1' THEN sc.course_code END) AS IM1,
+  MAX(CASE WHEN sc.choice = 'IM2' THEN sc.course_code END) AS IM2,
+  MAX(CASE WHEN sc.choice = 'IM3' THEN sc.course_code END) AS IM3,
+  MAX(CASE WHEN sc.choice = 'Ia1' THEN sc.course_code END) AS Ia1,
+  MAX(CASE WHEN sc.choice = 'Ia2' THEN sc.course_code END) AS Ia2,
+  MAX(CASE WHEN sc.choice = 'Ia3' THEN sc.course_code END) AS Ia3,
+  MAX(CASE WHEN sc.choice = 'Ia4' THEN sc.course_code END) AS Ia4,
+  MAX(CASE WHEN sc.choice = 'Ia5' THEN sc.course_code END) AS Ia5,
+  MAX(CASE WHEN sc.choice = 'Ga1' THEN sc.course_code END) AS Ga1,
+  MAX(CASE WHEN sc.choice = 'Ga2' THEN sc.course_code END) AS Ga2,
+  MAX(CASE WHEN sc.choice = 'Ga3' THEN sc.course_code END) AS Ga3,
+  MAX(CASE WHEN sc.choice = 'Ga4' THEN sc.course_code END) AS Ga4,
+  MAX(CASE WHEN sc.choice = 'Ga5' THEN sc.course_code END) AS Ga5,
+  s.active
+FROM
+  students s
+LEFT JOIN
+  student_choices sc ON s.student_id = sc.student_id
+GROUP BY
+  s.student_id
+CREATE VIEW demand_by_course_view as SELECT course,
+	   SUM(CASE WHEN choice = 'IM1' THEN 1 ELSE 0 END) AS IM1,
+	   SUM(CASE WHEN choice = 'IM2' THEN 1 ELSE 0 END) AS IM2,
+	   SUM(CASE WHEN choice = 'IM3' THEN 1 ELSE 0 END) AS IM3,
+	   SUM(CASE WHEN choice = 'Ia1' THEN 1 ELSE 0 END) AS Ia1,
+	   SUM(CASE WHEN choice = 'Ia2' THEN 1 ELSE 0 END) AS Ia2,
+	   SUM(CASE WHEN choice = 'Ia3' THEN 1 ELSE 0 END) AS Ia3,
+	   SUM(CASE WHEN choice = 'Ia4' THEN 1 ELSE 0 END) AS Ia4,
+	   SUM(CASE WHEN choice = 'Ia5' THEN 1 ELSE 0 END) AS Ia5,
+	   SUM(CASE WHEN choice = 'Ga1' THEN 1 ELSE 0 END) AS Ga1,
+	   SUM(CASE WHEN choice = 'Ga2' THEN 1 ELSE 0 END) AS Ga2,
+	   SUM(CASE WHEN choice = 'Ga3' THEN 1 ELSE 0 END) AS Ga3,
+	   SUM(CASE WHEN choice = 'Ga4' THEN 1 ELSE 0 END) AS Ga4,
+	   SUM(CASE WHEN choice = 'Ga5' THEN 1 ELSE 0 END) AS Ga5,
+	   -- Total for each row (course)
+	   SUM(CASE WHEN choice IN (SELECT choice FROM choices) THEN 1 ELSE 0 END) AS Total
+FROM (
+	SELECT IM1 AS course, 'IM1' AS choice, program FROM filtered_demand_view WHERE IM1 IS NOT NULL AND IM1 != ''
+	UNION ALL
+	SELECT IM2 AS course, 'IM2' AS choice, program FROM filtered_demand_view WHERE IM2 IS NOT NULL AND IM2 != ''
+	UNION ALL
+	SELECT IM3 AS course, 'IM3' AS choice, program FROM filtered_demand_view WHERE IM3 IS NOT NULL AND IM3 != ''
+	UNION ALL
+	SELECT Ia1 AS course, 'Ia1' AS choice, program FROM filtered_demand_view WHERE Ia1 IS NOT NULL AND Ia1 != ''
+	UNION ALL
+	SELECT Ia2 AS course, 'Ia2' AS choice, program FROM filtered_demand_view WHERE Ia2 IS NOT NULL AND Ia2 != ''
+	UNION ALL
+	SELECT Ia3 AS course, 'Ia3' AS choice, program FROM filtered_demand_view WHERE Ia3 IS NOT NULL AND Ia3 != ''
+	UNION ALL
+	SELECT Ia4 AS course, 'Ia4' AS choice, program FROM filtered_demand_view WHERE Ia4 IS NOT NULL AND Ia4 != ''
+	UNION ALL
+	SELECT Ia5 AS course, 'Ia5' AS choice, program FROM filtered_demand_view WHERE Ia5 IS NOT NULL AND Ia5 != ''
+	UNION ALL
+	SELECT Ga1 AS course, 'Ga1' AS choice, program FROM filtered_demand_view WHERE Ga1 IS NOT NULL AND Ga1 != ''
+	UNION ALL
+	SELECT Ga2 AS course, 'Ga2' AS choice, program FROM filtered_demand_view WHERE Ga2 IS NOT NULL AND Ga2 != ''
+	UNION ALL
+	SELECT Ga3 AS course, 'Ga3' AS choice, program FROM filtered_demand_view WHERE Ga3 IS NOT NULL AND Ga3 != ''
+	UNION ALL
+	SELECT Ga4 AS course, 'Ga4' AS choice, program FROM filtered_demand_view WHERE Ga4 IS NOT NULL AND Ga4 != ''
+	UNION ALL
+	SELECT Ga5 AS course, 'Ga5' AS choice, program FROM filtered_demand_view WHERE Ga5 IS NOT NULL AND Ga5 != ''
+)
+GROUP BY course
+
+-- Add the row for column totals using a UNION ALL
+UNION ALL
+
+SELECT 'Total' AS course,
+	   SUM(CASE WHEN choice = 'IM1' THEN 1 ELSE 0 END) AS IM1,
+	   SUM(CASE WHEN choice = 'IM2' THEN 1 ELSE 0 END) AS IM2,
+	   SUM(CASE WHEN choice = 'IM3' THEN 1 ELSE 0 END) AS IM3,
+	   SUM(CASE WHEN choice = 'Ia1' THEN 1 ELSE 0 END) AS Ia1,
+	   SUM(CASE WHEN choice = 'Ia2' THEN 1 ELSE 0 END) AS Ia2,
+	   SUM(CASE WHEN choice = 'Ia3' THEN 1 ELSE 0 END) AS Ia3,
+	   SUM(CASE WHEN choice = 'Ia4' THEN 1 ELSE 0 END) AS Ia4,
+	   SUM(CASE WHEN choice = 'Ia5' THEN 1 ELSE 0 END) AS Ia5,
+	   SUM(CASE WHEN choice = 'Ga1' THEN 1 ELSE 0 END) AS Ga1,
+	   SUM(CASE WHEN choice = 'Ga2' THEN 1 ELSE 0 END) AS Ga2,
+	   SUM(CASE WHEN choice = 'Ga3' THEN 1 ELSE 0 END) AS Ga3,
+	   SUM(CASE WHEN choice = 'Ga4' THEN 1 ELSE 0 END) AS Ga4,
+	   SUM(CASE WHEN choice = 'Ga5' THEN 1 ELSE 0 END) AS Ga5,
+	   -- Total across all columns (time slots)
+	   SUM(CASE WHEN choice IN (SELECT choice FROM choices) THEN 1 ELSE 0 END) AS Total
+FROM (
+	SELECT IM1 AS course, 'IM1' AS choice, program FROM filtered_demand_view WHERE IM1 IS NOT NULL AND IM1 != ''
+	UNION ALL
+	SELECT IM2 AS course, 'IM2' AS choice, program FROM filtered_demand_view WHERE IM2 IS NOT NULL AND IM2 != ''
+	UNION ALL
+	SELECT IM3 AS course, 'IM3' AS choice, program FROM filtered_demand_view WHERE IM3 IS NOT NULL AND IM3 != ''
+	UNION ALL
+	SELECT Ia1 AS course, 'Ia1' AS choice, program FROM filtered_demand_view WHERE Ia1 IS NOT NULL AND Ia1 != ''
+	UNION ALL
+	SELECT Ia2 AS course, 'Ia2' AS choice, program FROM filtered_demand_view WHERE Ia2 IS NOT NULL AND Ia2 != ''
+	UNION ALL
+	SELECT Ia3 AS course, 'Ia3' AS choice, program FROM filtered_demand_view WHERE Ia3 IS NOT NULL AND Ia3 != ''
+	UNION ALL
+	SELECT Ia4 AS course, 'Ia4' AS choice, program FROM filtered_demand_view WHERE Ia4 IS NOT NULL AND Ia4 != ''
+	UNION ALL
+	SELECT Ia5 AS course, 'Ia5' AS choice, program FROM filtered_demand_view WHERE Ia5 IS NOT NULL AND Ia5 != ''
+	UNION ALL
+	SELECT Ga1 AS course, 'Ga1' AS choice, program FROM filtered_demand_view WHERE Ga1 IS NOT NULL AND Ga1 != ''
+	UNION ALL
+	SELECT Ga2 AS course, 'Ga2' AS choice, program FROM filtered_demand_view WHERE Ga2 IS NOT NULL AND Ga2 != ''
+	UNION ALL
+	SELECT Ga3 AS course, 'Ga3' AS choice, program FROM filtered_demand_view WHERE Ga3 IS NOT NULL AND Ga3 != ''
+	UNION ALL
+	SELECT Ga4 AS course, 'Ga4' AS choice, program FROM filtered_demand_view WHERE Ga4 IS NOT NULL AND Ga4 != ''
+	UNION ALL
+	SELECT Ga5 AS course, 'Ga5' AS choice, program FROM filtered_demand_view WHERE Ga5 IS NOT NULL AND Ga5 != ''
+)
+CREATE VIEW demand_by_level_view as SELECT course, level,
+	   SUM(CASE WHEN time_slot = 'IM1' THEN 1 ELSE 0 END) AS IM1,
+	   SUM(CASE WHEN time_slot = 'IM2' THEN 1 ELSE 0 END) AS IM2,
+	   SUM(CASE WHEN time_slot = 'IM3' THEN 1 ELSE 0 END) AS IM3,
+	   SUM(CASE WHEN time_slot = 'Ia1' THEN 1 ELSE 0 END) AS Ia1,
+	   SUM(CASE WHEN time_slot = 'Ia2' THEN 1 ELSE 0 END) AS Ia2,
+	   SUM(CASE WHEN time_slot = 'Ia3' THEN 1 ELSE 0 END) AS Ia3,
+	   SUM(CASE WHEN time_slot = 'Ia4' THEN 1 ELSE 0 END) AS Ia4,
+	   SUM(CASE WHEN time_slot = 'Ia5' THEN 1 ELSE 0 END) AS Ia5,
+	   SUM(CASE WHEN time_slot = 'Ga1' THEN 1 ELSE 0 END) AS Ga1,
+	   SUM(CASE WHEN time_slot = 'Ga2' THEN 1 ELSE 0 END) AS Ga2,
+	   SUM(CASE WHEN time_slot = 'Ga3' THEN 1 ELSE 0 END) AS Ga3,
+	   SUM(CASE WHEN time_slot = 'Ga4' THEN 1 ELSE 0 END) AS Ga4,
+	   SUM(CASE WHEN time_slot = 'Ga5' THEN 1 ELSE 0 END) AS Ga5,
+	   -- Total for each course and level (row total)
+	   SUM(CASE WHEN time_slot IN (SELECT choice FROM choices) THEN 1 ELSE 0 END) AS Total
+FROM (
+	SELECT IM1 AS course, level, 'IM1' AS time_slot FROM filtered_demand_view WHERE IM1 IS NOT NULL AND IM1 != '' 
+	UNION ALL
+	SELECT IM2 AS course, level, 'IM2' AS time_slot FROM filtered_demand_view WHERE IM2 IS NOT NULL AND IM2 != '' 
+	UNION ALL
+	SELECT IM3 AS course, level, 'IM3' AS time_slot FROM filtered_demand_view WHERE IM3 IS NOT NULL AND IM3 != '' 
+	UNION ALL
+	SELECT Ia1 AS course, level, 'Ia1' AS time_slot FROM filtered_demand_view WHERE Ia1 IS NOT NULL AND Ia1 != '' 
+	UNION ALL
+	SELECT Ia2 AS course, level, 'Ia2' AS time_slot FROM filtered_demand_view WHERE Ia2 IS NOT NULL AND Ia2 != '' 
+	UNION ALL
+	SELECT Ia3 AS course, level, 'Ia3' AS time_slot FROM filtered_demand_view WHERE Ia3 IS NOT NULL AND Ia3 != '' 
+	UNION ALL
+	SELECT Ia4 AS course, level, 'Ia4' AS time_slot FROM filtered_demand_view WHERE Ia4 IS NOT NULL AND Ia4 != '' 
+	UNION ALL
+	SELECT Ga5 AS course, level, 'Ga5' AS time_slot FROM filtered_demand_view WHERE Ga5 IS NOT NULL AND Ga5 != '' 
+	UNION ALL
+	SELECT Ga1 AS course, level, 'Ga1' AS time_slot FROM filtered_demand_view WHERE Ga1 IS NOT NULL AND Ga1 != '' 
+	UNION ALL
+	SELECT Ga2 AS course, level, 'Ga2' AS time_slot FROM filtered_demand_view WHERE Ga2 IS NOT NULL AND Ga2 != '' 
+	UNION ALL
+	SELECT Ga3 AS course, level, 'Ga3' AS time_slot FROM filtered_demand_view WHERE Ga3 IS NOT NULL AND Ga3 != '' 
+	UNION ALL
+	SELECT Ga4 AS course, level, 'Ga4' AS time_slot FROM filtered_demand_view WHERE Ga4 IS NOT NULL AND Ga4 != '' 
+	UNION ALL
+	SELECT Ga5 AS course, level, 'Ga5' AS time_slot FROM filtered_demand_view WHERE Ga5 IS NOT NULL AND Ga5 != '' 
+)
+GROUP BY course, level
+ORDER BY course, level
+CREATE VIEW classes_view as 
+
+SELECT cls.class_id as class_id, co.code as 'course', 
+cls.title as 'title', 
+cls.for_program as for_program,
+r.name as 'where', 
+			CASE 
+				WHEN ts.weekday = 'Mon' THEN 1
+				WHEN ts.weekday = 'Tue' THEN 2
+				WHEN ts.weekday = 'Wed' THEN 3
+				WHEN ts.weekday = 'Thu' THEN 4
+				WHEN ts.weekday = 'Fri' THEN 5
+				WHEN ts.weekday = 'Sat' THEN 6
+				WHEN ts.weekday = 'Sun' THEN 7
+			END AS weekday_sort_key,
+ts.weekday as weekday,
+ ts.weekday || ' ' || ts.start_time as 'when', 
+ t.name as 'who',
+ ts.timeslot_id as timeslot_id,
+ ts.active as timeslot_active
+ FROM classes cls
+	LEFT JOIN courses co USING (course_id)
+	LEFT JOIN rooms r USING (room_id)
+	LEFT JOIN timeslots ts USING (timeslot_id)
+	LEFT JOIN teachers t USING (teacher_id)
+	ORDER BY course, title, weekday_sort_key

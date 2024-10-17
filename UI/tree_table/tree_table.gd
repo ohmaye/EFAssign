@@ -23,7 +23,7 @@ func _ready():
 	root = tree.create_item()
 
 	tree.item_selected.connect(_on_item_selected)	# Show Popup
-	# tree.gui_input.connect(_on_gui_input)	# Hover Effect
+	tree.gui_input.connect(_on_gui_input)	# Hover Effect
 	
 	# Create an instance of the popup dialog scene
 	popup_node = popup_scene.instantiate()

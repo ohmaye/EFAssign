@@ -103,6 +103,7 @@ theme = ExtResource("1_3xe5p")
 theme_override_styles/title_button_normal = SubResource("StyleBoxFlat_nty8n")
 column_titles_visible = true
 hide_root = true
+select_mode = 1
 scroll_horizontal_enabled = false
 
 [node name="ClassesPopupMenu" type="PopupMenu" parent="ScrollContainer/VBoxContainer/AssignmentsTree"]

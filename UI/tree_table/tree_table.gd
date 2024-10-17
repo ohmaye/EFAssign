@@ -23,7 +23,7 @@ func _ready():
 	root = tree.create_item()
 
 	tree.item_selected.connect(_on_item_selected)	# Show Popup
-	tree.gui_input.connect(_on_gui_input)	# Hover Effect
+	# tree.gui_input.connect(_on_gui_input)	# Hover Effect
 	
 	# Create an instance of the popup dialog scene
 	popup_node = popup_scene.instantiate()
@@ -57,7 +57,6 @@ func render(class_, entries : Array):
 
 
 func _setup_tree_format_and_headers():
-	print("Setting up tree format and headers")
 	headers = AppDB.filtered_columns(current_class.SHOW_COLUMNS)
 	# Set up the # of columns & headers
 	tree.set_columns(headers.size())
@@ -68,7 +67,6 @@ func _setup_tree_format_and_headers():
 	return
 
 func _setup_column_filters() -> void:
-	print("Setting up column filters")
 	# Clear the filters container
 	Utils.free_all_children(filters_container)
 	filters_container.columns = headers.size()
@@ -102,7 +100,6 @@ func _apply_filters(filters : Array):
 		for col in range(headers.size()):
 			var cell_text = item.get_text(col)
 			if filters[col] != "" and not cell_text.to_lower().begins_with(filters[col].to_lower()):
-				print("Cell not pass: ", cell_text)		
 				show_row = false
 				break
 		item.visible = show_row
@@ -192,11 +189,15 @@ func _on_gui_input(event):
 			_clear_item_row(hover_item)
 			_set_item_row_bg_color(item, Color(0.5, 0.5, 0.5, 0.5))
 			hover_item = item
+	else:
+		# Allow other events to propagate up the hierarchy
+		pass
 
 			
 func _clear_item_row(item): 
 	for i in range(0, tree.columns):
 		item.clear_custom_bg_color(i)
+
 
 func _set_item_row_bg_color(item, color):
 	for i in range(0, tree.columns):

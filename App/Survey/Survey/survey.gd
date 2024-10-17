@@ -42,4 +42,4 @@ func _add_new():
 	if result:
 		popup_node.render(survey, _class)
 		popup_node.visible = true	
-		Signals.data_changed.emit()
+		Signals.emit_data_changed()

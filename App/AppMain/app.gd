@@ -91,7 +91,7 @@ func _toggle_tabs_off() -> void:
 ## The user can toggle the choices on and off. The choices are used to filter the data
 
 func _on_add_btn_pressed() -> void:
-	Signals.add_new.emit()
+	Signals.emit_add_new()
 
 
 func _on_program_check_box_pressed() -> void:
@@ -114,15 +114,15 @@ func _on_program_check_box_pressed() -> void:
 		_activate_I_choices()
 
 	_update_ui_from_db()
-	Signals.filters_changed.emit()
-	Signals.data_changed.emit()
+	Signals.emit_filters_changed()
+	Signals.emit_data_changed()
 
 
 func _on_check_box_pressed() -> void:
 	# print("Pressed checkbox: ")
 	_update_db_from_ui()
-	Signals.filters_changed.emit()
-	Signals.data_changed.emit()
+	Signals.emit_filters_changed()
+	Signals.emit_data_changed()
 
 
 func _update_db_from_ui():

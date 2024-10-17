@@ -8,3 +8,5 @@ signal class_selected
 signal student_selected
 
 signal assignment_selected
+
+signal total_changed

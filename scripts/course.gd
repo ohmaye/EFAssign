@@ -5,7 +5,6 @@ class_name Course  # Registers the class globally as 'Course'
 
 # Courses
 static var SHOW_COLUMNS = ["code", "active", "title"]
-static var FILTERS = {"code": "", "active": "", "title": ""} 
 static var KEY = "course_id"
 static var TABLE = "courses"
 

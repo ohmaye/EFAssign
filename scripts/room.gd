@@ -5,7 +5,6 @@ class_name Room  # Registers the class globally as 'Room'
 
 # Rooms
 static var SHOW_COLUMNS = ["name", "active", "type", "capacity"]
-static var FILTERS = {"name": "", "active": "", "type": ""} 
 static var KEY = "room_id"
 static var TABLE = "rooms"
 

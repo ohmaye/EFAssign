@@ -5,9 +5,9 @@ const sql = "SELECT * FROM filtered_demand_view ORDER BY firstName COLLATE NOCAS
 var button_icon = preload("res://UI/Icons/drop_down.svg")
 
 @onready var tree : Tree = %AssignmentsTree
-@onready var popup_menu : PopupMenu = %ClassesPopupMenu
 @onready var filters_container = %FiltersGridContainer
 @onready var field_container = %FieldContainer
+@onready var popup_menu : PopupMenu = %ClassesPopupMenu
 
 var root : TreeItem
 var active_timeslots : Array[TimeSlot] = []

@@ -53,8 +53,6 @@ func render(class_, entries : Array):
 		_create_row(class_, entry, root)
 
 	# Create the filters if the class has filters
-	# if "FILTERS" in class_:
-	# 	_create_filters(class_, root, headers)
 	_setup_column_filters()
 
 
@@ -143,7 +141,7 @@ func _compare_items(a, b, column, ascending):
 	else:
 		return text_a.naturalnocasecmp_to(text_b) > 0
 
-		
+
 func _create_row(class_, entry, parent_node):
 	var _row = parent_node.create_child()
 	var _columns = (AppDB.filtered_columns(class_.SHOW_COLUMNS))

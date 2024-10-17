@@ -7,6 +7,9 @@ var assignments_scene = preload("res://App/Assign/Assignments/assignments.tscn")
 # var timetables_scene = preload("res://App/Assign/Timetables/timetables.tscn")
 
 
+func _ready() -> void:
+	pass
+
 ## ASSIGN TAB
 ##
 ## Handlers for Assign, Assignments, Timetables, and Teacher Preferences

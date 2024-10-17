@@ -26,6 +26,7 @@ func _ready():
 		printt("Column Title Clicked", _column, _index)
 		_sort_tree(_column)	)
 
+	resized.connect(_resize_filters)
 
 func _on_data_changed():
 	_load_data_and_render()
@@ -82,6 +83,8 @@ func _setup_column_filters() -> void:
 		filter.custom_minimum_size = Vector2(column_width, 50)
 		filters_container.add_child(filter)
 		filter.get_node("Field").text_submitted.connect(_on_filter_text_submitted)
+
+	call_deferred("_resize_filters")
 
 func _on_filter_text_submitted(text):
 	print("Filter Text Submitted: ", text)

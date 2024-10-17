@@ -50,10 +50,12 @@ func _input(event):
 			# Handle the ESC key press (e.g., hide the popup)
 			hide()
 		# Check if the key pressed is the ENTER key
-		elif event.keycode == KEY_ENTER:
-			# Handle the ENTER key press (e.g., save the data)
-			_on_save_btn_pressed()
-			hide()
+		# EO Fix: Disabling ENTER below because it interferes with filters
+		# elif event.keycode == KEY_ENTER:
+		# 	# Handle the ENTER key press (e.g., save the data)
+		# 	print("ENTER key pressed caught in popup.gd")
+		# 	_on_save_btn_pressed()
+		# 	hide()
 
 func _on_cancel_btn_pressed() -> void:
 	visible = false

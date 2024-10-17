@@ -18,7 +18,6 @@ var active: bool
 
 # Custom Constructor
 func _init(data: Dictionary = {}):
-	print("Room: ", data)
 	room_id = data.get("room_id") if data.get("room_id") else ""
 	name = data.get("name") if data.get("name") else ""
 	type = data.get("type") if data.get("type") else ""

@@ -45,7 +45,7 @@ func _on_assignment_selected(index):
 	if index == 0 and current_assignment:
 		print("Clearing assignment")
 		_delete_current_assignment()
-		Signals.emit_signal("data_changed")
+		Signals.emit_data_changed()
 		return
 
 	# Get the selected class (the index is shifted because of the "Clear Assignment" option)
@@ -75,7 +75,7 @@ func _on_assignment_selected(index):
 		%StatusMsg.text += AppDB.db.error_message
 		return
 
-	Signals.emit_signal("data_changed")
+	Signals.emit_data_changed()
 
 func _delete_current_assignment():
 	var sql = "DELETE FROM assignments WHERE assignment_id = '%s'"

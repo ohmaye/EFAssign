@@ -117,7 +117,7 @@ func _on_multi_selected(item: TreeItem, column: int, selected: bool) -> void:
 	_update_selections(item, column, selected)
 	# for selection in selections:
 	# 	print("Selections: ", selection)
-	Signals.emit_signal("student_selected", selections) 
+	Signals.emit_student_selected(selections) 
 
 		
 func _update_selections(item: TreeItem, column: int, selected: bool) -> void:

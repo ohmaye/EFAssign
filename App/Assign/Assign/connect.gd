@@ -49,6 +49,6 @@ func _on_assign_btn_pressed() -> void:
 			return
 
 	%StatusMsg.text = "Status: Successfully assigned students to class."
-	Signals.emit_signal("data_changed")
+	Signals.emit_data_changed()
 
 # EO FIXME: If an assignment at the same time exists, need to delete it first.

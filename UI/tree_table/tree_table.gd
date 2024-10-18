@@ -159,6 +159,7 @@ func _create_field(index, field, row):
 			row.set_text_alignment(index, HORIZONTAL_ALIGNMENT_LEFT)
 		TYPE_BOOL:
 			row.set_cell_mode(index, TreeItem.CELL_MODE_CHECK)
+			# row.set_text_alignment(index, HORIZONTAL_ALIGNMENT_RIGHT) # EO Fix: Has no effect
 			row.set_checked(index, field)
 		_:
 			print("Unknown type")

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://yhhspsxsho0n"]
+[gd_scene format=3 uid="uid://unm2o1t632q0"]
 
 [node name="GrayScreen" type="ColorRect"]
 anchors_preset = 15

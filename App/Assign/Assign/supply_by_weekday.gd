@@ -109,7 +109,7 @@ func _on_item_selected():
 	var _class = get_selected().get_metadata(1)
 	print("Item selected", _class)
 	if _class:
-		Signals.emit_signal("class_selected", _class )
+		Signals.emit_class_selected(_class)
 
 
 func _update_counts(item) -> int:

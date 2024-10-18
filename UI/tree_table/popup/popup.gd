@@ -1,40 +1,58 @@
 extends CanvasLayer
 
 # Data 
-var class_
-var row 
+var current_class
+var current_row 
 
 # UI Elements
 var label_scn = preload("popup_label.tscn")
 var field_scn = preload("popup_field.tscn")
+var checkbox_scn = preload("res://UI/check_box.tscn")
 var separator = preload("h_separator.tscn")
-var container
-var gray_screen
-var colorrect
+var container : Control 
+var backdrop : Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	container = %ItemsContainer
-	colorrect = $ColorRect
+	backdrop = $BackdropColorRect
 
-func render(_row, current_class) -> void:
+func render(_row, _class) -> void:
 	Utils.free_all_children(container)
-	row = _row
-	class_ = current_class
+	current_row = _row
+	current_class = _class
 
-	for field in class_.SHOW_COLUMNS:
-		var label = label_scn.instantiate()
-		label.text = field.capitalize()
-		container.add_child(label)
+	backdrop.gui_input.connect(_input_event)
 
-		var lineEdit = field_scn.instantiate()
-		lineEdit.text = str(row[field]) if row[field] else ""
-		container.add_child(lineEdit)
+	for field in current_class.SHOW_COLUMNS:
+		_create_field(field, current_row)
 
 		var spacer = separator.instantiate()
 		container.add_child(spacer)
 
-		colorrect.gui_input.connect(_input_event)
+
+func _create_field(field, row):
+	# Add a label for the field
+	var label = label_scn.instantiate()
+	label.text = field.capitalize()
+	container.add_child(label)
+
+	match typeof(row[field]):
+		TYPE_STRING:
+			var lineEdit = field_scn.instantiate()
+			lineEdit.text = str(row[field]) if row[field] else ""
+			container.add_child(lineEdit)
+		TYPE_INT:
+			var spinbox = SpinBox.new()
+			spinbox.value = row[field]
+			container.add_child(spinbox)
+		TYPE_BOOL:
+			var checkBox : CheckBox = checkbox_scn.instantiate()
+			checkBox.button_pressed = row[field]
+			container.add_child(checkBox)
+		_:
+			print("Unknown type")
+
 
 func _input_event(event):
 	# Check if the event is a left mouse button click
@@ -61,26 +79,34 @@ func _on_cancel_btn_pressed() -> void:
 	visible = false
 
 func _on_save_btn_pressed() -> void:
-	const sql = "UPDATE {0} SET {1}='{2}' WHERE {3} = '{4}'"
+	var sql = "UPDATE %s SET {0}='{1}' WHERE {2} = '{3}'" % current_class.TABLE
 	var sql_stmt
 
 	var index = 0
 	# EO FIX: This is updating SQL once for each field. Obviously, this is not the best way to do it.
 	for field in container.get_children():
+		print("Field:", field)
 		if field is LineEdit:
-			# print("Node:", row[query_info.key], query_info.columns[index], field.text)
-			sql_stmt = sql.format([class_.TABLE, class_.SHOW_COLUMNS[index], field.text, class_.KEY, row[class_.KEY]])
-			# print(sql_stmt)
+			sql_stmt = sql.format([current_class.SHOW_COLUMNS[index], field.text, current_class.KEY, current_row[current_class.KEY]])
+			AppDB.db_run(sql_stmt)
+			index += 1
+		elif field is SpinBox:
+			sql_stmt = sql.format([current_class.SHOW_COLUMNS[index], field.value, current_class.KEY, current_row[current_class.KEY]])
+			AppDB.db_run(sql_stmt)
+			index += 1
+		elif field is CheckBox:
+			var active = 1 if field.button_pressed else 0
+			sql_stmt = sql.format([current_class.SHOW_COLUMNS[index], active, current_class.KEY, current_row[current_class.KEY]])
 			AppDB.db_run(sql_stmt)
 			index += 1
 
-	Signals.emit_signal("data_changed")
+	Signals.emit_data_changed()
 	visible = false
 			
 
 func _on_delete_btn_pressed():
 	var sql = "DELETE FROM {0} WHERE {1} = '{2}' "
-	var sql_stm = sql.format([class_.TABLE, class_.KEY, row[class_.KEY]])
+	var sql_stm = sql.format([current_class.TABLE, current_class.KEY, current_row[current_class.KEY]])
 	AppDB.db_run(sql_stm)
 	visible = false
-	Signals.emit_signal("data_changed")
+	Signals.emit_data_changed()

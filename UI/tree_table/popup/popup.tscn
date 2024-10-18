@@ -22,7 +22,7 @@ corner_radius_bottom_left = 20
 follow_viewport_enabled = true
 script = ExtResource("1_qesg7")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BackdropColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,7 +31,7 @@ grow_vertical = 2
 mouse_filter = 1
 color = Color(0, 0, 0, 0.411765)
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="BackdropColorRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,11 +43,11 @@ theme_override_constants/margin_top = 200
 theme_override_constants/margin_right = 600
 theme_override_constants/margin_bottom = 200
 
-[node name="Panel" type="Panel" parent="ColorRect/MarginContainer"]
+[node name="Panel" type="Panel" parent="BackdropColorRect/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2xw5l")
 
-[node name="MarginContainer" type="MarginContainer" parent="ColorRect/MarginContainer/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="BackdropColorRect/MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,26 +59,26 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/Panel/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BackdropColorRect/MarginContainer/Panel/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="BackdropColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_8ifwp")
 
-[node name="ItemsContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="ItemsContainer" type="VBoxContainer" parent="BackdropColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BackdropColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="CancelBtn" type="Button" parent="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CancelBtn" type="Button" parent="BackdropColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/focus = ExtResource("3_ad0qi")
@@ -88,7 +88,7 @@ theme_override_styles/pressed = ExtResource("3_ad0qi")
 theme_override_styles/normal = ExtResource("3_ad0qi")
 text = "Cancel"
 
-[node name="DeleteBtn" type="Button" parent="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="DeleteBtn" type="Button" parent="BackdropColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_styles/focus = ExtResource("3_ad0qi")
@@ -98,7 +98,7 @@ theme_override_styles/pressed = ExtResource("3_ad0qi")
 theme_override_styles/normal = ExtResource("3_ad0qi")
 text = "Delete"
 
-[node name="SaveBtn" type="Button" parent="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="SaveBtn" type="Button" parent="BackdropColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_styles/focus = ExtResource("4_mv5ab")
@@ -108,6 +108,6 @@ theme_override_styles/pressed = ExtResource("4_mv5ab")
 theme_override_styles/normal = ExtResource("4_mv5ab")
 text = "Save"
 
-[connection signal="pressed" from="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/CancelBtn" to="." method="_on_cancel_btn_pressed"]
-[connection signal="pressed" from="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/DeleteBtn" to="." method="_on_delete_btn_pressed"]
-[connection signal="pressed" from="ColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]
+[connection signal="pressed" from="BackdropColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/CancelBtn" to="." method="_on_cancel_btn_pressed"]
+[connection signal="pressed" from="BackdropColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/DeleteBtn" to="." method="_on_delete_btn_pressed"]
+[connection signal="pressed" from="BackdropColorRect/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/SaveBtn" to="." method="_on_save_btn_pressed"]

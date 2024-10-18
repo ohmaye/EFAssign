@@ -2,7 +2,7 @@ extends Tree
 
 const sql_courses = "SELECT DISTINCT course_code FROM filtered_student_choices_view ORDER BY course_code"
 const sql_levels = "SELECT DISTINCT level FROM filtered_student_choices_view WHERE course_code = '%s' ORDER BY level" 
-const sql_students = """SELECT choice_id, student_id, firstName, lastName, choice 
+const sql_students = """SELECT choice_id, student_id, firstName, lastName, choice, course_code
 					FROM filtered_student_choices_view 
 					WHERE course_code = '%s' AND level = '%s' ORDER BY firstName COLLATE NOCASE, lastName COLLATE NOCASE"""
 
@@ -100,6 +100,11 @@ func _create_student_node(_student, _parent):
 	student_node.set_selectable(1,false)
 	student_node.set_selectable(2,false)
 	student_node.set_selectable(3,false)
+	if _is_course_assigned_for_student(_student['student_id'], _student.get("course_code")):
+		student_node.set_custom_bg_color(0, "#A3FFD8")
+		student_node.set_custom_bg_color(1, "#A3FFD8")
+		student_node.set_custom_bg_color(2, "#A3FFD8")
+		student_node.set_custom_bg_color(3, "#A3FFD8")
 	return student_node
 
 func _on_column_title_clicked():
@@ -132,9 +137,6 @@ func _update_selections(item: TreeItem, column: int, selected: bool) -> void:
 			selections.erase(item.get_text(0))
 
 
-# func _update_counts() -> void:
-# 	root.set_text(3, str(_count_students(root)))
-
 func _update_counts(item) -> int:
 	var count = 0
 	var metadata = item.get_metadata(0)
@@ -149,3 +151,14 @@ func _update_counts(item) -> int:
 		item.set_text(3, str(count))
 	
 	return count
+
+
+const sql_course_assigned_to_student = """
+		SELECT a.assignment_id, a.student_id, a.class_id, cv.title, cv.course FROM assignments a
+		JOIN classes_view AS cv USING (class_id)
+		WHERE a.student_id = '%s' AND cv.course = '%s';
+"""
+func _is_course_assigned_for_student(student_id, course_code):
+	var sql_stmt = sql_course_assigned_to_student % [student_id, course_code]
+	var result = AppDB.db_get(sql_stmt)
+	return result.size() != 0

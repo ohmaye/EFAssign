@@ -1,10 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://baq36xx5p6jn2"]
+[gd_scene load_steps=11 format=3 uid="uid://baq36xx5p6jn2"]
 
 [ext_resource type="Script" path="res://App/Assign/assign.gd" id="1_2yj8f"]
+[ext_resource type="PackedScene" uid="uid://bjnupjmsbao0y" path="res://App/Assign/Assign/assign.tscn" id="2_475gy"]
+[ext_resource type="PackedScene" uid="uid://bxfvfrsq2xrr6" path="res://App/Assign/Assignments/assignments.tscn" id="3_r06yw"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
 color = Color(0.595154, 0.595154, 0.595154, 1)
 thickness = 2
+
+[sub_resource type="InputEventKey" id="InputEventKey_ea1y0"]
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="Shortcut" id="Shortcut_k05q8"]
+events = [SubResource("InputEventKey_ea1y0")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_10tge"]
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="Shortcut" id="Shortcut_3xtmo"]
+events = [SubResource("InputEventKey_10tge")]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pocr"]
 content_margin_right = 20.0
@@ -69,6 +87,7 @@ size_flags_horizontal = 2
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+shortcut = SubResource("Shortcut_k05q8")
 text = "Assign"
 flat = true
 
@@ -76,6 +95,7 @@ flat = true
 unique_name_in_owner = true
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
+shortcut = SubResource("Shortcut_3xtmo")
 text = "Assignments"
 flat = true
 
@@ -96,9 +116,21 @@ text = "( Total: 0 )"
 
 [node name="AssignContent" type="Panel" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_hdoff")
+
+[node name="Assign" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_475gy")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Assignments" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_r06yw")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ColorRect/HBoxContainer/AssignBtn" to="." method="_on_assign_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ColorRect/HBoxContainer/AssignmentsBtn" to="." method="_on_assignments_btn_pressed"]

@@ -16,7 +16,7 @@ func _ready() -> void:
 	# DisplayServer.window_set_mode(0)
 	AppDB.setup_db()
 
-	_update_db_from_ui()
+	_update_ui_from_db()
 
 	# By default, set to Home
 	_toggle_tabs_off()

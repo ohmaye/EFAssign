@@ -4,11 +4,17 @@
 [ext_resource type="Script" path="res://UI/tree_table/tree_table.gd" id="2_5d2k8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fwllq"]
+content_margin_top = 12.0
+bg_color = Color(1, 1, 1, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.552956, 0.552956, 0.552955, 1)
+border_color = Color(0.728822, 0.728822, 0.728822, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7s3xl"]
 content_margin_left = 18.0

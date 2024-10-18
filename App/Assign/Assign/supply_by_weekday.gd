@@ -17,7 +17,10 @@ func _ready():
 
 	# Create the root item
 	root = create_item()
+	root.set_metadata(0,"root")
+
 	root.set_text(0, "(Shift click to hide/show all)")
+	root.set_text_alignment(3, HORIZONTAL_ALIGNMENT_CENTER)
 	root.set_selectable(1,false)
 	root.set_selectable(2,false)
 
@@ -54,10 +57,15 @@ func _load_data_and_render():
 			for student in assignments:
 				_create_student_node(student, class_node)
 
+	# Update Counts after the tree is built
+	_update_counts(root)
+
 
 func _create_course_node(_course, _parent):
 	var course_node = _parent.create_child()
+	course_node.set_metadata(0,"course")
 	course_node.set_text(0, _course["course"])
+	course_node.set_text_alignment(3, HORIZONTAL_ALIGNMENT_CENTER)
 	return course_node
 
 
@@ -65,6 +73,7 @@ func _create_class_node(_class, _parent):
 	var class_title = _class["title"] if _class["title"] else "?"
 	var class_node = _parent.create_child()
 	# Save class for assignment
+	class_node.set_metadata(0,"class")
 	class_node.set_metadata(1, _class)
 
 	class_node.set_text(0,class_title)
@@ -79,7 +88,8 @@ func _create_class_node(_class, _parent):
 
 func _create_student_node(_student, _parent):
 	var student_node = _parent.create_child()
-	# print("Student ID: ", _student["student_id"]) 
+	student_node.set_metadata(0,"student")
+	
 	var student_details = AppDB.db_get("SELECT firstName, lastName FROM students WHERE student_id = '%s'" % _student["student_id"])
 	var student_name = student_details[0]["firstName"] + " " + student_details[0]["lastName"]
 	student_node.set_text(0, student_name)
@@ -100,3 +110,19 @@ func _on_item_selected():
 	print("Item selected", _class)
 	if _class:
 		Signals.emit_signal("class_selected", _class )
+
+
+func _update_counts(item) -> int:
+	var count = 0
+	var metadata = item.get_metadata(0)
+
+	if metadata in ["root", "course","class"]:
+		for child in item.get_children():
+			count += _update_counts(child)
+
+	if metadata == "student":
+		count = 1
+	else: 
+		item.set_text(3, str(count))
+	
+	return count

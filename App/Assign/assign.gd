@@ -15,11 +15,15 @@ func _ready() -> void:
 ## Handlers for Assign, Assignments, Timetables, and Teacher Preferences
 
 func _on_assign_btn_pressed() -> void:
-	Utils.change_scene(container, assign_scene)
+	# Utils.change_scene(container, assign_scene)
+	%Assignments.visible = false
+	%Assign.visible = true
 
 
 func _on_assignments_btn_pressed() -> void:
-	Utils.change_scene(container, assignments_scene)
+	# Utils.change_scene(container, assignments_scene)
+	%Assign.visible = false
+	%Assignments.visible = true
 
 
 func _on_timetables_btn_pressed() -> void:

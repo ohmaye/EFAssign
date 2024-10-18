@@ -81,7 +81,7 @@ func _create_student_demand_row(demand : DemandView, parent_node):
 		tree.set_column_custom_minimum_width(index, 200)
 		_row.set_text_alignment(index, HORIZONTAL_ALIGNMENT_CENTER)
 		if _is_course_assigned_for_student(demand['student_id'], demand.get(column)):
-			_row.set_custom_bg_color(index, "#FFD8D8")
+			_row.set_custom_bg_color(index, "#A3E9FF")
 
 	# Second sep: Fill in the assignment data (right part)
 	for timeslot in active_timeslots:
@@ -93,13 +93,17 @@ func _create_student_demand_row(demand : DemandView, parent_node):
 		
 		# If student has an assignment in this timeslot, show the class title and store it as metadata
 		var assignment_info = _get_assignment_info_in_timeslot(demand['student_id'], timeslot)
-		if assignment_info:
-			var title = assignment_info.get('title') if assignment_info.get('title') else "???"
+		var assignment = assignment_info[0] if assignment_info else null
+		if assignment:
+			var title = assignment.get('title') if assignment.get('title') else "???"
 			_row.set_text(timeslot_index, title)
 			_row.set_text_alignment(timeslot_index, HORIZONTAL_ALIGNMENT_CENTER)
-			_row.set_custom_bg_color(timeslot_index, "#91E2A4")
+			if assignment_info.size() > 1:
+				_row.set_custom_bg_color(timeslot_index, "#FF0000")
+			else:
+				_row.set_custom_bg_color(timeslot_index, "#91E2A4")
 			tree.set_column_custom_minimum_width(timeslot_index, 280)
-			assignment_metadata["assignment_info"] = assignment_info
+			assignment_metadata["assignment_info"] = assignment
 			assignment_metadata["timeslot"] =  timeslot
 		else:
 			_row.set_custom_bg_color(timeslot_index, "#A3FFD8")
@@ -209,7 +213,7 @@ func _get_assignment_info_in_timeslot(student_id, timeslot : TimeSlot):
 	# if result.size() != 0:
 	# 	printt("Assignment found for student: ", result[0])
 
-	return null if result.size() == 0 else result[0]
+	return null if result.size() == 0 else result
 
 
 const sql_course_assigned_to_student = """

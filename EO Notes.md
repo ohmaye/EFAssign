@@ -146,4 +146,7 @@ ToDo:
   - Doing that for filters.
   - EO Note: Every time I want to do something in Godot, I end up finding the path to a solution. 
       - Very satisfying.
-  - 
+- 2024.10.18 Friday (Kozue/Haruna)
+  - Preserve filters when assigning in Assignments
+  - Changed since 2438: Classes, Teachers
+  - Need to add "Uploaded to Atlantis"

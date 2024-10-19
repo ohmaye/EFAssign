@@ -8,7 +8,7 @@ var assignments_scene = preload("res://App/Assign/Assignments/assignments.tscn")
 
 
 func _ready() -> void:
-	pass
+	Signals.total_changed.connect(_on_total_changed)
 
 ## ASSIGN TAB
 ##
@@ -29,3 +29,7 @@ func _on_assignments_btn_pressed() -> void:
 func _on_timetables_btn_pressed() -> void:
 	# Utils.change_scene(container, timetables_scene)
 	pass
+
+func _on_total_changed(total) -> void:
+	print("Total Changed: ", total)
+	%TotalLbl.text = "( Total: " + str(total) + " )"

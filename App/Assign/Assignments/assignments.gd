@@ -45,7 +45,8 @@ func _load_data_and_render():
 	# Set up column filters after rendering content for proper alignment
 	_setup_column_filters()
 	# Show Total Entries
-	# get_parent().get_parent().get_parent().get_node("%TotalLbl").text = "( Total: %d )" % demands.size()
+	print("Will emit total changed signal")
+	Signals.emit_total_changed(student_demands.size())
 
 
 func _setup_tree_format_and_headers():

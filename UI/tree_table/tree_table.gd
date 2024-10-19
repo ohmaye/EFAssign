@@ -8,6 +8,7 @@ var root : TreeItem
 var current_class = []
 var current_entries = []
 var headers = []
+var filters = {}
 
 # Popup for editing
 var popup_scene = preload("popup/popup.tscn")
@@ -73,33 +74,35 @@ func _setup_column_filters() -> void:
 
 	for i in headers.size():
 		var filter = field_container.duplicate()
+		var filter_text = filters[headers[i]] if filters.has(headers[i]) else ""
+		filter.get_node("Field").text = filter_text
 		filter.visible = true
 		var column_width = tree.get_column_width(i) - 3
 		filter.custom_minimum_size = Vector2(column_width, 50)
 		filters_container.add_child(filter)
 		filter.get_node("Field").text_submitted.connect(_on_filter_text_submitted)
 
+	_apply_filters()
 	call_deferred("_resize_filters")
 
 
 func _on_filter_text_submitted(text):
 	print("Filter Text Submitted: ", text)
-	var filters = []
 	for i in headers.size():
 		var filter = filters_container.get_child(i)
 		var filter_text = filter.get_node("Field").text
-		filters.append(filter_text)
+		filters[headers[i]] = filter_text
 	print("Filters: ", filters)
-	_apply_filters(filters)
+	_apply_filters()
 
 
-func _apply_filters(filters : Array):
+func _apply_filters():
 	for row in range(root.get_child_count()):
 		var item = root.get_child(row)
 		var show_row = true
 		for col in range(headers.size()):
 			var cell_text = item.get_text(col)
-			if filters[col] != "" and not cell_text.to_lower().begins_with(filters[col].to_lower()):
+			if filters.get(headers[col]) != null and not cell_text.to_lower().begins_with(filters.get(headers[col]).to_lower()):
 				show_row = false
 				break
 		item.visible = show_row

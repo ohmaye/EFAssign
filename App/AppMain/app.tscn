@@ -3,7 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://py3oc1qy66xb" path="res://App/AppMain/style_box_btn.tres" id="1_1ruca"]
 [ext_resource type="Script" path="res://App/AppMain/app.gd" id="1_j3nuu"]
 [ext_resource type="StyleBox" uid="uid://snxtmaas4or" path="res://App/AppMain/style_box_demand_btn.tres" id="2_3otyw"]
-[ext_resource type="StyleBox" uid="uid://bdm5p3vs4frrv" path="res://App/AppMain/style_box_pressed_btn.tres" id="3_42yw7"]
+[ext_resource type="StyleBox" path="res://App/AppMain/style_box_pressed_btn.tres" id="3_42yw7"]
 [ext_resource type="StyleBox" uid="uid://dimu3f3foahrr" path="res://App/AppMain/style_box_assign_btn.tres" id="3_vapd6"]
 [ext_resource type="StyleBox" uid="uid://dk4d6fjs47kh1" path="res://App/AppMain/style_box_supply_btn.tres" id="4_yexrk"]
 [ext_resource type="PackedScene" uid="uid://dw70vonudpgfe" path="res://UI/check_box.tscn" id="6_05x5c"]

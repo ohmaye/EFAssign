@@ -97,9 +97,12 @@ func _create_student_demand_row(demand : DemandView, parent_node):
 		var assignment_info = _get_assignment_info_in_timeslot(demand['student_id'], timeslot)
 		var assignment = assignment_info[0] if assignment_info else null
 		if assignment:
+			_row.set_cell_mode(timeslot_index, TreeItem.CELL_MODE_CHECK)
+			_row.set_editable(timeslot_index, true)
+			_row.set_custom_font_size(timeslot_index, 28)
 			var title = assignment.get('title') if assignment.get('title') else "???"
 			_row.set_text(timeslot_index, title)
-			_row.set_text_alignment(timeslot_index, HORIZONTAL_ALIGNMENT_CENTER)
+			_row.set_text_alignment(timeslot_index, HORIZONTAL_ALIGNMENT_LEFT)
 			if assignment_info.size() > 1:
 				_row.set_custom_bg_color(timeslot_index, "#FF0000")
 			else:

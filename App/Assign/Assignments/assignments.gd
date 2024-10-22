@@ -68,6 +68,7 @@ func _setup_tree_format_and_headers():
 	tree.set_columns(headers.size())
 	for header in headers:
 		tree.set_column_title(headers.find(header), header)
+		tree.set_column_custom_minimum_width(headers.find(header), 480)
 
 	return
 
@@ -87,6 +88,10 @@ func _create_student_demand_row(demand : DemandView, parent_node):
 
 	# Second sep: Fill in the assignment data (right part)
 	for timeslot in active_timeslots:
+		_create_timeslot(_row, demand, timeslot)
+
+
+func _create_timeslot(_row, demand, timeslot):
 		# Prepare demand metadata to pass to the button
 		var assignment_metadata = {"demand": demand}
 
@@ -117,6 +122,7 @@ func _create_student_demand_row(demand : DemandView, parent_node):
 
 		_row.set_metadata(timeslot_index, assignment_metadata)
 		_row.add_button(timeslot_index, button_icon)
+
 
 ## Filtering and Sorting
 func _setup_column_filters() -> void:

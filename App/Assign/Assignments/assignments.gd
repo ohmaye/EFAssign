@@ -74,7 +74,7 @@ func _setup_tree_format_and_headers():
 
 		
 func _create_student_demand_row(demand : DemandView, parent_node):
-	# First sep: Fill in the student & choice data (left part)
+	# First step: Fill in the student & choice data (left part)
 	var _row = parent_node.create_child()
 
 	for column in demand_columns:
@@ -86,7 +86,7 @@ func _create_student_demand_row(demand : DemandView, parent_node):
 		if _is_course_assigned_for_student(demand['student_id'], demand.get(column)):
 			_row.set_custom_bg_color(index, "#A3E9FF")
 
-	# Second sep: Fill in the assignment data (right part)
+	# Second step: Fill in the assignment data (right part)
 	for timeslot in active_timeslots:
 		_create_timeslot(_row, demand, timeslot)
 

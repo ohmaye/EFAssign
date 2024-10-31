@@ -13,6 +13,10 @@ func _ready() -> void:
 	Utils.load_user_prefs()
 	theme_.default_font_size = GlobalVars.font_size
 
+	# Handle zoom in and zoom out
+	Signals.zoom_in.connect(func (): _zoom(true))
+	Signals.zoom_out.connect(func (): _zoom(false))
+
 	# DisplayServer.window_set_mode(0)
 	AppDB.setup_db()
 
@@ -37,10 +41,15 @@ func _notification(what: int) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("zoom_in"):
-		print("Zoom_in")
-		theme_.default_font_size += 1
+		_zoom(true)
 	elif event.is_action_pressed("zoom_out"):
-		print("Zoom_out")
+		_zoom(false)
+
+
+func _zoom(zoom_in: bool = true) -> void:
+	if zoom_in:
+		theme_.default_font_size += 1
+	else:
 		theme_.default_font_size -= 1
 
 	GlobalVars.font_size = theme_.default_font_size

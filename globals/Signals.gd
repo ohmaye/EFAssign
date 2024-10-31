@@ -11,6 +11,9 @@ signal assignment_selected
 
 signal total_changed(total)
 
+signal zoom_in()
+signal zoom_out()
+
 func emit_filters_changed():
 	emit_signal("filters_changed")
 
@@ -32,3 +35,9 @@ func emit_assignment_selected(assignment):
 func emit_total_changed(total):
 	print("Emitting total changed signal")
 	emit_signal("total_changed", total)
+
+func emit_zoom_in():
+	emit_signal("zoom_in")
+
+func emit_zoom_out():
+	emit_signal("zoom_out")

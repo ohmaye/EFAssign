@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhqjoyjsliodj"]
+[gd_scene load_steps=5 format=3 uid="uid://bhqjoyjsliodj"]
 
 [ext_resource type="Script" path="res://App/Home/home.gd" id="1_j08bo"]
 [ext_resource type="PackedScene" uid="uid://ccenobp0t5rod" path="res://App/Home/Overview/overview.tscn" id="1_t45cb"]
+[ext_resource type="PackedScene" uid="uid://c8egb06nxcyw6" path="res://UI/zoom_buttons.tscn" id="2_42f2v"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_67y6w"]
 color = Color(0.595154, 0.595154, 0.595154, 1)
@@ -46,6 +47,10 @@ grow_vertical = 2
 theme_override_constants/separation = 80
 alignment = 1
 
+[node name="PlaceHolder" type="Control" parent="VBoxContainer/ColorRect/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+
 [node name="OverviewBtn" type="Button" parent="VBoxContainer/ColorRect/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -83,8 +88,14 @@ flat = true
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Quit"
 flat = true
+
+[node name="ZoomBtns" parent="VBoxContainer/ColorRect/HBoxContainer" instance=ExtResource("2_42f2v")]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 10
 
 [node name="HomeContent" type="Panel" parent="VBoxContainer"]
 unique_name_in_owner = true

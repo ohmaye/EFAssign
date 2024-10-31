@@ -39,7 +39,7 @@ func _on_assign_btn_pressed() -> void:
 	for student in selected_students.keys():
 		var student_id = selected_students[student]["student_id"]
 		var class_id = selected_class["class_id"]
-		var sql = "INSERT INTO assignments (assignment_id, student_id, class_id) VALUES ('%s','%s', '%s')" 
+		var sql = "INSERT INTO assignments (assignment_id, student_id, class_id, uploaded) VALUES ('%s','%s', '%s', 0)" 
 		var sql_stmt = sql % [Utils.uuid.v4(), student_id, class_id]
 		# print("Query: ", sql)
 		var result = AppDB.db_run(sql_stmt)

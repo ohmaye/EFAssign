@@ -25,11 +25,22 @@ func _ready():
 	tree.button_clicked.connect(_on_assignment_btn_pressed)
 	tree.column_title_clicked.connect(func (_column, _index): _sort_tree(_column)	)
 
+	# tree.cell_selected.connect(func (): print("Cell Selected: "))
+	# tree.item_selected.connect(func (): print("Item Selected: "))
+	tree.custom_item_clicked.connect(func (_button_index): _on_uploaded_changed())
+
 	resized.connect(_resize_filters)
 
 
 func _on_data_changed():
 	_load_data_and_render()
+
+
+func _on_uploaded_changed():
+	print("Uploaded changed")
+	var row = tree.get_selected()
+	var column = tree.get_selected_column()
+	_mark_uploaded(row, column)
 
 
 func _load_data_and_render():
@@ -66,9 +77,12 @@ func _setup_tree_format_and_headers():
 
 	# Set up the # of columns & titles
 	tree.set_columns(headers.size())
-	for header in headers:
+	for header in demand_columns:
 		tree.set_column_title(headers.find(header), header)
-		tree.set_column_custom_minimum_width(headers.find(header), 480)
+		tree.set_column_custom_minimum_width(headers.find(header), 320)
+	for header in assignment_columns:
+		tree.set_column_title(headers.find(header), header)
+		tree.set_column_custom_minimum_width(headers.find(header), 420)
 
 	return
 
@@ -100,19 +114,22 @@ func _create_timeslot(_row, demand, timeslot):
 		
 		# If student has an assignment in this timeslot, show the class title and store it as metadata
 		var assignment_info = _get_assignment_info_in_timeslot(demand['student_id'], timeslot)
-		var assignment = assignment_info[0] if assignment_info else null
+		var assignment = assignment_info[0] if assignment_info.size() > 0 else null
+		# If there's one or more assignments, then show the first one
 		if assignment:
 			_row.set_cell_mode(timeslot_index, TreeItem.CELL_MODE_CHECK)
 			_row.set_editable(timeslot_index, true)
+			_row.set_checked(timeslot_index, assignment.get('uploaded') == 1)
 			_row.set_custom_font_size(timeslot_index, 28)
 			var title = assignment.get('title') if assignment.get('title') else "???"
 			_row.set_text(timeslot_index, title)
 			_row.set_text_alignment(timeslot_index, HORIZONTAL_ALIGNMENT_LEFT)
+
+			# If there is more than one assignment in the same timeslot, color it red
 			if assignment_info.size() > 1:
 				_row.set_custom_bg_color(timeslot_index, "#FF0000")
 			else:
 				_row.set_custom_bg_color(timeslot_index, "#91E2A4")
-			tree.set_column_custom_minimum_width(timeslot_index, 280)
 			assignment_metadata["assignment_info"] = assignment
 			assignment_metadata["timeslot"] =  timeslot
 		else:
@@ -122,6 +139,19 @@ func _create_timeslot(_row, demand, timeslot):
 
 		_row.set_metadata(timeslot_index, assignment_metadata)
 		_row.add_button(timeslot_index, button_icon)
+
+
+const sql_update_is_uploaded = "UPDATE assignments SET uploaded = %d WHERE assignment_id = '%s'"
+
+func _mark_uploaded(row: TreeItem, column: int):
+	var is_selected = row.is_checked(column)
+	var assignment = row.get_metadata(column)["assignment_info"]
+	if assignment:
+		var assignment_id = assignment.get("assignment_id")
+		AppDB.db_run(sql_update_is_uploaded % [1 if is_selected else 0, assignment_id])
+		# row.set_custom_bg_color(column, "#000000" if is_selected else "#91E2A4", true)
+		# row.set_metadata(column, assignment)
+		print("Assignment ", assignment_id, " is uploaded: ", is_selected)
 
 
 ## Filtering and Sorting
@@ -216,17 +246,15 @@ func _on_assignment_btn_pressed(item: Object, _column: int, _id: , _mouse_button
 
 # EO FIX: Should these be turned into a dictionary loaded only when data changes?
 const sql_assignment_in_timeslot = """
-		SELECT a.assignment_id, a.student_id, a.class_id, cv.title, cv.course FROM assignments a
+		SELECT a.assignment_id, a.student_id, a.class_id, a.uploaded, cv.title, cv.course FROM assignments a
 		JOIN classes_view AS cv USING (class_id)
 		WHERE a.student_id = '%s' AND cv.timeslot_id = '%s';
 """
 func _get_assignment_info_in_timeslot(student_id, timeslot : TimeSlot):
 	var sql_stmt = sql_assignment_in_timeslot % [student_id, timeslot.timeslot_id]
 	var result = AppDB.db_get(sql_stmt)
-	# if result.size() != 0:
-	# 	printt("Assignment found for student: ", result[0])
 
-	return null if result.size() == 0 else result
+	return [] if result.size() == 0 else result
 
 
 const sql_course_assigned_to_student = """

@@ -66,7 +66,7 @@ func _on_assignment_selected(index):
 	# Insert the new assignment
 	var class_id = selected_class.get('class_id')
 	var student_id = current_demand.get('student_id')
-	var sql = "INSERT INTO assignments (assignment_id, student_id, class_id) VALUES ('%s','%s', '%s')" 
+	var sql = "INSERT INTO assignments (assignment_id, student_id, class_id, uploaded) VALUES ('%s','%s', '%s', 0)" 
 	var sql_stmt = sql % [Utils.uuid.v4(), student_id, class_id]
 	print("Query: ", sql_stmt)
 	var result = AppDB.db_run(sql_stmt)

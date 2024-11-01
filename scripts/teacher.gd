@@ -7,6 +7,7 @@ static var SHOW_COLUMNS = ["name", "active", "nameJP", "email", "note"]
 static var COLUMN_RATIOS = [1,1,1,2,0.2]
 static var KEY = "teacher_id"
 static var TABLE = "teachers"
+static var EDITABLE : bool = true
 
 # Class Properties
 var teacher_id: String

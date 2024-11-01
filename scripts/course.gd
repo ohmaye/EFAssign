@@ -7,6 +7,7 @@ class_name Course  # Registers the class globally as 'Course'
 static var SHOW_COLUMNS = ["code", "active", "title"]
 static var KEY = "course_id"
 static var TABLE = "courses"
+static var EDITABLE  : bool = true
 
 # Class Properties
 var course_id: String

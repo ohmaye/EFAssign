@@ -7,6 +7,7 @@ class_name Room  # Registers the class globally as 'Room'
 static var SHOW_COLUMNS = ["name", "active", "type", "capacity"]
 static var KEY = "room_id"
 static var TABLE = "rooms"
+static var EDITABLE : bool = true
 
 # Class Properties
 var room_id: String

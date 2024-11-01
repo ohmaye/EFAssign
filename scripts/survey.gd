@@ -28,6 +28,7 @@ static var SHOW_COLUMNS = [
 ]
 static var KEY = "student_id"
 static var TABLE = "survey"
+static var EDITABLE : bool = false
 
 # Class Properties
 var student_id: String

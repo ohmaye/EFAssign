@@ -7,6 +7,7 @@ class_name TimeSlot  # Registers the class globally as 'TimeSlot'
 static var SHOW_COLUMNS = ["weekday", "active", "start_time", "end_time"]
 static var KEY = "timeslot_id"
 static var TABLE = "timeslots"
+static var EDITABLE : bool = true
 
 # Class Properties
 var timeslot_id: String

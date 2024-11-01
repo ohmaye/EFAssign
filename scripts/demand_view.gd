@@ -25,6 +25,7 @@ static var SHOW_COLUMNS = [
 	"Ga5"
 ]
 static var KEY = "student_id"
+static var EDITABLE : bool = false
 # static var TABLE = "demand_view"    # This is a view, not a table
 
 # Class Properties

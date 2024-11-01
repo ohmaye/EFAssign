@@ -5,7 +5,7 @@ extends Control
 @onready var field_container = %FieldContainer
 
 var root : TreeItem
-var current_class = []
+var current_class 
 var current_entries = []
 var headers = []
 var filters = {}
@@ -169,8 +169,13 @@ func _create_field(index, field, row):
 
 
 func _on_item_selected():
-	popup_node.render(tree.get_selected().get_metadata(0), current_class)
-	popup_node.visible = true
+	if "CUSTOM_EDITOR" in current_class:
+		print("Has property", current_class.CUSTOM_EDITOR)
+		
+	if current_class.EDITABLE:
+		popup_node.render(tree.get_selected().get_metadata(0), current_class)
+		popup_node.visible = true
+
 
 
 ## Hover Effect

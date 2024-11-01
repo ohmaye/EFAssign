@@ -22,6 +22,7 @@ const SHOW_COLUMNS = [
 	"Total"
 ]
 static var KEY = "course"
+static var EDITABLE : bool = false
 # static var TABLE = "demand_by_course_view"    # This is a view, not a table
 
 # Class Properties

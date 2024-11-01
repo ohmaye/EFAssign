@@ -24,6 +24,7 @@ boot_splash/minimum_display_time=200
 
 [autoload]
 
+SqliteHack="res://data/sqlite_hack.gd"
 Signals="*res://globals/Signals.gd"
 GlobalVars="*res://globals/global_vars.gd"
 AppDB="*res://data/AssignDB.gd"

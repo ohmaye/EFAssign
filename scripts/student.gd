@@ -7,6 +7,7 @@ class_name Student  # Registers the class globally as 'Student'
 static var SHOW_COLUMNS = ["firstName", "lastName", "email", "program", "level", "active", "timestamp"]
 static var KEY = "student_id"
 static var TABLE = "students"
+static var EDITABLE : bool = true
 
 # Class Properties
 var student_id: String

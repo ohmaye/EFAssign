@@ -23,6 +23,7 @@ const SHOW_COLUMNS = [
 	"Total"
 ]
 static var KEY = "level"
+static var EDITABLE : bool = false
 # static var TABLE = "demand_by_level_view"    # This is a view, not a table
 
 # Class Properties

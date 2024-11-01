@@ -169,10 +169,19 @@ func _create_field(index, field, row):
 
 
 func _on_item_selected():
+	if not current_class.EDITABLE:
+		return
+
 	if "CUSTOM_EDITOR" in current_class:
-		print("Has property", current_class.CUSTOM_EDITOR)
-		
-	if current_class.EDITABLE:
+		var custom_popup_scene = load(current_class.CUSTOM_EDITOR)
+		var custom_popup_node : CanvasLayer
+		print("Load custom popup: ", current_class.CUSTOM_EDITOR)	
+		# Create an instance of the custom popup dialog scene
+		custom_popup_node = custom_popup_scene.instantiate()
+		custom_popup_node.visible = true
+		add_child(custom_popup_node)
+		custom_popup_node.render(tree.get_selected().get_metadata(0), current_class)
+	else:
 		popup_node.render(tree.get_selected().get_metadata(0), current_class)
 		popup_node.visible = true
 

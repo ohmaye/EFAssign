@@ -15,7 +15,6 @@ func _ready() -> void:
 
 
 func _on_file_dialog_file_selected(path : String) -> void:
-	print("File selected: ", path)
 	AppDB.db.path = path
 	AppDB.db.close_db()
 	var result = AppDB.db.open_db()

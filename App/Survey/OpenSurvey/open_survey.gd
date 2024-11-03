@@ -16,7 +16,6 @@ func _ready() -> void:
 func _file_selected(path : String):
 	var survey : Array = []
 	var file = FileAccess.open(path, FileAccess.READ)
-	print("File: ", file)
 
 	if file == null:
 		print("Couldn't open the file")
@@ -46,4 +45,3 @@ func _file_selected(path : String):
 		var sql = "INSERT INTO survey ({0}) VALUES ({1})".format([columns, values_str])
 		AppDB.db.query(sql)
 		
-	print("Loaded Survey Msgs")

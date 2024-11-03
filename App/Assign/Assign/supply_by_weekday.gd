@@ -50,7 +50,7 @@ func _load_data_and_render():
 		course_node.set_selectable(0, false)
 		# For each course, list the classes
 		var classes = AppDB.db_get(sql_classes_for_course % course["course"])
-		# print("Classes: ", classes)
+		
 		for _class in classes:
 			var class_node = _create_class_node(_class, course_node)
 			var assignments = AppDB.db_get(sql_assignments_for_class % _class["class_id"])	
@@ -107,7 +107,7 @@ func _on_cell_selected():
 	
 func _on_item_selected():
 	var _class = get_selected().get_metadata(1)
-	print("Item selected", _class)
+	
 	if _class:
 		Signals.emit_class_selected(_class)
 

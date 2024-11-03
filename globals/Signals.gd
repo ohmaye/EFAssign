@@ -33,7 +33,6 @@ func emit_assignment_selected(assignment):
 	emit_signal("assignment_selected", assignment)
 
 func emit_total_changed(total):
-	print("Emitting total changed signal")
 	emit_signal("total_changed", total)
 
 func emit_zoom_in():

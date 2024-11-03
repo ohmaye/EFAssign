@@ -28,7 +28,6 @@ func load_and_render(demand, assignment_info, timeslot):
 	# Add the classes available
 	var sql_stmt = sql_classes_for_slot % timeslot['timeslot_id']
 	classes = AppDB.db_get_objects(ClassesView, sql_stmt)
-	print("Classes: ", classes, timeslot.weekday)
 	for class_ in classes:
 		var text = "%s - %s - %s" % [class_.when, class_.title, class_.who]
 		add_item(str(text))

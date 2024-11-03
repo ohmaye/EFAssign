@@ -40,5 +40,4 @@ func _on_timeslots_btn_pressed() -> void:
 
 
 func _on_add_btn_pressed() -> void:
-	print("Add new")
 	Signals.emit_add_new()

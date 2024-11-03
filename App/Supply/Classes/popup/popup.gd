@@ -124,7 +124,7 @@ func _on_save_btn_pressed() -> void:
 	var timeslot_id = timeslot_node.selected_timeslot_id
 	var for_program = for_program_node.text
 
-	print("Class_id:", class_id, "Title:", title, "Teacher ID:", teacher_id, "Course ID:", course_id, "Room ID:", room_id, "Timeslot ID:", timeslot_id, "For Program:", for_program)
+	# print("Class_id:", class_id, "Title:", title, "Teacher ID:", teacher_id, "Course ID:", course_id, "Room ID:", room_id, "Timeslot ID:", timeslot_id, "For Program:", for_program)
 
 	var sql_stmt = sql % [title, teacher_id, course_id, room_id, timeslot_id, for_program, class_id]
 	AppDB.db_run(sql_stmt)

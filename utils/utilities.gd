@@ -40,7 +40,6 @@ func load_user_prefs():
 	var user_prefs : UserPrefs = load("user://user_prefs.tres")
 
 	if user_prefs == null:
-		print("Will save prefs first")
 		save_user_prefs()
 		user_prefs = load("user://user_prefs.tres")
 

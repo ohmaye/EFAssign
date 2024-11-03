@@ -4,7 +4,6 @@ var file_dialog = preload("res://UI/file_dialog_save_as.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Save as called")
 	var dialog_node : FileDialog = file_dialog.instantiate()
 	dialog_node.visible = true   
 	dialog_node.file_selected.connect(_on_file_dialog_file_selected)
@@ -13,7 +12,6 @@ func _ready() -> void:
 
 func _on_file_dialog_file_selected(path : String) -> void:
 	var file_path = path + ".db"
-	print("File selected: ", path)
 	# Close current DB
 	# Make a backup and save it into new path
 	var result = _save_db_as(file_path)
@@ -41,5 +39,4 @@ func _save_db_as(new_file_path: String) -> bool:
 		%ErrorMsg.text = "Status: " + AppDB.db.error_message
 		return false
 
-	print("Database saved to ", new_file_path)
 	return true

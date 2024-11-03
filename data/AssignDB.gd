@@ -48,7 +48,6 @@ func db_get_objects(class_, sql : String, ) -> Array:
 
 func db_run(sql : String) -> bool:
 	var result = db.query(sql)
-	# print("Run query: ", sql)
 	return result
 
 

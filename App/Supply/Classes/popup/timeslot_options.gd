@@ -24,4 +24,3 @@ func _render(row):
 
 func _on_item_selected(index):
 	selected_timeslot_id = get_item_metadata(index)
-	print("Selected Course ID:", selected_timeslot_id, "Index: ", index)

@@ -24,9 +24,6 @@ func _ready():
 	
 	tree.button_clicked.connect(_on_assignment_btn_pressed)
 	tree.column_title_clicked.connect(func (_column, _index): _sort_tree(_column)	)
-
-	# tree.cell_selected.connect(func (): print("Cell Selected: "))
-	# tree.item_selected.connect(func (): print("Item Selected: "))
 	tree.custom_item_clicked.connect(func (_button_index): _on_uploaded_changed())
 
 	resized.connect(_resize_filters)
@@ -37,7 +34,6 @@ func _on_data_changed():
 
 
 func _on_uploaded_changed():
-	print("Uploaded changed")
 	var row = tree.get_selected()
 	var column = tree.get_selected_column()
 	_mark_uploaded(row, column)
@@ -56,7 +52,6 @@ func _load_data_and_render():
 	# Set up column filters after rendering content for proper alignment
 	_setup_column_filters()
 	# Show Total Entries
-	print("Will emit total changed signal")
 	Signals.emit_total_changed(student_demands.size())
 
 
@@ -151,7 +146,6 @@ func _mark_uploaded(row: TreeItem, column: int):
 		AppDB.db_run(sql_update_is_uploaded % [1 if is_selected else 0, assignment_id])
 		# row.set_custom_bg_color(column, "#000000" if is_selected else "#91E2A4", true)
 		# row.set_metadata(column, assignment)
-		print("Assignment ", assignment_id, " is uploaded: ", is_selected)
 
 
 ## Filtering and Sorting
@@ -175,12 +169,10 @@ func _setup_column_filters() -> void:
 
 
 func _on_filter_text_submitted(text):
-	print("Filter Text Submitted: ", text)
 	for i in headers.size():
 		var filter = filters_container.get_child(i)
 		var filter_text = filter.get_node("Field").text
 		filters[headers[i]] = filter_text
-	print("Filters: ", filters)
 	_apply_filters()
 
 
@@ -190,8 +182,7 @@ func _apply_filters():
 		var show_row = true
 		for col in range(headers.size()):
 			var cell_text = item.get_text(col)
-			if filters.get(headers[col]) != null and not cell_text.to_lower().begins_with(filters.get(headers[col]).to_lower()):
-				print("Cell Text: ", cell_text)		
+			if filters.get(headers[col]) != null and not cell_text.to_lower().begins_with(filters.get(headers[col]).to_lower()):	
 				show_row = false
 				break
 		item.visible = show_row

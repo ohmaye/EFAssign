@@ -85,7 +85,6 @@ func _on_save_btn_pressed() -> void:
 	var index = 0
 	# EO FIX: This is updating SQL once for each field. Obviously, this is not the best way to do it.
 	for field in container.get_children():
-		print("Field:", field)
 		if field is LineEdit:
 			sql_stmt = sql.format([current_class.SHOW_COLUMNS[index], field.text, current_class.KEY, current_row[current_class.KEY]])
 			AppDB.db_run(sql_stmt)

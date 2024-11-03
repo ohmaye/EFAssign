@@ -46,7 +46,6 @@ var Total: int
 
 # Custom Constructor
 func _init(data: Dictionary = {}):
-	# print("DemandByCourseView: ", data)
 	course = data.get("course") if data.get("course") else ""
 	level = data.get("level") if data.get("level") else ""
 	IM1 = data.get("IM1") if data.get("IM1") else 0

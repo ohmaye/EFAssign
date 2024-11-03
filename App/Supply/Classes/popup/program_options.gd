@@ -20,4 +20,3 @@ func _render(row):
 
 func _on_item_selected(index):
 	selected_program = get_item_metadata(index)
-	print("Selected program:", selected_program, "Index: ", index)

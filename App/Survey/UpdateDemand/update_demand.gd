@@ -54,7 +54,7 @@ const INSERT_STUDENTS_SQL = """
 # INSERT student choices based on the survey
 func _get_insert_student_choices_sql() -> String:
 	var choices = Utils.get_choices()
-	print("Choices: ", choices)
+	
 	var sql = "INSERT INTO student_choices (choice_id, student_id, choice, ranking, course_code) "
 
 	for choice in choices:

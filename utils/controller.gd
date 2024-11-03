@@ -16,5 +16,4 @@ func _exit_tree():
 	Signals.data_changed.disconnect(_on_data_changed)
 
 func _on_data_changed():
-	print("Data changed")
 	render()

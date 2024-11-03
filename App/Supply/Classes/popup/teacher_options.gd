@@ -33,4 +33,3 @@ func _render(row):
 
 func _on_item_selected(index):
 	selected_teacher_id = get_item_metadata(index)
-	print("Selected Teacher ID:", selected_teacher_id, "Index: ", index)

@@ -128,7 +128,6 @@ func _on_program_check_box_pressed() -> void:
 
 
 func _on_check_box_pressed() -> void:
-	# print("Pressed checkbox: ")
 	_update_db_from_ui()
 	Signals.emit_filters_changed()
 	Signals.emit_data_changed()
@@ -145,7 +144,6 @@ func _update_db_from_ui():
 
 func _update_ui_from_db():
 	var sql_choices_array = AppDB.db_get("SELECT choice, show FROM choices")
-	# print("Choices: ", sql_choices_array)
 	var buttons = [%IM1, %IM2, %IM3, %Ia1, %Ia2, %Ia3, %Ia4, %Ia5, %Ga1, %Ga2, %Ga3, %Ga4, %Ga5]
 	
 	# Create a mapping from choice to show

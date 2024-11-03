@@ -31,5 +31,4 @@ func _on_timetables_btn_pressed() -> void:
 	pass
 
 func _on_total_changed(total) -> void:
-	print("Total Changed: ", total)
 	%TotalLbl.text = "( Total: " + str(total) + " )"

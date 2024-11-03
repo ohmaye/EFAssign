@@ -12,6 +12,9 @@ var separator = preload("h_separator.tscn")
 var container : Control 
 var backdrop : Control
 
+# Dropdowns (Course, Room, Timeslot, Teacher)
+const teacher_options = preload("res://App/Supply/Classes/popup/teacher_options.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	container = %ItemsContainer
@@ -37,19 +40,15 @@ func _create_field(field, row):
 	label.text = field.capitalize()
 	container.add_child(label)
 
-	match typeof(row[field]):
-		TYPE_STRING:
+	match field:
+		"title", "for_program", "course", "when", "where":
 			var lineEdit = field_scn.instantiate()
 			lineEdit.text = str(row[field]) if row[field] else ""
 			container.add_child(lineEdit)
-		TYPE_INT:
-			var spinbox = SpinBox.new()
-			spinbox.value = row[field]
-			container.add_child(spinbox)
-		TYPE_BOOL:
-			var checkBox : CheckBox = checkbox_scn.instantiate()
-			checkBox.button_pressed = row[field]
-			container.add_child(checkBox)
+		"who":
+			var teacher_options_node = teacher_options.instantiate()
+			container.add_child(teacher_options_node)
+			teacher_options_node._render(row)
 		_:
 			print("Unknown type")
 

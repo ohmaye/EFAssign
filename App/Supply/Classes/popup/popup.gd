@@ -12,8 +12,21 @@ var separator = preload("h_separator.tscn")
 var container : Control 
 var backdrop : Control
 
+var class_id : String
+
+# UI Nodes with edited data
+var title_node : LineEdit
+var course_node : OptionButton
+var room_node : OptionButton
+var timeslot_node : OptionButton
+var teacher_node : OptionButton
+var for_program_node : LineEdit
+
 # Dropdowns (Course, Room, Timeslot, Teacher)
 const teacher_options = preload("res://App/Supply/Classes/popup/teacher_options.tscn")
+const course_options = preload("res://App/Supply/Classes/popup/course_options.tscn")
+const room_options = preload("res://App/Supply/Classes/popup/room_options.tscn")
+const timeslot_options = preload("res://App/Supply/Classes/popup/timeslot_options.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,14 +54,30 @@ func _create_field(field, row):
 	container.add_child(label)
 
 	match field:
-		"title", "for_program", "course", "when", "where":
-			var lineEdit = field_scn.instantiate()
-			lineEdit.text = str(row[field]) if row[field] else ""
-			container.add_child(lineEdit)
+		"title":
+			title_node = field_scn.instantiate()
+			title_node.text = str(row[field]) if row[field] else ""
+			container.add_child(title_node)
+		"course":
+			course_node = course_options.instantiate()
+			container.add_child(course_node)
+			course_node._render(row)
+		"for_program":
+			for_program_node = field_scn.instantiate()
+			for_program_node.text = str(row[field]) if row[field] else ""
+			container.add_child(for_program_node)
+		"when":
+			timeslot_node = timeslot_options.instantiate()
+			container.add_child(timeslot_node)
+			timeslot_node._render(row)
+		"where":
+			room_node = room_options.instantiate()
+			container.add_child(room_node)
+			room_node._render(row)
 		"who":
-			var teacher_options_node = teacher_options.instantiate()
-			container.add_child(teacher_options_node)
-			teacher_options_node._render(row)
+			teacher_node = teacher_options.instantiate()
+			container.add_child(teacher_node)
+			teacher_node._render(row)
 		_:
 			print("Unknown type")
 
@@ -78,26 +107,36 @@ func _on_cancel_btn_pressed() -> void:
 	visible = false
 
 func _on_save_btn_pressed() -> void:
-	var sql = "UPDATE %s SET {0}='{1}' WHERE {2} = '{3}'" % current_class.TABLE
-	var sql_stmt
+	# var sql = "UPDATE classes SET {0}='{1}' WHERE {2} = '{3}'" 
+	# var sql_stmt
 
-	var index = 0
-	# EO FIX: This is updating SQL once for each field. Obviously, this is not the best way to do it.
-	for field in container.get_children():
-		print("Field:", field)
-		if field is LineEdit:
-			sql_stmt = sql.format([current_class.SHOW_COLUMNS[index], field.text, current_class.KEY, current_row[current_class.KEY]])
-			AppDB.db_run(sql_stmt)
-			index += 1
-		elif field is SpinBox:
-			sql_stmt = sql.format([current_class.SHOW_COLUMNS[index], field.value, current_class.KEY, current_row[current_class.KEY]])
-			AppDB.db_run(sql_stmt)
-			index += 1
-		elif field is CheckBox:
-			var active = 1 if field.button_pressed else 0
-			sql_stmt = sql.format([current_class.SHOW_COLUMNS[index], active, current_class.KEY, current_row[current_class.KEY]])
-			AppDB.db_run(sql_stmt)
-			index += 1
+	var title = title_node.text
+	var teacher_id = teacher_node.selected_teacher_id
+	var course_id = current_row["course_id"]
+	var room_id = current_row["room_id"]
+	var timeslot_id = current_row["timeslot_id"]
+	var for_program = for_program_node.text
+
+	print("Title:", title, "Teacher ID:", teacher_id, "Course ID:", course_id, "Room ID:", room_id, "Timeslot ID:", timeslot_id, "For Program:", for_program)
+
+	# var index = 0
+	# # EO FIX: This is updating SQL once for each field. Obviously, this is not the best way to do it.
+	# for field in container.get_children():
+	# 	print("Field:", field)
+
+	# 	if field is LineEdit:
+	# 		sql_stmt = sql.format([current_class.SHOW_COLUMNS[index], field.text, current_class.KEY, current_row[current_class.KEY]])
+	# 		AppDB.db_run(sql_stmt)
+	# 		index += 1
+	# 	elif field is OptionButton:
+	# 		var teacher_id = teacher_node.selected_teacher_id
+	# 		sql_stmt = sql.format(['teacher_id', teacher_id, current_class.KEY, current_row[current_class.KEY]])
+	# 		AppDB.db_run(sql_stmt)
+	# 		index += 1
+	# 	else:
+	# 		print("Unknown type")
+
+		
 
 	Signals.emit_data_changed()
 	visible = false

@@ -4,7 +4,7 @@ extends Assign
 class_name ClassesView  # Registers the class globally as 'ClassesView'
 
 # Classes
-static var SHOW_COLUMNS = ["course", "title", "for_program", "when", "where", "who"]
+static var SHOW_COLUMNS = ["title", "course",  "when", "where", "who", "for_program"]
 static var KEY = "class_id"
 static var TABLE = "classes_view"
 static var EDITABLE : bool = true

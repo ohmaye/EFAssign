@@ -5,7 +5,7 @@ class_name Class_  # Registers the class globally as 'ClassEntry'
 
 
 # Classes
-static var SHOW_COLUMNS = ["title", "course_id", "room_id", "timeslot_id", "teacher_id", "for_program"]
+static var SHOW_COLUMNS = ["title", "course_id", "timeslot_id", "room_id",  "teacher_id", "for_program"]
 static var KEY = "class_id"
 static var TABLE = "classes"
 static var EDITABLE :bool = true

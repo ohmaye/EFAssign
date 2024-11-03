@@ -12,21 +12,20 @@ var separator = preload("h_separator.tscn")
 var container : Control 
 var backdrop : Control
 
-var class_id : String
-
 # UI Nodes with edited data
 var title_node : LineEdit
 var course_node : OptionButton
 var room_node : OptionButton
 var timeslot_node : OptionButton
 var teacher_node : OptionButton
-var for_program_node : LineEdit
+var for_program_node : OptionButton
 
 # Dropdowns (Course, Room, Timeslot, Teacher)
 const teacher_options = preload("res://App/Supply/Classes/popup/teacher_options.tscn")
 const course_options = preload("res://App/Supply/Classes/popup/course_options.tscn")
 const room_options = preload("res://App/Supply/Classes/popup/room_options.tscn")
 const timeslot_options = preload("res://App/Supply/Classes/popup/timeslot_options.tscn")
+const program_options = preload("res://App/Supply/Classes/popup/program_options.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,9 +62,9 @@ func _create_field(field, row):
 			container.add_child(course_node)
 			course_node._render(row)
 		"for_program":
-			for_program_node = field_scn.instantiate()
-			for_program_node.text = str(row[field]) if row[field] else ""
+			for_program_node = program_options.instantiate()
 			container.add_child(for_program_node)
+			for_program_node._render(row)
 		"when":
 			timeslot_node = timeslot_options.instantiate()
 			container.add_child(timeslot_node)
@@ -107,44 +106,36 @@ func _on_cancel_btn_pressed() -> void:
 	visible = false
 
 func _on_save_btn_pressed() -> void:
-	# var sql = "UPDATE classes SET {0}='{1}' WHERE {2} = '{3}'" 
-	# var sql_stmt
+	var sql = """UPDATE classes SET 
+		title='%s',
+		teacher_id='%s',
+		course_id='%s',
+		room_id='%s',
+		timeslot_id='%s',
+		for_program='%s'
+		WHERE class_id = '%s'
+	""" 
 
+	var class_id = current_row["class_id"]
 	var title = title_node.text
 	var teacher_id = teacher_node.selected_teacher_id
-	var course_id = current_row["course_id"]
-	var room_id = current_row["room_id"]
-	var timeslot_id = current_row["timeslot_id"]
+	var course_id = course_node.selected_course_id
+	var room_id = room_node.selected_room_id
+	var timeslot_id = timeslot_node.selected_timeslot_id
 	var for_program = for_program_node.text
 
-	print("Title:", title, "Teacher ID:", teacher_id, "Course ID:", course_id, "Room ID:", room_id, "Timeslot ID:", timeslot_id, "For Program:", for_program)
+	print("Class_id:", class_id, "Title:", title, "Teacher ID:", teacher_id, "Course ID:", course_id, "Room ID:", room_id, "Timeslot ID:", timeslot_id, "For Program:", for_program)
 
-	# var index = 0
-	# # EO FIX: This is updating SQL once for each field. Obviously, this is not the best way to do it.
-	# for field in container.get_children():
-	# 	print("Field:", field)
-
-	# 	if field is LineEdit:
-	# 		sql_stmt = sql.format([current_class.SHOW_COLUMNS[index], field.text, current_class.KEY, current_row[current_class.KEY]])
-	# 		AppDB.db_run(sql_stmt)
-	# 		index += 1
-	# 	elif field is OptionButton:
-	# 		var teacher_id = teacher_node.selected_teacher_id
-	# 		sql_stmt = sql.format(['teacher_id', teacher_id, current_class.KEY, current_row[current_class.KEY]])
-	# 		AppDB.db_run(sql_stmt)
-	# 		index += 1
-	# 	else:
-	# 		print("Unknown type")
-
-		
+	var sql_stmt = sql % [title, teacher_id, course_id, room_id, timeslot_id, for_program, class_id]
+	AppDB.db_run(sql_stmt)
 
 	Signals.emit_data_changed()
 	visible = false
 			
 
 func _on_delete_btn_pressed():
-	var sql = "DELETE FROM {0} WHERE {1} = '{2}' "
-	var sql_stm = sql.format([current_class.TABLE, current_class.KEY, current_row[current_class.KEY]])
+	var sql = "DELETE FROM classes WHERE class_id = '%s' "
+	var sql_stm = sql % current_row[current_class.KEY]
 	AppDB.db_run(sql_stm)
 	visible = false
 	Signals.emit_data_changed()

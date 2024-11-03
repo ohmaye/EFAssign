@@ -9,7 +9,8 @@ func _ready() -> void:
 	item_selected.connect(_on_item_selected)
 
 func _render(row):
-	var timeslots = AppDB.db_get(sql_timeslots_for_class)
+	var empty_timeslot = {"timeslot_id": "", "weekday": "?", "start_time": "", "end_time": ""}
+	var timeslots = [empty_timeslot] + AppDB.db_get(sql_timeslots_for_class)
 
 	var index = 0
 	for timeslot in timeslots:
@@ -18,6 +19,7 @@ func _render(row):
 		set_item_metadata(index, timeslot.timeslot_id)
 		if timeslot.timeslot_id == row["timeslot_id"]:
 			select( get_item_count() - 1)
+			selected_timeslot_id = timeslot.timeslot_id
 		index += 1
 
 func _on_item_selected(index):

@@ -9,8 +9,9 @@ func _ready() -> void:
 	item_selected.connect(_on_item_selected)
 
 func _render(row):
-	var courses = AppDB.db_get(sql_courses_for_class)
-
+	var empty_course = {"course_id": "", "code": "?", "title": ""}
+	var courses = [empty_course] + AppDB.db_get(sql_courses_for_class)
+	
 	var index = 0
 	for course in courses:
 		var choice = course.code.rpad(14, " ") + course.title
@@ -18,6 +19,7 @@ func _render(row):
 		set_item_metadata(index, course.course_id)
 		if course.course_id == row["course_id"]:
 			select( get_item_count() - 1)
+			selected_course_id = course.course_id
 		index += 1
 
 func _on_item_selected(index):

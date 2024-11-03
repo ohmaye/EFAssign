@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck27r8hg0jg4x"]
+
+[ext_resource type="StyleBox" uid="uid://6idw0jknshga" path="res://App/Supply/Classes/popup/styles/style_field.tres" id="1_fsgx8"]
+[ext_resource type="Script" path="res://App/Supply/Classes/popup/program_options.gd" id="2_g0ngm"]
+
+[node name="OptionButton" type="OptionButton"]
+custom_minimum_size = Vector2(0, 64)
+offset_right = 198.0
+offset_bottom = 68.0
+size_flags_horizontal = 0
+theme_override_styles/focus = ExtResource("1_fsgx8")
+theme_override_styles/hover = ExtResource("1_fsgx8")
+theme_override_styles/normal = ExtResource("1_fsgx8")
+script = ExtResource("2_g0ngm")

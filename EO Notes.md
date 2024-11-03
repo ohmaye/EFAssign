@@ -150,3 +150,6 @@ ToDo:
   - Preserve filters when assigning in Assignments
   - Changed since 2438: Classes, Teachers
   - Need to add "Uploaded to Atlantis"
+- 2024.11.04
+  - The options in Class all have an empty item in the .tscn
+  - Is there any case where this will cause problems in the index?...

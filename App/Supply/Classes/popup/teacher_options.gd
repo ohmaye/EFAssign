@@ -18,7 +18,8 @@ func _ready() -> void:
 
 func _render(row):
 	var sql_stmt = sql_teachers_for_class % row["course_id"]
-	var teachers = AppDB.db_get(sql_stmt)
+	var empty_teacher = {"teacher_id": "", "name": "", "active": 1, "rating": 0}
+	var teachers = [empty_teacher] + AppDB.db_get(sql_stmt)
 
 	var index = 0
 	for teacher in teachers:
@@ -27,6 +28,7 @@ func _render(row):
 		set_item_metadata(index, teacher.teacher_id)
 		if teacher.teacher_id == row["teacher_id"]:
 			select( get_item_count() - 1)
+			selected_teacher_id = teacher.teacher_id
 		index += 1
 
 func _on_item_selected(index):

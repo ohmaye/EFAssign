@@ -9,7 +9,8 @@ func _ready() -> void:
 	item_selected.connect(_on_item_selected)
 
 func _render(row):
-	var rooms = AppDB.db_get(sql_rooms_for_class)
+	var empty_room = {"room_id": "", "name": "?", "capacity": 0}
+	var rooms = [empty_room] + AppDB.db_get(sql_rooms_for_class)
 
 	var index = 0
 	for room in rooms:
@@ -18,6 +19,7 @@ func _render(row):
 		set_item_metadata(index, room.room_id)
 		if room.room_id == row["room_id"]:
 			select( get_item_count() - 1)
+			selected_room_id = room.room_id
 		index += 1
 
 func _on_item_selected(index):

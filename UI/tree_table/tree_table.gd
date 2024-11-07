@@ -87,12 +87,10 @@ func _setup_column_filters() -> void:
 
 
 func _on_filter_text_submitted(text):
-	print("Filter Text Submitted: ", text)
 	for i in headers.size():
 		var filter = filters_container.get_child(i)
 		var filter_text = filter.get_node("Field").text
 		filters[headers[i]] = filter_text
-	print("Filters: ", filters)
 	_apply_filters()
 
 
@@ -175,7 +173,7 @@ func _on_item_selected():
 	if "CUSTOM_EDITOR" in current_class:
 		var custom_popup_scene = load(current_class.CUSTOM_EDITOR)
 		var custom_popup_node : CanvasLayer
-		print("Load custom popup: ", current_class.CUSTOM_EDITOR)	
+		
 		# Create an instance of the custom popup dialog scene
 		custom_popup_node = custom_popup_scene.instantiate()
 		custom_popup_node.visible = true
